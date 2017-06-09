@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Styling and Appearance</title>
+<link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+</head>
+
+<body>
+
+    <h1>Styling and Appearance</h1>
+
+    <h2>Goals</h2>
+    <!--
+        Notes:
+        - Sometimes we need to customize the default visualization e.g we need more than one same type of visualizers.
+        - For example we can distinguish between data link activity of different message types by including two visualizers in the simulation and customizing them.
+        - If we want to differentiate between the nodes, based on their type or geographical location we can change their icon.
+    -->
+    <p>
+        INET version: <var>3.6</var><br>
+        Source files location: <var>inet/showcases/visualization/styling</var>
+    </p>
+
+
+    <h2>Line Styling</h2>
+    <!--
+        TODO: line width, line style, line color, line spacing
+        
+        Line styling:
+        - Physical Link
+        - Data Link
+        - Network Path
+        - Transport Path
+        - Mobility
+        - Routing Table
+        - Obstacle Loss
+        - Communication / Interference range
+    -->
+
+    <p>
+        In the following section, we show how to change the style of the lines and arrows in INET.
+        In this showcase, we use <var>DataLinkVisualizer</var>, but in INET there are many visualizers which can be customized by setting line styling parameters.
+    </p>
+    <p>
+        The default values of the line styling parameters and a short description can be found in the corresponding NED files. For example, <var>DataLinkVisualizer</var> default settings can be found in the <var>LinkVisualizerBase.ned</var> file.
+    </p>
+    <p>
+        We use the following configuration to change the style of the data link activity arrow:
+    </p>
+    <div class="snippet">
+        *.visualizer.*.dataLinkVisualizer.lineColor = "blue"<br>
+        *.visualizer.*.dataLinkVisualizer.lineStyle = "dashed"<br>
+        *.visualizer.*.dataLinkVisualizer.lineWidth = 6<br>
+        *.visualizer.*.dataLinkVisualizer.lineContactSpacing = 15<br>
+        *.visualizer.*.dataLinkVisualizer.lineShift = 20
+    </div>
+    <p>
+        We can set the <var>lineColor</var> parameter by setting its value to a certain color.
+        It is possible to set the line color as RGB value e.g. the <i>"blue"</i> color is equal to <i>"#0000FF"</i>.
+        The <var>lineStyle</var> parameter can be set to <i>"solid"</i>, <i>"dotted"</i> or <i>"dashed"</i>.
+        We can set the width of the line by setting the <var>lineWidth</var> parameter.
+        The larger the number that we set, the thicker the line will be.
+        If there are more than one lines between the same nodes, we can change the space between lines by setting the <var>lineShift</var> parameter.
+        By setting the <var>lineContactSpacing</var> parameter, we can change the space between the node and the arrow head.
+    </p>
+    <p>
+        Move your mouse over the image to see the differences between the default and the customized line style.
+    </p>
+    <p align="center">
+        <img id="lineImg" src="LineStyling_default_v0523.png" onmouseover='lineImg.src="LineStyling_customized_v0523.png"' onmouseout='lineImg.src="LineStyling_default_v0523.png"'>
+    </p>
+    <p>
+        The line color has changed to blue and the line style has changed to dashed.
+        The lines have been thicker and the space between the lines has increased.
+        The space between the arrow head and the node has increased too.
+    </p>
+    <p>
+        We may use another visualizer which has line styling parameters like <var>PhysicalLinkVisualizer</var> or <var>RoutingTableVisualizer</var> as well.
+        In this showcase, the point is customizing the appearance of the arrow.
+    </p>
+    <p>
+        A short description about line styling parameters can be found in the <var>LinkVisualizerBase.ned</var>, in the <var>PathVisualizerBase.ned</var>, in the <var>MobilityVisualizerBase.ned</var>, in the <var>MediumVisualizerBase</var> and in the <var>RoutingTableVisualizerBase.ned</var> files.
+    </p>
+
+
+    <h2>Icon Appearance</h2>
+    <!--
+        TODO: icon, icon color
+
+        Icon appearance:
+        - Ieee80211
+        - Link Break
+        - Packet Drop
+        - Transport Connection
+    -->
+
+    <p>
+        In the following section we demonstrate how to change the appearance of icons in INET.
+        In this showcase we use <var>TransportConnectionVisualizer</var>, but in INET there are more visualizers which has parameters to customize icon.
+    </p>
+    <p>
+        We use the following configuration to change the appearance of the transport connection icon:
+    </p>
+    <div class="snippet">
+        *.visualizer.*.transportConnectionVisualizer.icon = "misc/marker_l"<br>
+        *.visualizer.*.transportConnectionVisualizer.iconColor = "light"
+    </div>
+    <p>
+        Move your mouse over the image to see the differences between the default and the customized icon appearance.
+    </p>
+    <p align="center">
+        <img id="iconImg" src="Icon_default_v0523_2.png" onmouseover='iconImg.src="Icon_customized_v0523_2.png"' onmouseout='iconImg.src="Icon_default_v0523_2.png"'>
+    </p>
+    <p>
+        The names of the parameters are expressive.
+        By setting the <var>icon</var> parameter, we can set an image which indicates that there is transport connection between the nodes.
+        We can set a list of colors as the color of the icon by setting the <var>iconColor</var> parameter.
+        Some visualizers set the color and the colorization amount of the icon by using <var>iconTintColor</var> and <var>iconTintAmount</var> parameters.
+    </p>
+    <p>
+        We may use another similar visualizer which has icon appearance parameters like <var>Ieee80211Visualizer</var> or <var>PacketDropVisualizer</var> as well.
+        In this showcase the point is customizing the appearance of the icon.
+    </p>
+    <p>
+        A short description about icon appearance parameters can be found in the <var>TransportConnectionVisualizerBase.ned</var>, in the <var>Ieee80211VisualizerBase.ned</var>, in the <var>LinkBreakVisualizerBase</var> and in the <var>PacketDropVisualizerBase.ned</var> files.
+    </p>
+
+    <h2>Customizing Fonts</h2>
+    <!--
+        TODO: font (family, style, size), font color
+
+        Customizing fonts:
+        - Ieee80211
+        - Info
+        - Interface Table
+        - Packet Drop
+        - Routing Table
+        - Statistic
+        - Transport Connection
+    -->
+
+    <p>
+        In the following section we demonstrate how to customize fonts in INET.
+        In this showcase we use <var>DataLinkVisualizer</var>, but in INET there are more visualizers which has parameters to customize fonts.
+    </p>
+    <p>
+        We use the following configuration to change the appearance of the fonts:
+    </p>
+    <div class="snippet">
+        *.visualizer.*.dataLinkVisualizer.labelFont = "Arial"<br>
+        *.visualizer.*.dataLinkVisualizer.labelColor = "red"
+    </div>
+    <p>
+        Move your mouse over the image to see the differences between the default and the customized icon appearance.
+    </p>
+    <p align="center">
+        <img id="fontsImg" src="Fonts_default_v0524_2.png" onmouseover='fontsImg.src="Fonts_customized_v0524_2.png"' onmouseout='fontsImg.src="Fonts_default_v0524_2.png"'>
+    </p>
+    <p>
+        The font family is changed to Arial and the font color is changed to red because of the parameter settings.
+    </p>
+    <p>
+        We may use another similar visualizer which has icon appearance parameters like <var>Ieee80211Visualizer</var> or <var>InfoVisualizer</var> as well.
+        In this showcase the point is customizing the appearance of the icon.
+    </p>
+    <p>
+        A short description about icon appearance parameters can be found in the <var>LinkVisualizerBase.ned</var>, in the <var>Ieee80211VisualizerBase.ned</var>, in the <var>InfoVisualizerBase</var>, in the <var>PacketDropVisualizerBase</var>, in the <var>RoutingTableVisualizerBase</var>, in the <var>StatisticVisualizerBase</var>, in the <var>TransportConnectionVisualizerBase</var>, in the <var>PathVisualizerBase</var> and in the <var>InterfaceTableVisualizerBase.ned</var> files.
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+.qtenvrc
+.tkenvrc
+.tkenvlog
+.cmdenv-log
+**/data/resources/*
+**/results/*
+**/frames/*

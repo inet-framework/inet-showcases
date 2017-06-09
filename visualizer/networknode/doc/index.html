@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+	<title>Visualizing Network Node</title>
+</head>
+
+<body>
+    <h1>Visualizing Network Node</h1>
+
+    <p><h2>Goals</h2></p>
+    <p>
+        In simulations it is important to customize the appearance of nodes e.g customize their size or color.
+        In a complex network with many nodes we need to distinguish between the nodes e.g based on their function or location.
+    </p>
+    <p>
+        In INET the default 3D visualization of nodes is a two dimensional icon.
+        However, a 3D model depicts the nodes better in a real world context.
+        It also fits better in the 3D environment.
+    </p>
+    <p>
+        In this showcase we demonstrate how to visualize network nodes in the simulation and we present some important features of the visualization.
+    </p>
+    <p>
+        INET version: <var>3.6</var><br>
+        Source files location: <var>inet/showcases/visualization/networknode</var>
+    </p>
+
+
+    <p><h2>About the Visualizer</h2></p>
+    <p>
+        The <var>NetworkNodeVisualizer</var> module (included in the network as part of <var>IntegratedVisualizer</var>) can display the nodes on the playground.
+        By using <var>NetworkNodeVisualizer</var> module, we can customize the look of the nodes in 2D and 3D visualization too.
+        Each nodes are represented by a 3D model or a 2D icon.
+    </p>
+    <p>
+        We can specify the 2D icon image by the <var>display</var> string of the node.
+        In the display string we adjust the <var>i</var> tag.
+        This tag defines the path, the color and the colorization of the icon.
+    </p>
+    <p>
+        The 3D model is specified by the <var>osgModel</var> parameter.
+        The color of the three dimensional model can be customized by the <var>osgModelColor</var> parameter.
+        We can scale, rotate and translate the node by parameterizing the <var>osgModel</var>.
+        <br>Here are some examples:
+        <ul>
+        <li><var>*.example.osgModel = "example.osg.0,0,10.trans"</var><br>
+            This line of code translates the example.osg by some XYZ offset.</li>
+        <li><var>*.example.osgModel = "example.osg.90,0,0.rot"</var><br>
+            This line of code rotates the example.osg about the XYZ axes</li>
+        <li><var>*.example.osgModel = "example.osg.5.scale"</var><br>
+            This line of code scales the example.osg.</li>
+        </ul>
+        These parameters can also be combined, for example:<br><var>*.example.osgModel = "example.osg.0,0,10.trans.90,0,0.rot"</var>.<br>
+        The above code translates the example.osg by 10 meters along the Z axis and rotates the model about the X axis by 90 degree.
+    </p>
+    <p>
+        By default the name of the module is displayed, but it is possible to hide it by setting the <var>displayModuleName</var> parameter to <var>false</var>. 
+    </p>
+
+
+    <p><h2>Demonstrating Network Node Visualization Features</h2></p>
+    <p>
+        This example demonstrates some network node visualization features.
+        This simulation can be run by choosing the <var>VisualizingNodes</var> configuration from the ini file.
+    </p>
+    <p>
+        The network consists of two <var>AdhocHosts</var> (<var>pedestrian</var> and <var>car</var>).
+        The visualizer's type is <var>IntegratedVisualizer</var>.
+        In the network there is no communication, so we turn off the configuration of the node's network layer.
+        In the ned file we modify the <var>i</var> tag of the display string to change the 2D icon of the <var>pedestrian</var>.
+        We can change the icon's color by setting the second parameter of the <var>i</var> tag.
+    </p>
+    <div class="snippet">
+        pedestrian: AdhocHost {<br>
+            @display("p=113,156;<strong>i=device/cellphone2</strong>");<br>
+        }
+    </div>
+    <p>
+        Here is the 2D visualization:
+    </p>
+    <img class="screen" src="NetworkNode_v3.png">
+    <p>
+        Without customizing network node visualization, a two dimensional mobile phone icon represents each nodes in 3D view:
+    </p>
+    <img width=900 class="screen" src="WithoutCustomize3D.png">
+    <p>
+        We replace the nodes' icon with a 3D model by using the below configuration:
+    </p>
+    <div class="snippet">
+        *.pedestrian.osgModel = "boxman.osgb.(0.3).scale.0,0,45.rot"<br>
+        <br>
+        *.car.osgModel = "car.osgb.200.scale.0,0,45.rot"<br>
+        *.car.osgModelColor = "red"<br>
+    </div>
+    <p>
+        Here is the result of these settings:
+    </p>
+    <p align="center">
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=700 height=400 src="CustomizedRotateCam_v2.mp4">
+    </p>
+    <p>
+        This configuration has no effect on the 2D visualization, it overwrites only the 3D settings.
+        The <var>pedestrian</var> is represented by an animated walking boxman and the <var>car</var> is represented by a car model instead of a 2D cellphone icon.
+        The 3D models make the nodes recognizable even without displaying the module's name.
+    </p>
+    <img class="screen" src="WithoutModuleName.png">
+
+
+    <p><h2>More Information</h2></p>
+    <p>
+        This example only demonstrated the key features of network node visualization. For more information, refer to the 
+<var>NetworkNodeVisualizer</var> NED documentation.
+    </p>
+</body>
+
+</html>

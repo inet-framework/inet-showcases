@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Visualizing Physical Medium Activity</title>
+<link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+</head>
+
+<body>
+
+<p>
+This showcase works with INET 3.6. The source files are located in the
+<var>/inet/showcases/visualization/propagation</var> directory.
+</p>
+
+<h1>Visualizing Physical Medium Activity</h1>
+
+
+<h2>Goals</h2>
+
+<p>
+In a large network, there might be multiple wireless nodes transmitting simultaneously, resulting in interference at
+receiving nodes, and incorrecly received packets. The logs contain the clues as to what happened to various packets,
+but scanning through the logs is tedious. 
+</p>
+
+<p>
+By visualizing radio signals as they propagate through space,
+it is easy to see which nodes are transmitting and which are receiving at any given time,
+and what transmissions are present at various nodes.
+</p>
+
+<p>
+This example contains three configurations of increasing complexity, each showing different features of the visualization.
+</p>
+
+<h2>About the visualizer</h2>
+
+<p>
+The <var>MediumVisualizer</var> module (included in the network as part of <var>IntegratedVisualizer</var>) can visualize various aspects of radio communications. It has three main features:
+</p>
+
+<ul>
+<li><strong>Visualization of propagating signals</strong></li>
+<p>The visualizer can visualize radio signals as they propagate through space as colored disks. The disks
+start to grow at the beginning of the transmission, and recede after the transmission is over. They originate
+from the transmitting node, and feature a moving wave pattern. The disk representing the
+signal fades with distance, e.g. as the signal gets weaker further out from the transmitter.
+By default, different transmissions are colored
+differently. The <var>signalColor</var> parameter specifies a set of colors for the signals. The set of colors is either 'light' or 'dark',
+the latter is the default. Also, a custom set of colors can be specified, e.g. <i>"blue, red, yellow"</i>. The name of the transmitted packet is indicated on the disk. The visualization of propagating signals can be
+enabled with the <var>displaySignals</var> parameter.
+</p>
+<li><strong>Indication of transmitting and receiving nodes</strong></li>
+<p>
+The visualizer can indicate that nodes are currently receiving or transmitting a signal, by placing a transmission/reception icon over the node, on the top level
+canvas. The power of the transmitted/received signal is indicated in dBW. The visualization of transmissions and receptions are enabled
+with the visualizer's <var>displayTransmissions</var> and <var>displayReceptions</var> parameter, respectively.
+</p>
+<li><strong>Displaying communication and interference ranges</strong></li>
+<p>V1</p>
+<p>
+The communication and interference ranges of nodes can be visualized as blue and grey circles, respectively. These are enabled
+with the <var>displayCommunicationRanges</var> and <var>displayInterferenceRanges</var> parameters.
+</p>
+
+<p>V2</p>
+<p>
+The communication and interference ranges of nodes can be visualized as blue and grey circles, respectively.
+The communication and interference ranges are estimations, calculated from the maximum transmission power and
+the minimal receiver sensitivity in the network. Beyond the communication range, correct reception of the signal is not possible. Beyond the interference range, the interfering transmissions cannot cause incorrect receptions. These are enabled
+with the <var>displayCommunicationRanges</var> and <var>displayInterferenceRanges</var> parameters.
+Displaying the ranges is useful for positioning nodes and setting the power of transmitters.
+</p>
+</ul>
+
+<p>By default, all packets, interfaces and nodes are considered for the visualization. This selection can be narrowed with the
+visualizer's <var>packetFilter</var>, <var>interfaceFilter</var>, and <var>nodeFilter</var> parameters.</p>
+
+
+<h2>Displaying signal propagation, transmissions and receptions</h2>
+
+<p>
+This configuration demonstrates the visualization, with the visualizer's default settings.
+It uses the following network:
+</p>
+
+<img class="screen" src="simplenetwork.png">
+
+<p>
+It contains two <var>WirelessHosts</var>. The <var>host1</var> is configured to send UDP packets to <var>host2</var>. Displaying of transmissions and receptions, propagating signals, communication and interference ranges are enabled with these visualizer settings:
+</p>
+
+<pre class="snippet">
+*.visualizer.*.mediumVisualizer.displaySignals = true
+*.visualizer.*.mediumVisualizer.displayReceptions = true
+*.visualizer.*.mediumVisualizer.displayTransmissions = true
+*.visualizer.*.mediumVisualizer.displayCommunicationRanges = true
+*.visualizer.*.mediumVisualizer.displayInterferenceRanges = true
+</pre>
+
+<p>When the simulation is run the networks looks like this:</p>
+
+<img class="screen" src="simple.png" width="850px">
+
+<p>
+Parts of the communication range circles are visible in the image.
+</p>
+
+<p>
+The interference ranges are way larger than the communication ranges.
+One has to zoom out for them to be visible:
+</p>
+
+<img class="screen" src="interferencerange.png">
+
+<p>
+This animation illustrates the visualization of propagating signals:
+</p>
+
+<video autoplay loop controls src="propagation9.mp4" onclick="this.paused ? this.play() : this.pause();" width="852" height="591"></video>
+
+<p>
+The <var>host1</var> sends an ARP request packet to <var>host2</var>, which sends an ARP reply.
+The <var>host1</var> ACKs it, then sends the first UDP packet. This is followed by <var>host2's</var> ACK.
+The blue transmission indicator icons are displayed above nodes when they are transmitting. Similarly,
+the red reception indicators are displayed above them when they are receiving. The transmission power
+and power of the received signal is indicated on the transmission/reception icons in dBW.
+</p>
+
+<strong>The propagating signal</strong>
+
+<p>
+The visualization of the propagating signal has two phases. In each of them, the simulation speed is different.
+The <var>Propagation phase</var> is at the beginning and the end of the transmission, visualized with a growing and receeding disk. The propagation phase lasts until the transmission reaches the node farthest from the source.
+The <var>Transmission phase</var> is when the transmission is present on the entire playground.
+The animation slows down in the propagation phase, when the edges of the signal are crossing the playground. Since
+this happens very fast, with the speed of light, the simulation has to slow down in order for the animation to be visible.
+When the signal is present on the playground, keeping the same simulation speed would result in the transmission animation being very long. The transmission itself
+has a duration that is a few magnitudes longer than the time it takes for the beginning of the transmission to reach the nodes fathest away
+from the source. Thus a different, faster simulation speed is required when the transmission is present at all nodes.
+The simulation speed changes smoothly between the two values. 
+</p>
+
+<p>
+By default, the propagation phase animation both at the beginning and at the end
+of the transmission have a duration of one second. The duration of the transmission phase is also one second, thus
+visualizing a packet's transmission takes three seconds as per the default animation settings. With these settings, all transmissions have a duration of three seconds, regardless of their actual, real-world duration. These settings can be configured with the visualizer's parameters,
+more on this in the next section.
+</p>
+
+<h2>Multiple nodes</h2>
+
+<p>
+This configuration contains three nodes, as opposed to two in the previous one. Additionally, this section describes the
+propagation animation settings of the visualizer. The configuration uses the following network:
+</p>
+
+<img class="screen" src="multiplenodesnetwork.png">
+
+<p>
+It contains three <var>AdhocHosts</var>. The <var>source</var> is configured to ping the <var>destination</var>. The communication ranges
+are configured so that hosts can reach only the adjacent hosts. The center host relays packets between the hosts on the two sides.
+</p>
+
+<p>
+The simulation speed during the propagation pahse and the transmission phase - i.e. the speed of the signal
+animation - is determined by
+the visualizer's animation speed parameters. The two parameters are <var>signalPropagationAnimationSpeed</var>
+and <var>signalTransmissionAnimationSpeed</var> (not specified by default). If not value is specified for these parameters, the <var>signalPropagationAnimationTime</var> and <var>signalTransmissionAnimationTime</var> parameters take effect, these set a fixed duration for the corresponding phases of the
+transmission animation (by default, both are one second). When the duration is fixed, all transmission animations take the same amount of time, regardless of their
+actual, real-time duration. A rule of thumb for setting the animation speed parameters is illustrated with the following example:
+</p>
+
+<ul>
+<li>Setting the propagation animation speed to 300/c, where c is the speed of light, results in the animation speed value of 10<sup>-6</sup>, and the animation of the propagating signal traveling 300 meters on the playground in one second, when the playback speed is set to 1.</li>
+<li>The transmission animation speed should be about two magnitudes larger, as the time it takes for the propagating signal to reach the
+node farthest from the transmitter is two magnitudes smaller than the time it takes to transmit the signal. Thus in this example, it should be about 10<sup>-4</sup>.</li>
+</ul>
+
+
+<p>
+The speed of the signal animation can be adjusted at runtime with the playback speed slider.
+<p>
+By default, the animation switches from propagation phase to transmission phase when the propagating signal reaches the node farthest from
+the signal source. The <var>signalPropagationAdditionalTime</var> parameter can specify how long to continue the propagation animation
+after the edge of the signal has left the farthest node.
+</p>
+
+<p>
+When the simulation is run, this happens:
+</p>
+
+<!--<p>
+The animation speed during the propagation phase and the transmission phase can be specified by the <var>signalPropagationAnimationSpeed</var>
+and <var>signalTransmissionAnimationSpeed</var> parameters. TODO: how.
+Alternatively, a fixed duration can be specified for the two phases with the <var>signalPropagationAnimationTime</var> and
+<var>signalTransmissionAnimationSpeed</var> parameters. These take effect when no corresponding animation speed is defined.
+Additionally, additional time can be specified TODO.
+AnimationSpeedTimeChange TODO
+</p>-->
+
+<video autoplay loop controls src="multiplenodes.mp4" onclick="this.paused ? this.play() : this.pause();" width="870" height="510"></video>
+
+<p>
+It depicts as a ping packet from <var>source</var> makes its way to <var>destination</var>, and as
+the ping reply packet gets back to <var>source</var>.
+</p>
+
+<p>
+When a node starts to transmit a frame, the simulation speed is slower
+than during the propagation phase. The gradient between the two simulation speeds
+is smooth. As per the parameters, the transmission travels about 300 meters on the playground
+each second. The duration of the ACK is longer than the duration of the ping packet,
+despite the ping packet being larger. The reason is that the ACK is transmitted with
+a slower bitrate (control bitrate instead of databitrate).
+</p>
+
+<h2>Interfering signals</h2>
+
+<p>
+This configuration demonstrates the visualization of interfering signals. It uses this network:
+</p>
+
+<img class="screen" src="interferencenetwork.png" width="850px">
+
+<p>
+It contains three <var>AdhocHosts</var> laid out in a chain, just like in the previous configuration. 
+The hosts on the two sides, <var>source1</var> and <var>source2</var>, are configured to ping the host in the middle,
+<var>destination</var>. There is a wall
+positioned between the two hosts on the sides. The obstacle loss model is <var>IdealObstacleLoss</var>, thus the wall
+blocks transmissions completely. Both source hosts can reach the destination, but cannot reach each other, and cannot detect
+whatsoever when the other source is transmitting. Thus the collision avoidance mechanism can't work effectively.
+</p>
+
+<!--
+The third config shows the interference
+
+when there are two signals present at a node
+at the same time
+
+it causes interference
+
+there are interfering signals
+
+but it doesnt necessarily cause collisions
+
+that is, the node cannot receive the transmission correctly, because of the other transmission
+
+it garbles up the transmission
+
+there is a transmission close, and it is for the node
+and there is one far, it is not for it
+
+it might be weak the node's position, but it might be enough
+
+to garble up the main transmission
+-->
+
+<p>
+Here is what happens when the simulation is run:
+</p>
+
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="interference.mp4" width="819" height="472"></video>
+
+<p>
+The two sources can't detect each other's transmission, but they receive the ACKs and ping replies
+of the destination. This helps with collision avoidance, but they often transmit simulataneously.
+When they do, both signals are present at the destination concurrently, visualized by the transmission
+disks overlapping. Since both sources are
+in communication range with the destination, the simulatenous transmissions result in collisions.
+</p>
+
+<p>
+Several signals being present at a receiving node doesn't necessarily cause collision.
+One of the signals might not be strong enough to garble the other transmission.
+</p>
+
+<p>
+For further information, refer to the <var>MediumVisualizer</var> NED documentation.
+</p>
+
+</body>
+
+</html>

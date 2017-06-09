@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+	<title>Visualizing Data Link Activity</title>
+</head>
+
+<body>
+	<h1>Visualizing Data Link Activity</h1>
+
+	<p><h2>Goals</h2></p>
+    <p> 
+        In INET simulations, it is often useful to be able to visualize traffic between network nodes. 
+        INET offers several visualizers for this task, operating at various levels of the network stack.
+        In this showcase, we examine <var>DataLinkVisualizer</var> that can provide graphical feedback about data link level traffic.
+    </p>
+    <p>    
+        The showcase consists of four simulation models, each demonstrating different features of data link activity visualization.
+    </p>
+    <p>
+        INET version: <var>3.6</var><br>
+        Source files location: <var>inet/showcases/visualization/datalinkactivity</var>
+    </p>
+
+
+    <p><h2>About the Visualizer</h2></p>
+    <p> 
+        In INET, data link activity can be visualized by including a <var>DataLinkVisualizer</var> module in the simulation.
+        Adding an <var>IntegratedVisualizer</var> module is also an option, because it also contains a <var>DataLinkVisualizer</var> module.
+        Data link visualization is disabled by default, it can be enabled by setting the visualizer's <var>displayLinks</var> parameter to true.
+    </p>
+    <p>
+        <var>DataLinkVisualizer</var> currently observes packets that pass through the data link layer (i.e. carry data from/to higher layers), but not those that are internal to the operation of the data link layer protocol.
+        That is, frames such as ACK, RTS/CTS, Beacon or Authentication/Association frames of IEEE 802.11, although potentially useful, will not trigger the visualization.
+        Visualizing such frames may be implemented in future INET revisions.
+    </p>
+    <p>
+        The activity between two nodes is represented visually by an arrow that points from the sender node to the receiver node.
+        The arrow appears after the first packet has been received, then gradually fades out unless it is refreshed by further packets.
+        The style, color, fading time and other graphical properties can be changed with parameters of the visualizer.
+    </p>
+    <p>
+        By default, all packets, interfaces and nodes are considered for the visualization.
+        This selection can be narrowed to certain packets and/or nodes with the visualizer's <var>packetFilter</var>, <var>interfaceFilter</var>, and <var>nodeFilter</var> parameters.
+    </p>
+
+
+	<p><h2>Enabling Visualization of Data Link Activity</h2></p>
+    <p>
+        The following example shows how to enable the visualization of data link activity, and how the visualization looks like.
+        In the first example we configure a simulation for a wired network.
+		This simulation can be run by choosing the <var>EnablingVisualizationWired</var> configuration from the ini file.
+    </p>
+    <p>
+        The wired network contains two <var>StandardHosts</var> (<var>wiredSource</var> and <var>wiredDestination</var>).
+        The <var>linkVisualizer</var> module's type is <var>DataLinkVisualizer</var>.
+    </p>
+    <img class="screen" src="DataLinkVisualizerSimpleWired.png">
+    <p>
+        In this configuration, <var>wiredSource</var> pings <var>wiredDestination</var>.
+        Data link activity visualization is enabled by setting the <var>displayLinks</var> parameter to true:
+    </p>
+    <div class="snippet">
+        *.linkVisualizer.*.displayLinks = true
+    </div>
+    <p>
+        When we start the simulation, here is what happens.
+    </p>
+    <p align="center">
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=722 height=358s src="EnablingVisualizationWired_v0525.m4v">
+    </p>
+    <p>
+        At the beginning of the video, a red strip appears and moves from <var>wiredSource</var> to <var>wiredDestination</var>. 
+        This strip is the standard OMNeT++ animation for packet transmissions, and has nothing to do with <var>DataLinkVisualizer</var>.
+        When the packet is received in whole by <var>wiredDestination</var> (the red strip disappears), a dark cyan arrow is added by <var>DataLinkVisualizer</var> between the two hosts, indicating data link activity.
+        The packet's name is also displayed on the arrow.
+        The arrow fades out quickly, because the <var>fadeOutTime</var> parameter of the visualizer is set to a small value.
+    </p>
+    <p>
+        Visualization in a wireless network is very similar. Our next example is the wireless variant of the above simulation.
+        In this  network we use <var>AdhocHosts</var> (<var>wirelessSource</var> and <var>wirelessDestination</var>).
+        The traffic and the visualization settings are the same as the configuration of the wired example.
+        The simulation can be run by choosing the <var>EnablingVisualizationWireless</var> configuration from the ini file.
+    </p>
+    <img class="screen" src="DataLinkVisualizerSimpleWireless.png"> 
+    <p>
+        The following animation depicts what happens when the simulation is run.
+    </p>
+    <p align="center">
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=722 height=358s src="EnablingVisualizationWireless_v0525.m4v">
+    </p>
+    <p>
+        This animation is similar to the video of the wired example (apart from an extra blue dotted line which can be ignored, as it is also part of the standard OMNeT++ packet animation.)
+        Note, however, that the ACK frame does not activate the visualization, because ACK frames do not pass through data link layer.
+    </p>
+
+   
+    <p><h2>Filtering Data Link Activity</h2></p>
+    <p>
+        In complex networks with many nodes and several protocols in use, it is often useful to be able to filter network traffic, and visualize only the part of the traffic we are interested in. 
+    </p>
+    <p>
+        The following example shows how to set packet filtering in <var>DataLinkVisualizer</var>.
+        This simulation can be run by choosing the <var>Filtering</var> configuration from the ini file.
+    </p>
+    <p>
+        We use the following network for this showcase:
+    </p>
+    <img class="screen" width=800 src="DataLinkVisualizerFiltering.png">
+    <p>
+        This network consists of four switches (<var>etherSwitch1..etherSwitch4</var>) and six endpoints: two source hosts (<var>source1</var>, <var>source2</var>), two destination hosts (<var>destination1</var>, <var>destination2</var>) and two other hosts (<var>host1</var>, <var>host2</var>) which are inactive in this simulation.
+        <var>Source1</var> pings <var>destination1</var>, and <var>source2</var> pings <var>destination2</var>.
+    </p>
+    <p>        
+        For this network, the visualizer's type is <var>IntegratedVisualizer</var>.
+        Data link activity visualization is filtered to display only ping messages.
+        The other packets, e.g. ARP packets, are not visualized by <var>DataLinkVisualizer</var>.
+        We adjust the <var>fadeOutMode</var> and the <var>fadeOutTime</var> parameters so that the activity arrows do not fade out completely before the next ping messages are sent.
+    </p>
+    <p>
+        We use the following configuration for the visualization:
+    </p>
+    <div class="snippet">
+        *.visualizer.*.dataLinkVisualizer.displayLinks = true<br>
+        *.visualizer.*.dataLinkVisualizer.fadeOutMode = "simulationTime"<br>
+        *.visualizer.*.dataLinkVisualizer.fadeOutTime = 1.4s<br>
+        *.visualizer.*.dataLinkVisualizer.packetFilter = "ping*"
+    </div>
+    <p>
+        The following animation shows what happens when we start the simulation.
+        You can see that although there is both ARP and ping traffic in the network, <var>DataLinkVisualizer</var> only takes the latter into account, due to the presence of the <var>packetFilter</var> parameter. 
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=850 height=658 src="Filtering_v0525.m4v">
+    </p>
+    <p>
+        It also is possible to filter for network nodes.
+        For the following example, let's assume we want to display traffic between the hosts <var>source1</var> and <var>destination1</var> only, along the path <var>etherSwitch1</var>, <var>etherSwitch4</var> and <var>etherSwitch2</var>.
+        To this end, we  set the visualizer's <var>nodeFilter</var> parameter by using the following line (note the curly brace syntax used for specifying numeric substrings):
+    </p>
+    <div class="snippet">
+        *.visualizer.*.dataLinkVisualizer.nodeFilter = "source1 or etherSwitch{1,4,2} or destination1"
+    </div>
+    <p>
+        This what it looks like when we run the simulation:
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=850 height=658 src="Filtering2_v0525.m4v">
+    </p>
+    <p>
+        As you can see, visualization allows us to follow the ping packets between <var>source1</var> and <var>destination1</var>.
+        Note, however, that ping traffic between the two other hosts, <var>source2</var> and <var>destination2</var>, also activates the visualization on the link between <var>etherSwitch1</var> and <var>etherSwitch4</var>.
+    </p>
+
+
+    <p><h2>Visualizing Data Link Activity in a Mobile Ad-Hoc Network</h2></p>
+    <p>
+        The following simulation shows how visualization can help you to follow dynamically changing data link activity in a wireless environment.
+	The simulation can be run by choosing the <var>Dynamic</var> configuration from the ini file.
+    </p>
+    <p>
+        We use the following network for this simulation:
+    </p>
+    <img class=screen src="DataLinkVisualizerDynamic.png">
+    <p>
+        Nodes are of the type <var>AODVRouter</var>, and are placed randomly on the playground. 
+        The communication range of the nodes is chosen so that the network is connected, but nodes can typically only communicate by using multi-hop paths. 
+        The nodes will also randomly roam within predefined borders. The routing protocol is AODV.
+        During the simulation, the <var>source</var> node will be pinging the <var>destination</var> node. 
+    </p>
+    <p>
+        In our first experiment, the goal is to visualize the operation of the AODV protocol as it sets up a route from <var>source</var> to <var>destination</var>. We expect to see the following.
+        As long as <var>source</var> has a valid route towards <var>destination</var>, AODV is inactive.
+        When a new route is needed towards <var>destination</var>, <var>source</var> starts to flood the network with AODV route request (RREQ) messages.
+        RREQ messages propagate through the intermediate nodes until one of them reaches the <var>destination</var> node.
+        The route is made available by unicasting AODV route reply (RREP) messages back to the originator of the RREQ messages.
+        Reception of the RREP message in each host results in the node updating its routing table with the next hop address towards the destination node.
+     </p>
+     <p>   
+        As AODV operates with two message types, we'll use two <var>DataLinkVisualizer</var> modules configured to use two different colors:
+    </p>
+    <div class="snippet">
+        *.RREQVisualizer.*.displayLinks = true<br>
+        *.RREQVisualizer.*.packetFilter = "AODV-RREQ"<br>
+        *.RREQVisualizer.*.fadeOutTime = 12s<br>
+        <br>
+        *.RREPVisualizer.*.displayLinks = true<br>
+        *.RREPVisualizer.*.packetFilter = "AODV-RREP"<br>
+        *.RREPVisualizer.*.fadeOutMode = "simulationTime"<br>
+        *.RREPVisualizer.*.fadeOutTime = 5s<br>
+        *.RREPVisualizer.*.lineColor = "blue"<br>
+        *.RREPVisualizer.*.labelColor = "blue"
+
+    </div>
+    <p>
+        The following video has been captured from the simulation, and allows us to observe the AODV protocol in action. 
+        The dark cyan arrows indicate RREQ packets which flood the network.
+        When an RREQ message reaches <var>destination</var>, <var>destination</var> sends an RREP message (blue arrow) back towards <var>source</var>.
+        Note that nodes appear stationary because the whole process takes place in a very short time period.
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=642 height=604 src="AODV_v0601.m4v">
+    </p>
+    <p>
+        In the second experiment, we configure the visualizer to display only the ping traffic between <var>source</var> and <var>destination</var>. 
+        (The AODV visualizers will be disabled.)
+        We'll simulate a longer time period so that nodes move around in the playground, forcing AODV to find new routes from time to time.
+    </p>
+    <p>
+        We use the following configuration for the visualization:
+    </p>
+    <div class="snippet">
+        *.visualizer.*.dataLinkVisualizer.displayLinks = true<br>
+        *.visualizer.*.dataLinkVisualizer.packetFilter = "ping*"<br>
+        *.visualizer.*.dataLinkVisualizer.fadeOutMode = "simulationTime"<br>
+        *.visualizer.*.dataLinkVisualizer.fadeOutTime = 5s<br>
+    </div>
+    <p>
+        The following animation illustrates what happens when the simulation is run: 
+    </p>
+    <p align="center">
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=642 height=604 src="Dynamic_v0530.m4v">
+    </p>
+    <p>
+        The communication ranges of <var>source</var> and <var>destination</var> are visualized as blue circles.
+    </p>
+    <p>
+        The video clearly shows the route ping packets are taking between <var>source</var> and <var>destination</var>.
+        Visualization is triggered by the ping packets being sent up from the data link layer (wireless interface) of the receiver node to the network layer (IPv4), where they are routed towards the next hop.
+    </p>        
+    <p>
+        When the existing route breaks due to two nodes drifting away (out of the communication range of each other), this manifests as link-level failure (ACK frames do not arrive).
+        This condition is detected by AODV and it starts searching for a new route.
+        When the new route is found, the ping traffic resumes.
+    </p>
+    <p>
+        We can observe in the video that the route the ping packets take is not always optimal (in terms of hop count).
+        The reason is that nodes use an existing route as long as possible, even when a shorter route becomes available as a result of node movement.
+        AODV is only activated when the existing route breaks.
+    </p>
+
+
+    <p><h2>More Information</h2></p>
+    <p>
+        This example only demonstrated the key features of data link activity visualization. For more information, refer to the 
+<var>DatalinkVisualizer</var> NED documentation.
+    </p>
+</body>
+
+</html>
