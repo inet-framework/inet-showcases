@@ -85,13 +85,13 @@ network NetworkPathComplexShowcase
         host1: StandardHost {
             @display("p=379.488,49.848");
         }
-        videoStreamClient: StandardHost {
+        videoClient: StandardHost {
             @display("p=831.336,109.344");
         }
-        host3: StandardHost {
+        host2: StandardHost {
             @display("p=894.048,533.856");
         }
-        videoStreamServer: StandardHost {
+        videoServer: StandardHost {
             @display("p=249.24,639.984");
         }
         etherSwitch0: EtherSwitch {
@@ -132,9 +132,9 @@ network NetworkPathComplexShowcase
         destination2.ethg++ <--> Eth100M <--> etherSwitch2.ethg++;
         router2.pppg++ <--> Eth100M <--> router3.pppg++;
         etherSwitch0.ethg++ <--> Eth100M <--> host1.ethg++;
-        etherSwitch1.ethg++ <--> Eth100M <--> videoStreamClient.ethg++;
-        etherSwitch3.ethg++ <--> Eth100M <--> host3.ethg++;
-        etherSwitch2.ethg++ <--> Eth100M <--> videoStreamServer.ethg++;
+        etherSwitch1.ethg++ <--> Eth100M <--> videoClient.ethg++;
+        etherSwitch3.ethg++ <--> Eth100M <--> host2.ethg++;
+        etherSwitch2.ethg++ <--> Eth100M <--> videoServer.ethg++;
         router1.pppg++ <--> Eth100M <--> router0.pppg++;
         router0.pppg++ <--> Eth100M <--> router2.pppg++;
         router4.pppg++ <--> Eth100M <--> router3.pppg++;

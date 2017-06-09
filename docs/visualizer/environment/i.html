@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+<title>Environment Visualization Example</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-240922-3', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+<body>
+
+<h1>Visualizing Physical Environment</h1>
+
+<h2>Goals</h2>
+
+<p>
+The physical environment has a profound effect on the communication of wireless devices. For example, physical objects
+like walls inside buildings constraint mobility. They also obstruct radio signals often resulting in packet loss. 
+It's difficult to make sense of the simulation without actually seeing where physical objects are.
+</p>
+
+<p>
+The visualization of physical objects present in the physical environment is essential. This showcase contains two example simulations, which demonstrate the visualization of physical objects.
+</p>
+
+<p>
+INET version: <var>3.6</var><br>
+Source files location: <var>inet/showcases/visualization/environment</var>
+</p>
+
+<h2>About the visualizer</h2>
+
+<p>
+The <var>PhysicalEnvironmentVisualizer</var> (also part of <var>IntegratedVisualizer</var>) is responsible for displaying the physical objects. The objects themselves
+are provided by the <var>PhysicalEnvironment</var> module; their geometry, physical and visual properties are defined in the XML configuration of the <var>PhysicalEnvironment</var> module.
+</p>
+
+<p>
+The two-dimensional projection of physical objects is determined by the <var>SceneCanvasVisualizer</var> module.
+(This is because the projection is also needed by other visualizers, for example <var>MobilityVisualizer</var>.)
+The default view is top view (z axis), but you can also configure side view (x and y axes), or isometric or ortographic projection.
+</p>
+
+<h2>The default view</h2>
+
+<p>
+This example configuration (<var>DefaultView</var> in the ini file) demonstrates the default visualization of objects. The objects are defined in the <var>indoor.xml</var> file,
+which depicts an apartment with three rooms. The network contains just two modules, a <var>PhysicalEnvironment</var> and
+an <var>IntegratedVisualizer</var> module.
+When the simulation is run, the network looks like this:
+</p>
+
+<img class="screen" src="default.png">
+
+<h2>The isometric view</h2>
+
+<p>
+In this example configuration (<var>IsometricView</var> in the ini file), the view is set to isometric projection. This is done by setting
+the <var>viewAngle</var> parameter in <var>SceneVisualizer</var>:
+</p>
+
+<div class="snippet">
+*.visualizer.canvasVisualizer.sceneVisualizer.viewAngle = "isometric"
+</div>
+
+<p>
+When the simulation is run, the network looks like the following.
+</p>
+
+<img class="screen" src="isometric.png">
+
+<h2>3D visualization</h2>
+
+<p>
+The visualizer also supports OpenGL-based 3D rendering using the OpenSceneGraph (OSG) library. 
+If your OMNeT++ installation has been compiled with OSG support, you can switch to 3D view
+using the toolbar. The result will look like the following.
+Note that the <var>SceneVisualizer</var> view settings have no effect on the 3D view, you can use the mouse to move the camera and change the view angle. 
+</p>
+
+<img class="screen" src="3d.png">
+
+<h2>Further information</h2>
+
+<p>
+For more information, refer to the NED documentation of <var>PhysicalEnvironmentVisualizer</var> and <var>SceneCanvasVisualizer</var>.
+</p>
+
+
+</body>

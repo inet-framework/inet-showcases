@@ -66,10 +66,15 @@ NetworkPathVisualizer:
         CreateArrowheadGeometry, inet/common/OSGUtils.cc line 106
         at t=1.001055s event #512
 + Ha éles a szög akkor a metszéspont messzire kerül és nagyon messze rajzolja a node-tól a nyílnak a töréspontját
+- VideoStrmPk bug: ha olyan packet-ek mennek egyszerre, amiknek ugyanaz a nevük, akkor a nyíl következő töréspontja mindig a packetek következő időbeli felbukkanásához vezet.
+    Pl. NetworkPathActivity showcase --> Config StaticNetworkPaths --> packetFilter=ping-et ki kell kommentezni --> Run
 
 PacketDropVisualizer:
 
 - lehessen szűrni reason szerint
+
+PathVisualizer-ek:
+- arrowlabel nem fade-el, csak a nyíl
 
 IPv4NetworkConfigurator:
 
@@ -90,12 +95,13 @@ TransportRoute:
 + Nem jeleníti meg végig a route-ot: utolsó switch és a destination node közötti rész kimarad
   Sometimes the arrow tip is missing. For example, the route would go through an AP and end at a wirelesshost, but the polyline stops at the AP without an arrow tip.
   (filtering showcase, ec97684 ("filtering xxx", 2017-05-09)) there are NaN values in the list of points of the polyline
+- VideoStrmPk bug: ha olyan packet-ek mennek egyszerre, amiknek ugyanaz a nevük, akkor a nyíl következő töréspontja mindig a packetek következő időbeli felbukkanásához vezet.
+    Pl. TransportPathActivity --> Config Filtering --> packetFilter-t és nodeFilter-t ki kell kommentezni --> Run
 
 NetworkNode:
 - Boxman model-nek nem tudom változtatni a színét *.pedestrian.osgModelColor = "red" paraméterrel (pedestrian a node neve a példámban)
 - Boxman ahogy fel-le mozog, a modell belelóg a saját nevébe és ettől nem látsik a node neve
-?- *.visualizer.*.networkNodeVisualizer.nodeFilter = "*"
-    Ha a nodeFilterben a csillag helyett bármi más van, akkor a szimuláció hibára fut és el sem indul már
+- *.visualizer.*.networkNodeVisualizer.nodeFilter = "*" --> Ha a nodeFilterben a default érték helyett bármi más van, akkor a szimuláció hibára fut és el sem indul már
 - Megváltoztatom az icon-t az i tag-gel: @display("p=113,156;i=device/cellphone2,#ff0000");
     - az icont megváltoztatja, de az icon színét csak 2d-ben változtatja meg, 3dben nem
 
@@ -120,7 +126,11 @@ Wireless showcases:
 + HiddenNode:		exactly the same amount of packets in configs 1 and 3
 			check_and_cast(): Cannot cast 'inet::physicallayer::INoise*' to type 'const 						inet::physicallayer::NarrowbandNoiseBase *' -- in module (inet::physicallayer::Ieee80211Radio) 						HiddenNodeExample.hostA.wlan[0].radio (id=36), during network initialization
 + RateControl:		the charts are not the same as before.
+- RateControl:		rate adaptation instead of rate control?
 + Power:			error
+
+Wireless tutorial:
+- Step 8: energyBalance is nan J
 
 DONE:
 

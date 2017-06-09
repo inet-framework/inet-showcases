@@ -91,3 +91,14 @@ network advanced
         switch2.ethg++ <--> Eth100M <--> host5.ethg++;
         switch1.ethg++ <--> Eth100M <--> server.ethg++;
 }
+
+network advanced2 extends advanced
+{
+    submodules:
+        visualizer11: IntegratedVisualizer {
+            @display("p=58.4375,244.375");
+        }
+        visualizer22: IntegratedVisualizer {
+            @display("p=54.1875,312.375");
+        }
+}

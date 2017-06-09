@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet/showcases/wireless/pathloss/results/*.vec"/>
+    <inputs name="/inet/showcases/wireless/pathloss/results/*.sca"/>
+  </inputs>
+  <datasets>
+    <datasets name="PathLossShowcase">
+      <items xsi:type="scave:Add" filterPattern="all" type="VECTOR"/>
+      <items xsi:type="scave:ScatterChart">
+        <filters xsi:type="scave:Select" filterPattern="name(throughput:vector) AND module(*.destination.*)  " type="VECTOR"/>
+      </items>
+      <items xsi:type="scave:ScatterChart">
+        <filters xsi:type="scave:Select"/>
+      </items>
+    </datasets>
+    <datasets name="PathLoss">
+      <items xsi:type="scave:Add" filterPattern="name(receptionPower:vector) " type="VECTOR"/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)">
+        <filters xsi:type="scave:Select" filterPattern="module(*.destination.*)" type="VECTOR"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+    </datasets>
+    <datasets name="PathLoss2">
+      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)"/>
+    </datasets>
+    <datasets name="receptionPower:vector PathLossShowcase.destination.wlan[0].radio.receiver">
+      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
+      <items xsi:type="scave:LineChart" name="receptionPower:vector PathLossShowcase.destination.wlan[0].radio.receiver" lineNameFormat="">
+        <properties name="Y.Axis.Log" value="true"/>
+        <properties name="Symbols.Type" value="None"/>
+      </items>
+    </datasets>
+    <datasets name="PathLossUDPPosition">
+      <items xsi:type="scave:Add" filterPattern="attr:distance(*)  AND attr:configname(UDPPosition) AND name(receptionPower:last) "/>
+      <items xsi:type="scave:ComputeScalar" scalarName="ReceivedPower" valueExpr="mean('receptionPower:vector') " moduleExpr="*" groupByExpr=""/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select"/>
+        <properties name="Y.Axis.Log" value="true"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+    </datasets>
+    <datasets>
+      <items xsi:type="scave:Add" filterPattern="attr:distance(*)  AND attr:configname(UDPPosition)"/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern=" attr:distance(*) AND name(receptionPower:last)"/>
+        <properties name="Y.Axis.Log" value="true"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+      <items xsi:type="scave:LineChart"/>
+    </datasets>
+    <datasets name="PathLoss3">
+      <items xsi:type="scave:Add"/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*)) OR name(distance)"/>
+        <properties name="Y.Axis.Log" value="true"/>
+        <properties name="Symbols.Type" value="None"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+    </datasets>
+    <datasets name="PathLoss4">
+      <items xsi:type="scave:Add"/>
+      <items xsi:type="scave:ScatterChart" name="freespace and 2-ray" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*) AND (attr:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;TwoRayGroundReflection\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;TwoRayInterference\&quot;&quot;))   ) OR name(distance)    "/>
+        <properties name="X.Axis.Title" value="distance [m]"/>
+        <properties name="Y.Axis.Title" value="received signal power [W]"/>
+        <properties name="Y.Axis.Log" value="true"/>
+        <properties name="Legend.Display" value="true"/>
+        <properties name="Line.Name/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;FreeSpacePathLoss&quot;" value="FreeSpacePathLoss"/>
+        <properties name="Line.Name/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;TwoRayGroundReflection&quot;" value="TwoRayGroundReflection"/>
+        <properties name="Line.Name/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;TwoRayInterference&quot;" value="TwoRayInterference"/>
+        <properties name="Symbols.Type" value="None"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+      <items xsi:type="scave:ScatterChart" name="freespace and lognormal, rician, rayleigh" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*) AND ( attr:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;LogNormalShadowing\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;RicianFading\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;RayleighFading\&quot;&quot;))   ) OR name(distance)"/>
+        <properties name="Y.Axis.Log" value="true"/>
+        <properties name="Symbols.Type" value="None"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+      <items xsi:type="scave:ScatterChart" name="freespace and lognormal, rician" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*) AND ( attr:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;LogNormalShadowing\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;RicianFading\&quot;&quot;))   ) OR name(distance)"/>
+        <properties name="X.Axis.Title" value="distance [m]"/>
+        <properties name="Y.Axis.Title" value="received signal power [W]"/>
+        <properties name="Y.Axis.Log" value="true"/>
+        <properties name="Legend.Display" value="true"/>
+        <properties name="Symbols.Type" value="None"/>
+        <properties name="Symbols.Type/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;FreeSpacePathLoss&quot;" value="None"/>
+        <properties name="Line.Name/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;FreeSpacePathLoss&quot;" value="FreeSpacePathLoss"/>
+        <properties name="Symbols.Type/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;LogNormalShadowing&quot;" value="None"/>
+        <properties name="Line.Name/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;LogNormalShadowing&quot;" value="LogNormalShadowing"/>
+        <properties name="Symbols.Type/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;RicianFading&quot;" value="None"/>
+        <properties name="Line.Name/PathLossShowcase.destination.wlan[0].radio.receiver receptionPower:last - pathlosstype=&quot;RicianFading&quot;" value="RicianFading"/>
+        <isoDataPattern>pathlosstype(*)</isoDataPattern>
+      </items>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.1 //@datasets/@datasets.4/@items.2 //@datasets/@datasets.5/@items.1 //@datasets/@datasets.5/@items.2 //@datasets/@datasets.6/@items.1 //@datasets/@datasets.7/@items.1 //@datasets/@datasets.7/@items.2 //@datasets/@datasets.7/@items.3"/>
+  </chartSheets>
+</scave:Analysis>

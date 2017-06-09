@@ -1,0 +1,95 @@
+- name: Visualization
+  link: /inet-showcases/visualizer
+  submenu:
+     - name: Packet Drops
+       link: /inet-showcases/visualizer/packetdrop
+     - name: Transport Path Activity
+       link: /inet-showcases/visualizer/transportpathactivity
+     - name: Network Path Activity
+       link: /inet-showcases/visualizer/networkpathactivity
+     - name: Data Link Activity
+       link: /inet-showcases/visualizer/datalinkactivity
+     - name: Physical Link Activity
+       link: /inet-showcases/visualizer/physicallinkactivity
+     - name: Physical Medium Activity
+       link: /inet-showcases/visualizer/physicalmediumactivity
+     - name: Obstacle Loss
+       link: /inet-showcases/visualizer/obstacleloss
+     - name: Routing Tables
+       link: /inet-showcases/visualizer/routingtable
+     - name: Displaying IP Addresses and Other Interface Information
+       link: /inet-showcases/visualizer/interfacetable
+     - name: IEEE 802.11 Network Membership
+       link: /inet-showcases/visualizer/ieee80211
+     - name: Transport Connections
+       link: /inet-showcases/visualizer/transportconnection
+     - separator: true
+     - name: Physical Environment
+       link: /inet-showcases/visualizer/environment
+     - name: Network Nodes
+       link: /inet-showcases/visualizer/networknode
+     - name: Mobility
+       link: /inet-showcases/visualizer/mobility
+     - name: Terrain and Urban Environment
+       link: /inet-showcases/visualizer/earth
+     - separator: true
+     - name: Instrument Figures
+       link: /inet-showcases/visualizer/instrument
+     - name: Statistics
+       link: /inet-showcases/visualizer/statistic
+     - name: Submodule Information
+       link: /inet-showcases/visualizer/info
+     - name: Using Multiple Visualizer Modules
+       link: /inet-showcases/visualizer/advanced
+     - separator: true
+     - name: Styling and Appearance
+       link: /inet-showcases/visualizer/styling
+     - name: Filtering for Packets, Interfaces, and Nodes
+       link: /inet-showcases/visualizer/filtering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- name: Wireless
+  link: /inet-showcases/wireless
+  submenu:
+     - name: Level of Detail
+       link: /inet-showcases/wireless/levelofdetail
+     - name: Scaling
+       link: /inet-showcases/wireless/scaling
+     - name: Path Loss Models
+       link: /inet-showcases/wireless/pathloss
+     - separator: true
+     - name: 802.11 Throughput
+       link: /inet-showcases/wireless/throughput
+     - name: Packet loss vs. distance using various wifi bitrates
+       link: /inet-showcases/wireless/errorrate
+     - name: Hidden Node
+       link: /inet-showcases/wireless/hiddennode
+     - name: Handover
+       link: /inet-showcases/wireless/handover
+     - name: 802.11 Rate Control
+       link: /inet-showcases/wireless/ratecontrol
+     - name: Power Consumption
+       link: /inet-showcases/wireless/power
+
+
+
+
+
+
+
+- name: Repository
+  link: https://github.com/inet-framework/inet-showcases

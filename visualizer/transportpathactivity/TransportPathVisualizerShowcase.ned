@@ -76,7 +76,7 @@ network TransportPathVisualizerSimpleWirelessShowcase
 //
 // TODO documentation
 //
-network TransportPathVisualizerExtendedShowcase
+network TransportPathVisualizerFilteringShowcase
 {
     @display("bgb=1024,700");
     submodules:
@@ -106,22 +106,22 @@ network TransportPathVisualizerExtendedShowcase
         host2: StandardHost {
             @display("p=947.112,205.824");
         }
-        host3: StandardHost {
+        videoStreamServer: StandardHost {
             @display("p=868.32,598.176");
         }
-        host4: StandardHost {
+        videoStreamClient: StandardHost {
             @display("p=78.792,427.728");
         }
-        etherSwitch0: EtherSwitch {
+        switch0: EtherSwitch {
             @display("p=268.536,173.664");
         }
-        etherSwitch1: EtherSwitch {
+        switch1: EtherSwitch {
             @display("p=805.60803,147.936");
         }
-        etherSwitch2: EtherSwitch {
+        switch2: EtherSwitch {
             @display("p=255.672,426.12");
         }
-        etherSwitch3: EtherSwitch {
+        switch3: EtherSwitch {
             @display("p=668.928,545.112");
         }
         router0: Router {
@@ -141,71 +141,22 @@ network TransportPathVisualizerExtendedShowcase
         }
     connections:
         router0.pppg++ <--> Eth100M <--> router4.pppg++;
-        source1.ethg++ <--> Eth100M <--> etherSwitch0.ethg++;
-        etherSwitch0.ethg++ <--> Eth100M <--> router0.ethg++;
-        router3.ethg++ <--> Eth100M <--> etherSwitch3.ethg++;
-        etherSwitch3.ethg++ <--> Eth100M <--> destination1.ethg++;
+        source1.ethg++ <--> Eth100M <--> switch0.ethg++;
+        switch0.ethg++ <--> Eth100M <--> router0.ethg++;
+        router3.ethg++ <--> Eth100M <--> switch3.ethg++;
+        switch3.ethg++ <--> Eth100M <--> destination1.ethg++;
         router4.pppg++ <--> Eth100M <--> router1.pppg++;
-        etherSwitch1.ethg++ <--> Eth100M <--> router1.ethg++;
-        etherSwitch1.ethg++ <--> Eth100M <--> source2.ethg++;
-        router2.ethg++ <--> Eth100M <--> etherSwitch2.ethg++;
-        destination2.ethg++ <--> Eth100M <--> etherSwitch2.ethg++;
+        switch1.ethg++ <--> Eth100M <--> router1.ethg++;
+        switch1.ethg++ <--> Eth100M <--> source2.ethg++;
+        router2.ethg++ <--> Eth100M <--> switch2.ethg++;
+        destination2.ethg++ <--> Eth100M <--> switch2.ethg++;
         router4.pppg++ <--> Eth100M <--> router2.pppg++;
         router4.pppg++ <--> Eth100M <--> router3.pppg++;
         router0.pppg++ <--> Eth100M <--> router2.pppg++;
         router1.pppg++ <--> Eth100M <--> router0.pppg++;
-        etherSwitch0.ethg++ <--> Eth100M <--> host1.ethg++;
-        etherSwitch1.ethg++ <--> Eth100M <--> host2.ethg++;
-        etherSwitch3.ethg++ <--> Eth100M <--> host3.ethg++;
-        etherSwitch2.ethg++ <--> Eth100M <--> host4.ethg++;
-        router2.pppg++ <--> Eth100M <--> router3.pppg++;
-}
-
-//
-// TODO documentation
-//
-network TransportPathVisualizerServerClientsShowcase
-{
-    @display("bgb=600,400");
-    submodules:
-        visualizer: IntegratedVisualizer {
-            parameters:
-                @display("p=80,120");
-        }
-        configurator: IPv4NetworkConfigurator {
-            parameters:
-                @display("p=80,50");
-        }
-        server: StandardHost {
-            @display("p=158,228;i=device/server2");
-        }
-        host1: StandardHost {
-            @display("p=545,58");
-        }
-        host2: StandardHost {
-            @display("p=545,128");
-        }
-        admin1: StandardHost {
-            @display("p=545,341");
-        }
-        admin2: StandardHost {
-            @display("p=545,267");
-        }
-        switch1: EtherSwitch {
-            @display("p=414,84");
-        }
-        switch2: EtherSwitch {
-            @display("p=414,341");
-        }
-        router: Router {
-            @display("p=296,228");
-        }
-    connections:
-        switch1.ethg++ <--> Eth100M <--> host1.ethg++;
+        switch0.ethg++ <--> Eth100M <--> host1.ethg++;
         switch1.ethg++ <--> Eth100M <--> host2.ethg++;
-        switch2.ethg++ <--> Eth100M <--> admin1.ethg++;
-        router.ethg++ <--> Eth100M <--> switch1.ethg++;
-        router.ethg++ <--> Eth100M <--> switch2.ethg++;
-        server.ethg++ <--> Eth100M <--> router.ethg++;
-        switch2.ethg++ <--> Eth100M <--> admin2.ethg++;
+        switch3.ethg++ <--> Eth100M <--> videoStreamServer.ethg++;
+        switch2.ethg++ <--> Eth100M <--> videoStreamClient.ethg++;
+        router2.pppg++ <--> Eth100M <--> router3.pppg++;
 }

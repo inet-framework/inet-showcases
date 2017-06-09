@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+	<title>Visualizing Transport Path Activity</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-240922-3', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+<body>
+    <h1>Visualizing Transport Path Activity</h1>
+
+    <p><h2>Goals</h2></p>
+    <p>
+        In INET simulations, it is often useful to show network traffic between nodes.
+        INET provides several visualizers for this task, operating at various levels of the network stack.
+        In this showcase, we examine <var>TransportRouteVisualizer</var> that can provide graphical feedback about transport layer level traffic.
+    </p>
+    <p>    
+        The showcase consists of four simulation models, each demonstrating different features of transport path activity visualization.
+    </p>
+    <p>
+        INET version: <var>3.6</var><br>
+        Source files location: <var>inet/showcases/visualization/transportpathactivity</var>
+    </p>
+
+
+    <p><h2>About the Visualizer</h2></p>
+    <p>
+        In INET, transport path activity can be visualized by including a <var>TransportRouteVisualizer</var> module in the simulation.
+        Adding an <var>IntegratedVisualizer</var> is also an option, because it also contains a <var>TransportRouteVisualizer</var>.
+        Transport path activity visualization is disabled by default, it can be enabled by setting the visualizer's <var>displayRoutes</var> parameter to true.
+    </p> 
+    <p>
+        <var>TransportRouteVisualizer</var> currently observes packets that pass through the transport layer i.e. carry data from/to higher layers.
+    </p>
+    <p>
+        The activity between two nodes is represented visually by a polyline arrow which points from the source node to the destination node.
+        <var>TransportRouteVisualizer</var> follows packets throughout their path so that the polyline goes through all nodes which are the part of the network path of packets.
+        The arrow appears after the first packet has been received, then gradually fades out unless it is reinforced by further packets.
+        Color, fading time and other graphical properties can be changed with parameters of the visualizer.
+    </p>
+    <p>
+        By default, all packets and nodes are considered for the visualization.
+        This selection can be narrowed with the visualizer's <var>packetFilter</var> and <var>nodeFilter</var> parameters.
+    </p>    
+
+
+    <p><h2>Enabling Visualization of Transport Path Activity</h2></p>
+    <p>
+        The following example shows how to enable transport path activity visualization with its default settings.
+        In the first example, we configure a simulation for a wired network.
+        This simulation can be run by choosing the <var>EnablingPathVisualizationWired</var> configuration from the ini file.
+    </p>
+    <p>
+        We use the following network in this simulation.
+    </p>    
+    <img class="screen" src="TransportPathVisualizerSimpleWired_v0615.png">
+    <p>
+        The network consists of two connected <var>StandardHost</var> nodes: <var>source</var> and <var>destination</var>.
+        The <var>source</var> node will be continuously sending UDP packets to the <var>destination</var> node by using an <var>UDPBasicApp</var> application.
+    </p>
+    <p>
+        In this simulation, <var>pathVisualizer's</var> type is <var>TransportRouteVisualizer</var>.
+        It is enabled by setting the <var>displayRoutes</var> parameter to true.
+    </p>
+    <div class="snippet">
+        *.pathVisualizer.*.displayRoutes = true
+    </div>
+    <p>
+        Here is what happens when the simulation is run.
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=522 height=357 src="EnablingPathVisualizationWired_v0615.m4v">
+    </p>
+    <p>
+        At the beginning of the video, a red strip appears and moves from <var>source</var> to <var>destination</var>. 
+        This strip is the standard OMNeT++ animation for packet transmissions, and has nothing to do with <var>TransportRouteVisualizer</var>.
+        When the packet is received in whole by <var>destination</var> (the red strip disappears), an arrow is added by <var>TransportRouteVisualizer</var> between the two hosts, indicating transport path activity.
+        The packet's name is also displayed above the arrow.
+        Note, however, that the ARP packet does not activate the visualization, because ARP packets do not pass through transport layer.
+        The arrow fades out quickly, because the <var>fadeOutTime</var> parameter of the visualizer is set to a small value.
+    </p>
+    <p>
+        Our next example is the wireless variant of the above simulation.
+        In this  network we use two <var>AdhocHosts</var>, a <var>source</var> host and a <var>destination</var> host.
+        The traffic and the visualization settings are the same as the configuration of the wired example.
+        The simulation can be run by choosing the <var>EnablingPathVisualizationWireless</var> configuration from the ini file.
+    </p>
+    <p>
+        Here is the network for the wireless configuration.
+    </p>
+    <img class="screen" src="TransportPathVisualizerSimpleWireless_v0615.png">
+    <p>
+        The following video shows what happens when the simulation is run.
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=522 height=357 src="EnablingPathVisualizationWireless_v0615.m4v">
+    </p>
+    <p>
+        This animation is similar to the video of the wired example (apart from an extra blue dotted line which is also part of the standard OMNeT++ packet animation).
+        Note, however, that the ACK and ARP frames do not activate the visualization, because these frames do not pass through transport layer.
+    </p>
+
+    <p><h2>Filtering Transport Path Activity</h2></p>
+    <p>
+        In complex networks where many nodes and several protocols are used, it is often useful to be able to filter network traffic, and visualize only the part of the traffic we are interested in.
+    </p>
+    <p>
+        In this simulation, we show how to use <var>packetFilter</var> and <var>nodeFilter</var>.
+        The simulation can be run by choosing the <var>Filtering</var> configuration from the ini file.
+    </p>
+    <p>
+        We set up a complex network with five <var>routers</var> (<var>router0..router4</var>), four <var>etherSwitches</var> (<var>switch0..switch4</var>) and eight endpoints.
+        The source nodes (<var>source1</var> and <var>source2</var>) are continuously generating traffic by a <var>UDPBasicApp</var> application, which is handled by a <var>UDPSink</var> application in the destination nodes (<var>destination1</var> and <var>destination2</var>).
+        The <var>videoStreamServer</var> node streams a video to the <var>videoStreamClient</var> node.
+        The rest two endpoints (<var>host1</var> and <var>host2</var>) are inactive in this simulation.
+    </p>
+    <img width=850 class="screen" src="TransportPathVisualizerFiltering_v0615.png">
+    <p>
+        In our first experiment, we want observe the traffic that is generated by <var>UDPBasicApp</var>.
+        For this reason, we configure the visualizer's <var>packetFilter</var> parameter to display only the <var>UDPBasicAppData</var> packets.
+        Video stream traffic are not visualized by Transport path activity visualizer.
+        We adjust the visualizer's <var>fadeOutMode</var> and the <var>fadeOutTime</var> parameters so that the activity arrow does not fade out completely before the next <var>UDPBasicAppData</var> packet is sent.
+    </p>
+    <div class="snippet">
+        *.visualizer.*.transportRouteVisualizer.displayRoutes = true<br>
+        *.visualizer.*.transportRouteVisualizer.fadeOutMode = "simulationTime"<br>
+        *.visualizer.*.transportRouteVisualizer.fadeOutTime = 1.2s<br>
+        *.visualizer.*.transportRouteVisualizer.packetFilter = "*UDPBasicAppData*"
+    </div>
+    <p>
+        The following video has been captured from the simulation, and shows what happens when we set the <var>packetFilter</var> parameter.
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=900 height=704 src="Filtering_PacketFilter_v0615.m4v">
+    </p>
+    <p>
+        You can see that although there are both video stream and <var>UDPBasicAppData</var> traffic in the network, <var>TransportPathVisualizer</var> visualizes only the latter, due to the presence of the <var>packetFilter</var> parameter.
+    </p>
+    <p>
+        In our first experiment, we filtered traffic based on packets.
+        In INET, it is possible to filter traffic based on nodes.
+        In our second experiment, we want to display traffic only between <var>source1</var> and <var>destination1</var>.
+        We set the visualizer's <var>nodeFilter</var> parameter to display only the part of the traffic between <var>source1</var> and <var>destination1</var>.
+        The <var>packetFilter</var> parameter is still enabled in this simulation so that video stream will not be visualized.
+    </p>
+    <p>We add the following line to the configuration:
+    <div class="snippet">
+        *.visualizer.*.transportRouteVisualizer.nodeFilter = "source1 or switch* or router* or destination1"
+    </div>
+    <p>
+        The following video has been captured from the simulation, and shows what happens when we set the <var>nodeFilter</var> parameter.
+    </p>
+    <p align="center">        
+        <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width=900 height=704 src="Filtering_NodeFilter_v0615.m4v">
+    </p>
+    <p>
+        If you observe the default OMNeT++ packet transmission animation (red stripes), you can see that although there is UDP data traffic between both source-destination pair, but the traffic is visualized only between <var>source1</var> and <var>destination1</var> because of the <var>nodeFilter</var> parameter setting.
+    </p>
+    
+
+    <p><h2>More Information</h2></p>
+    <p>
+        This example only demonstrated the key features of transport path visualization.
+        For more information, refer to the <var>TransportRouteVisualizer</var> NED documentation.
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../../doc/showcases.css">
+<title>Radio Path Loss Models</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-240922-3', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+<body>
+
+<h1>Radio Path Loss Models</h1>
+
+<h2>Goals</h2>
+
+<p>
+When modeling radio propagation, INET computes path loss using the free space path loss model by default.
+However, there are various path loss models available in INET, suitable for simulating many scenarios.
+This showcase demonstrates several of the path loss models and their usage.
+</p>
+
+<p>
+INET features various path loss models for simulating radio propagation, ranging from simple ones like free space path loss to more complex ones like rician and rayleigh fading. This showcase demonstrates several of them, and their usage.
+</p>
+
+<p>
+The showcase contains an example simulation, which computes received power vs. distance using several path loss model types.
+</p>
+
+<p>
+Source files location: <var>inet/showcases/wireless/pathloss</var><br>
+</p>
+
+<h2>About path loss models</h2>
+
+<pre>
+What is path loss
+What kind of path loss models available in INET
+For what situations are they suitable for
+Some description of the used models
+Briefly about the setup
+</pre>
+
+<p>
+Path loss models are used to compute the decrease in the power of a radio signal as it propagates away from the transmitter.
+The default path loss model in INET is free space path loss, which only computes attenuation due to the inverse square law along a single line-of-sight propagation path. This is a simple model, and realistic in the case of satellite-to-satellite communications. Because of its low computing requirement, it is also useful if the emphasis of the simulation is not on the accuracy of radio propagation (e.g. testing protocols.) However, there are more path loss models available in INET, suitable to many scenarios. Here is a list of the path loss models featured in the example simulation, along with brief descriptions:
+</p>
+
+<p>
+<ul>
+<li><var>FreeSpacePathLoss:</var> Computes loss of signal power in a single line-of-sight propagation path, without any reflections or shadowing.</li>
+<li><var>TwoRayGroundReflection:</var> Computes loss of signal power by assuming a line-of-sight wave and another wave reflected from the ground between the transmitter and the receiver. This model differs from free space path loss in the far-field only, after a certain crossover distance.</li>
+<li><var>TwoRayInterference:</var> This is the same as the two-ray ground reflection model in the far-field, but it models the near-field more accurately.</li>
+<li><var>RicianFading:</var> It's a stochastic path loss model which assumes a dominant line-of-sight signal and multiple reflected signals between the transmitter and the receiver. Can be used to model radio propagation in an urban environment.</li>
+<li><var>LogNormalShadowing:</var> It's a stochastic path loss model, where power levels follow a lognormal distribution. It can be used to model shadowing caused by objects such as trees.</li>
+</ul>
+</p>
+
+<p>
+Other path loss models in INET include <var>RayleighFading</var>, <var>NakagamiFading</var>, <var>UWBIRStochasticPathLoss</var>, <var>BreakpointPathLoss</var>, and <var>SUIPathLoss</var>.
+</p>
+
+<p>
+The various path loss models each have sets of parameters to fine-tune their behavior. In this showcase we leave the parameters at their defaults.
+</p>
+
+<p>
+About the setup...two nodes communicating with increasing distance, received power vs. distance, using various path loss models
+</p>
+
+<h2>The model</h2>
+
+<p>
+The example simulation uses the following network:
+</p>
+
+<img class="screen" src="network.png">
+
+<p>
+The network contains two <var>adhocHosts</var> named <var>source</var> and <var>destination</var>. It also contains a <var>PhysicalEnvironment</var> module, in addition to <var>IPv4NetworkConfigurator</var> and <var>Ieee80211ScalarRadioMedium</var>.</p>
+
+<p>
+The physical environment module is required because it contains the ground model used by some path loss models. By default, the physical environment doesn't use a ground model, but it is set in the configuration to use <var>FlatGround</var>. We will leave the ground's elevation parameter at default, which is 0 meters. The z co-ordinate of both hosts is set to 2 meters, thus both antenna heights are 2 meters above the ground. (The hosts have isotropic antennas, which lack directionality.)
+</p>
+
+<p>
+The simulation is a parameter study, where <var>source</var> is configured to send a UDP packet to <var>destination</var>. The x co-ordinate of <var>source's</var> position is 0, thus the x co-ordinate of <var>destination's</var> position equals the distance between the two nodes. This distance is a parameter, which changes from 0 to 1000 meters. The distance changes with smaller steps near 0, where the change in power will be more rapid.
+</p>
+
+<p>
+The other variable in the parameter study is the path loss type, which takes on the following values: FreeSpacePathLoss, TwoRayGroundReflection, TwoRayInterference, RicianFading, LogNormalShadowing.
+</p>
+
+<p>
+The source host will transmit with the default power of 20mW.
+We will record the power of the received transmission (<var>receptionPower</var> signal in the transmitter module.)
+</p>
+
+<p>
+TODO: ground model, antenna height
+</p>
+
+<h2>Results</h2>
+
+<pre>
+The results are plotted in two charts. 
+The first one contains the free space, the two-ray, the two-ray interference.
+It shows that the two ray interference is better.
+</pre>
+
+<pre>
+There are various path loss models available in INET, and they help make the simulation more realistic.
+This showcase demonstrates some of the available path loss models and their usage.
+
+why are path loss models good? because it makes the simulation more realistic...in reality it doesnt propagate in
+line of sight.
+
+the default is free space path loss, but there are more realistic and complex models
+simple ones like two ray ground reflection
+and complex ones like rician and rayleigh fading
+and lognormal shadowing
+there is nakagami
+and others
+</pre>
+
+</body>
+
+</html>

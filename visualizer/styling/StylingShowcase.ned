@@ -14,10 +14,13 @@
 // 
 
 package inet.showcases.visualizer.styling;
+import inet.node.ethernet.Eth100M;
+import inet.node.inet.WirelessHost;
 import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 import inet.node.ethernet.Eth10M;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.StandardHost;
+import inet.node.wireless.AccessPoint;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211RadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
@@ -31,10 +34,10 @@ network StylingShowcase
     @display("bgb=600,250");
     submodules:
         host1: AdhocHost {
-            @display("p=205,100");
+            @display("p=205,150");
         }
         host2: AdhocHost {
-            @display("p=465,100");
+            @display("p=465,150");
         }
         visualizer: IntegratedVisualizer {
             @display("p=50,50");
@@ -50,23 +53,71 @@ network StylingShowcase
 //
 // TODO documentation
 //
-network IconAppearanceShowcase
+network AnnotationShowcase
 {
     @display("bgb=600,250");
     submodules:
-        host1: StandardHost {
-            @display("p=205,125");
+        host1: WirelessHost {
+            @display("p=205,150");
         }
-        host2: StandardHost {
-            @display("p=465,125");
+        host2: WirelessHost {
+            @display("p=465,150");
         }
         visualizer: IntegratedVisualizer {
-            @display("p=50,75");
+            @display("p=50,50");
         }
         configurator: IPv4NetworkConfigurator {
-            @display("p=50,175");
+            @display("p=50,100");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=50,150");
+        }
+        accessPoint: AccessPoint {
+            @display("p=329,67");
+        }
+}
+
+//
+// TODO documentation
+//
+network TestShowcase
+{
+    @display("bgb=600,250");
+    submodules:
+        host1: WirelessHost {
+            @display("p=200,143");
+        }
+        host2: WirelessHost {
+            @display("p=325,143");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=50,50");
+        }
+        configurator: IPv4NetworkConfigurator {
+            @display("p=50,100");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=50,150");
+        }
+        accessPoint1: AccessPoint {
+            @display("p=200,49");
+        }
+        accessPoint2: AccessPoint {
+            @display("p=325,49");
+        }
+        accessPoint3: AccessPoint {
+            @display("p=458,49");
+        }
+        host3: WirelessHost {
+            @display("p=458,143");
+        }
+        standardHost: StandardHost {
+            @display("p=243,208");
+        }
+        standardHost1: StandardHost {
+            @display("p=530,208");
         }
     connections:
-        host1.ethg++ <--> Eth10M <--> host2.ethg++;
+        standardHost.ethg++ <--> Eth100M <--> standardHost1.ethg++;
 }
 
