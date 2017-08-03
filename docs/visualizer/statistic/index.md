@@ -26,8 +26,8 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 ## About the visualizer
 
 The <var>StatisticVisualizer</var> (included in the network as part of
-<var>IntegratedVisualizer</var>) is capable of displaying multiple
-statistics for multiple network nodes. The visualizer keeps track of the
+<var>IntegratedVisualizer</var>) is capable of displaying a
+statistic for multiple network nodes. The visualizer keeps track of the
 last values of statistics, and displays them next to the icon of the
 network node.
 
@@ -37,8 +37,6 @@ parameter, and displays the statistic selected with the
 that match the expression of the <var>sourceFilter</var> parameter, at
 the network node that contains the modules. By default, the
 <var>stastisticName</var> is the same as the <var>signalName</var>.
-
-TODO: elaborate on the multiple statistics
 
 The <var>format</var> parameter is a string that specifies how the
 visualizer displays the statistic value. The format string can contain
