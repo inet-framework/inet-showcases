@@ -3,6 +3,8 @@ layout: page
 title: Visualizing Data Link Activity
 ---
 
+<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
+
 ## Goals
 
 In INET simulations, it is often useful to be able to visualize traffic between
@@ -67,7 +69,7 @@ In this configuration, <var>wiredSource</var> pings
 
 When we start the simulation, here is what happens.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="358s" src="EnablingVisualizationWired_v0613.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWired_v0613.m4v"></video>
 
 At the beginning of the video, a red strip appears and moves from
 <var>wiredSource</var> to <var>wiredDestination</var>. This strip is the standard
@@ -90,7 +92,7 @@ the <var>EnablingVisualizationWireless</var> configuration from the ini file.
 
 The following animation depicts what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="358s" src="EnablingVisualizationWireless_v0613.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWireless_v0613.m4v"></video>
 
 This animation is similar to the video of the wired example (apart from an extra
 blue dotted line which can be ignored, as it is also part of the standard OMNeT++
@@ -109,7 +111,7 @@ The following example shows how to set packet filtering in
 
 We use the following network for this showcase.
 
-<img src="DataLinkVisualizerFiltering.png" class="screen" width="800" />
+<img src="DataLinkVisualizerFiltering.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
 This network consists of four switches (<var>etherSwitch1..etherSwitch4</var>)
 and six endpoints: two source hosts (<var>source1</var>,
@@ -140,7 +142,7 @@ can see that although there is both ARP and ping traffic in the network,
 <var>DataLinkVisualizer</var> only takes the latter into account, due to the presence
 of the <var>packetFilter</var> parameter.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="850" height="658" src="Filtering_v0613.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering_v0613.m4v"></video>
 
 It also is possible to filter for network nodes. For the following example, let's
 assume we want to display traffic between the hosts <var>source1</var> and
@@ -155,7 +157,7 @@ the curly brace syntax used for specifying numeric substrings).
 
 This what it looks like when we run the simulation:
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="850" height="658" src="Filtering2_v0613.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering2_v0613.m4v"></video>
 
 As you can see, visualization allows us to follow the ping packets between
 <var>source1</var> and <var>destination1</var>. Note, however, that ping traffic
@@ -215,7 +217,7 @@ which flood the network. When an RREQ message reaches
 back towards <var>source</var>. Note that nodes appear stationary because the
 whole process takes place in a very short time period.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="604" src="AODV_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="602" src="AODV_v0614.m4v"></video>
 
 In the second experiment, we configure the visualizer to display only the ping
 traffic between <var>source</var> and <var>destination</var>. (The AODV
@@ -234,7 +236,7 @@ We use the following configuration for the visualization.
 
 The following animation illustrates what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="604" src="Dynamic_v0613.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="602" src="Dynamic_v0613.m4v"></video>
 
 The communication ranges of <var>source</var> and <var>destination</var>
 are visualized as blue circles.
