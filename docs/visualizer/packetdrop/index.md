@@ -16,6 +16,7 @@ This example contains several simulation models demonstrating typical causes of 
 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/packetdrop" target="_blank"><var>inet/showcases/visualizer/packetdrop</var></a>
+<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/1" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 

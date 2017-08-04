@@ -7,7 +7,7 @@ Visualizer modules are responsible for displaying visuals in the graphical runti
 These visualizations provide information about several aspects of the simulation, in a concise way.
 
 The following showcases demonstrate the visualization of various aspects of network simulation.
-They work with INET 3.6. The source files are located in the
+They work with INET 3.6 or later. The source files are located in the
 <var>/inet/showcases/visualization</var> directory.
 
 Communication:
