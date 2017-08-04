@@ -1,3 +1,5 @@
+- name: Showcases
+  link: /inet-showcases/
 - name: Visualization
   link: /inet-showcases/visualizer
   submenu:
