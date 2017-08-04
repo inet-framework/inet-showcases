@@ -201,4 +201,3 @@ For more information, refer to the <var>PacketDropVisualizer</var> NED documenta
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/1" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-

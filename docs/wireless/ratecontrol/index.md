@@ -12,6 +12,7 @@ variants. This showcase demonstrates the 802.11 rate control mechanism in INET,
 and examines how rate control can improve application level throughput.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/ratecontrol" target="_blank"><var>inet/showcases/wireless/ratecontrol</var></a>
+<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/9" target="_blank">on GitHub</a>.
 
 ## The model
 

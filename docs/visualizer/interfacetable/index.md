@@ -20,6 +20,7 @@ about the advanced features.
 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/interfacetable" target="_blank"><var>inet/showcases/visualizer/interfacetable</var></a>
+<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/3" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 
