@@ -224,24 +224,27 @@ ICMP echo traffic. We use the following configuration for the visualization.
 *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime"
 *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
 ```
-Here is what happens, when the simulation is run.
+
+In the following video we can examine that how network path activity visualization follows the routing changes in a complex network.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="646" src="ChangingPaths_v0614.m4v"></video>
 
-In the beginning of the video, ping traffic goes towards <var>router1</var>.
-After five seconds, small cogwheels appear above <var>router1</var> and after
-that cogwheels change to a red cross. The red cross indicates that
-<var>router1</var> went offline so ping traffic needs new route towards the
-destination nodes. As a result of this, the routers update their routing tables
-based on RIP routing informations, and ping traffic goes towards
-<var>router3</var>. While ping traffic goes towards <var>router3</var>,
-<var>router1</var> turns on again (the red cross disappears). After a few seconds the
-<var>router3</var> goes offline. Routing tables are updated based on RIP
-routing informations and as a result of this, ping traffic goes towards
-<var>router1</var> again. At the end of the video, <var>router3</var> turns on, but
-it does not have an effect on the network routes.
+<!--TODO: RIP mukodes -->
 
-<!-- TODO: Ebben a videoban megfigyelhettuk, hogy a network path activity visualizer hogy kovette a route valtozasokat -->
+In the beginning of the video, ping traffic goes towards <var>router1</var>.
+After five seconds small cogwheels appear above <var>router1</var>
+then a red cross appears in the place of the gears, indicating <var>router1</var>
+went offline.
+
+Ping traffic needs new route towards the destination nodes. The routers update
+their routing tables based on RIP routing informations then a new route is
+established towards <var>router3</var>. While ping traffic goes towards
+<var>router3</var>, <var>router1</var> turns on again (the red cross disappears).
+After a few seconds the <var>router3</var> goes offline. Routing tables are
+updated based on RIP routing informations and as a result of this, ping traffic 
+goes towards <var>router1</var> again. At the end of the video,
+<var>router3</var> turns on, but it does not have an effect on the network routes.
+
 
 ## More Information
 
