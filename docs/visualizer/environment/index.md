@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Visualizing Physical Environment
+title: Visualizing the Physical Environment
 ---
 
 Goals

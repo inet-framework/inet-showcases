@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 802.11 Throughput
+title: IEEE 802.11 Throughput
 ---
 
 Goals

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Packet Loss vs. Distance Using Various Wifi Bitrates
+title: Packet Loss vs. Distance Using Various WiFi Bitrates
 ---
 
 Goals

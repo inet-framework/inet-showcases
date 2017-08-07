@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 802.11 Rate Control
+title: IEEE 802.11 Rate Control
 ---
 
 Goals

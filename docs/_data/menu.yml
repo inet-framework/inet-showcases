@@ -1,43 +1,43 @@
-- name: Visualization
+- name: Visualization Showcases
   link: /inet-showcases/visualizer
   submenu:
-     - name: Packet Drops
+     - name: Visualizing Packet Drops
        link: /inet-showcases/visualizer/packetdrop
-#     - name: Transport Path Activity
+#     - name: Visualizing Transport Path Activity
 #       link: /inet-showcases/visualizer/transportpathactivity
-#     - name: Network Path Activity
+#     - name: Visualizing Network Path Activity
 #       link: /inet-showcases/visualizer/networkpathactivity
-#     - name: Data Link Activity
+#     - name: Visualizing Data Link Activity
 #       link: /inet-showcases/visualizer/datalinkactivity
-#     - name: Physical Link Activity
+#     - name: Visualizing Physical Link Activity
 #       link: /inet-showcases/visualizer/physicallinkactivity
-#     - name: Physical Medium Activity
+#     - name: Visualizing Physical Medium Activity
 #       link: /inet-showcases/visualizer/physicalmediumactivity
-#     - name: Obstacle Loss
+#     - name: Visualizing Obstacle Loss
 #       link: /inet-showcases/visualizer/obstacleloss
-     - name: Routing Tables
+     - name: Visualizing Routing Tables
        link: /inet-showcases/visualizer/routingtable
      - name: Displaying IP Addresses and Other Interface Information
        link: /inet-showcases/visualizer/interfacetable
-     - name: IEEE 802.11 Network Membership
+     - name: Visualizing IEEE 802.11 Network Membership
        link: /inet-showcases/visualizer/ieee80211
-#     - name: Transport Connections
+#     - name: Visualizing Transport Connections
 #       link: /inet-showcases/visualizer/transportconnection
      - separator: true
-     - name: Physical Environment
+     - name: Visualizing the Physical Environment
        link: /inet-showcases/visualizer/environment
-#     - name: Network Nodes
+#     - name: Visualizing Network Nodes
 #       link: /inet-showcases/visualizer/networknode
-#     - name: Mobility
+#     - name: Visualizing Mobility
 #       link: /inet-showcases/visualizer/mobility
-#     - name: Terrain and Urban Environment
+#     - name: Visualizing Terrain and Urban Environment
 #       link: /inet-showcases/visualizer/earth
 #     - separator: true
 #     - name: Instrument Figures
 #       link: /inet-showcases/visualizer/instrument
-#     - name: Statistics
+#     - name: Visualizing Statistics
 #       link: /inet-showcases/visualizer/statistic
-#     - name: Submodule Information
+#     - name: Visualizing Submodule Information
 #       link: /inet-showcases/visualizer/info
 #     - name: Using Multiple Visualizer Modules
 #       link: /inet-showcases/visualizer/advanced
@@ -46,7 +46,7 @@
 #       link: /inet-showcases/visualizer/styling
 #     - name: Filtering for Packets, Interfaces, and Nodes
 #       link: /inet-showcases/visualizer/filtering
-- name: Wireless
+- name: Wireless Showcases
   link: /inet-showcases/wireless
   submenu:
 #     - name: Level of Detail
@@ -56,17 +56,20 @@
 #     - name: Path Loss Models
 #       link: /inet-showcases/wireless/pathloss
 #     - separator: true
-     - name: 802.11 Throughput
+     - name: IEEE 802.11 Throughput
        link: /inet-showcases/wireless/throughput
-     - name: Packet loss vs. distance using various wifi bitrates
+     - name: Packet Loss vs. Distance Using Various WiFi Bitrates
        link: /inet-showcases/wireless/errorrate
 #     - name: Hidden Node
 #       link: /inet-showcases/wireless/hiddennode
-     - name: Handover
+     - name: IEEE 802.11 Handover
        link: /inet-showcases/wireless/handover
-     - name: 802.11 Rate Control
+     - name: IEEE 802.11 Rate Control
        link: /inet-showcases/wireless/ratecontrol
 #     - name: Power Consumption
 #       link: /inet-showcases/wireless/power
 - name: Repository
   link: https://github.com/inet-framework/inet-showcases
+- name: Back to INET
+  link: https://inet.omnetpp.org/
+
