@@ -231,21 +231,19 @@ In the following video we can examine that how network path activity visualizati
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="646" src="ChangingPaths_v0614.m4v"></video>
 
-<!--TODO: RIP mukodes -->
-
 In the beginning of the video, ping traffic goes towards <var>router1</var>.
 After five seconds small cogwheels appear above <var>router1</var>
-then a red cross appears in the place of the gears, indicating <var>router1</var>
+then cogwheels change to a red cross, indicating <var>router1</var>
 went offline.
 
-Ping traffic needs new route towards the destination nodes. The routers update
-their routing tables based on RIP routing informations then a new route is
-established towards <var>router3</var>. While ping traffic goes towards
-<var>router3</var>, <var>router1</var> turns on again (the red cross disappears).
-After a few seconds the <var>router3</var> goes offline. Routing tables are
-updated based on RIP routing informations and as a result of this, ping traffic 
-goes towards <var>router1</var> again. At the end of the video,
-<var>router3</var> turns on, but it does not have an effect on the network routes.
+Routers update their routing tables in no time by using RIP routing protocol.
+In the next few seconds, the traffic goes towards <var>router3</var>
+between the sources and the destinations. While ping traffic goes towards
+<var>router3</var>, <var>router1</var> turns on again (the red cross
+disappears). In the 15th second, you can see that <var>router3</var> goes offline. 
+Routing tables are updated by using RIP and as a result of this, ping traffic 
+goes through <var>router1</var> again. At the end of the video, <var>router3</var>
+turns on, but it does not have an effect on the network traffic.
 
 
 ## More Information
