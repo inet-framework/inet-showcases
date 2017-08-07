@@ -9,7 +9,6 @@ Goals
 This example simulation demonstrates handover between two access points (APs) in an 802.11 wireless LAN using infrastructure mode. The goal is to show how the handover takes place between the two APs, including beacons, active scanning, the authentication and association processes.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/handover" target="_blank"><var>inet/showcases/wireless/handover</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/8" target="_blank">on GitHub</a>.
 
 The Model
 ---------
@@ -67,3 +66,10 @@ Further Information
 -------------------
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
+
+Discussion
+----------
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/8" target="_blank">this page</a> 
+in the GitHub issue tracker for commenting on this showcase.
+

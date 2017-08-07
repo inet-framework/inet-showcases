@@ -18,7 +18,6 @@ simulations, which demonstrate the visualization of physical objects.
 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment" target="_blank"><var>inet/showcases/visualizer/environment</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">on GitHub</a>.
 
 About the visualizer
 --------------------
@@ -82,3 +81,10 @@ Further information
 For more information, refer to the NED documentation of
 <var>PhysicalEnvironmentVisualizer</var> and
 <var>SceneCanvasVisualizer</var>.
+
+Discussion
+----------
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">this page</a> 
+in the GitHub issue tracker for commenting on this showcase.
+

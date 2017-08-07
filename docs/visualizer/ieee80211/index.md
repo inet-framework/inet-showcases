@@ -14,7 +14,6 @@ this showcase.
 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211" target="_blank"><var>inet/showcases/visualizer/ieee80211</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">on GitHub</a>.
 
 About the visualizer
 --------------------
@@ -117,3 +116,10 @@ Further information
 
 For more information on IEEE 802.11 visualization, see the
 <var>Ieee80211visualizer</var> NED documentation.
+
+Discussion
+----------
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">this page</a> 
+in the GitHub issue tracker for commenting on this showcase.
+

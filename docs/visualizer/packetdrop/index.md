@@ -16,7 +16,6 @@ This example contains several simulation models demonstrating typical causes of 
 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/packetdrop" target="_blank"><var>inet/showcases/visualizer/packetdrop</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/1" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 
@@ -168,3 +167,10 @@ Note the packet drop animation at <var>host1</var>. The packet drops are also ev
 ## Further information
 
 For more information, refer to the <var>PacketDropVisualizer</var> NED documentation.
+
+## Discussion
+
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/1" target="_blank">this page</a> 
+in the GitHub issue tracker for commenting on this showcase.
+

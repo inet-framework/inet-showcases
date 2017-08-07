@@ -10,7 +10,6 @@ IEEE 802.11 contains a mechanism that is able to adapt to various channel condit
 This showcase demonstrates the 802.11 rate control mechanism in INET, and examines how rate control can improve application level throughput.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/ratecontrol" target="_blank"><var>inet/showcases/wireless/ratecontrol</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/9" target="_blank">on GitHub</a>.
 
 The model
 ---------
@@ -68,3 +67,10 @@ The received packet count at <var>sinkHost</var> is 18366 for 'No rate control',
 This shows that rate control is effective in increasing the performance of the wireless network, as it increases throughput during varying channel conditions. Also, throughput is not zero in situations when it would be, if rate control wasn't used.
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
+
+Discussion
+----------
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/9" target="_blank">this page</a> 
+in the GitHub issue tracker for commenting on this showcase.
+

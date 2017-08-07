@@ -9,7 +9,6 @@ Goals
 In this showcase we perform a parameter study examining how packet error rate changes as a function of distance in a 802.11g wireless network.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank"><var>inet/showcases/wireless/errorrate</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/7" target="_blank">on GitHub</a>.
 
 <!--TODO:
 
@@ -101,3 +100,10 @@ Further Information
 -------------------
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
+
+Discussion
+----------
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/7" target="_blank">this page</a> 
+in the GitHub issue tracker for commenting on this showcase.
+

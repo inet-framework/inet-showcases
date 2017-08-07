@@ -12,7 +12,6 @@ This showcase contains three simulation models of increasing complexity, each de
 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/routingtable" target="_blank"><var>inet/showcases/visualizer/routingtable</var></a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/2" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 
@@ -157,3 +156,8 @@ playground, the process starts over again. The visualizer continually reacts to 
 
 This example only demonstrated the key features of routing table visualization. For more information, refer to the 
 <var>RoutingTableVisualizer</var> NED documentation.
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/2" target="_blank">this page</a> in the GitHub issue tracker for commenting on this showcase.
+
