@@ -53,8 +53,7 @@ roaming within predefined borders.
 The following video is captured from the simulation. The default settings of
 mobility visualization are used.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"
-width="822" height="707" src="NoFeatures_v0620.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="822" height="702" src="NoFeatures_v0620.m4v"></video>
 
 It is difficult to track the nodes, because they are moving randomly and quite fast.
 In our next experiment, we enable movement trails, velocity vectors and
@@ -74,7 +73,7 @@ orientation arcs. We expect that nodes can be tracked easier.
 
 When we start the simulation, here is what happens.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="822" height="707" src="VisualizingFeatures_v0627.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="822" height="702" src="VisualizingFeatures_v0627.m4v"></video>
 
 Compare this video to the previous one! The first thing you can notice is that
 hosts' movements are the same as in the previous video. However, note, that

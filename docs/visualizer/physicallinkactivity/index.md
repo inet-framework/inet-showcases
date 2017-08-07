@@ -64,7 +64,7 @@ Physical link activity visualization is enabled by setting the
 
 The following animation shows what happens when we start the simulation.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="622" height="407" src="EnablingVisualization_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="622" height="402" src="EnablingVisualization_v0614.m4v"></video>
 
 At the beginning of the animation, a red strip appears and moves from
 <var>source</var> to <var>destination</var>. This strip is the standard OMNeT++
@@ -118,7 +118,7 @@ The following video shows what happens when the simulation is run. The video is
 captured from the simulation after endpoints have associated with
 <var>accessPoint</var>.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="802" height="437" src="Filtering_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="802" height="432" src="Filtering_v0614.m4v"></video>
 
 You can see that although there are also ACK frames, Beacon frames and ping
 traffic in the network, <var>PhysicalLinkVisualizer</var> displays only the latter,
@@ -162,7 +162,7 @@ Here is the configuration of the visualization.
 
 Here is what happens, when we run the simulation.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="682" height="735" src="Mobile_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="682" height="732" src="Mobile_v0614.m4v"></video>
 
 Here, physical link activity looks like connection graphs in which the vertices are
 hosts, and each edge is physical link activity between two hosts. It is changing

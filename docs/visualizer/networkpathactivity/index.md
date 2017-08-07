@@ -69,7 +69,7 @@ We enable network path activity visualization by setting the
 
 The following video shows what happens when we start the simulation.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="622" height="356" src="EnablingVisualization_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="622" height="352" src="EnablingVisualization_v0614.m4v"></video>
 
 At the beginning of the video, a red strip appears and moves from
 <var>source</var> to <var>destination</var>. This strip is the standard OMNeT++
@@ -123,7 +123,7 @@ packet arrives.
 
 The following video shows what happens, when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="800" height="638" src="StaticNetworkPaths_v0703.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="664" src="StaticNetworkPaths_v0703.m4v"></video>
 
 Each arrow has a different color indicating different paths. You can see that
 although there is both video stream and ping traffic in the network,
@@ -169,7 +169,7 @@ We use the following configuration for the visualization.
 
 The following video shows what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="682" height="734" src="Mobile_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="682" height="732" src="Mobile_v0614.m4v"></video>
 
 Blue circles are displays the communication range of <var>source</var> and
 <var>destination</var>.
@@ -229,7 +229,7 @@ ICMP echo traffic. We use the following configuration for the visualization.
 
 In the following video we can examine that how network path activity visualization follows the routing changes in a complex network.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="646" src="ChangingPaths_v0614.m4v"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="610" src="ChangingPaths_v0614.m4v"></video>
 
 In the beginning of the video, ping traffic goes towards <var>router1</var>.
 After five seconds small cogwheels appear above <var>router1</var>

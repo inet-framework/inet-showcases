@@ -97,7 +97,7 @@ using the following configuration.
 This configuration affects only 3D visualization. The following animation shows
 how the nodes look like after we have replaced their icon.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="700" height="400" src="CustomizedRotateCam_v2.mp4"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="774" height="490" src="CustomizedRotateCam_v2.mp4"></video>
 
 The <var>pedestrian</var> node is represented by an animated walking
 boxman and <var>car</var> is represented by a car model instead of 2D
