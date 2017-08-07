@@ -83,10 +83,10 @@ The visualization is activated with the <var>displayPacketDrops</var>
 parameter. The fade out time is set to three seconds, so that the packet drop
 animation is more visible:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.packetDropVisualizer.displayPacketDrops = true
 *.visualizer.*.packetDropVisualizer.fadeOutTime = 3s
-</div></p>
+```
 
 When the simulation is run, the UDP stream starts at around two seconds, and
 packets start accumulating in the queue of the switch. When the queue fills up,

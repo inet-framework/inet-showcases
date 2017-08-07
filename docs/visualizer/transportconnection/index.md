@@ -53,7 +53,7 @@ setting the visualizer's parameters.
 The first example simulation, configured in the
 <var>EnablingVisualization</var> section of the ini file, demonstrates
 the visualization with default settings. This example simulation uses
-the following network: 
+the following network:
 
 <img class="screen" src="simplenetwork.png">
 
@@ -66,9 +66,9 @@ to <var>host2</var>, and send data to it. The visualization of transport
 connections is enabled with the visualizer's
 <var>displayTransportConnections</var> parameter:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.displayTransportConnections = true
-</div></p>
+```
 
 After the simulation is run for a while and the TCP connection is
 established, the icons representing the endpoints of the TCP connection
@@ -101,9 +101,9 @@ The hosts are configured to open TCP connections to the server:
 The visualizer is instructed to only visualize connections with
 destination port 80:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.transportConnectionVisualizer.destinationPortFilter = "80"
-</div></p>
+```
 
 When the simulation is run and the connections are established, the
 network will look like the following. Note that there are several icons

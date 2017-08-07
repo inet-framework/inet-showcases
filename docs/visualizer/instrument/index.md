@@ -117,10 +117,10 @@ instrument figure is specified in the NED file with the
 selects the type of the instrument figure. Here is an example from this
 configuration's NED file:
 
-<p><pre class="snippet">
+``` {.snippet}
 @figure[numRcvdPkCounter](type=counter; pos=413,327; label="Packets received"; decimalPlaces=4);
 @statistic[numRcvdPk](source=count(client.tcpApp[0].rcvdPk); record=figure; targetFigure=counter);
-</pre></p>
+```
 
 This creates a figure named <var>numRcvdPkCounter</var>, which is a
 counter type figure. The statistic <var>numRcvdPk</var> counts the

@@ -46,10 +46,10 @@ usually its name.
 format string: used to customize how information is displayed
  Thus the following two expressions are equivalent:
 
-<p><div class="snippet">
+``` {.snippet}
 interfaceFilter = "name(eth*)"
 interfaceFilter = "eth*"
-</div></p>
+```
 
 The expressions can contain regexp-like elements: the `'*'` stands for
 any sets of characters, except for a `'.'` (`'**'` stands for any
@@ -58,9 +58,9 @@ also possible to use the `AND`, `OR`, `NOT` boolean operators (case
 insensitively). Parentheses can also be used to change the evaluation
 order. For example:
 
-<p><div class="snippet">
+``` {.snippet}
 packetFilter = "*tcp* and not(*SYN* or *ACK*)"
-</div></p>
+```
 
 This matches packets that have 'tcp' in their names, but doesn't match
 packets with SYN or ACK in their names, basically selecting TCP packets

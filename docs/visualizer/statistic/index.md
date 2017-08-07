@@ -108,10 +108,10 @@ is configured to send UDP packets to <var>destination</var>.
 The visualizer is configured to display the packet error rate statistic
 of destination host's <var>radio</var> module:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.statisticVisualizer.signalName = "packetErrorRate"
 *.visualizer.*.statisticVisualizer.sourceFilter = "*.destination.wlan[*].radio"
-</div></p>
+```
 
 This animation illustrates what happens when the simulation is run:
 

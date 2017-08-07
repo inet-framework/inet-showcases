@@ -223,7 +223,7 @@ TCP packet paths with blue arrows, and the
 <var>NetworkRouteVisualizer</var> in <var>visualizer2</var> to indicate
 UDP packet paths with red arrows.
 
-<p><pre class="snippet">
+``` {.snippet}
 *.visualizer1.networkRouteVisualizer.displayRoutes = true
 *.visualizer1.networkRouteVisualizer.packetFilter = "*tcp* or *ACK* or *SYN*"
 *.visualizer1.networkRouteVisualizer.lineColor = "blue"
@@ -231,7 +231,7 @@ UDP packet paths with red arrows.
 *.visualizer2.networkRouteVisualizer.displayRoutes = true
 *.visualizer2.networkRouteVisualizer.packetFilter = "*Video*"
 *.visualizer2.networkRouteVisualizer.lineColor = "red"
-</pre></p>
+```
 
 The TCP visualization is configured to display all TCP packets,
 including the ones that take part in establishing the connection, i.e.
@@ -252,7 +252,7 @@ icons is set to blue, to match the color of the TCP network path arrows.
 
 When the simulation is run, this happens:
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="advanced3.mp4" width="864" height="610"></video></p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="advanced3.mp4" width="864" height="610"></video>
 
 The server starts sending the UDP and TCP streams to the hosts. The
 paths of UDP packets are indicated with red arrows, and the paths of TCP

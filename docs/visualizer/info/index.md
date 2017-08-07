@@ -92,16 +92,16 @@ is contained in each node's Contention module. The location of the
 Contention module is
 <var>somehost.wlan[*].mac.dcf.channelAccess.contention</var>:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.infoVisualizer.modules = "*.*.wlan[0].mac.dcf.channelAccess.contention"
-</div></p>
+```
 
 The <var>format</var> parameter is set to display the submodule's
 display string text:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.infoVisualizer.format = "%d"
-</div></p>
+```
 
 Additionally, <var>source</var> is configured to send UDP packets to
 <var>destination</var>.
@@ -157,9 +157,9 @@ Multiple submodules can be specified with the visualizer's
 <var>modules</var> parameter. For example, the UDP application's state
 can be displayed in addition to the channel access state:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.infoVisualizer.modules = "*.*.wlan[0].mac.ctn[0] *.*.udpApp[0]"
-</div></p>
+```
 
 This would look like the following:
 

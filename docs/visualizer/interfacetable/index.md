@@ -78,9 +78,9 @@ module.
 
 We enable visualization by the following configuration line:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables = true
-</div></p>
+```
 
 The interface names and the assigned IP addresses are displayed at the
 gates where the interfaces are connected. When the simulation is run,
@@ -134,6 +134,6 @@ NED documentation.
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/3" target="_blank">this page</a> 
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/3" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
 

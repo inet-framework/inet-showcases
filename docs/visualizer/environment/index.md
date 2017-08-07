@@ -51,9 +51,9 @@ In this example configuration (<var>IsometricView</var> in the ini
 file), the view is set to isometric projection. This is done by setting
 the <var>viewAngle</var> parameter in <var>SceneVisualizer</var>:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.canvasVisualizer.sceneVisualizer.viewAngle = "isometric"
-</div></p>
+```
 
 When the simulation is run, the network looks like the following.
 
@@ -78,6 +78,6 @@ For more information, refer to the NED documentation of
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">this page</a> 
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
 

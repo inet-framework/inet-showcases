@@ -67,9 +67,9 @@ submodules.
 The configuration contains one line, which enables the visualization of routing
 tables with the <var>displayRoutingTables</var> parameter:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.displayRoutingTables = true
-</div></p>
+```
 
 All other parameters of the visualizer are left on default.
 

@@ -48,8 +48,7 @@ power vs. distance, using various path loss models
 
 <pre>
 - The network and what it contains
-- It will be a parameter study where the two nodes will communicate; the source node
-will send one UDP packet
+- It will be a parameter study where the two nodes will communicate; the source node will send one UDP packet
 - The distance will be a parameter
 - So as the path loss type
 
@@ -71,9 +70,9 @@ model used by some path loss models. By default, the physical environment
 doesn't use a ground model, but it is set in the configuration to use
 <var>FlatGround</var>:
 
-<pre class="snippet">
+``` {.snippet}
 *.physicalEnvironment.groundType = "FlatGround"
-</pre>
+```
 
 TODO
 The ground model contains the elevation of the ground. It is used by the two-ray
@@ -92,7 +91,7 @@ near 0, where the change in power will be more rapid.
 
 Here are the keys from the configuration relevant for positioning the hosts:
 
-<pre class="snippet">
+``` {.snippet}
 # mobility settings
 *.*.mobility.initFromDisplayString = false
 *.*.mobilityType = "StationaryMobility"
@@ -101,7 +100,7 @@ Here are the keys from the configuration relevant for positioning the hosts:
 
 *.source.mobility.initialX = 0m
 *.destination.mobility.initialX = ${distance=0..50 step 0.25, 51..100 step 1, 105..200 step 5, 220..1000 step 20}m
-</pre>
+```
 
 TODO: should be more brief...the parameter is the distance between the the two
 nodes
@@ -120,13 +119,11 @@ The power of the received signal vs. distance, using
 <var>FreeSpacePathLoss</var>, <var>TwoRayGroundReflection</var> and
 <var>TwoRayInterference</var> path loss models, is displayed on the following plot:
 
-<a href="tworay.svg" target="_blank"><img class="screen" src="tworay.png">
-</a>
+<a href="tworay.svg" target="_blank"><img class="screen" src="tworay.png"></a>
 
 Here is the same plot zoomed in:
 
-<a href="tworay2.svg" target="_blank"><img class="screen"
-src="tworay2.png"></a>
+<a href="tworay2.svg" target="_blank"><img class="screen" src="tworay2.png"></a>
 
 It is apparent that the two-ray ground reflection model yields the same values as
 the free space path loss model up until the crossover distance. After that point,
@@ -139,8 +136,7 @@ The next plot displays the power of the received signal vs. distance using the
 <var>RicianFading</var> and <var>LogNormalShadowing</var> models, and
 the <var>FreeSpacePathLoss</var> model for reference:
 
-<a href="ricianlognormal.svg" target="_blank"><img class="screen"
-src="ricianlognormal.png"></a>
+<a href="ricianlognormal.svg" target="_blank"><img class="screen" src="ricianlognormal.png"></a>
 
 TODO whats on the plot
 
@@ -149,8 +145,7 @@ dense. TODO: about the stochastic nature of the curves
 
 Here is the same plot zoomed in on the near-field:
 
-<a href="ricianlognormal2.svg" target="_blank"><img class="screen"
-src="ricianlognormal2.png"></a>
+<a href="ricianlognormal2.svg" target="_blank"><img class="screen" src="ricianlognormal2.png"></a>
 
     There are various path loss models available in INET, and they help make the simulation more realistic.
     This showcase demonstrates some of the available path loss models and their usage.

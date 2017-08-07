@@ -55,9 +55,9 @@ this should be indicated by the icon.
 The visualization is activated with the visualizer's
 <var>displayAssociations</var> parameter:
 
-<p><div class="snippet">
+``` {.snippet}
 *.visualizer.*.ieee80211Visualizer.displayAssociations = true
-</div></p>
+```
 
 When the simulation is run for a while, the network will look like the
 following. Note the icons above the host and the access point.
@@ -113,6 +113,6 @@ For more information on IEEE 802.11 visualization, see the
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">this page</a> 
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
 

@@ -37,13 +37,13 @@ The network contains an <var>IntegratedVisualizer</var> module, and an
 <var>OsgGeographicCoordinateSystem</var> module. The configuration from
 omnetpp.ini is the following:
 
-<pre class="snippet">
+``` {.snippet}
 *.visualizer.osgVisualizer.sceneVisualizerType = "SceneOsgEarthVisualizer"
 *.visualizer.osgVisualizer.sceneVisualizer.mapFile = "boston.earth"
 
 *.coordinateSystem.playgroundLongitude = -71.06792deg
 *.coordinateSystem.playgroundLatitude = 42.35717deg
-</pre>
+```
 
 -   By default, the type of the scene visualizer module in <var>IntegratedVisualizer</var> is <var>SceneOsgVisualizer</var>. Inserting the map requires the <var>SceneOsgEarthVisualizer</var> module, thus the default osg scene visualizer is replaced. The <var>SceneOsgEarthVisualizer</var> provides the same functionality as <var>SceneOsgVisualizer</var>, and adds support for the osgEarth map.
 
@@ -77,10 +77,10 @@ with a <var>PhysicalEnvironment</var> module:
 
 The configuration for this example simulation extends the previous configuration with the following:
 
-<p><pre class="snippet">
+``` {.snippet}
 *.physicalEnvironment.coordinateSystemModule = "coordinateSystem"
 *.physicalEnvironment.config = xmldoc("obstacle.xml")
-</pre></p>
+```
 
 The <var>PhysicalEnvironment</var> module is responsible for placing the
 physical objects on the playground. The physical environment module doesn't use
@@ -111,7 +111,7 @@ adds two <var>AdhocHosts</var>:
 
 The configuration extends the previous configuration with the following:
 
-<p><pre class="snippet">
+``` {.snippet}
 *.visualizer.osgVisualizer.sceneVisualizer.playgroundShading = false
 *.visualizer.osgVisualizer.sceneVisualizer.playgroundColor = "#000000"
 *.visualizer.osgVisualizer.sceneVisualizer.playgroundOpacity = 0.1
@@ -135,7 +135,7 @@ The configuration extends the previous configuration with the following:
 
 *.host4.mobility.initialLatitude = 42.35685deg
 *.host4.mobility.initialLongitude = -71.06639deg
-</pre></p>
+```
 
 The first block of keys configure the playground to be transparent black, so the
 underlying map is visible. The next block sets the altitude of the playground. By
