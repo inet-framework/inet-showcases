@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Obstacle Loss
 ---
 
-Goals
------
+## Goals
 
 Physical objects interacting with transmissions can lead to packet loss. When radio signals pass through objects in the physical environment, the objects reflect and absorb electromagnetic energy. The loss of energy often results in incorrectly received packets. It's not immediately obvious where the loss of energy happens, so visualizing it can significantly facilitate understanding what happens in the simulation.
 
@@ -12,15 +11,13 @@ INET can visualize the intersections of obstacles and signals, with several deta
 
 This showcase contains two simulations, which demonstrate the visualization of obstacle loss. The showcase works with INET 3.6. The source files are located in the <var>inet/showcases/visualizer/obstacleloss</var> directory.
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>ObstacleLossVisualizer</var> module (part of the <var>IntegratedVisualizer</var> included in the network) can display the intersection between physical objects and propagating radio signals. It can display the magnitude of power loss in dB. Additionally, the face normal vectors can be displayed at both ends of the intersection.
 
 The visualization is enabled with the <var>displayIntersections</var> parameter.
 
-Enabling the visualization
---------------------------
+## Enabling the visualization
 
 The configuration uses the following network:
 
@@ -42,8 +39,7 @@ When the simulation is run, and <var>source</var> starts pinging <var>destinatio
 
 The intersection of the wall and the transmission is indicated with a yellow line. The magnitude of power loss is indicated in decibels.
 
-Multiple Obstacles
-------------------
+## Multiple Obstacles
 
 The following configuration uses a more complex network:
 
@@ -61,7 +57,6 @@ By default, the intersection lines do not disappear immediatelly at the end of t
 
 The fading time, as well several other parameters can be configured.
 
-Further information
--------------------
+## Further information
 
 For more information, refer to the <var>ObstacleLossVisualizer</var> NED documentation.

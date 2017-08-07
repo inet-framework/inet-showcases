@@ -3,15 +3,13 @@ layout: page
 title: IEEE 802.11 Throughput
 ---
 
-Goals
------
+## Goals
 
 This example analyzes how application-level throughput changes as a function of nominal bitrate in a 802.11g network.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/throughput" target="_blank"><var>inet/showcases/wireless/throughput</var></a>
 
-The model
----------
+## The model
 
 ### Application-level throughput
 
@@ -23,8 +21,7 @@ The network contains two <var>WirelessHosts</var>, at a distance of 1 meter, one
 
 The parameter study iterates over the following 802.11g bitrates: 6, 9, 12, 18, 24, 36, 48, and 54 Mbps. Each simulation runs for 1 second, and the UDP throughput is averaged for this interval.
 
-Results
--------
+## Results
 
 Measured throughput is compared to analytically obtained values. The frame exchange duration can be calculated from the nominal bitrate and the payload size, for example using this <a href="https://sarwiki.informatik.hu-berlin.de/Packet_transmission_time_in_802.11" target="_blank">frame exchange duration calculation formula</a>. It takes the DIFS, data frame duration, SIFS and ACK duration into account (but not the backoff period.) By assuming an average backoff time that is half of the minimal contention window, the theoretical throughput can be calculated.
 
@@ -44,13 +41,11 @@ The following sequence chart illustrates the relative sizes of the preamble, phy
 
 There are techniques that increase application-level throughput by reducing overhead. For example, in 802.11n, overhead at high bitrates is reduced by using block acknowledgement and frame aggregation. When block acknowledgement is used, multiple data frames can be acknowledged with a single block acknowledgement frame (instead of ACKing each data frame one-by-one.) Frame aggregation allows multiple data frames to be sent following a preamble and a physical header in a single transmission. Recent versions of the INET Framework support these 802.11 features, but they are out of scope for this simulation example.
 
-Further information
--------------------
+## Further information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
 
-Discussion
-----------
+## Discussion
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/6" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.

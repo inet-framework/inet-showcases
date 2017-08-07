@@ -3,8 +3,7 @@ layout: page
 title: Displaying IP Addresses and Other Interface Information
 ---
 
-Goals
------
+## Goals
 
 In the simulation of complex networks, it is often useful to be able to
 display node IP addresses, interface names, etc. above the node icons or
@@ -22,8 +21,7 @@ about the advanced features.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/interfacetable" target="_blank"><var>inet/showcases/visualizer/interfacetable</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>InterfaceTableVisualizer</var> module (included in the network
 as part of <var>IntegratedVisualizer</var>) displays data about network
@@ -67,8 +65,7 @@ icons, instead of on the links. This can be done by setting the
 There are also several parameters for styling, such as color and font
 selection.
 
-Enabling the visualization
---------------------------
+## Enabling the visualization
 
 The first example demonstrates the default operation of the visualizer.
 The simulation uses the following network:
@@ -91,8 +88,7 @@ the network looks like the following:
 
 <img class="screen" src="simple.png">
 
-More examples
--------------
+## More examples
 
 In the following example, we'd like to show the usefulness of this
 visualizer in a dynamic scenario, as well as demonstrate filtering. The
@@ -131,14 +127,12 @@ displayed. The network will look like this:
 
 <img class="screen" src="advanced.png">
 
-Further information
--------------------
+## Further information
 
 For more information, refer to the <var>InterfaceTableVisualizer</var>
 NED documentation.
 
-Discussion
-----------
+## Discussion
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/3" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.

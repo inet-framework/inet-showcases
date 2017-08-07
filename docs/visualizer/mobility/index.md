@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Mobility
 ---
 
-Goals
------
+## Goals
 
 In INET simulations, movements of mobile nodes are often as important as the communication between nodes. When mobile nodes are roaming in the network, it is difficult to follow their movement.
 
@@ -15,8 +14,7 @@ This showcase consists of one simulation model, that demonstrates important feat
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/mobility" target="_blank"><var>inet/showcases/visualizer/mobility</var></a>
 
-About the Visualizer
---------------------
+## About the Visualizer
 
 In INET, mobility of nodes can be visualized by <var>MobilityVisualizer</var> module (included in the network as part of <var>IntegratedVisualizer</var>). By default, mobility visualization is enabled, it can be disabled by setting <var>displayMovements</var> parameter to false.
 
@@ -30,8 +28,7 @@ The visualizer has several important features:
 
 These features are disabled by default, they can be enabled by setting the visualizer's <var>displayMovementTrails</var>, <var>displayVelocities</var> and <var>displayOrientations</var> parameters to true.
 
-Visualizing Mobility Features
------------------------------
+## Visualizing Mobility Features
 
 The following example shows how to enable mobility visualization features. We create a simulation for this example that can be run by choosing the <var>VisualizingFeatures</var> configuration from the ini file.
 
@@ -61,7 +58,6 @@ When we start the simulation, here is what happens.
 
 Compare this video to the previous one! The first thing you can notice is that hosts' movements are the same as in the previous video. However, note, that <var>host3</var> does not move randomly, but in a circular arc. The <var>host1</var> and <var>host2</var> nodes can also be easily tracked because of mobility visualization.
 
-More Information
-----------------
+## More Information
 
 This example only demonstrated the key features of mobility visualization. For more information, refer to the <var>MobilityVisualizer</var> NED documentation.

@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Network Nodes
 ---
 
-Goals
------
+## Goals
 
 In network simulations, it is essential to visualize the participants of communication. Customizing nodes' appearance may also be important, for example to highlight nodes or to distinguish nodes based on location or function. In complex networks with many nodes, it also can be useful to visualize only the nodes we are interested in.
 
@@ -13,8 +12,7 @@ This showcase demonstrates how network nodes are visualized in INET simulations.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networknode" target="_blank"><var>inet/showcases/visualizer/networknode</var></a>
 
-About the Visualizer
---------------------
+## About the Visualizer
 
 In INET simulations, <var>NetworkNodeVisualizer</var> module (included in the network as part of <var>IntegratedVisualizer</var>) is responsible for visualizing network nodes. By default, all nodes are visualized on a 2D canvas and on a 3D osg scene. We can narrow the list of nodes to be displayed by using the <var>nodeFilter</var> parameter. By using <var>NetworkNodeVisualizer</var> module, we also are able to customize the look of nodes and to specify the position of annotations.
 
@@ -36,8 +34,7 @@ The above code combines translation and rotation.
 
 By default, the module's name is displayed, but it can be hide by setting the <var>displayModuleName</var> parameter to <var>false</var>.
 
-Customizing Appearance of Network Nodes
-------------------------------------
+## Customizing Appearance of Network Nodes
 
 This example shows how the nodes' look can be customized. For this example, a simulation is created. It can be run by selecting the <var>VisualizingNodes</var> configuration from the ini file.
 
@@ -72,7 +69,6 @@ This configuration affects only 3D visualization. The following animation shows 
 
 The <var>pedestrian</var> node is represented by an animated walking boxman and <var>car</var> is represented by a car model instead of 2D cellphone icons. The 3D models make the nodes recognizable even without displaying the module's name.
 
-More Information
-----------------
+## More Information
 
 This example only demonstrated the key features of network node visualization. For more information, refer to the <var>NetworkNodeVisualizer</var> NED documentation.

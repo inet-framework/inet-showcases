@@ -3,13 +3,11 @@ layout: page
 title: Scaling Example
 ---
 
-Goals
------
+## Goals
 
 This example examines how simulations scale up as the number of simulated wireless hosts is increased. The metric of scalability is the running time of the simulation. There are a number of simulation runs running until the same sim-time-limit, and each contains an increasing number of hosts. The running time is plotted as the function of the number of hosts contained.
 
-The model
----------
+## The model
 
 **The network**
 
@@ -37,8 +35,7 @@ There are 4 configurations for 4 dististinct cases:
 
 Optional: how to do batch run
 
-Results
--------
+## Results
 
 Optional: How to make the charts
 

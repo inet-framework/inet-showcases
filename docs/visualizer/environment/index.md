@@ -3,8 +3,7 @@ layout: page
 title: Visualizing the Physical Environment
 ---
 
-Goals
------
+## Goals
 
 The physical environment has a profound effect on the communication of
 wireless devices. For example, physical objects like walls inside
@@ -19,8 +18,7 @@ simulations, which demonstrate the visualization of physical objects.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment" target="_blank"><var>inet/showcases/visualizer/environment</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>PhysicalEnvironmentVisualizer</var> (also part of
 <var>IntegratedVisualizer</var>) is responsible for displaying the
@@ -36,8 +34,7 @@ is also needed by other visualizers, for example
 but you can also configure side view (x and y axes), or isometric or
 ortographic projection.
 
-The default view
-----------------
+## The default view
 
 This example configuration (<var>DefaultView</var> in the ini file)
 demonstrates the default visualization of objects. The objects are
@@ -48,8 +45,7 @@ module. When the simulation is run, the network looks like this:
 
 <img class="screen" src="default.png">
 
-The isometric view
-------------------
+## The isometric view
 
 In this example configuration (<var>IsometricView</var> in the ini
 file), the view is set to isometric projection. This is done by setting
@@ -63,8 +59,7 @@ When the simulation is run, the network looks like the following.
 
 <img class="screen" src="isometric.png">
 
-3D visualization
-----------------
+## 3D visualization
 
 The visualizer also supports OpenGL-based 3D rendering using the
 OpenSceneGraph (OSG) library. If your OMNeT++ installation has been
@@ -75,15 +70,13 @@ you can use the mouse to move the camera and change the view angle.
 
 <img class="screen" src="3d.png">
 
-Further information
--------------------
+## Further information
 
 For more information, refer to the NED documentation of
 <var>PhysicalEnvironmentVisualizer</var> and
 <var>SceneCanvasVisualizer</var>.
 
-Discussion
-----------
+## Discussion
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.

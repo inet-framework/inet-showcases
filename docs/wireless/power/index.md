@@ -3,15 +3,13 @@ layout: page
 title: Power Consumption
 ---
 
-Goals
------
+## Goals
 
 This showcase is about the effect of wireless communication on the power consumption of mobile devices. It models the power consumption associated with the physical layer of wireless hosts. It demonstrates energy consumption, storage and generation.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/power" target="_blank"><var>inet/showcases/wireless/power</var></a>
 
-The model
----------
+## The model
 
 The hosts will send out ping requests, which will deplete their energy storage, while their power generators will charge them. After the simulation has concluded, we will analyze energy storage statistics.
 
@@ -43,8 +41,7 @@ Radios in the simulation are configured to contain a <var>StateBasedEnergyConsum
 
 TODO: some of the default values in StateBasedEnergyConsumer?
 
-Results
--------
+## Results
 
 <var>Host[0]</var> is the target for the ping requests of all other hosts. It doesn't send ping requests, but it replies to all requests. After a while, the energy storage of hosts get depleted, and the hosts shut down. This is indicated by a red x on the host's symbol. The energy generator charges hosts regardless of whether they are depleted or not (as if they were charged by a solar panel).
 
@@ -74,7 +71,6 @@ The following plot shows a ping request-ping reply exchange (with the associated
 
 <img src="ping-ack2.png" class="screen" />
 
-Further Information
--------------------
+## Further Information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.

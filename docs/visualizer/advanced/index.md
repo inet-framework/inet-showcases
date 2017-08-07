@@ -9,8 +9,7 @@ title: Using Multiple Visualizer Modules
 
 TODO: emphasize how this visualization needs two visualizer modules
 
-Goals
------
+## Goals
 
 Complex simulations often require complex visualization to better
 understand what is happening in the network. For example, one might want
@@ -31,8 +30,7 @@ compound visualizer modules.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/advanced" target="_blank"><var>inet/showcases/visualizer/advanced</var></a>
 
-About Visualizer Module Types
------------------------------
+## About Visualizer Module Types
 
 INET has visualizer simple modules for specific visualization tasks,
 such as <var>RoutingTableCanvasVisualizer</var> or
@@ -137,7 +135,6 @@ The parameters of the visualizer simple modules can be configured from the ini f
 
 <p>The screenshots illustrating the above HERE</p>
 
-
 <p>V3</p>
 
 <ul>
@@ -193,8 +190,7 @@ The modules names should be capitalized
 Actually, the qtenv looks better
 </pre>
 
-Including Multiple Visualizer Modules
--------------------------------------
+## Including Multiple Visualizer Modules
 
 Visualizations from multiple visualizer modules of the same type can be
 combined to create more complex visualizations that would not be
@@ -269,8 +265,7 @@ TCP hosts. TCP connection visualization icons are differentiated based
 on the letters in the icons, as the
 <var>TransportConnectionVisualizer</var> is using just one color.
 
-Modifying Visualizer Parameters at Runtime
-------------------------------------------
+## Modifying Visualizer Parameters at Runtime
 
     normally you set the visualizer parameters in the ini file
     but you can modify them in the graphical runtime environment
@@ -309,13 +304,12 @@ field to change it:
 
 The changes will take effect immediatelly.
 
-Including Your Own Visualizers in the Integrated Visualizer Modules
--------------------------------------------------------------------
+## Including Your Own Visualizers in the Integrated Visualizer Modules
 
     It is possible to replace the specific visualizer types in the compound visualizer modules with your own
     for example you have a CustomRoutingTableCanvasVisualizer module, you can use that in IntegratedCanvasVisualizer
     instead of the default RoutingTableCanvasVisualizer module.
     How to do it, illustrated with screenshots
 
-Further Information
--------------------
+## Further Information
+

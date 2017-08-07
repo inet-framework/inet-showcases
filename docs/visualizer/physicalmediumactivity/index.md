@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Physical Medium Activity
 ---
 
-Goals
------
+## Goals
 
 In a large network, there might be multiple wireless nodes transmitting
 simultaneously, resulting in interference at receiving nodes, and
@@ -22,8 +21,7 @@ each showing different features of the visualization.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicalmediumactivity" target="_blank"><var>inet/showcases/visualizer/physicalmediumactivity</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>MediumVisualizer</var> module (included in the network as part
 of <var>IntegratedVisualizer</var>) can visualize various aspects of
@@ -38,8 +36,7 @@ visualization. This selection can be narrowed with the visualizer's
 <var>packetFilter</var>, <var>interfaceFilter</var>, and
 <var>nodeFilter</var> parameters.
 
-Displaying signal propagation, transmissions and receptions
------------------------------------------------------------
+## Displaying signal propagation, transmissions and receptions
 
 This configuration demonstrates the visualization, with the visualizer's
 default settings. It uses the following network:
@@ -112,8 +109,7 @@ three seconds, regardless of their actual, real-world duration. These
 settings can be configured with the visualizer's parameters, more on
 this in the next section.
 
-Multiple nodes
---------------
+## Multiple nodes
 
 This configuration contains three nodes, as opposed to two in the
 previous one. Additionally, this section describes the propagation
@@ -185,8 +181,7 @@ the ACK is longer than the duration of the ping packet, despite the ping
 packet being larger. The reason is that the ACK is transmitted with a
 slower bitrate (control bitrate instead of databitrate).
 
-Interfering signals
--------------------
+## Interfering signals
 
 This configuration demonstrates the visualization of interfering
 signals. It uses this network:

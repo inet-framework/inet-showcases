@@ -3,8 +3,7 @@ layout: page
 title: Filtering for Packets, Interfaces, and Nodes
 ---
 
-Goals
------
+## Goals
 
 There are several visualizer types in INET, suitable for visualizing
 many different aspects of network simulations. In general, all
@@ -22,8 +21,7 @@ visualize only certain kinds of packets, at certain nodes.
 This showcase demonstrates with examples the filtering features
 available in many visualizer modules.
 
-Filter Types in Visualizers
----------------------------
+## Filter Types in Visualizers
 
 There are five types of filters, and different visualizers feature a
 different subset of the five types. The filters are specified by setting
@@ -36,8 +34,7 @@ following objects:
 -   Packets
 -   Ports
 
-Filter Expressions
-------------------
+## Filter Expressions
 
 The filters use the cMatchExpression class internally (more information
 in the OMNeT++ manual). They take an expression string, which can have
@@ -78,8 +75,7 @@ fields in the tree
 In the following sections, we give a few example filter expressions for
 each filter type.
 
-Packet filter
--------------
+## Packet filter
 
 -   Packets sent with databitrate (as opposed to controlbitrate), thus
     excluding ACKs. Also, only packets whose protocol is not ICMP:
@@ -122,8 +118,6 @@ Some examples:
 nodeFilter: where componentType.name(StandardHost) and hasIP(192.168.0.*) ?
 
 want to select nodes that has a certain IP and
-
-
 
 
 

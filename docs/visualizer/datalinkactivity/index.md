@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Data Link Activity
 ---
 
-Goals
------
+## Goals
 
 In INET simulations, it is often useful to be able to visualize traffic between network nodes. INET offers several visualizers for this task, operating at various levels of the network stack. In this showcase, we examine <var>DataLinkVisualizer</var> that can provide graphical feedback about data link level traffic.
 
@@ -13,8 +12,7 @@ The showcase consists of four simulation models, each demonstrating different fe
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity" target="_blank"><var>inet/showcases/visualizer/datalinkactivity</var></a>
 
-About the Visualizer
---------------------
+## About the Visualizer
 
 In INET, data link activity can be visualized by including a <var>DataLinkVisualizer</var> module in the simulation. Adding an <var>IntegratedVisualizer</var> module is also an option, because it also contains a <var>DataLinkVisualizer</var> module. Data link visualization is disabled by default, it can be enabled by setting the visualizer's <var>displayLinks</var> parameter to true.
 
@@ -24,8 +22,7 @@ The activity between two nodes is represented visually by an arrow that points f
 
 By default, all packets, interfaces and nodes are considered for the visualization. This selection can be narrowed to certain packets and/or nodes with the visualizer's <var>packetFilter</var>, <var>interfaceFilter</var>, and <var>nodeFilter</var> parameters.
 
-Enabling Visualization of Data Link Activity
---------------------------------------------
+## Enabling Visualization of Data Link Activity
 
 The following example shows how to enable the visualization of data link activity, and how the visualization looks like. In the first example we configure a simulation for a wired network. This simulation can be run by choosing the <var>EnablingVisualizationWired</var> configuration from the ini file.
 
@@ -55,8 +52,7 @@ The following animation depicts what happens when the simulation is run.
 
 This animation is similar to the video of the wired example (apart from an extra blue dotted line which can be ignored, as it is also part of the standard OMNeT++ packet animation.) Note, however, that the ACK frame does not activate the visualization, because ACK frames do not pass through data link layer.
 
-Filtering Data Link Activity
-----------------------------
+## Filtering Data Link Activity
 
 In complex networks with many nodes and several protocols in use, it is often useful to be able to filter network traffic, and visualize only the part of the traffic we are interested in.
 
@@ -95,8 +91,7 @@ This what it looks like when we run the simulation:
 
 As you can see, visualization allows us to follow the ping packets between <var>source1</var> and <var>destination1</var>. Note, however, that ping traffic between the two other hosts, <var>source2</var> and <var>destination2</var>, also activates the visualization on the link between <var>etherSwitch1</var> and <var>etherSwitch4</var>.
 
-Visualizing Data Link Activity in a Mobile Ad-Hoc Network
----------------------------------------------------------
+## Visualizing Data Link Activity in a Mobile Ad-Hoc Network
 
 The following simulation shows how visualization can help you to follow dynamically changing data link activity in a wireless environment. The simulation can be run by choosing the <var>Dynamic</var> configuration from the ini file.
 
@@ -150,7 +145,6 @@ When the existing route breaks due to two nodes drifting away (out of the commun
 
 We can observe in the video that the route the ping packets take is not always optimal (in terms of hop count). The reason is that nodes use an existing route as long as possible, even when a shorter route becomes available as a result of node movement. AODV is only activated when the existing route breaks.
 
-More Information
-----------------
+## More Information
 
 This example only demonstrated the key features of data link activity visualization. For more information, refer to the <var>DatalinkVisualizer</var> NED documentation.

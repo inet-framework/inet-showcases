@@ -14,8 +14,7 @@ title: Styling and Appearance
   }
 </script>
 
-Goals
------
+## Goals
 
 In INET simulations, multiple visualizers are used often simultaneously and some of them have similar default look.  As a result of this, the simulation can become confusing. INET offers many customization options to make it easier to distinguish visualizers or to highlight them. Several visualizers have similar options to make customization easier.
 
@@ -24,8 +23,7 @@ This showcase consists of four examples which demonstrates how to customize line
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/styling" target="_blank"><var>inet/showcases/visualizer/styling</var></a>
 
-Customizing Lines and Arrows
-----------------------------
+## Customizing Lines and Arrows
 
 In INET simulations, links and and packet paths are visualized as arrows. When many links and paths are visualized in the simulation, it can be difficult to examine the links or paths we are interested in. In this case, arrow customization can be useful.
 
@@ -53,8 +51,7 @@ Line width is represented by a number. The bigger the number, the thicker the li
 If there are multiple lines between the same nodes, the space between the lines can be changed by adjusting the <var>lineShift</var> parameter. The bigger the number, the larger the space between the lines.<br>
 We can adjust the space between the end of the of the arrow and the network node by setting the <var>lineContactSpacing</var> parameter. The bigger the number, the larger the space.
 
-Customizing Fonts
------------------
+## Customizing Fonts
 
 On lines and arrows, there is often a label that displays information about the visualization. By customizing fonts used in labels you can highlight important information about the visualization.
 
@@ -78,8 +75,7 @@ The <var>labelColor</var> parameter can be set to a single color by using the co
 
 At <var>InterfaceTableVisualizer</var> and <var>StatisticVisualizer</var>, the <var>font</var> parameter is used instead of <var>labelFont</var>, and <var>textColor</var> is used instead of <var>labelColor</var>.
 
-Customizing Icons
------------------
+## Customizing Icons
 
 If you want to highlight an icon because it is crucial for your simulation, you can customize its appearance.
 
@@ -103,8 +99,7 @@ The <var>iconColor</var> parameter can be set to a single color or to a list of 
 
 At <var>LinkBreakVisualizer</var> and <var>PacketDropVisualizer</var>, icon color can be set by using the <var>iconTintColor</var> parameter instead of the <var>iconColor</var> parameter. However, note, that <var>iconTintColor</var> can be set only to a single color. These visualizers also have an <var>iconTintAmount</var> parameter. By adjusting <var>iconTintAmount</var>, the colorization amount of the icon can be adjusted between zero and one. If we set the parameter to zero, the icon will not be tinted at all. If the parameter is set to one, the icon will be tinted fully.
 
-Displacing Annotations
-----------------------
+## Displacing Annotations
 
 When many annotations are placed in the same position around the node, the simulation can be confusing. By displacing annotations, you can make the simulation more understandable.
 
@@ -125,7 +120,6 @@ Click image to see the differences between the default and the customized visual
 <!-- TODO: explanation -->
 The annotations can be placed in eight directions around the node: *topCenter, left, right, bottomCenter, topLeft, topRight, bottomLeft, bottomRight*. Using the <var>displacementHint</var> parameter, we can determine where the annotations will be placed. The parameter has an additional option: *any*. If *any* is set, annotations will be placed automatically as close as possible to the node. We can determine the order of annotation positioning by using the <var>displacementPriority</var> parameter. Zero is the largest priority.
 
-More Information
-----------------
+## More Information
 
 For more information refer the visualizers' ned documentations.

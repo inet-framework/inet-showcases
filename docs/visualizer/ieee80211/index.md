@@ -3,8 +3,7 @@ layout: page
 title: Visualizing IEEE 802.11 Network Membership
 ---
 
-Goals
------
+## Goals
 
 When simulating wifi networks that overlap in space, it is difficult to
 see which node is a member of which network. The membership may even
@@ -15,8 +14,7 @@ this showcase.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211" target="_blank"><var>inet/showcases/visualizer/ieee80211</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 In INET, IEEE 802.11 network membership can be visualized by including a
 <var>Ieee80211Visualizer</var> module in the simulation. Adding an
@@ -38,8 +36,7 @@ memberships are visualized. The <var>interfaceFilter</var> parameter
 selects which interfaces are considered in the visualization. By
 default, all interfaces of all nodes are considered.
 
-Basic use
----------
+## Basic use
 
 The first example simulation demonstrates the visualization with the
 default visualizer settings. It can be run by choosing the
@@ -67,8 +64,7 @@ following. Note the icons above the host and the access point.
 
 <img class="screen" src="displayassoc.png">
 
-Multiple networks
------------------
+## Multiple networks
 
 The following example simulation demonstrates the visualization when
 multiple networks are present. The simulation can be run by choosing the
@@ -89,8 +85,7 @@ The wall reduces the strength of the signal from access point bravo. It depends 
 So, A1 has 4 bars, A2 3 bars, B1 2 bars, B2 one bar. Or something like that.
 -->
 
-Visualizing handover
---------------------
+## Visualizing handover
 
 The following example simulation shows how visualization can help you
 follow handovers in the network. The simulation can be run by choosing
@@ -111,14 +106,12 @@ handover.
 <video controls loop autoplay src="handover9.mp4" width="580" height="500" onclick="this.paused ? this.play() : this.pause();">
 </video>
 
-Further information
--------------------
+## Further information
 
 For more information on IEEE 802.11 visualization, see the
 <var>Ieee80211visualizer</var> NED documentation.
 
-Discussion
-----------
+## Discussion
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.

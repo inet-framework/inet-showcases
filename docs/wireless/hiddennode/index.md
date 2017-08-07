@@ -3,8 +3,7 @@ layout: page
 title: Hidden Node Example
 ---
 
-Goals
------
+## Goals
 
 This showcase demonstrates the hidden node problem in 802.11 wireless networks, and the RTS/CTS mechanism that addresses it.
 
@@ -22,8 +21,7 @@ A nearby hidden node cannot receive the RTS, but it receives the CTS, which indi
 
 The showcase contains four simulation models. The first one doesn't use the RTS/CTS mechanism, so effectively the hidden node problem is not addressed here. The second one adds the RTS/CTS mechanism, which addresses the problem, adding some overhead to the transmissions in the process. The third and forth are for reference, showing what would happen if there were no hidden nodes in the first place.
 
-The model
----------
+## The model
 
 The network for all simulations contains three hosts, arranged in a triangle. Host A and C are separated by a wall which completely blocks transmissions, thus the nodes cannot transmit to each other, and cannot sense when the other is transmitting. The wall is enabled or disabled in the various simulations. They both send UDP packets to Host B, which can receive the transmissions of both hosts.
 
@@ -33,8 +31,7 @@ The RTS/CTS mechanism can be enabled or disabled by setting the <var>rtsThreshol
 
 In the first configuration (<var>WallOnRTSoff</var>), the RTS/CTS mechanism is disabled. Host A and C will likely transmit at the same time very often. This will result in collisions at Host B. In the <var>WallOnRTSoff</var> configuration, the RTS/CTS mechanism is enabled. This is expected to reduce the number of collisions, and Host B will receive more packets correctly than in the previous configuration. In the third model the wall is removed, and RTS/CTS is disabled. This model will highlight the effect of the RTS/CTS mechanism and the RTS/CTS overhead. In the <var>WallOffRtsOn</var> configuration, the wall is disabled and RTS/CTS is enabled. Again, this configuration will show the effects of the RTS/CTS mechanism. This way the four models can be compared by the number of packets received at Host B.
 
-Results
--------
+## Results
 
 **RTS/CTS disabled**
 
@@ -76,7 +73,6 @@ With the wall removed, hidden nodes are no longer a problem. When the RTS/CTS me
 The number of received packets at Host B (RTS/CTS off): **1936**
 The number of received packets at Host B (RTS/CTS off): **1987**
 
-Further information
--------------------
+## Further information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.

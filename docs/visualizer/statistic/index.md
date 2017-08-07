@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Statistics
 ---
 
-Goals
------
+## Goals
 
 Usually statistics collected while the simulation is running are
 analyzed only after the simulation has concluded. In contrast, while the
@@ -24,8 +23,7 @@ TODO: what advanced features?
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/statistic" target="_blank"><var>inet/showcases/visualizer/statistic</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>StatisticVisualizer</var> (included in the network as part of
 <var>IntegratedVisualizer</var>) is capable of displaying multiple
@@ -56,8 +54,7 @@ it displays the statistic name, followed by the value and the unit. The
 <var>unit</var> parameter selects what unit to display the value in. By
 default, it is the unit of the statistic.
 
-Displaying round trip time of ping packets
-------------------------------------------
+## Displaying round trip time of ping packets
 
 In the first example simulation, a wireless node will ping another
 wireless node. We will display the round trip time of ping packets above
@@ -91,8 +88,7 @@ statistic is only displayed above <var>source</var>, because
 <var>destination's</var> ping application doesn't send any ping packets,
 thus there is no round trip time statistic to display.
 
-Displaying packet error rate
-----------------------------
+## Displaying packet error rate
 
 In the second example simulation, a wireless node will send UDP packets
 to another wireless node as the distance between them incrases. We will
@@ -137,8 +133,7 @@ When <var>destination</var> turns back and gets into the range again,
 the packet error rate starts to decrease, reaching zero when it gets
 close to <var>source</var>.
 
-Further information
--------------------
+## Further information
 
 For further information, refer to the <var>InfoVisualizer</var> NED
 documentation.

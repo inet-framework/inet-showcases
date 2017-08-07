@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Information with Instrument Figures
 ---
 
-Goals
------
+## Goals
 
 In a complex simulation, there can be many statistics that are important
 to understand what is happening in the network. These are available in
@@ -21,8 +20,7 @@ instrument figures.
 
 TODO: this works with what inet version ?
 
-About the instrument figures
-----------------------------
+## About the instrument figures
 
 There are several types of instrument figures available in INET. Some of
 them are the following:
@@ -133,8 +131,7 @@ Instrument figures have various attributes that can customize their
 position, size, appearence, label text and font, minimum and maximum
 values, and so on.
 
-Using instrument figures
-------------------------
+## Using instrument figures
 
 The configuration for this example demonstrates the use of several
 instrument figures. It uses this network:
@@ -250,8 +247,7 @@ function of distance (due to constant speed).
 TODO: why does the simulation speed up when the client is out of the
 communication range?
 
-Further information
--------------------
+## Further information
 
 For more information, refer to the documentation of the figures.
 

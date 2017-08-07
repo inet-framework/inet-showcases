@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Transport Connections
 ---
 
-Goals
------
+## Goals
 
 In a large network with a complex topology, there might be many
 transport layer applications, and many nodes communicating. In such a
@@ -22,8 +21,7 @@ example simulations.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportconnection" target="_blank"><var>inet/showcases/visualizer/transportconnection</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>TransportConnectionVisualizer</var> (also part of
 <var>IntegratedVisualizer</var>) displays color-coded icons above the
@@ -50,8 +48,7 @@ achieved by setting the <var>sourcePortFilter</var>,
 The icon, colors and other visual properties can be configured by
 setting the visualizer's parameters.
 
-Enabling the visualization of transport connections
----------------------------------------------------
+## Enabling the visualization of transport connections
 
 The first example simulation, configured in the
 <var>EnablingVisualization</var> section of the ini file, demonstrates
@@ -79,8 +76,7 @@ will appear above the hosts. The network will look like the following:
 
 <img class="screen" src="simpleconnection.png">
 
-Multiple transport connections
-------------------------------
+## Multiple transport connections
 
 This example simulation demonstrates the visualization of multiple
 connections, and the filtering of nodes and ports. It can be run by
@@ -130,8 +126,7 @@ the <var>sourceNodeFilter</var> parameter should be set to
 To differentiate connections with the same icon color, capital letters are displayed on the icon.
 -->
 
-Further information
--------------------
+## Further information
 
 For more information, refer to the
 <var>TransportConnectionVisualizer</var> NED documentation.

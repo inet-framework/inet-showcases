@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Transport Path Activity
 ---
 
-Goals
------
+## Goals
 
 In INET simulations, it is often useful to show network traffic between nodes. INET provides several visualizers for this task, operating at various levels of the network stack. In this showcase, we examine <var>TransportRouteVisualizer</var> that can provide graphical feedback about transport layer level traffic.
 
@@ -13,8 +12,7 @@ The showcase consists of simulation models, demonstrating important features of 
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportpathactivity" target="_blank"><var>inet/showcases/visualizer/transportpathactivity</var></a>
 
-About the Visualizer
---------------------
+## About the Visualizer
 
 In INET, transport path activity can be visualized by including a <var>TransportRouteVisualizer</var> module in the simulation. Adding an <var>IntegratedVisualizer</var> is also an option, because it also contains a <var>TransportRouteVisualizer</var>. Transport path activity visualization is disabled by default, it can be enabled by setting the visualizer's <var>displayRoutes</var> parameter to true.
 
@@ -24,8 +22,7 @@ The activity between two nodes is represented visually by a polyline arrow which
 
 By default, all packets and nodes are considered for the visualization. This selection can be narrowed with the visualizer's <var>packetFilter</var> and <var>nodeFilter</var> parameters.
 
-Enabling Visualization of Transport Path Activity
--------------------------------------------------
+## Enabling Visualization of Transport Path Activity
 
 The following example shows how to enable transport path activity visualization with its default settings. In the first example, we configure a simulation for a wired network. This simulation can be run by choosing the <var>EnablingPathVisualizationWired</var> configuration from the ini file.
 
@@ -61,8 +58,7 @@ The following video shows what happens when the simulation is run.
 
 This animation is similar to the video of the wired example (apart from an extra blue dotted line which is also part of the standard OMNeT++ packet animation). Note, however, that the ACK and ARP frames do not activate the visualization, because these frames do not pass through transport layer.
 
-Filtering Transport Path Activity
----------------------------------
+## Filtering Transport Path Activity
 
 In complex networks where many nodes and several protocols are used, it is often useful to be able to filter network traffic, and visualize only the part of the network traffic we are interested in.
 
@@ -101,7 +97,6 @@ The following video has been captured from the simulation, and shows what happen
 
 If you observe the default OMNeT++ packet transmission animation (red stripes), you can see that although there is UDP data traffic between both source-destination pair, but the traffic is visualized only between <var>source1</var> and <var>destination1</var> because of the <var>nodeFilter</var> parameter setting.
 
-More Information
-----------------
+## More Information
 
 This example only demonstrated the key features of transport path visualization. For more information, refer to the <var>TransportRouteVisualizer</var> NED documentation.

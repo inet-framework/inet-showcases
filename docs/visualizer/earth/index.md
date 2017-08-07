@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Terrain and Urban Environment
 ---
 
-Goals
------
+## Goals
 
 It is often desirable for simulations to have a real world context. One way to achieve this is to place network nodes on a real world map. The map doesn't have any effect on the simulation, it only alters the visuals of the network. However, objects can be added to represent buildings, which can affect the simulation.
 
@@ -13,13 +12,11 @@ This showcase is about placing a map in the simulation. It contains three exampl
 INET version: <var>3.6</var>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank"><var>inet/showcases/visualizer/earth</var></a>
 
-About the Visualizer
---------------------
+## About the Visualizer
 
 The map can be displayed by including a <var>SceneOsgEarthVisualizer</var> module in the network. It can display the map on the 3D scene by using osgEarth, thus any part of the world can be inserted (provided there is a source for the map data). The use of the map requires an internet connection, and it is only available in the 3D scene.
 
-Visualization with the Default Settings
----------------------------------------
+## Visualization with the Default Settings
 
 This example configuration demonstrates inserting the map of downtown Boston into the simulation. It can be run by choosing the <var>DefaultSettings</var> configuration from the ini file. It uses the following network:
 
@@ -49,8 +46,7 @@ It looks like the following when the simulation is run:
 
 The map is displayed on the 3D scene. Since there are no nodes or objects in the network, the size of the playground is zero (thus not visible).
 
-Adding Physical Objects
------------------------
+## Adding Physical Objects
 
 The map doesn't affect simulations in any way, just gives a real world context to them. For network nodes to interact with their environment, physical objects have to be added. The example configuration for this section can be run by selecting the <var>PhysicalObjects</var> configuration from the ini file. It extends the previous configuration by adding physical objects to the simulation. The objects are placed in the simulation to align with the building blocks on the map; they are meant to represent those building blocks. The objects could affect radio transmissions if an obstacle loss model was set.
 
@@ -75,8 +71,7 @@ The objects representing building blocks are displayed with transparent red, and
 
 TODO: the playground is also visible -&gt; when it is fixed
 
-Placing Network Nodes on the Map
---------------------------------
+## Placing Network Nodes on the Map
 
 This example configuration demonstrates the placement of network nodes on the map. The simulation can be run by choosing the <var>NetworkNodes</var> configuration from the ini file. The network for this configuration extends the previous network with a radio medium and a network configurator module. It also adds two <var>AdhocHosts</var>:
 
@@ -126,8 +121,7 @@ The playground is visible against the map. The nodes are placed on the playgroun
 
 TODO: This paragraph doesn't seem useful
 
-Furhter Information
--------------------
+## Furhter Information
 
 For further information about the visualizer, refer to the <var>SceneOsgEarthVisualizer</var> NED documentation.
 

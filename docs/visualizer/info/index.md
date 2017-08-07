@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Submodule Information
 ---
 
-Goals
------
+## Goals
 
 Complex models such as protocols are often implemented as compound
 modules sometimes several levels deep. Submodules deep down in the
@@ -24,8 +23,7 @@ access procedure.
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/info" target="_blank"><var>inet/showcases/visualizer/info</var></a>
 
-About the visualizer
---------------------
+## About the visualizer
 
 The <var>InfoVisualizer</var> module (included in the network as part of
 <var>IntegratedVisualizer</var>) can visualize information provided by
@@ -67,8 +65,7 @@ The default format string is <var>"%s"</var>.
 On the example image above, the display string text is visualized,
 selected with the <var>"%d"</var> directive.
 
-The visualization
------------------
+## The visualization
 
 In the example simulation, three wireless nodes will communicate via wifi. We
 will visualize the contention state of their MAC modules. The simulation

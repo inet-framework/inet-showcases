@@ -3,8 +3,7 @@ layout: page
 title: Path Loss Models
 ---
 
-Goals
------
+## Goals
 
 INET features various path loss models for simulating radio propagation, ranging from simple ones like free space path loss to more complex ones like Rician and Rayleigh fading. This showcase demonstrates some of the available path loss models and how to use them in simulations.
 
@@ -12,8 +11,7 @@ The showcase contains an example simulation, which computes received power vs. d
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss" target="_blank"><var>inet/showcases/wireless/pathloss</var></a>
 
-About path loss models
-----------------------
+## About path loss models
 
 Path loss models are used to compute the decrease in the power of a radio signal as it propagates away from the transmitter. The default path loss model in INET is free space path loss, which only computes attenuation due to the inverse square law along a single line-of-sight propagation path. This is a simple model, and realistic in the case of satellite-to-satellite communications. Because of its low computing requirement, it is also useful if the emphasis of the simulation is not on the accuracy of radio propagation (e.g. testing protocols.) However, there are more path loss models available in INET, suitable to many scenarios. Here is a list of the path loss models featured in the example simulation, along with brief descriptions:
 
@@ -29,8 +27,7 @@ The various path loss models each have sets of parameters to fine-tune their beh
 
 About the setup...two nodes communicating with increasing distance, received power vs. distance, using various path loss models
 
-The model
----------
+## The model
 
 <pre>
 - The network and what it contains
@@ -60,7 +57,6 @@ The ground model contains the elevation of the ground. It is used by the two-ray
 
 We will leave the ground's elevation parameter at default, which is 0. The z co-ordinate of both hosts is set to 2 meters, thus both antenna heights are 2 meters above the ground. (The hosts have isotropic antennas, which lack directionality.)
 
-
 The simulation is a parameter study, where <var>source</var> is configured to send a UDP packet to <var>destination</var>. The x co-ordinate of <var>source's</var> position is 0, thus the x co-ordinate of <var>destination's</var> position equals the distance between the two nodes. This distance is a parameter, which changes from 0 to 1000 meters. The distance changes with smaller steps near 0, where the change in power will be more rapid.
 
 Here are the keys from the configuration relevant for positioning the hosts:
@@ -82,8 +78,7 @@ The other variable in the parameter study is the path loss type, which takes on 
 
 The source host will transmit with the default power of 20mW. We will record the power of the received transmission (<var>receptionPower</var> signal in the transmitter module.)
 
-Results
--------
+## Results
 
 The power of the received signal vs. distance, using <var>FreeSpacePathLoss</var>, <var>TwoRayGroundReflection</var> and <var>TwoRayInterference</var> path loss models, is displayed on the following plot:
 
@@ -112,5 +107,4 @@ Here is the same plot zoomed in on the near-field:
     This showcase demonstrates some of the available path loss models and their usage.
 
 ## Further information
-
 

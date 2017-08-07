@@ -3,15 +3,13 @@ layout: page
 title: IEEE 802.11 Handover
 ---
 
-Goals
------
+## Goals
 
 This example simulation demonstrates handover between two access points (APs) in an 802.11 wireless LAN using infrastructure mode. The goal is to show how the handover takes place between the two APs, including beacons, active scanning, the authentication and association processes.
 
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/handover" target="_blank"><var>inet/showcases/wireless/handover</var></a>
 
-The Model
----------
+## The Model
 
 In 802.11 infrastructure mode, wireless hosts need to be associated with an access point before data exchange can occur. The hosts can find an access point in two ways. One is active scanning, where hosts transmit Probe Request frames, and the APs reply to them with Probe Response frames. The other is passive scanning, where hosts locate APs by receiving their broadcast Beacon frames. APs emit Beacon frames periodically, announcing their presence (unless configured to be hidden). In this simulation, the host uses active scanning.
 
@@ -23,8 +21,7 @@ The example simulation will use the following network:
 
 The network contains two APs placed 400 meters apart, and a wireless host. The two access points are set to use channels 2 and 3. The host is configured to actively scan channels 0 through 4. During simulation, the host will move out of range of one access point and into the range of the other. In this model, when scanning for APs, the host will always choose the one with the strongest signal. In this simulation, there are no applications configured in the host to send or receive data, so we will not be able to observe data exchange. The host will just be associated to the APs, and keep receiving beacon frames.
 
-Results
--------
+## Results
 
 The following animation shows what happens when the simulation is run:
 
@@ -62,13 +59,11 @@ The <var>mgmt</var> modules of access points maintain a list of hosts that are a
 
 <img class="screen" src="stalist2.png">
 
-Further Information
--------------------
+## Further Information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
 
-Discussion
-----------
+## Discussion
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/8" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.

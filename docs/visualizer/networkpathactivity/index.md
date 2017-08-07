@@ -3,8 +3,7 @@ layout: page
 title: Visualizing Network Path Activity
 ---
 
-Goals
------
+## Goals
 
 In INET simulations, it is often useful to be able to visualize traffic between network nodes. INET offers several visualizers for this task, operating at various levels of the network stack. In this showcase, we examine <var>NetworkRouteVisualizer</var> that can provide graphical feedback about network layer level traffic.
 
@@ -13,8 +12,7 @@ The showcase consists of four simulation models, each demonstrating different fe
 INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity" target="_blank"><var>inet/showcases/visualizer/networkpathactivity</var></a>
 
-About the Visualizer
---------------------
+## About the Visualizer
 
 In INET, network path activity can be visualized by including a <var>NetworkRouteVisualizer</var> module in the simulation. Adding an <var>IntegratedVisualizer</var> module is also an option, because it also contains a <var>NetworkRouteVisualizer</var> module. Network path activity visualization is disabled by default, it can be enabled by setting the visualizer's <var>displayRoutes</var> parameter to true.
 
@@ -24,8 +22,7 @@ The activity between two nodes is represented visually by a polyline arrow which
 
 By default, all packets and nodes are considered for the visualization. This selection can be narrowed with the visualizer's <var>packetFilter</var> and <var>nodeFilter</var> parameters.
 
-Enabling Visualization of Network Path Activity
------------------------------------------------
+## Enabling Visualization of Network Path Activity
 
 The following example shows how to enable the network path activity visualization with its default settings. For the first example, we configured a wired network. The simulation can be run by choosing the <var>EnablingVisualization</var> configuration from the ini file.
 
@@ -48,8 +45,7 @@ At the beginning of the video, a red strip appears and moves from <var>source</v
 
 Note, however, that ARP traffic does not activate the visualization, because ARP packets do not pass through the network layer.
 
-Filtering Network Path Activity
--------------------------------
+## Filtering Network Path Activity
 
 In complex networks where many nodes are placed and several protocols are used, it is often useful to be able to filter network traffic to visualize only the part of the network traffic we are interested in.
 
@@ -76,8 +72,7 @@ The following video shows what happens, when the simulation is run.
 
 Each arrow has a different color indicating different paths. You can see that although there is both video stream and ping traffic in the network, <var>NetworkRouteVisualizer</var> displays only the latter, due to the presence of the <var>packetFilter</var> parameter.
 
-Visualizing Network Path Activity in a Mobile Ad-Hoc Network
-------------------------------------------------------------
+## Visualizing Network Path Activity in a Mobile Ad-Hoc Network
 
 The following example shows how visualization can help you to follow dynamically changing network path activity in a wireless environment. A simulation is created for this example, that can be run by choosing the <var>Mobile</var> configuration from the ini file.
 
@@ -110,8 +105,7 @@ When the existing route breaks due to two nodes drifting away (going out of the 
 
 You can observe in the video that the route the ping packets take is not always optimal (in terms of hop count). The reason is that nodes use an existing route as long as possible, even when a shorter route becomes available as a result of node movement. AODV is only activated when the existing route breaks.
 
-Displaying Network Path Activity in a Complex Network
------------------------------------------------------
+## Displaying Network Path Activity in a Complex Network
 
 This configuration demonstrates how the visualizer reacts to the routing changes in a complex network. A simulation is created for this example. The simulation can be run by choosing the <var>ChangingPaths</var> configuration from the ini file.
 
@@ -140,7 +134,6 @@ In the beginning of the video, ping traffic goes towards <var>router1</var>. Aft
 
 <!-- TODO: Ebben a videoban megfigyelhettuk, hogy a network path activity visualizer hogy kovette a route valtozasokat -->
 
-More Information
-----------------
+## More Information
 
 This example only demonstrated the key features of network path visualization. For more information, refer to the <var>NetworkRouteVisualizer</var> NED documentation.

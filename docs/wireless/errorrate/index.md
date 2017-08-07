@@ -3,8 +3,7 @@ layout: page
 title: Packet Loss vs. Distance Using Various WiFi Bitrates
 ---
 
-Goals
------
+## Goals
 
 In this showcase we perform a parameter study examining how packet error rate changes as a function of distance in a 802.11g wireless network.
 
@@ -38,8 +37,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
     Which is based on [miller2003], done at NIST (Nation Institude of Standards and Technology)
     -->
 
-The Model
----------
+## The Model
 
 The network contains two hosts operating in 802.11g ad-hoc mode at 10 mW transmission power. One of the hosts acts as traffic source, the other as traffic sink. We will perform a parameter study with the distance and the bitrate as parameters. The distance will run between 10 and 550 meters, in 2 meter steps. The bitrate will take the ERP modes in 802.11g: 6, 9, 12, 18, 24, 36, 48 and 54 Mbps. This results in about 2100 simulation runs.
 
@@ -56,8 +54,7 @@ In each simulation run, the source host will send a single UDP packet (56 bytes 
 
 We lower the <var>snirThreshold</var> parameter of the hosts' radios from 4 to 0 dB. When the transmission's SNIR is below this value, the reception is assumed to be incorrect, and the reception is not simulated. Lowering the level results in more fine-grained data at low SNIR levels.
 
-Results
--------
+## Results
 
 SNIR, BER and PER are recorded from the simulation runs. SNIR is measured at the receiver, and depends on the power of the noise and the power of the signal. The signal power decreases with distance, so SNIR does as well. SNIR is independent of modulations and coding schemes, so it is the same for all bitrates. This can be seen on the following plot, which displays SNIR against distance.
 
@@ -96,13 +93,11 @@ Effective bitrate vs distance is shown on the next plot. Higher bitrates are mor
 
 Packet error rate increases quickly as the distance approaches the critical point. Slower bitrates are less sensitive to increasing distance, because they use simpler modulation. Faster bitrate modes are advantageous in short distances because of the increased throughput, but slower modes work better at longer distances. Furthermore, using rate adaptation, a host can use fast modes for short distances and slower modes for larger ones. When the number of lost packets increases and throughput drops, it becomes more viable to change to a slower bitrate mode. For example, the rate control algorithm could change to the slower bitrate at around the critical point, about where the curves for two adjacent bitrate modes intersect.
 
-Further Information
--------------------
+## Further Information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
 
-Discussion
-----------
+## Discussion
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/7" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.

@@ -42,7 +42,6 @@ Packets are dropped for the following reasons:
 <!--li>incorrect checksum</li-->
 <!--li>frame not addressed to receiver</li-->
 
-
 <!--
 TODO:
 The color of the icon indicates the reason for the packet drop
@@ -169,7 +168,6 @@ Note the packet drop animation at <var>host1</var>. The packet drops are also ev
 For more information, refer to the <var>PacketDropVisualizer</var> NED documentation.
 
 ## Discussion
-
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/1" target="_blank">this page</a> 
 in the GitHub issue tracker for commenting on this showcase.
