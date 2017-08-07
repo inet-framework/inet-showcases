@@ -1,73 +1,44 @@
 - name: Visualization Showcases
-  link: /inet-showcases/visualizer
+  link: visualizer
   submenu:
-     - name: Visualizing Packet Drops
-       link: /inet-showcases/visualizer/packetdrop
-#     - name: Visualizing Transport Path Activity
-#       link: /inet-showcases/visualizer/transportpathactivity
-#     - name: Visualizing Network Path Activity
-#       link: /inet-showcases/visualizer/networkpathactivity
-#     - name: Visualizing Data Link Activity
-#       link: /inet-showcases/visualizer/datalinkactivity
-#     - name: Visualizing Physical Link Activity
-#       link: /inet-showcases/visualizer/physicallinkactivity
-#     - name: Visualizing Physical Medium Activity
-#       link: /inet-showcases/visualizer/physicalmediumactivity
-#     - name: Visualizing Obstacle Loss
-#       link: /inet-showcases/visualizer/obstacleloss
-     - name: Visualizing Routing Tables
-       link: /inet-showcases/visualizer/routingtable
-     - name: Displaying IP Addresses and Other Interface Information
-       link: /inet-showcases/visualizer/interfacetable
-     - name: Visualizing IEEE 802.11 Network Membership
-       link: /inet-showcases/visualizer/ieee80211
-#     - name: Visualizing Transport Connections
-#       link: /inet-showcases/visualizer/transportconnection
+     - page: visualizer/packetdrop/index.md
+#     - page: visualizer/transportpathactivity/index.md
+#     - page: visualizer/networkpathactivity/index.md
+#     - page: visualizer/datalinkactivity/index.md
+#     - page: visualizer/physicallinkactivity/index.md
+#     - page: visualizer/physicalmediumactivity/index.md
+#     - page: visualizer/obstacleloss/index.md
+     - page: visualizer/routingtable/index.md
+     - page: visualizer/interfacetable/index.md
+     - page: visualizer/ieee80211/index.md
+#     - page: visualizer/transportconnection/index.md
      - separator: true
-     - name: Visualizing the Physical Environment
-       link: /inet-showcases/visualizer/environment
-#     - name: Visualizing Network Nodes
-#       link: /inet-showcases/visualizer/networknode
-#     - name: Visualizing Mobility
-#       link: /inet-showcases/visualizer/mobility
-#     - name: Visualizing Terrain and Urban Environment
-#       link: /inet-showcases/visualizer/earth
+     - page: visualizer/environment/index.md
+#     - page: visualizer/networknode/index.md
+#     - page: visualizer/mobility/index.md
+#     - page: visualizer/earth/index.md
 #     - separator: true
-#     - name: Instrument Figures
-#       link: /inet-showcases/visualizer/instrument
-#     - name: Visualizing Statistics
-#       link: /inet-showcases/visualizer/statistic
-#     - name: Visualizing Submodule Information
-#       link: /inet-showcases/visualizer/info
-#     - name: Using Multiple Visualizer Modules
-#       link: /inet-showcases/visualizer/advanced
+#     - page: visualizer/instrument/index.md
+#     - page: visualizer/statistic/index.md
+#     - page: visualizer/info/index.md
+#     - page: visualizer/advanced/index.md
 #     - separator: true
-#     - name: Styling and Appearance
-#       link: /inet-showcases/visualizer/styling
-#     - name: Filtering for Packets, Interfaces, and Nodes
-#       link: /inet-showcases/visualizer/filtering
+#     - page: visualizer/styling/index.md
+#     - page: visualizer/filtering/index.md
 - name: Wireless Showcases
-  link: /inet-showcases/wireless
+  link: wireless
   submenu:
-#     - name: Level of Detail
-#       link: /inet-showcases/wireless/levelofdetail
-#     - name: Scaling
-#       link: /inet-showcases/wireless/scaling
-#     - name: Path Loss Models
-#       link: /inet-showcases/wireless/pathloss
+#     - page: wireless/levelofdetail/index.md
+#     - page: wireless/scaling/index.md
+#     - page: wireless/pathloss/index.md
 #     - separator: true
-     - name: IEEE 802.11 Throughput
-       link: /inet-showcases/wireless/throughput
-     - name: Packet Loss vs. Distance Using Various WiFi Bitrates
-       link: /inet-showcases/wireless/errorrate
-#     - name: Hidden Node
-#       link: /inet-showcases/wireless/hiddennode
-     - name: IEEE 802.11 Handover
-       link: /inet-showcases/wireless/handover
-     - name: IEEE 802.11 Rate Control
-       link: /inet-showcases/wireless/ratecontrol
-#     - name: Power Consumption
-#       link: /inet-showcases/wireless/power
+     - page: wireless/throughput/index.md
+     - page: wireless/errorrate/index.md
+#     - page: wireless/hiddennode/index.md
+     - page: wireless/handover/index.md
+     - page: wireless/ratecontrol/index.md
+
+#     - page: wireless/power
 - name: Repository
   link: https://github.com/inet-framework/inet-showcases
 - name: Back to INET
