@@ -3,6 +3,8 @@ layout: page
 title: Visualizing Physical Link Activity
 ---
 
+<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
+
 ## Goals
 
 In INET simulations, it is often advantageous to be able to show traffic between
@@ -97,7 +99,7 @@ The communication ranges of the nodes (blue circles in the picture) are reduced
 so that <var>source</var> and <var>destination</var> can not receive frames
 correctly from each other.
 
-<img src="Filtering_sh_all_comm_ranges.png" class="screen" width="900" />
+<img src="Filtering_sh_all_comm_ranges.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
 For this network, the type of <var>visualizer</var> module is
 <var>IntegratedVisualizer</var>. Physical link activity visualization is filtered to display

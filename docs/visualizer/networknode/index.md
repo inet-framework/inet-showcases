@@ -3,6 +3,8 @@ layout: page
 title: Visualizing Network Nodes
 ---
 
+<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
+
 ## Goals
 
 In network simulations, it is essential to visualize the participants of
@@ -80,7 +82,7 @@ and <var>pedestrian</var>.
 On the 3D osg scene, you can see the same cellphone icons as on the 2D canvas.
 The cellphone icons are automatically rotating towards the camera.
 
-<img src="WithoutCustomize3D.png" class="screen" width="900" />
+<img src="WithoutCustomize3D_transparent_bg.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
 In our next experiment, we replace the nodes' icon with external 3D models by
 using the following configuration.

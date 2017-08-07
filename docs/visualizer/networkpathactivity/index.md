@@ -3,6 +3,8 @@ layout: page
 title: Visualizing Network Path Activity
 ---
 
+<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
+
 ## Goals
 
 In INET simulations, it is often useful to be able to visualize traffic between
@@ -94,7 +96,7 @@ file.
 
 We use the following network for this showcase:
 
-<img src="NetworkPathComplex_v0703.png" class="screen" width="800" />
+<img src="NetworkPathComplex_v0703.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
 The network consists of five <var>routers</var> (<var>router0..router4</var>),
 four <var>etherSwitches</var> (<var>etherSwitch0..etherSwitch3</var>) and
@@ -205,7 +207,7 @@ wireless hosts are connected to the routers via access points (
 
 The following image displays the network for this example.
 
-<img src="NetworkPathChanging.png" class="screen" width="100%" />
+<img src="NetworkPathChanging.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
 We assign IP addresses manually by creating a configuration file (
 <var>configuration.xml</var>). A lifecycle is also created (
