@@ -39,8 +39,6 @@
      - page: wireless/ratecontrol/index.md
 
 #     - page: wireless/power
-- name: Repository
-  link: https://github.com/inet-framework/inet-showcases
 - name: Back to INET
   link: https://inet.omnetpp.org/
 
