@@ -1,5 +1,5 @@
 - name: Visualization Showcases
-  link: visualizer
+  link: /inet-showcases/visualizer
   submenu:
      - page: visualizer/packetdrop/index.md
 #     - page: visualizer/transportpathactivity/index.md
@@ -26,7 +26,7 @@
 #     - page: visualizer/styling/index.md
 #     - page: visualizer/filtering/index.md
 - name: Wireless Showcases
-  link: wireless
+  link: /inet-showcases/wireless
   submenu:
 #     - page: wireless/levelofdetail/index.md
 #     - page: wireless/scaling/index.md

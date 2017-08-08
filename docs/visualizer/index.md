@@ -3,12 +3,14 @@ layout: page
 title: INET Visualization Showcases
 ---
 
-Visualizer modules are responsible for displaying visuals in the graphical runtime environment.
-These visualizations provide information about several aspects of the simulation, in a concise way.
+The INET Framework is able to visualize a wide range of events and conditions
+in the network: packet drops, data link connectivity, wireless signal path loss, 
+transport connections, routing table routes, and many more. 
+Visualization is implemented as a collection of configurable INET modules that
+can be added to simulations at will.
 
-The following showcases demonstrate the visualization of various aspects of network simulation.
-They work with INET 3.6 or later. The source files are located in the
-<var>/inet/showcases/visualization</var> directory.
+These showcases demonstrate several such visualization possibilities 
+via practical examples.
 
 Communication:
 <ul>

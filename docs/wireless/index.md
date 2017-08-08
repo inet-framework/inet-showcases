@@ -1,11 +1,10 @@
 ---
 layout: page
-title:
+title: INET Wireless Showcases
 ---
 
-<h1>INET Wireless Showcases</h1>
-
-<p>These showcases demonstrate how to simulate wireless communication.</p>
+These showcases demonstrate various aspects of performing wireless network 
+simulations with INET.
 
 <!--
 General Wireless
