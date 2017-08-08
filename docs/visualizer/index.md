@@ -12,31 +12,33 @@ They work with INET 3.6 or later. The source files are located in the
 
 Communication:
 <ul>
-<li><a href="packetdrop">Packet Drops</a></li>
+  {%include link.i page='visualizer/packetdrop/index.md' %}
 <!--
-<li><a href="transportpathactivity">Transport Path Activity</a></li>
-<li><a href="networkpathactivity">Network Path Activity</a></li>
-<li><a href="datalinkactivity">Data Link Activity</a></li>
-<li><a href="physicallinkactivity">Physical Link Activity</a></li>
-<li><a href="physicalmediumactivity">Physical Medium Activity</a></li>
-<li><a href="linkbreak">Link Break</a></li>
-<li><a href="obstacleloss">Obstacle Loss</a></li>
+  {%include link.i page='visualizer/transportpathactivity/index.md' %}
+  {%include link.i page='visualizer/networkpathactivity/index.md' %}
+  {%include link.i page='visualizer/datalinkactivity/index.md' %}
+  {%include link.i page='visualizer/physicallinkactivity/index.md' %}
+  {%include link.i page='visualizer/physicalmediumactivity/index.md' %}
+  {%include link.i page='visualizer/linkbreak/index.md' %}
+  {%include link.i page='visualizer/obstacleloss/index.md' %}
 -->
-<li><a href="routingtable">Routing Tables</a></li>
-<li><a href="interfacetable">Displaying IP Addresses and Other Interface Information</a></li>
-<li><a href="ieee80211">IEEE 802.11 Network Membership</a></li>
-<!--<li><a href="transportconnection">Transport Connections</a></li>-->
+  {%include link.i page='visualizer/routingtable/index.md' %}
+  {%include link.i page='visualizer/interfacetable/index.md' %}
+  {%include link.i page='visualizer/ieee80211/index.md' %}
+<!--
+  {%include link.i page='visualizer/transportconnection/index.md' %}
+-->
 </ul>
 
 Infrastructure:
 
 <ul>
-<li><a href="environment">Physical Environment</a></li>
+  {%include link.i page='visualizer/environment/index.md' %}
 <!--
-<li><a href="networknode">Network Node</a></li>
-<li><a href="linkbreak">Network Connection</a></li>
-<li><a href="mobility">Mobility</a></li>
-<li><a href="earth">Terrain and Urban Environment</a></li>
+  {%include link.i page='visualizer/networknode/index.md' %}
+  {%include link.i page='visualizer/linkbreak/index.md' %}
+  {%include link.i page='visualizer/mobility/index.md' %}
+  {%include link.i page='visualizer/earth/index.md' %}
 -->
 </ul>
 
@@ -44,16 +46,17 @@ Infrastructure:
 Generic:
 
 <ul>
-<li><a href="instrument">Instrument figures</a></li>
-<li><a href="statistic">Statistics</a></li>
-<li><a href="info">Submodule Information</a></li>
-<li><a href="advanced">Using multiple visualizer modules</a></li>
+  {%include link.i page='visualizer/instrument/index.md' %}
+  {%include link.i page='visualizer/statistic/index.md' %}
+  {%include link.i page='visualizer/info/index.md' %}
+  {%include link.i page='visualizer/advanced/index.md' %}
 </ul>
 
 The following list gives an overview of the generic features which are common to many visualizers:
 
 <ul>
-<li><a href="styling">Styling and Appearance</a></li>
-<li><a href="filtering">Filtering for Packets, Interfaces, and Nodes</a></li>
+  {%include link.i page='visualizer/styling/index.md' %}
+  {%include link.i page='visualizer/filtering/index.md' %}
 </ul>
 -->
+
