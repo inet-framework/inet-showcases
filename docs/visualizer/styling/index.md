@@ -189,3 +189,11 @@ node. We can determine the order of annotation positioning by using the
 ## More Information
 
 For more information, refer the visualizers' NED documentations.
+
+<!--
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+target="_blank">this page</a> in the GitHub issue tracker for commenting on
+this showcase.
+-->

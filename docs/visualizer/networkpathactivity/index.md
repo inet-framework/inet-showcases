@@ -250,3 +250,11 @@ turns on, but it does not have an effect on the network traffic.
 This example only demonstrated the key features of network path visualization.
 For more information, refer to the `NetworkRouteVisualizer` NED
 documentation.
+
+<!--
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+target="_blank">this page</a> in the GitHub issue tracker for commenting on
+this showcase.
+-->

@@ -262,3 +262,11 @@ movement. AODV is only activated when the existing route breaks.
 This example only demonstrated the key features of data link activity
 visualization. For more information, refer to the `DatalinkVisualizer`
 NED documentation.
+
+<!--
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+target="_blank">this page</a> in the GitHub issue tracker for commenting on
+this showcase.
+-->

@@ -175,3 +175,11 @@ other's communication range, there will be physical link activity between them.
 This example only demonstrated the key features of physical link visualization.
 For more information, refer to the `PhysicalLinkVisualizer` NED
 documentation.
+
+<!--
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+target="_blank">this page</a> in the GitHub issue tracker for commenting on
+this showcase.
+-->
