@@ -7,6 +7,7 @@
      - page: visualizer/datalinkactivity/index.md
      - page: visualizer/physicallinkactivity/index.md
      - page: visualizer/physicalmediumactivity/index.md
+     - page: visualizer/linkbreak/index.md
      - page: visualizer/obstacleloss/index.md
      - page: visualizer/routingtable/index.md
      - page: visualizer/interfacetable/index.md
@@ -30,6 +31,7 @@
   submenu:
      - page: wireless/levelofdetail/index.md
      - page: wireless/scaling/index.md
+     - page: wireless/power/index.md
      - page: wireless/pathloss/index.md
      - separator: true
      - page: wireless/throughput/index.md
@@ -37,7 +39,6 @@
      - page: wireless/hiddennode/index.md
      - page: wireless/handover/index.md
      - page: wireless/ratecontrol/index.md
-     - page: wireless/power
 - name: Back to INET
   link: https://inet.omnetpp.org/
 

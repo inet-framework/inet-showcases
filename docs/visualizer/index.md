@@ -35,7 +35,6 @@ Infrastructure:
 <ul>
   {%include link.i page='visualizer/environment/index.md' %}
   {%include link.i page='visualizer/networknode/index.md' %}
-  {%include link.i page='visualizer/linkbreak/index.md' %}
   {%include link.i page='visualizer/mobility/index.md' %}
   {%include link.i page='visualizer/earth/index.md' %}
 </ul>

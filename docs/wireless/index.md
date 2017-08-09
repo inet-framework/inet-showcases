@@ -11,6 +11,7 @@ General Wireless:
 <ul>
   {%include link.i page='wireless/levelofdetail/index.md' %}
   {%include link.i page='wireless/scaling/index.md' %}
+  {%include link.i page='wireless/power/index.md' %}
   {%include link.i page='wireless/pathloss/index.md' %}
 </ul>
 
