@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Transport Path Activity
+hidden: true
 ---
 
 ## Goals

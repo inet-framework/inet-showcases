@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Path Loss Models
+hidden: true
 ---
 
 ## Goals

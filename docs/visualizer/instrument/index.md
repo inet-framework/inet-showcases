@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Information with Instrument Figures
+hidden: true
 ---
 
 ## Goals

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Filtering for Packets, Interfaces, and Nodes
+hidden: true
 ---
 
 ## Goals

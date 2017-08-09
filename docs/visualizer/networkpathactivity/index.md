@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Network Path Activity
+hidden: true
 ---
 
 ## Goals

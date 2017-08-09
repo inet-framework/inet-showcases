@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Obstacle Loss
+hidden: true
 ---
 
 ## Goals

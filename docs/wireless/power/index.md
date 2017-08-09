@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Power Consumption
+hidden: true
 ---
 
 ## Goals

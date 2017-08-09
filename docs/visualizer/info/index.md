@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Submodule Information
+hidden: true
 ---
 
 ## Goals

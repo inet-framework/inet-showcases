@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Mobility
+hidden: true
 ---
 
 ## Goals

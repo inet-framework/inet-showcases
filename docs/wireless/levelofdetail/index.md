@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Level of Detail Example
+hidden: true
 ---
 
 ## Goals

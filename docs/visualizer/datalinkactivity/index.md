@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Data Link Activity
+hidden: true
 ---
 
 <script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>

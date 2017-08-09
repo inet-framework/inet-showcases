@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Scaling Example
+hidden: true
 ---
 
 ## Goals

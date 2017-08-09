@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Network Nodes
+hidden: true
 ---
 
 ## Goals

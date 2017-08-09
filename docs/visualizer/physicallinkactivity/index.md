@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Physical Link Activity
+hidden: true
 ---
 
 ## Goals

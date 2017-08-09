@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Transport Connections
+hidden: true
 ---
 
 ## Goals

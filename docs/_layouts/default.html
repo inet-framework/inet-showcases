@@ -68,9 +68,14 @@
                         <li role="presentation" class="divider"></li>
                       {% elsif submenuitem.page %}
                         {% assign pg = site.pages | where: 'path', submenuitem.page | first %}
-                        {% if pg == nil %}<li>BOGUS MENU ITEM: No such page: {{submenuitem.page}}</li>{% endif %}
-                        {% capture pagetitle %}{% if submenuitem.name %}{{ submenuitem.name }}{% else %}{{ pg.title }}{% endif %}{% endcapture %}
-                        <li><a href="{{site.baseurl}}/{{ pg.url }}">{{ pagetitle }}</a></li>
+                        {% if pg == nil %}
+                          <li><strong>BOGUS MENU ITEM: No such page: {{submenuitem.page}}</strong></li>
+                        {% elsif pg.hidden and site.showallpages != true %}
+                          <!-- nothing -->
+                        {% else %}
+                          {% capture pagetitle %}{% if submenuitem.name %}{{ submenuitem.name }}{% else %}{{ pg.title }}{% endif %}{% endcapture %}
+                          <li><a href="{{site.baseurl}}/{{ pg.url }}">{{ pagetitle }}</a>{% if pg.hidden %} (hidden){% endif %}</li>
+                        {% endif %}
                       {% elsif submenuitem.link %}
                         <li><a href="{{ submenuitem.link }}">{{ submenuitem.name }}</a></li>
                       {% else %}

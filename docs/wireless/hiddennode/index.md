@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Hidden Node Example
+hidden: true
 ---
 
 ## Goals

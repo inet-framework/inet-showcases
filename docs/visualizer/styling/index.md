@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Styling and Appearance
+hidden: true
 ---
 
 <script type="text/javascript">

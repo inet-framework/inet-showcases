@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Statistics
+hidden: true
 ---
 
 ## Goals

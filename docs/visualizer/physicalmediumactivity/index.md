@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Physical Medium Activity
+hidden: true
 ---
 
 ## Goals

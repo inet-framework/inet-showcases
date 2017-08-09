@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Visualizing Terrain and Urban Environment
+hidden: true
 ---
 
 ## Goals
