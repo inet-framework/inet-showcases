@@ -48,15 +48,15 @@ loss. When too many packets are lost (ie. the ACK for them doesn't arrive) the
 transmission rate is lowered. When a number of packets are sent without loss, the
 rate is increased.
 
-INET has different rate control models, such as <var>ARFRateControl</var>,
-<var>AARFRateControl</var> and <var>OnoeRateControl</var>.
+INET has different rate control models, such as `ARFRateControl`,
+`AARFRateControl` and `OnoeRateControl`.
 
 ### The network
 
-Two <var>StandardHosts</var> (<var>sourceHost</var> and
-<var>sinkHost</var>) are placed on the edge of the playground. During the simulation,
+Two `StandardHosts` (`sourceHost` and
+`sinkHost`) are placed on the edge of the playground. During the simulation,
 they will move along the edge of the playground with different speeds, while
-<var>sourceHost</var> will send UDP packets to <var>sinkHost</var>. There is
+`sourceHost` will send UDP packets to `sinkHost`. There is
 a forest in the middle of the playground, acting as an obstacle. The line of
 transmission will intersect the obstacle at certain times, which will degrade
 transmissions.
@@ -65,13 +65,13 @@ transmissions.
 
 ### Configuration
 
-Hosts are configured to operate in ad-hoc mode. <var>sourceHost</var> is
+Hosts are configured to operate in ad-hoc mode. `sourceHost` is
 configured to saturate the channel with UDP traffic when using the fastest mode,
 54 Mbps. This way the maximum application level throughput can be measured at
 every bit rate.
 
 There are two configurations. In one of them, hosts use no rate control
-mechanism, and in the other they use <var>Adaptive Auto Rate Fallback</var>
+mechanism, and in the other they use `Adaptive Auto Rate Fallback`
 (AARF). Results for the two simulation runs can be compared to show how the use
 of rate control affects application level throughput.
 
@@ -79,10 +79,10 @@ of rate control affects application level throughput.
 
 Below are two animations showing the hosts going around the obstacle. In the first
 video, the hosts don't use rate control, and always transmit with 54 Mbps. In the
-second video, hosts use <var>AARFRateControl</var>. The transmissions
+second video, hosts use `AARFRateControl`. The transmissions
 intersect the obstacle during the simulation. The path the transmission takes
 through the obstacle varies in length as the hosts are moving. When using rate
-control, <var>sinkHost</var> manages to receive more transmission
+control, `sinkHost` manages to receive more transmission
 succcessfully when transmissions go through the forest.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="noratecontrol3.mp4" width="850" height="380"></video>
@@ -111,7 +111,7 @@ compared on the following plots.
 
 <img src="throughput2.png" class="screen" width="850" /> <img src="bitrate2.png" class="screen" width="850" />
 
-The received packet count at <var>sinkHost</var> is 18366 for 'No rate control',
+The received packet count at `sinkHost` is 18366 for 'No rate control',
 and 35966 for 'AARFRateControl'.
 
 ### Conclusion

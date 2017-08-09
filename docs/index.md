@@ -13,7 +13,7 @@ INET users doing related simulations.
 You can browse the showcase pages on this web site. The source code of 
 the simulations (NED, ini and other files) and the web live in the 
 [inet-framework/inet-showcases](https://github.com/inet-framework/inet-showcases) 
-GitHub repository, which also appears as the <var>showcases/</var> subdirectory
+GitHub repository, which also appears as the `showcases/` subdirectory
 of the INET Framework repository.
 
 The following groups of showcases are available:

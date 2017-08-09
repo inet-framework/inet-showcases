@@ -19,13 +19,13 @@ present at various nodes.
 This showcase contains three configurations of increasing complexity,
 each showing different features of the visualization.
 
-INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicalmediumactivity" target="_blank"><var>inet/showcases/visualizer/physicalmediumactivity</var></a>
+INET version: `3.6`<br>
 
 ## About the visualizer
 
-The <var>MediumVisualizer</var> module (included in the network as part
-of <var>IntegratedVisualizer</var>) can visualize various aspects of
+The `MediumVisualizer` module (included in the network as part
+of `IntegratedVisualizer`) can visualize various aspects of
 radio communications. It has three main features:
 
 -   **Visualization of propagating signals**
@@ -34,8 +34,8 @@ radio communications. It has three main features:
 
 By default, all packets, interfaces and nodes are considered for the
 visualization. This selection can be narrowed with the visualizer's
-<var>packetFilter</var>, <var>interfaceFilter</var>, and
-<var>nodeFilter</var> parameters.
+`packetFilter`, `interfaceFilter`, and
+`nodeFilter` parameters.
 
 ## Displaying signal propagation, transmissions and receptions
 
@@ -44,8 +44,8 @@ default settings. It uses the following network:
 
 <img class="screen" src="simplenetwork.png">
 
-It contains two <var>WirelessHosts</var>. The <var>host1</var> is
-configured to send UDP packets to <var>host2</var>. Displaying of
+It contains two `WirelessHosts`. The `host1` is
+configured to send UDP packets to `host2`. Displaying of
 transmissions and receptions, propagating signals, communication and
 interference ranges are enabled with these visualizer settings:
 
@@ -72,9 +72,9 @@ This animation illustrates the visualization of propagating signals:
 
 <p><video autoplay loop controls src="propagation9.mp4" onclick="this.paused ? this.play() : this.pause();" width="852" height="591"></video></p>
 
-The <var>host1</var> sends an ARP request packet to <var>host2</var>,
-which sends an ARP reply. The <var>host1</var> ACKs it, then sends the
-first UDP packet. This is followed by <var>host2's</var> ACK. The blue
+The `host1` sends an ARP request packet to `host2`,
+which sends an ARP reply. The `host1` ACKs it, then sends the
+first UDP packet. This is followed by `host2's` ACK. The blue
 transmission indicator icons are displayed above nodes when they are
 transmitting. Similarly, the red reception indicators are displayed
 above them when they are receiving. The transmission power and power of
@@ -84,11 +84,11 @@ dBW.
 **The propagating signal**
 
 The visualization of the propagating signal has two phases. In each of
-them, the simulation speed is different. The <var>Propagation
-phase</var> is at the beginning and the end of the transmission,
+them, the simulation speed is different. The `Propagation
+phase` is at the beginning and the end of the transmission,
 visualized with a growing and receeding disk. The propagation phase
 lasts until the transmission reaches the node farthest from the source.
-The <var>Transmission phase</var> is when the transmission is present on
+The `Transmission phase` is when the transmission is present on
 the entire playground. The animation slows down in the propagation
 phase, when the edges of the signal are crossing the playground. Since
 this happens very fast, with the speed of light, the simulation has to
@@ -119,19 +119,19 @@ following network:
 
 <img class="screen" src="multiplenodesnetwork.png">
 
-It contains three <var>AdhocHosts</var>. The <var>source</var> is
-configured to ping the <var>destination</var>. The communication ranges
+It contains three `AdhocHosts`. The `source` is
+configured to ping the `destination`. The communication ranges
 are configured so that hosts can reach only the adjacent hosts. The
 center host relays packets between the hosts on the two sides.
 
 The simulation speed during the propagation pahse and the transmission
 phase - i.e. the speed of the signal animation - is determined by the
 visualizer's animation speed parameters. The two parameters are
-<var>signalPropagationAnimationSpeed</var> and
-<var>signalTransmissionAnimationSpeed</var> (not specified by default).
+`signalPropagationAnimationSpeed` and
+`signalTransmissionAnimationSpeed` (not specified by default).
 If not value is specified for these parameters, the
-<var>signalPropagationAnimationTime</var> and
-<var>signalTransmissionAnimationTime</var> parameters take effect, these
+`signalPropagationAnimationTime` and
+`signalTransmissionAnimationTime` parameters take effect, these
 set a fixed duration for the corresponding phases of the transmission
 animation (by default, both are one second). When the duration is fixed,
 all transmission animations take the same amount of time, regardless of
@@ -153,26 +153,26 @@ playback speed slider.
 
 By default, the animation switches from propagation phase to
 transmission phase when the propagating signal reaches the node farthest
-from the signal source. The <var>signalPropagationAdditionalTime</var>
+from the signal source. The `signalPropagationAdditionalTime`
 parameter can specify how long to continue the propagation animation
 after the edge of the signal has left the farthest node.
 
 When the simulation is run, this happens:
 
 <!--<p>
-The animation speed during the propagation phase and the transmission phase can be specified by the <var>signalPropagationAnimationSpeed</var>
-and <var>signalTransmissionAnimationSpeed</var> parameters. TODO: how.
-Alternatively, a fixed duration can be specified for the two phases with the <var>signalPropagationAnimationTime</var> and
-<var>signalTransmissionAnimationSpeed</var> parameters. These take effect when no corresponding animation speed is defined.
+The animation speed during the propagation phase and the transmission phase can be specified by the `signalPropagationAnimationSpeed`
+and `signalTransmissionAnimationSpeed` parameters. TODO: how.
+Alternatively, a fixed duration can be specified for the two phases with the `signalPropagationAnimationTime` and
+`signalTransmissionAnimationSpeed` parameters. These take effect when no corresponding animation speed is defined.
 Additionally, additional time can be specified TODO.
 AnimationSpeedTimeChange TODO
 </p>-->
 
 <p><video autoplay loop controls src="multiplenodes.mp4" onclick="this.paused ? this.play() : this.pause();" width="870" height="510"></video></p>
 
-It depicts as a ping packet from <var>source</var> makes its way to
-<var>destination</var>, and as the ping reply packet gets back to
-<var>source</var>.
+It depicts as a ping packet from `source` makes its way to
+`destination`, and as the ping reply packet gets back to
+`source`.
 
 When a node starts to transmit a frame, the simulation speed is slower
 than during the propagation phase. The gradient between the two
@@ -189,12 +189,12 @@ signals. It uses this network:
 
 <img class="screen" src="interferencenetwork.png" width="850px">
 
-It contains three <var>AdhocHosts</var> laid out in a chain, just like
+It contains three `AdhocHosts` laid out in a chain, just like
 in the previous configuration. The hosts on the two sides,
-<var>source1</var> and <var>source2</var>, are configured to ping the
-host in the middle, <var>destination</var>. There is a wall positioned
+`source1` and `source2`, are configured to ping the
+host in the middle, `destination`. There is a wall positioned
 between the two hosts on the sides. The obstacle loss model is
-<var>IdealObstacleLoss</var>, thus the wall blocks transmissions
+`IdealObstacleLoss`, thus the wall blocks transmissions
 completely. Both source hosts can reach the destination, but cannot
 reach each other, and cannot detect whatsoever when the other source is
 transmitting. Thus the collision avoidance mechanism can't work
@@ -240,5 +240,5 @@ Several signals being present at a receiving node doesn't necessarily
 cause collision. One of the signals might not be strong enough to garble
 the other transmission.
 
-For further information, refer to the <var>MediumVisualizer</var> NED
+For further information, refer to the `MediumVisualizer` NED
 documentation.

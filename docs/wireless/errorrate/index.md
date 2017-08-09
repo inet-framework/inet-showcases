@@ -49,17 +49,17 @@ The bitrate will take the ERP modes in 802.11g: 6, 9, 12, 18, 24, 36, 48 and 54
 Mbps. This results in about 2100 simulation runs.
 
 To make the model more realistic, we will simulate multipath propagation using
-the <var>TwoRayGroundReflection</var> path loss model. (There are various
-path loss models in INET, including <var>FreeSpacePathLoss</var>,
-<var>RayleighFading</var>, <var>RicianFading</var>,
-<var>LogNormalShadowing</var> and <var>NakagamiFading</var>). The two ray
+the `TwoRayGroundReflection` path loss model. (There are various
+path loss models in INET, including `FreeSpacePathLoss`,
+`RayleighFading`, `RicianFading`,
+`LogNormalShadowing` and `NakagamiFading`). The two ray
 ground reflection path loss model requires a ground model, which is configured in
-the <var>physicalEnvironment</var> module to be <var>FlatGround</var>.
+the `physicalEnvironment` module to be `FlatGround`.
 The heights of the hosts above the ground is set to 1.5 meters. We assume
-isotropic background noise of -86 dBm (<var>IsotropicScalarBackgroundNoise</var>.)
+isotropic background noise of -86 dBm (`IsotropicScalarBackgroundNoise`.)
 
-We will use <var>Ieee80211NistErrorModel</var> to compute bit errors. The
-<var>Ieee80211NistErrorModel</var> is based on the Nist error rate model.
+We will use `Ieee80211NistErrorModel` to compute bit errors. The
+`Ieee80211NistErrorModel` is based on the Nist error rate model.
 
 In each simulation run, the source host will send a single UDP packet (56 bytes of
 UDP data, resulting in a 120-byte frame) to the destination host as a probe. At
@@ -74,7 +74,7 @@ there is no need for Monte Carlo.
 - thus we have to set the snir threshold low enough to get more fine-grained data at low snir levels
 -->
 
-We lower the <var>snirThreshold</var> parameter of the hosts' radios from 4 to
+We lower the `snirThreshold` parameter of the hosts' radios from 4 to
 0 dB. When the transmission's SNIR is below this value, the reception is assumed
 to be incorrect, and the reception is not simulated. Lowering the level results in
 more fine-grained data at low SNIR levels.

@@ -22,20 +22,20 @@ independently, providing a flexible way to customize visualizations to
 one's needs.
 
 This showcase describes the various types of compound visualizer
-modules, such as <var>IntegratedVisualizer</var>. It demonstrates the
+modules, such as `IntegratedVisualizer`. It demonstrates the
 use of multiple visualizers with an example simulation, and shows how
 the visualization settings can be modified at runtime. Finally, it
 demonstrates how to add your own visualizer types to the existing
 compound visualizer modules.
 
-INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/advanced" target="_blank"><var>inet/showcases/visualizer/advanced</var></a>
+INET version: `3.6`<br>
 
 ## About Visualizer Module Types
 
 INET has visualizer simple modules for specific visualization tasks,
-such as <var>RoutingTableCanvasVisualizer</var> or
-<var>InterfaceTableOsgVisualizer</var>. However, there are visualizer
+such as `RoutingTableCanvasVisualizer` or
+`InterfaceTableOsgVisualizer`. However, there are visualizer
 compound modules, which contain multiple visualizer simple modules. The
 following section aims to clarify the various visualizer types available
 in INET.
@@ -45,34 +45,34 @@ V1
 -   Canvas and Osg simple modules
 
     There are separate types of visualizer simple modules for 2D and
-    3D visualization. 2D visualization is implemented by <var>Canvas
-    visualizer</var> modules, while 3D visualization is handled by
-    <var>Osg visualizers</var>. The visualizer simple modules have the
-    word <var>Canvas</var> or <var>Osg</var> in their type names, e.g.
-    <var>RoutingTableCanvasVisualizer</var> or
-    <var>StatisticOsgVisualizer</var>.
+    3D visualization. 2D visualization is implemented by `Canvas
+    visualizer` modules, while 3D visualization is handled by
+    `Osg visualizers`. The visualizer simple modules have the
+    word `Canvas` or `Osg` in their type names, e.g.
+    `RoutingTableCanvasVisualizer` or
+    `StatisticOsgVisualizer`.
 
 -   Compound modules of Canvas and Osg visualizers
 
     There are compound modules containing the Canvas and Osg versions of
     specific types of visualizers, e.g. the
-    <var>RoutingTableVisualizer</var> compound module contains a
-    <var>RoutingTableCanvasVisualizer</var> and a
-    <var>RoutingTableOsgVisualizer</var> simple module. A rule of thumb
-    is if the type name doesn't contain either <var>Canvas</var> or
-    <var>Osg</var>, the module contains both kinds of visualizers.
+    `RoutingTableVisualizer` compound module contains a
+    `RoutingTableCanvasVisualizer` and a
+    `RoutingTableOsgVisualizer` simple module. A rule of thumb
+    is if the type name doesn't contain either `Canvas` or
+    `Osg`, the module contains both kinds of visualizers.
 
 -   Integrated Canvas and Osg visualizers
 
-    The <var>IntegratedCanvasVisualizer</var> and
-    <var>IntegratedOsgVisualizer</var> compound modules each contain all
+    The `IntegratedCanvasVisualizer` and
+    `IntegratedOsgVisualizer` compound modules each contain all
     available Canvas and Osg visualizer types, respectively.
 
 -   Integrated visualizer
 
-    The <var>IntegratedVisualizer</var> contains an
-    <var>IntegratedCanvasVisualizer</var> and a
-    <var>IntegratedOsgVisualizer</var>. Thus it contains all
+    The `IntegratedVisualizer` contains an
+    `IntegratedCanvasVisualizer` and a
+    `IntegratedOsgVisualizer`. Thus it contains all
     available visualizers.
 
 <!-- -->
@@ -103,14 +103,14 @@ Consisely
 <ul>
 <li><p>
 The various visualizations are handled by specific visualizer simple modules. Visualizations in 2D are implemented by
-<var>Canvas</var> visualizer simple modules, while visualizations in 3D are handled by <var>Osg</var> visualizer simple modules. The visualizer simple modules have the word <var>Canvas</var> or <var>Osg</var> in their type name, e.g. <var>RoutingTableCanvasVisualizer</var> or <var>InterfaceTableOsgVisualizer</var>.
+`Canvas` visualizer simple modules, while visualizations in 3D are handled by `Osg` visualizer simple modules. The visualizer simple modules have the word `Canvas` or `Osg` in their type name, e.g. `RoutingTableCanvasVisualizer` or `InterfaceTableOsgVisualizer`.
 </p></li>
 
 <li><p>
 There are compound modules which contain both the Canvas and the Osg version of a specific visualizer simple module,
-e.g. <var>RoutingTableVisualizer</var> contains a <var>RoutingTableCanvasVisualizer</var> and a <var>RoutingTableOsgVisualizer</var> simple module. Thus these specific compound visualizers can provide both 2D and 3D visualizations (i.e. the RoutingTableVisualizer can visualize routing tables in both 2D and 3D).
+e.g. `RoutingTableVisualizer` contains a `RoutingTableCanvasVisualizer` and a `RoutingTableOsgVisualizer` simple module. Thus these specific compound visualizers can provide both 2D and 3D visualizations (i.e. the RoutingTableVisualizer can visualize routing tables in both 2D and 3D).
 The rule of thumb is if the type name doesn't contain either
-<var>Canvas</var> or <var>Osg</var>, the module contains both kinds of visualizers.
+`Canvas` or `Osg`, the module contains both kinds of visualizers.
 </p></li>
 
 <li><p>
@@ -119,16 +119,16 @@ There are integrated visualizer compound modules, which contain multiple specifi
 
 <ul>
 <li><p>
-The <var>IntegratedCanvasVisualizer</var> contains all Canvas visualizer simple modules, while the <var>IntegratedOsgVisualizer</var> contains all Osg visualizer simple modules.
+The `IntegratedCanvasVisualizer` contains all Canvas visualizer simple modules, while the `IntegratedOsgVisualizer` contains all Osg visualizer simple modules.
 </p></li>
 
 <li><p>
-The <var>IntegratedVisualizer</var> contains an <var>IntegratedCanvasVisualizer</var> and an <var>IntegratedOsgVisualizer</var>. Thus it contains all available visualizer simple modules.
+The `IntegratedVisualizer` contains an `IntegratedCanvasVisualizer` and an `IntegratedOsgVisualizer`. Thus it contains all available visualizer simple modules.
 </p></li>
 </ul>
 
 <li><p>
-By including an <var>IntegratedVisualizer</var> in the network, the features of all contained visualizers are available in
+By including an `IntegratedVisualizer` in the network, the features of all contained visualizers are available in
 the simulation using the network, both in 2D and 3D.
 The parameters of the visualizer simple modules can be configured from the ini file.
 </p></li>
@@ -141,14 +141,14 @@ The parameters of the visualizer simple modules can be configured from the ini f
 <ul>
 <li><p>
 The various visualizations are handled by specific visualizer simple modules. Visualizations in 2D are implemented by
-<var>Canvas</var> visualizer simple modules, while visualizations in 3D are handled by <var>Osg</var> visualizer simple modules. The visualizer simple modules have the word <var>Canvas</var> or <var>Osg</var> in their type name, e.g. <var>RoutingTableCanvasVisualizer</var> or <var>InterfaceTableOsgVisualizer</var>.
+`Canvas` visualizer simple modules, while visualizations in 3D are handled by `Osg` visualizer simple modules. The visualizer simple modules have the word `Canvas` or `Osg` in their type name, e.g. `RoutingTableCanvasVisualizer` or `InterfaceTableOsgVisualizer`.
 </p></li>
 
 <li><p>
 There are compound modules which contain both the Canvas and the Osg version of a specific visualizer simple module,
-e.g. <var>RoutingTableVisualizer</var> contains a <var>RoutingTableCanvasVisualizer</var> and a <var>RoutingTableOsgVisualizer</var> simple module. Thus these specific compound visualizers can provide both 2D and 3D visualizations (i.e. the RoutingTableVisualizer can visualize routing tables in both 2D and 3D).
+e.g. `RoutingTableVisualizer` contains a `RoutingTableCanvasVisualizer` and a `RoutingTableOsgVisualizer` simple module. Thus these specific compound visualizers can provide both 2D and 3D visualizations (i.e. the RoutingTableVisualizer can visualize routing tables in both 2D and 3D).
 The rule of thumb is if the type name doesn't contain either
-<var>Canvas</var> or <var>Osg</var>, the module contains both kinds of visualizers.
+`Canvas` or `Osg`, the module contains both kinds of visualizers.
 
 <img class="screen" src="compound.png">
 </p></li>
@@ -159,20 +159,20 @@ There are integrated visualizer compound modules, which contain multiple specifi
 
 <ul>
 <li><p>
-The <var>IntegratedCanvasVisualizer</var> contains all Canvas visualizer simple modules, while the <var>IntegratedOsgVisualizer</var> contains all Osg visualizer simple modules.
+The `IntegratedCanvasVisualizer` contains all Canvas visualizer simple modules, while the `IntegratedOsgVisualizer` contains all Osg visualizer simple modules.
 
 <img class="screen" src="integratedcanvasosg.png" width="800px">
 </p></li>
 
 <li><p>
-The <var>IntegratedVisualizer</var> contains an <var>IntegratedCanvasVisualizer</var> and an <var>IntegratedOsgVisualizer</var>. Thus it contains all available visualizer simple modules.
+The `IntegratedVisualizer` contains an `IntegratedCanvasVisualizer` and an `IntegratedOsgVisualizer`. Thus it contains all available visualizer simple modules.
 
 <img class="screen" src="integrated.png">
 </p></li>
 </ul>
 
 <li><p>
-By including an <var>IntegratedVisualizer</var> in the network, the features of all contained visualizers are available in
+By including an `IntegratedVisualizer` in the network, the features of all contained visualizers are available in
 the simulation using the network, both in 2D and 3D.
 The parameters of the visualizer simple modules can be configured from the ini file.
 </p></li>
@@ -202,26 +202,26 @@ omnetpp.ini file. The configuration uses the following network:
 
 <img class="screen" src="network.png">
 
-The hosts and the server in the network are <var>StandardHosts</var>.
-The network contains two <var>IntegratedVisualizer</var> modules, named
-<var>visualizer1</var> and <var>visualizer2</var>.
+The hosts and the server in the network are `StandardHosts`.
+The network contains two `IntegratedVisualizer` modules, named
+`visualizer1` and `visualizer2`.
 
-The <var>server</var> runs an UDP video stream server
-(<var>UDPVideoStreamSvr</var>), and two <var>TCPSessionApps</var>. These
+The `server` runs an UDP video stream server
+(`UDPVideoStreamSvr`), and two `TCPSessionApps`. These
 applications are configured to send UDP and TCP streams to certain
 hosts:
 
--   <var>host2</var> and <var>host4</var> are configured to send UDP
+-   `host2` and `host4` are configured to send UDP
     video stream requests to the server, which in turn sends UDP streams
     to the hosts.
--   The <var>server</var> is configured to send TCP streams to
-    <var>host3</var> and <var>host5</var>.
+-   The `server` is configured to send TCP streams to
+    `host3` and `host5`.
 
 The goal is to visualize UDP and TCP streams with different colors, so
 it is easier to differentiate between them. We configure the
-<var>NetworkRouteVisualizer</var> in <var>visualizer1</var> to display
+`NetworkRouteVisualizer` in `visualizer1` to display
 TCP packet paths with blue arrows, and the
-<var>NetworkRouteVisualizer</var> in <var>visualizer2</var> to indicate
+`NetworkRouteVisualizer` in `visualizer2` to indicate
 UDP packet paths with red arrows.
 
 ``` {.snippet}
@@ -240,14 +240,14 @@ the ACK, SYN+ACK, and SYN. The other visualizer is configured to
 visualize all UDP packets (packets with 'Video' in their names, which
 covers all UDP packets in the network).
 
-The <var>StatisticVisualizer</var> in <var>visualizer1</var> is
+The `StatisticVisualizer` in `visualizer1` is
 configured to display the number of received UDP packets in the affected
-nodes. The other <var>StatisticVisualizer</var> in
-<var>visualizer2</var> is configured to indicate the total size of the
+nodes. The other `StatisticVisualizer` in
+`visualizer2` is configured to indicate the total size of the
 received TCP data.
 
-Additionally, the <var>TransportConnectionVisualizer</var> in
-<var>visualizer1</var> is enabled, and set to visualize transport
+Additionally, the `TransportConnectionVisualizer` in
+`visualizer1` is enabled, and set to visualize transport
 connections in the network, i.e. the TCP connections. The color of the
 icons is set to blue, to match the color of the TCP network path arrows.
 
@@ -260,11 +260,11 @@ paths of UDP packets are indicated with red arrows, and the paths of TCP
 packets with blue arrows. The statistics for the UDP and TCP packets are
 displayed above the affected nodes. The number of received UDP packets
 at the server is just two, which are the two video stream request
-packets from the hosts. The received UDP packets at <var>hosts 2 and
-4</var> keep increasing. The received TCP data is displayed above the
+packets from the hosts. The received UDP packets at `hosts 2 and
+4` keep increasing. The received TCP data is displayed above the
 TCP hosts. TCP connection visualization icons are differentiated based
 on the letters in the icons, as the
-<var>TransportConnectionVisualizer</var> is using just one color.
+`TransportConnectionVisualizer` is using just one color.
 
 ## Modifying Visualizer Parameters at Runtime
 
@@ -282,10 +282,10 @@ useful for tuning the visualizer parameters, as one doesn't have to
 close and restart qtenv to see the effects of the parameter changes. The
 following parameters react to changes in qtenv:
 
--   <var>display flag</var>: used to turn visualizations on and off
--   <var>filters</var>: various filters like node, packet, and interface
+-   `display flag`: used to turn visualizations on and off
+-   `filters`: various filters like node, packet, and interface
     filters
--   <var>format string</var>: used to customize how information is
+-   `format string`: used to customize how information is
     displayed
 
 TODO: not sure the description is needed...as this is an advanced

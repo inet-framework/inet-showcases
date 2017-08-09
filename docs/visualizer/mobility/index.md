@@ -16,37 +16,37 @@ Using this visualizer, mobile nodes can be tracked easily.
 This showcase consists of one simulation model, that demonstrates important
 features of mobility visualization.
 
-INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/mobility" target="_blank"><var>inet/showcases/visualizer/mobility</var></a>
+INET version: `3.6`<br>
 
 ## About the Visualizer
 
-In INET, mobility of nodes can be visualized by <var>MobilityVisualizer</var>
-module (included in the network as part of <var>IntegratedVisualizer</var>). By
+In INET, mobility of nodes can be visualized by `MobilityVisualizer`
+module (included in the network as part of `IntegratedVisualizer`). By
 default, mobility visualization is enabled, it can be disabled by setting
-<var>displayMovements</var> parameter to false.
+`displayMovements` parameter to false.
 
 By default, all mobilities are considered for the visualization. This selection can be
-narrowed with the visualizer's <var>moduleFilter</var> parameter.
+narrowed with the visualizer's `moduleFilter` parameter.
 
 The visualizer has several important features:
 
 -   **Movement Trail**: It displays a line along the recent path of movements. The trail gradually fades out as time passes. Color, trail length and other graphical properties can be changed with parameters of the visualizer.
 -   **Velocity Vector**: Velocity is represented visually by an arrow. Its starting point is the node and its direction coincides with the movement's direction. The arrow's length is proportional to the node's speed, but it can be multiplied.
--   **Orientation Arc**: Orientation is represented by an arc whose size is specified by the <var>orientationArcSize</var> parameter. This value is the relative size of the arc compared to a full circle. The arc's default value is 0.25, i.e. a quarter or a circle.
+-   **Orientation Arc**: Orientation is represented by an arc whose size is specified by the `orientationArcSize` parameter. This value is the relative size of the arc compared to a full circle. The arc's default value is 0.25, i.e. a quarter or a circle.
 
 These features are disabled by default, they can be enabled by setting the
-visualizer's <var>displayMovementTrails</var>, <var>displayVelocities</var>
-and <var>displayOrientations</var> parameters to true.
+visualizer's `displayMovementTrails`, `displayVelocities`
+and `displayOrientations` parameters to true.
 
 ## Visualizing Mobility Features
 
 The following example shows how to enable mobility visualization features. We
 create a simulation for this example that can be run by choosing the
-<var>VisualizingFeatures</var> configuration from the ini file.
+`VisualizingFeatures` configuration from the ini file.
 
-Three <var>AdhocHost</var> type nodes (<var>host1</var>,
-<var>host2</var> and <var>host3</var>) are placed in the playground. They are
+Three `AdhocHost` type nodes (`host1`,
+`host2` and `host3`) are placed in the playground. They are
 roaming within predefined borders.
 
 The following video is captured from the simulation. The default settings of
@@ -76,12 +76,12 @@ When we start the simulation, here is what happens.
 
 Compare this video to the previous one! The first thing you can notice is that
 hosts' movements are the same as in the previous video. However, note, that
-<var>host3</var> does not move randomly, but in a circular arc. The
-<var>host1</var> and <var>host2</var> nodes can also be easily tracked because of
+`host3` does not move randomly, but in a circular arc. The
+`host1` and `host2` nodes can also be easily tracked because of
 mobility visualization.
 
 ## More Information
 
 This example only demonstrated the key features of mobility visualization. For
-more information, refer to the <var>MobilityVisualizer</var> NED
+more information, refer to the `MobilityVisualizer` NED
 documentation.

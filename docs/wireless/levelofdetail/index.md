@@ -17,8 +17,8 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ### Layered radio
 
-The model uses <var>APSKScalarRadio</var> with
-<var>APSKLayeredTransmitter</var> and <var>APSKLayeredReceiver</var>. The
+The model uses `APSKScalarRadio` with
+`APSKLayeredTransmitter` and `APSKLayeredReceiver`. The
 latter two implements the layered radio features. When operating in 'packet'
 domain, the error model computes packet errors, bits are not computed. In 'bit'
 domain, the error model computes erroneous bits. In the 'symbol' domain, the
@@ -32,7 +32,7 @@ There are two hosts, and one host is pinging the other. The there are 4 axes in 
 
 -   **Distance** runs from 210m to 710m in steps of 5m
 -   **Level of detail** for the transmissions are 'packet', 'bit' and 'symbol'
--   **Forward error correction** (FEC) is either <var>ConvolutionalCoder</var> or not using forward error correction
+-   **Forward error correction** (FEC) is either `ConvolutionalCoder` or not using forward error correction
 -   **Modulations** used are 'BPSK', 'QPSK', 'QAM-16' and 'QAM-64'
 
 ### Forward error correction

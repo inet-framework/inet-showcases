@@ -15,14 +15,14 @@ individual routing tables. The visualization currently supports IPv4.
 This showcase contains three simulation models of increasing complexity, each
 demonstrating different features of routing table visualization.
 
-INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/routingtable" target="_blank"><var>inet/showcases/visualizer/routingtable</var></a>
+INET version: `3.6`<br>
 <br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/2" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 
-In INET, the <var>RoutingTableVisualizer</var> module (included in the network
-as part of <var>IntegratedVisualizer</var>) is responsible for visualizing routing
+In INET, the `RoutingTableVisualizer` module (included in the network
+as part of `IntegratedVisualizer`) is responsible for visualizing routing
 table entries.
 
 The visualizer basically annotates network links with labeled arrows that connect
@@ -42,11 +42,11 @@ format:
 
 <p><div class="include" style="font-family: monospace;">destination/mask -> gateway (interface)</div></p>
 
-The format can be changed by setting the visualizer's <var>labelFormat</var> parameter.
+The format can be changed by setting the visualizer's `labelFormat` parameter.
 
-Filtering is also possible. The <var>nodeFilter</var> parameter controls which
+Filtering is also possible. The `nodeFilter` parameter controls which
 nodes' routing tables should be visualized (by default, all nodes), and the
-<var>destinationFilter</var> parameter selects the set of destination nodes to consider
+`destinationFilter` parameter selects the set of destination nodes to consider
 (again, by default all nodes.)
 
 The visualizer reacts to changes. For example, when a routing protocol changes a
@@ -58,15 +58,15 @@ filters. This is very useful e.g. for the simulation of mobile ad-hoc networks.
 
 The following example demonstrates how to enable the visualization of routing
 tables, and how the visualization looks like. The simulation can be run by choosing
-the <var>DisplayingAll</var> configuration from the ini file. The network for the
-simulation contains two <var>StandardHosts</var>, each connected to a
-<var>Router</var>. IP addresses are assigned by the <var>IPv4Configurator</var>
+the `DisplayingAll` configuration from the ini file. The network for the
+simulation contains two `StandardHosts`, each connected to a
+`Router`. IP addresses are assigned by the `IPv4Configurator`
 module, which also fills in the routing tables automatically. The visualizer module
-is an <var>IntegratedVisualizer</var> which contains all available visualizers as
+is an `IntegratedVisualizer` which contains all available visualizers as
 submodules.
 
 The configuration contains one line, which enables the visualization of routing
-tables with the <var>displayRoutingTables</var> parameter:
+tables with the `displayRoutingTables` parameter:
 
 ``` {.snippet}
 *.visualizer.displayRoutingTables = true
@@ -79,8 +79,8 @@ When the simulation is run, the network looks like this:
 <img class="screen" src="displayroutes4.png">
 
 Note that IP addresses are displayed above the nodes. This has nothing to do with
-the <var>RoutingTableVisualizer</var>, they are displayed because we
-configured it in <var>InterfaceTableVisualizer</var> to improve clarity.
+the `RoutingTableVisualizer`, they are displayed because we
+configured it in `InterfaceTableVisualizer` to improve clarity.
 
 Here are the routing tables of the two hosts and the router, with the visualized
 entries highlighted:
@@ -121,7 +121,7 @@ By default, the best matching routing table entries from all routing tables towa
 all destinations are visualized. This can leave the network cluttered with arrows. It
 is possible to narrow the selection of visualized routing tables with filter
 parameters. The goal of this section is to demonstrate the use of the
-<var>nodeFilter</var> and <var>destinationFilter</var> parameters.
+`nodeFilter` and `destinationFilter` parameters.
 
  The section contains two example simulations, which use a more complex
 network compared to the simulation in the previous section. The simulations
@@ -130,15 +130,15 @@ network looks like the following:
 
 <img class="screen" src="filtersnetwork.png">
 
-It consists of a router connected to a switch. Two <var>StandardHosts</var> are
-connected to the switch, and two additional <var>StandardHosts</var> are
+It consists of a router connected to a switch. Two `StandardHosts` are
+connected to the switch, and two additional `StandardHosts` are
 connected to the router.
 
 **Unfiltered routing table visualization**
 
-The example simulation can be run by choosing the <var>Unfiltered</var>
-configuration from the ini file. The defaults of the <var>nodeFilter</var> and
-<var>destinationFilter</var> parameters are <var>"*"</var>, which means the
+The example simulation can be run by choosing the `Unfiltered`
+configuration from the ini file. The defaults of the `nodeFilter` and
+`destinationFilter` parameters are `"*"`, which means the
 best matching routing entries towards all destinations from all routing tables are
 visualized. With the default settings, the network looks like the following:
 
@@ -154,15 +154,15 @@ visualization a complicated issue.
 
 **Filtered routing table visualization**
 
-The example simulation can be run by choosing the <var>Filtered</var>
+The example simulation can be run by choosing the `Filtered`
 configuration from the ini file. This example simulation only visualizes the routes
-going from <var>host2</var> to <var>host3</var>. First, the
-<var>destinationFilter</var> parameter is set to <var>host3</var>. To narrow down
-the visualized routes to the ones that lead from <var>host2</var>, the
-<var>nodeFilter</var> parameter is specified as <var>"host2 or host3 or
-router"</var>. (One could also write <var>"not(host1 or host4)"</var> for the
-same effect.) Note that <var>router</var> needs to be included because the
-route from <var>host2</var> to <var>host3</var> leads through it.
+going from `host2` to `host3`. First, the
+`destinationFilter` parameter is set to `host3`. To narrow down
+the visualized routes to the ones that lead from `host2`, the
+`nodeFilter` parameter is specified as `"host2 or host3 or
+router"`. (One could also write `"not(host1 or host4)"` for the
+same effect.) Note that `router` needs to be included because the
+route from `host2` to `host3` leads through it.
 
 The visualized routing entries look like the following:
 
@@ -170,7 +170,7 @@ The visualized routing entries look like the following:
 
 The visualizer's parameters can be changed in the runtime environment, and the
 changes take effect immediately. Just select the
-<var>RoutingTableVisualizer</var> module, and the parameters are listed in the
+`RoutingTableVisualizer` module, and the parameters are listed in the
 inspector panel:
 
 <img class="screen" src="parameters.png">
@@ -180,44 +180,44 @@ inspector panel:
 The examples so far have had static routes, but in many scenarios, routing tables
 change dynamically. In the following example simulation, the routing tables are
 changed by AODV (Advanced On-Demand Vector Routing Protocol). The simulation
-can be run by choosing the <var>Dynamic</var> configuration from the ini file.
+can be run by choosing the `Dynamic` configuration from the ini file.
 
-The network contains a series of <var>AODVRouters</var>. These are mobile
+The network contains a series of `AODVRouters`. These are mobile
 hosts that have AODV and IP forwarding enabled. Six of the hosts are laid out in a
 chain, and are stationary. Their communication ranges are specified so that each
-host can only reach the adjacent hosts. <var>destinationHost</var> moves up
+host can only reach the adjacent hosts. `destinationHost` moves up
 and down along the chain, and is only in the communication range of one or two
 nearby hosts.
 
 We want the AODV protocol to configure the routing tables, so the network
-configurator is instructed not to add static routes. <var>sourceHost</var> is
-configured to ping <var>destinationHost</var>. Since each host is capable of
+configurator is instructed not to add static routes. `sourceHost` is
+configured to ping `destinationHost`. Since each host is capable of
 reaching the adjacent hosts only, the ping packets are relayed to
-<var>destinationHost</var> through the chain. As the network topology changes
+`destinationHost` through the chain. As the network topology changes
 because of node mobility, the AODV protocol dynamically configures the routing
-tables. To reduce clutter, we set the <var>destinationFilter</var> parameter of
-the visualizer to <var>"destinationHost"</var>.
+tables. To reduce clutter, we set the `destinationFilter` parameter of
+the visualizer to `"destinationHost"`.
 
 The following animation depicts what happens when the simulation is run.
 
 <p><video autoplay loop controls src="routingtablevisualizer2.mp4" onclick="this.paused ? this.play() : this.pause();" width="854" height="740">
 </video></p>
 
-When <var>destinationHost</var> starts to move downwards, packets get routed
+When `destinationHost` starts to move downwards, packets get routed
 along the chain to the host that is currently adjacent to
-<var>destinationHost</var>. Finally, this host relays the packets to
-<var>destinationHost</var>. As the node moves, routing tables are kept up to date by
-AODV to relay the packets along the chain to <var>destinationHost</var>. On the
+`destinationHost`. Finally, this host relays the packets to
+`destinationHost`. As the node moves, routing tables are kept up to date by
+AODV to relay the packets along the chain to `destinationHost`. On the
 way back, the lower hosts are not taking part of the packet relay, and the unused
 entries remain in their routing tables for a while, then they time out and are
-removed. When <var>destinationHost</var> gets to the top of the playground,
+removed. When `destinationHost` gets to the top of the playground,
 the process starts over again. The visualizer continually reacts to changes in the
 routing tables, and updates the visualization accordingly.
 
 ## More information
 
 This example only demonstrated the key features of routing table visualization.
-For more information, refer to the <var>RoutingTableVisualizer</var> NED
+For more information, refer to the `RoutingTableVisualizer` NED
 documentation.
 
 ## Discussion

@@ -39,7 +39,7 @@ following objects:
 
 The filters use the cMatchExpression class internally (more information
 in the OMNeT++ manual). They take an expression string, which can have
-elements in the form of <var>fieldName(value)</var>. The objects which
+elements in the form of `fieldName(value)`. The objects which
 match this expression will be considered in the visualization. It is
 possible to write a single value without the parentheses. In this case,
 the value will be matched against the object's default field, which is

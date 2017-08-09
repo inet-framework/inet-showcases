@@ -11,20 +11,20 @@ change over time. It would be useful to be able to display e.g. the SSID
 above node icons. INET provides such a visualizer that we demonstrate in
 this showcase.
 
-INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211" target="_blank"><var>inet/showcases/visualizer/ieee80211</var></a>
+INET version: `3.6`<br>
 <br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 
 In INET, IEEE 802.11 network membership can be visualized by including a
-<var>Ieee80211Visualizer</var> module in the simulation. Adding an
-<var>IntegratedVisualizer</var> is also an option, because it also
-contains a <var>Ieee80211Visualizer</var>. Displaying network membership
+`Ieee80211Visualizer` module in the simulation. Adding an
+`IntegratedVisualizer` is also an option, because it also
+contains a `Ieee80211Visualizer`. Displaying network membership
 is disabled by default, it can be enabled by setting the visualizer's
-<var>displayAssociations</var> parameter to `true`.
+`displayAssociations` parameter to `true`.
 
-The <var>Ieee80211Visualizer</var> displays an icon and the SSID above
+The `Ieee80211Visualizer` displays an icon and the SSID above
 network nodes which are part of a wifi network. The icons are
 color-coded according to the SSID. The icon, colors, and other visual
 properties can be configured via parameters of the visualizer.
@@ -32,8 +32,8 @@ properties can be configured via parameters of the visualizer.
 <!--Additionally, the icon indicates the signal strength present at the
 location of a given node. TODO: how is it indicated? and how does it work?-->
 
-The visualizer's <var>nodeFilter</var> parameter selects which nodes'
-memberships are visualized. The <var>interfaceFilter</var> parameter
+The visualizer's `nodeFilter` parameter selects which nodes'
+memberships are visualized. The `interfaceFilter` parameter
 selects which interfaces are considered in the visualization. By
 default, all interfaces of all nodes are considered.
 
@@ -41,20 +41,20 @@ default, all interfaces of all nodes are considered.
 
 The first example simulation demonstrates the visualization with the
 default visualizer settings. It can be run by choosing the
-<var>OneNetwork</var> configuration from the ini file. The simulation
+`OneNetwork` configuration from the ini file. The simulation
 uses the following network:
 
 <img class="screen" src="simplenetwork.png">
 
-The network contains a <var>WirelessHost</var> and an
-<var>AccessPoint</var>. The access point SSID is left at the default
-setting, <var>"SSID"</var>. At the beginning of the simulation, the host
+The network contains a `WirelessHost` and an
+`AccessPoint`. The access point SSID is left at the default
+setting, `"SSID"`. At the beginning of the simulation, the host
 will initate association with the access point. When the association
 process goes through, the node becomes part of the wireless network, and
 this should be indicated by the icon.
 
 The visualization is activated with the visualizer's
-<var>displayAssociations</var> parameter:
+`displayAssociations` parameter:
 
 ``` {.snippet}
 *.visualizer.*.ieee80211Visualizer.displayAssociations = true
@@ -69,10 +69,10 @@ following. Note the icons above the host and the access point.
 
 The following example simulation demonstrates the visualization when
 multiple networks are present. The simulation can be run by choosing the
-<var>MultipleNetworks</var> configuration from the ini file.
+`MultipleNetworks` configuration from the ini file.
 
-The network contains two <var>AccessPoints</var> with different SSIDs,
-and three <var>WirelessHosts</var> configured to associate with each. We
+The network contains two `AccessPoints` with different SSIDs,
+and three `WirelessHosts` configured to associate with each. We
 will see the icons being color-coded. When the association processes
 take place, the network will look like the following. Note the different
 SSIDs (`alpha`, `bravo`) and the colors.
@@ -90,10 +90,10 @@ So, A1 has 4 bars, A2 3 bars, B1 2 bars, B2 one bar. Or something like that.
 
 The following example simulation shows how visualization can help you
 follow handovers in the network. The simulation can be run by choosing
-the <var>VisualizingHandover</var> configuration from the ini file. The
-network contains two <var>AccessPoints</var> with different SSIDs,
-<var>alpha</var> and <var>bravo</var>. There is also a
-<var>WirelessHost</var> which is configured to move horizontally back
+the `VisualizingHandover` configuration from the ini file. The
+network contains two `AccessPoints` with different SSIDs,
+`alpha` and `bravo`. There is also a
+`WirelessHost` which is configured to move horizontally back
 and forth between the two access points. Transmission powers are
 configured so that when a host gets near one access point, it will go
 out of the range of the other access point. This will trigger a
@@ -110,7 +110,7 @@ handover.
 ## Further information
 
 For more information on IEEE 802.11 visualization, see the
-<var>Ieee80211visualizer</var> NED documentation.
+`Ieee80211visualizer` NED documentation.
 
 ## Discussion
 

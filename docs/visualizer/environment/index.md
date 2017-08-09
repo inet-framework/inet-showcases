@@ -15,42 +15,42 @@ The visualization of physical objects present in the physical
 environment is essential. This showcase contains two example
 simulations, which demonstrate the visualization of physical objects.
 
-INET version: <var>3.6</var><br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment" target="_blank"><var>inet/showcases/visualizer/environment</var></a>
+INET version: `3.6`<br>
 <br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">on GitHub</a>.
 
 ## About the visualizer
 
-The <var>PhysicalEnvironmentVisualizer</var> (also part of
-<var>IntegratedVisualizer</var>) is responsible for displaying the
+The `PhysicalEnvironmentVisualizer` (also part of
+`IntegratedVisualizer`) is responsible for displaying the
 physical objects. The objects themselves are provided by the
-<var>PhysicalEnvironment</var> module; their geometry, physical and
+`PhysicalEnvironment` module; their geometry, physical and
 visual properties are defined in the XML configuration of the
-<var>PhysicalEnvironment</var> module.
+`PhysicalEnvironment` module.
 
 The two-dimensional projection of physical objects is determined by the
-<var>SceneCanvasVisualizer</var> module. (This is because the projection
+`SceneCanvasVisualizer` module. (This is because the projection
 is also needed by other visualizers, for example
-<var>MobilityVisualizer</var>.) The default view is top view (z axis),
+`MobilityVisualizer`.) The default view is top view (z axis),
 but you can also configure side view (x and y axes), or isometric or
 ortographic projection.
 
 ## The default view
 
-This example configuration (<var>DefaultView</var> in the ini file)
+This example configuration (`DefaultView` in the ini file)
 demonstrates the default visualization of objects. The objects are
-defined in the <var>indoor.xml</var> file, which depicts an apartment
+defined in the `indoor.xml` file, which depicts an apartment
 with three rooms. The network contains just two modules, a
-<var>PhysicalEnvironment</var> and an <var>IntegratedVisualizer</var>
+`PhysicalEnvironment` and an `IntegratedVisualizer`
 module. When the simulation is run, the network looks like this:
 
 <img class="screen" src="default.png">
 
 ## The isometric view
 
-In this example configuration (<var>IsometricView</var> in the ini
+In this example configuration (`IsometricView` in the ini
 file), the view is set to isometric projection. This is done by setting
-the <var>viewAngle</var> parameter in <var>SceneVisualizer</var>:
+the `viewAngle` parameter in `SceneVisualizer`:
 
 ``` {.snippet}
 *.visualizer.canvasVisualizer.sceneVisualizer.viewAngle = "isometric"
@@ -66,7 +66,7 @@ The visualizer also supports OpenGL-based 3D rendering using the
 OpenSceneGraph (OSG) library. If your OMNeT++ installation has been
 compiled with OSG support, you can switch to 3D view using the toolbar.
 The result will look like the following. Note that the
-<var>SceneVisualizer</var> view settings have no effect on the 3D view,
+`SceneVisualizer` view settings have no effect on the 3D view,
 you can use the mouse to move the camera and change the view angle.
 
 <img class="screen" src="3d.png">
@@ -74,8 +74,8 @@ you can use the mouse to move the camera and change the view angle.
 ## Further information
 
 For more information, refer to the NED documentation of
-<var>PhysicalEnvironmentVisualizer</var> and
-<var>SceneCanvasVisualizer</var>.
+`PhysicalEnvironmentVisualizer` and
+`SceneCanvasVisualizer`.
 
 ## Discussion
 

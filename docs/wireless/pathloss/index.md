@@ -29,15 +29,15 @@ more path loss models available in INET, suitable to many scenarios. Here is a l
 of the path loss models featured in the example simulation, along with brief
 descriptions:
 
--   <var>FreeSpacePathLoss:</var> Computes loss of signal power in a single line-of-sight propagation path, without any reflections or shadowing.
--   <var>TwoRayGroundReflection:</var> Computes loss of signal power by assuming a line-of-sight wave and another wave reflected from the ground between the transmitter and the receiver. This model differs from free space path loss in the far-field only, after a certain crossover distance.
--   <var>TwoRayInterference:</var> This is the same as the two-ray ground reflection model in the far-field, but it models the near-field more accurately.
--   <var>RicianFading:</var> It's a stochastic path loss model which assumes a dominant line-of-sight signal and multiple reflected signals between the transmitter and the receiver. It is useful for modeling radio propagation in an urban environment.
--   <var>LogNormalShadowing:</var> It's a stochastic path loss model, where power levels follow a lognormal distribution. It is useful for modeling shadowing caused by objects such as trees.
+-   `FreeSpacePathLoss:` Computes loss of signal power in a single line-of-sight propagation path, without any reflections or shadowing.
+-   `TwoRayGroundReflection:` Computes loss of signal power by assuming a line-of-sight wave and another wave reflected from the ground between the transmitter and the receiver. This model differs from free space path loss in the far-field only, after a certain crossover distance.
+-   `TwoRayInterference:` This is the same as the two-ray ground reflection model in the far-field, but it models the near-field more accurately.
+-   `RicianFading:` It's a stochastic path loss model which assumes a dominant line-of-sight signal and multiple reflected signals between the transmitter and the receiver. It is useful for modeling radio propagation in an urban environment.
+-   `LogNormalShadowing:` It's a stochastic path loss model, where power levels follow a lognormal distribution. It is useful for modeling shadowing caused by objects such as trees.
 
-Other path loss models in INET include <var>RayleighFading</var>,
-<var>NakagamiFading</var>, <var>UWBIRStochasticPathLoss</var>,
-<var>BreakpointPathLoss</var>, and <var>SUIPathLoss</var>.
+Other path loss models in INET include `RayleighFading`,
+`NakagamiFading`, `UWBIRStochasticPathLoss`,
+`BreakpointPathLoss`, and `SUIPathLoss`.
 
 The various path loss models each have sets of parameters to fine-tune their
 behavior. In this showcase we leave the parameters at their defaults.
@@ -61,15 +61,15 @@ The example simulation uses the following network:
 
 <img src="network.png" class="screen" />
 
-The network contains two <var>adhocHosts</var> named <var>source</var>
-and <var>destination</var>. It also contains a <var>PhysicalEnvironment</var>
-module, in addition to <var>IPv4NetworkConfigurator</var> and
-<var>Ieee80211ScalarRadioMedium</var>.
+The network contains two `adhocHosts` named `source`
+and `destination`. It also contains a `PhysicalEnvironment`
+module, in addition to `IPv4NetworkConfigurator` and
+`Ieee80211ScalarRadioMedium`.
 
 The physical environment module is required because it contains the ground
 model used by some path loss models. By default, the physical environment
 doesn't use a ground model, but it is set in the configuration to use
-<var>FlatGround</var>:
+`FlatGround`:
 
 ``` {.snippet}
 *.physicalEnvironment.groundType = "FlatGround"
@@ -83,9 +83,9 @@ We will leave the ground's elevation parameter at default, which is 0. The z co-
 ordinate of both hosts is set to 2 meters, thus both antenna heights are 2 meters
 above the ground. (The hosts have isotropic antennas, which lack directionality.)
 
-The simulation is a parameter study, where <var>source</var> is configured to
-send a UDP packet to <var>destination</var>. The x co-ordinate of
-<var>source's</var> position is 0, thus the x co-ordinate of <var>destination's</var>
+The simulation is a parameter study, where `source` is configured to
+send a UDP packet to `destination`. The x co-ordinate of
+`source's` position is 0, thus the x co-ordinate of `destination's`
 position equals the distance between the two nodes. This distance is a parameter,
 which changes from 0 to 1000 meters. The distance changes with smaller steps
 near 0, where the change in power will be more rapid.
@@ -111,14 +111,14 @@ following values: FreeSpacePathLoss, TwoRayGroundReflection,
 TwoRayInterference, RicianFading, LogNormalShadowing.
 
 The source host will transmit with the default power of 20mW. We will record the
-power of the received transmission (<var>receptionPower</var> signal in the
+power of the received transmission (`receptionPower` signal in the
 transmitter module.)
 
 ## Results
 
 The power of the received signal vs. distance, using
-<var>FreeSpacePathLoss</var>, <var>TwoRayGroundReflection</var> and
-<var>TwoRayInterference</var> path loss models, is displayed on the following plot:
+`FreeSpacePathLoss`, `TwoRayGroundReflection` and
+`TwoRayInterference` path loss models, is displayed on the following plot:
 
 <a href="tworay.svg" target="_blank"><img class="screen" src="tworay.png"></a>
 
@@ -134,8 +134,8 @@ field. Thus the two-ray interference model can be used for more realistic two-ra
 propagation simulations.
 
 The next plot displays the power of the received signal vs. distance using the
-<var>RicianFading</var> and <var>LogNormalShadowing</var> models, and
-the <var>FreeSpacePathLoss</var> model for reference:
+`RicianFading` and `LogNormalShadowing` models, and
+the `FreeSpacePathLoss` model for reference:
 
 <a href="ricianlognormal.svg" target="_blank"><img class="screen" src="ricianlognormal.png"></a>
 

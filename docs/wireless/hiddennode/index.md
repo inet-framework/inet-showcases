@@ -58,18 +58,18 @@ send UDP packets to Host B, which can receive the transmissions of both hosts.
 <img class="screen" src="network.png">
 
 The RTS/CTS mechanism can be enabled or disabled by setting the
-<var>rtsThresholdBytes</var> parameter in the <var>MAC</var> module of hosts.
+`rtsThresholdBytes` parameter in the `MAC` module of hosts.
 The RTS/CTS mechanism is used before packets whose size exceeds the size of the
 threshold.
 
-In the first configuration (<var>WallOnRTSoff</var>), the RTS/CTS mechanism is
+In the first configuration (`WallOnRTSoff`), the RTS/CTS mechanism is
 disabled. Host A and C will likely transmit at the same time very often. This will
-result in collisions at Host B. In the <var>WallOnRTSoff</var> configuration, the
+result in collisions at Host B. In the `WallOnRTSoff` configuration, the
 RTS/CTS mechanism is enabled. This is expected to reduce the number of
 collisions, and Host B will receive more packets correctly than in the previous
 configuration. In the third model the wall is removed, and RTS/CTS is disabled.
 This model will highlight the effect of the RTS/CTS mechanism and the RTS/CTS
-overhead. In the <var>WallOffRtsOn</var> configuration, the wall is disabled
+overhead. In the `WallOffRtsOn` configuration, the wall is disabled
 and RTS/CTS is enabled. Again, this configuration will show the effects of the
 RTS/CTS mechanism. This way the four models can be compared by the number of
 packets received at Host B.

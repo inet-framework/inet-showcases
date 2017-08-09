@@ -97,12 +97,12 @@ The host is handed over to AP2 using the authentication and association process
 discussed earlier. It will remain associated to AP2 until it leaves AP2's
 communication range.
 
-The host's <var>mgmt</var> module contains a variable that indicates which
+The host's `mgmt` module contains a variable that indicates which
 access point the host is associated to.
 
 <img class="screen" src="assocap2.png">
 
-The <var>mgmt</var> modules of access points maintain a list of hosts that are
+The `mgmt` modules of access points maintain a list of hosts that are
 associated with them.
 
 <img class="screen" src="stalist1.png">

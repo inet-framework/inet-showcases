@@ -23,7 +23,7 @@ throughput is measured.
 
 ### Configuration
 
-The network contains two <var>WirelessHosts</var>, at a distance of 1 meter,
+The network contains two `WirelessHosts`, at a distance of 1 meter,
 one of them acting as traffic source, the other one as traffic sink. The source host
 sends a UDP stream of 1000-byte packets to the destination host in ad-hoc mode.
 The simulation will be run several times, with different bitrates. The UDP
