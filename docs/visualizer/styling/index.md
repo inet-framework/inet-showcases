@@ -61,12 +61,12 @@ Line color can be set to a single color. The color's name or its RGB value can b
 used. At `NetworkRouteVisualizer`,
 `TransportRouteVisualizer` and `MobilityVisualizer`, line color
 can be set also to a list of colors. The list of colors can be set by using the *"dark"*
-or *"light"* keywords or by enumerating the colors separated by commas.<br>
+or *"light"* keywords or by enumerating the colors separated by commas.
 The `lineStyle` parameter can be set to *"solid"*, *"dotted"* or
-*"dashed"*.<br> Line width is represented by a number. The bigger the number,
-the thicker the line.<br> If there are multiple lines between the same nodes, the
+*"dashed"*. Line width is represented by a number. The bigger the number,
+the thicker the line. If there are multiple lines between the same nodes, the
 space between the lines can be changed by adjusting the `lineShift`
-parameter. The bigger the number, the larger the space between the lines.<br>
+parameter. The bigger the number, the larger the space between the lines.
 We can adjust the space between the end of the of the arrow and the network
 node by setting the `lineContactSpacing` parameter. The bigger the
 number, the larger the space.
@@ -101,7 +101,7 @@ Click the image to see the differences between the default and the customized vi
 Font family, font size and font style can be set by using the `labelFont`
 parameter. You can omit any value from the parameter, if you do not want to
 change that value. For example, you can set `labelFont` to *"bold"* so
-that font family and font size remain unchanged.<br> The
+that font family and font size remain unchanged. The
 `labelColor` parameter can be set to a single color by using the color's name
 or the color's RGB value.
 
@@ -136,7 +136,7 @@ Click image to see the differences before and after the customization.
 In the `icon` parameter, the path of the icon can be set. For this
 simulation, we use the *another\_marker* png image from the *inet/images/*
 folder. In INET, this folder is the default location for images so it is not necessary
-to write to the `icon` parameter.<br> The `iconColor`
+to write to the `icon` parameter. The `iconColor`
 parameter can be set to a single color or to a list of colors. A single color can be set
 by using the color's name e.g. *"blue"* or by using the color's RGB value e.g.
 *"\#0000FF"*. A list of colors can be set by enumerating the colors, for example
