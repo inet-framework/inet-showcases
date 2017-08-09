@@ -188,4 +188,4 @@ node. We can determine the order of annotation positioning by using the
 
 ## More Information
 
-For more information refer the visualizers' ned documentations.
+For more information, refer the visualizers' NED documentations.
