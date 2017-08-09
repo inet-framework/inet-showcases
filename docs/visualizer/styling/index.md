@@ -13,7 +13,6 @@ title: Styling and Appearance
     }
   }
 </script>
-<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
 
 ## Goals
 

@@ -3,8 +3,6 @@ layout: page
 title: Visualizing Mobility
 ---
 
-<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
-
 ## Goals
 
 In INET simulations, movements of mobile nodes are often as important as the

@@ -3,8 +3,6 @@ layout: page
 title: Visualizing Network Nodes
 ---
 
-<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
-
 ## Goals
 
 In network simulations, it is essential to visualize the participants of

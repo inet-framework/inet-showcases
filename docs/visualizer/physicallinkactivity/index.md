@@ -3,8 +3,6 @@ layout: page
 title: Visualizing Physical Link Activity
 ---
 
-<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
-
 ## Goals
 
 In INET simulations, it is often advantageous to be able to show traffic between

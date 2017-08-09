@@ -3,8 +3,6 @@ layout: page
 title: Visualizing Transport Path Activity
 ---
 
-<script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
-
 ## Goals
 
 In INET simulations, it is often useful to show network traffic between nodes. INET
