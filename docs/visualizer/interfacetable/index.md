@@ -18,9 +18,8 @@ This example contains two configurations. The first one demonstrates the
 visualization with the visualizer's default settings, the second one is
 about the advanced features.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/interfacetable" target="_blank"><var>inet/showcases/visualizer/interfacetable</var></a>
 INET version: `3.6`<br>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/3" target="_blank">on GitHub</a>.
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/interfacetable" target="_blank">`inet/showcases/visualizer/interfacetable`</a>
 
 ## About the visualizer
 

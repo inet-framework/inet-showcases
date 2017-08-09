@@ -15,8 +15,8 @@ nodes we are interested in.
 This showcase demonstrates how network nodes are visualized in INET
 simulations.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networknode" target="_blank"><var>inet/showcases/visualizer/networknode</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networknode" target="_blank">`inet/showcases/visualizer/networknode`</a>
 
 ## About the Visualizer
 

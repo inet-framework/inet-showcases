@@ -15,9 +15,8 @@ The visualization of physical objects present in the physical
 environment is essential. This showcase contains two example
 simulations, which demonstrate the visualization of physical objects.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment" target="_blank"><var>inet/showcases/visualizer/environment</var></a>
 INET version: `3.6`<br>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/5" target="_blank">on GitHub</a>.
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment" target="_blank">`inet/showcases/visualizer/environment`</a>
 
 ## About the visualizer
 

@@ -11,9 +11,8 @@ change over time. It would be useful to be able to display e.g. the SSID
 above node icons. INET provides such a visualizer that we demonstrate in
 this showcase.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211" target="_blank"><var>inet/showcases/visualizer/ieee80211</var></a>
 INET version: `3.6`<br>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">on GitHub</a>.
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211" target="_blank">`inet/showcases/visualizer/ieee80211`</a>
 
 ## About the visualizer
 

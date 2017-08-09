@@ -11,7 +11,7 @@ consumption of mobile devices. It models the power consumption associated with
 the physical layer of wireless hosts. It demonstrates energy consumption, storage
 and generation.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/power" target="_blank"><var>inet/showcases/wireless/power</var></a>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/power" target="_blank">`inet/showcases/wireless/power`</a>
 
 ## The model
 

@@ -21,8 +21,8 @@ modules. This showcase contains a configuration that demonstrates
 visualization of IEEE MAC 802.11 contention states during the channel
 access procedure.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/info" target="_blank"><var>inet/showcases/visualizer/info</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/info" target="_blank">`inet/showcases/visualizer/info`</a>
 
 ## About the visualizer
 

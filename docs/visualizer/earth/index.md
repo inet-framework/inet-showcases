@@ -15,8 +15,8 @@ This showcase is about placing a map in the simulation. It contains three exampl
 configurations of increasing complexity, each demonstrating various features of
 the visualization.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank"><var>inet/showcases/visualizer/earth</var></a>
 INET version: `3.6`
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank">`inet/showcases/visualizer/earth`</a>
 
 ## About the Visualizer
 

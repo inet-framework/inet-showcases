@@ -17,8 +17,8 @@ level traffic.
 The showcase consists of four simulation models, each demonstrating different
 features of data link activity visualization.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity" target="_blank"><var>inet/showcases/visualizer/datalinkactivity</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity" target="_blank">`inet/showcases/visualizer/datalinkactivity`</a>
 
 ## About the Visualizer
 

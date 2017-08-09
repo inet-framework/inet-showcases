@@ -15,9 +15,8 @@ individual routing tables. The visualization currently supports IPv4.
 This showcase contains three simulation models of increasing complexity, each
 demonstrating different features of routing table visualization.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/routingtable" target="_blank"><var>inet/showcases/visualizer/routingtable</var></a>
 INET version: `3.6`<br>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/2" target="_blank">on GitHub</a>.
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/routingtable" target="_blank">`inet/showcases/visualizer/routingtable`</a>
 
 ## About the visualizer
 

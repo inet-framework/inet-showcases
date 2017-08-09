@@ -14,8 +14,8 @@ that can provide graphical feedback about transport layer level traffic.
 The showcase consists of simulation models, demonstrating important features of
 transport path activity visualization.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportpathactivity" target="_blank"><var>inet/showcases/visualizer/transportpathactivity</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportpathactivity" target="_blank">`inet/showcases/visualizer/transportpathactivity`</a>
 
 ## About the Visualizer
 

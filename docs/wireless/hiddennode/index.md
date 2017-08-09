@@ -9,7 +9,7 @@ hidden: true
 This showcase demonstrates the hidden node problem in 802.11 wireless
 networks, and the RTS/CTS mechanism that addresses it.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/hiddennode" target="_blank"><var>inet/showcases/wireless/hiddennode</var></a>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/hiddennode" target="_blank">`inet/showcases/wireless/hiddennode`</a>
 
 ### Description of the hidden node problem
 

@@ -16,8 +16,8 @@ Using this visualizer, mobile nodes can be tracked easily.
 This showcase consists of one simulation model, that demonstrates important
 features of mobility visualization.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/mobility" target="_blank"><var>inet/showcases/visualizer/mobility</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/mobility" target="_blank">`inet/showcases/visualizer/mobility`</a>
 
 ## About the Visualizer
 

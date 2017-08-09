@@ -14,7 +14,7 @@ models and how to use them in simulations.
 The showcase contains an example simulation, which computes received power
 vs. distance using several path loss model types.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss" target="_blank"><var>inet/showcases/wireless/pathloss</var></a>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss" target="_blank">`inet/showcases/wireless/pathloss`</a>
 
 ## About path loss models
 

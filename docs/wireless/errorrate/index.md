@@ -8,7 +8,7 @@ title: Packet Loss vs. Distance Using Various WiFi Bitrates
 In this showcase we perform a parameter study examining how packet error rate
 changes as a function of distance in a 802.11g wireless network.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank"><var>inet/showcases/wireless/errorrate</var></a>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank">`inet/showcases/wireless/errorrate`</a>
 <br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/7" target="_blank">on GitHub</a>.
 
 <!--TODO:

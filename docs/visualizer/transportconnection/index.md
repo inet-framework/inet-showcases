@@ -19,8 +19,8 @@ number of connections in individual nodes and the whole network.
 This showcase demonstrates the visualization of TCP connections via two
 example simulations.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportconnection" target="_blank"><var>inet/showcases/visualizer/transportconnection</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportconnection" target="_blank">`inet/showcases/visualizer/transportconnection`</a>
 
 ## About the visualizer
 

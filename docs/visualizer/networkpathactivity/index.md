@@ -15,8 +15,8 @@ network layer level traffic.
 The showcase consists of four simulation models, each demonstrating different
 features of network path activity visualization.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity" target="_blank"><var>inet/showcases/visualizer/networkpathactivity</var></a>
 INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity" target="_blank">`inet/showcases/visualizer/networkpathactivity`</a>
 
 ## About the Visualizer
 

@@ -11,7 +11,7 @@ transmissions at multiple levels of detail. These are 'packet', 'bit' and 'symbo
 level. The example examines packet loss as a function of distance when using
 various modulations and levels of detail.
 
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/levelofdetail" target="_blank"><var>inet/showcases/wireless/levelofdetail</var></a>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/levelofdetail" target="_blank">`inet/showcases/wireless/levelofdetail`</a>
 
 ## The model
 
