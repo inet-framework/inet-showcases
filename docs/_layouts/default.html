@@ -74,7 +74,8 @@
                           <!-- nothing -->
                         {% else %}
                           {% capture pagetitle %}{% if submenuitem.name %}{{ submenuitem.name }}{% else %}{{ pg.title }}{% endif %}{% endcapture %}
-                          <li><a href="{{site.baseurl}}/{{ pg.url }}">{{ pagetitle }}</a>{% if pg.hidden %} (hidden){% endif %}</li>
+                          {% capture linkstyle %}{% if pg.hidden %}style="text-decoration: line-through;"{% endif %}{% endcapture %}
+                          <li><a href="{{site.baseurl}}/{{ pg.url }}" {{linkstyle}}>{{ pagetitle }}</a></li>
                         {% endif %}
                       {% elsif submenuitem.link %}
                         <li><a href="{{ submenuitem.link }}">{{ submenuitem.name }}</a></li>

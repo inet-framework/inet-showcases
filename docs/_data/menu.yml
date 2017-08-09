@@ -2,43 +2,42 @@
   link: /inet-showcases/visualizer
   submenu:
      - page: visualizer/packetdrop/index.md
-#     - page: visualizer/transportpathactivity/index.md
-#     - page: visualizer/networkpathactivity/index.md
-#     - page: visualizer/datalinkactivity/index.md
-#     - page: visualizer/physicallinkactivity/index.md
-#     - page: visualizer/physicalmediumactivity/index.md
-#     - page: visualizer/obstacleloss/index.md
+     - page: visualizer/transportpathactivity/index.md
+     - page: visualizer/networkpathactivity/index.md
+     - page: visualizer/datalinkactivity/index.md
+     - page: visualizer/physicallinkactivity/index.md
+     - page: visualizer/physicalmediumactivity/index.md
+     - page: visualizer/obstacleloss/index.md
      - page: visualizer/routingtable/index.md
      - page: visualizer/interfacetable/index.md
      - page: visualizer/ieee80211/index.md
-#     - page: visualizer/transportconnection/index.md
+     - page: visualizer/transportconnection/index.md
      - separator: true
      - page: visualizer/environment/index.md
-#     - page: visualizer/networknode/index.md
-#     - page: visualizer/mobility/index.md
-#     - page: visualizer/earth/index.md
-#     - separator: true
-#     - page: visualizer/instrument/index.md
-#     - page: visualizer/statistic/index.md
-#     - page: visualizer/info/index.md
-#     - page: visualizer/advanced/index.md
-#     - separator: true
-#     - page: visualizer/styling/index.md
-#     - page: visualizer/filtering/index.md
+     - page: visualizer/networknode/index.md
+     - page: visualizer/mobility/index.md
+     - page: visualizer/earth/index.md
+     - separator: true
+     - page: visualizer/instrument/index.md
+     - page: visualizer/statistic/index.md
+     - page: visualizer/info/index.md
+     - page: visualizer/advanced/index.md
+     - separator: true
+     - page: visualizer/styling/index.md
+     - page: visualizer/filtering/index.md
 - name: Wireless Showcases
   link: /inet-showcases/wireless
   submenu:
-#     - page: wireless/levelofdetail/index.md
-#     - page: wireless/scaling/index.md
-#     - page: wireless/pathloss/index.md
-#     - separator: true
+     - page: wireless/levelofdetail/index.md
+     - page: wireless/scaling/index.md
+     - page: wireless/pathloss/index.md
+     - separator: true
      - page: wireless/throughput/index.md
      - page: wireless/errorrate/index.md
-#     - page: wireless/hiddennode/index.md
+     - page: wireless/hiddennode/index.md
      - page: wireless/handover/index.md
      - page: wireless/ratecontrol/index.md
-
-#     - page: wireless/power
+     - page: wireless/power
 - name: Back to INET
   link: https://inet.omnetpp.org/
 

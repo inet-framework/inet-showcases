@@ -4,5 +4,6 @@
 {% elsif pg.hidden and site.showallpages != true %}
   <!-- nothing -->
 {% else %}
-  <li><a href="{{site.baseurl}}/{{ pg.url }}">{{ pg.title }}</a>{% if pg.hidden %} (hidden){% endif %}</li>
+ {% capture linkstyle %}{% if pg.hidden %}style="text-decoration: line-through;"{% endif %}{% endcapture %}
+  <li><a href="{{site.baseurl}}/{{ pg.url }}" {{linkstyle}}>{{ pg.title }}</a></li>
 {% endif %}
