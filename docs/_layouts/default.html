@@ -72,6 +72,8 @@
                           <li><strong>BOGUS MENU ITEM: No such page: {{submenuitem.page}}</strong></li>
                         {% elsif pg.hidden and site.showallpages != true %}
                           <!-- nothing -->
+                        {% elsif pg.hidden and site.github %}
+                          <!-- nothing -->
                         {% else %}
                           {% capture pagetitle %}{% if submenuitem.name %}{{ submenuitem.name }}{% else %}{{ pg.title }}{% endif %}{% endcapture %}
                           {% capture linkstyle %}{% if pg.hidden %}style="text-decoration: line-through;"{% endif %}{% endcapture %}
