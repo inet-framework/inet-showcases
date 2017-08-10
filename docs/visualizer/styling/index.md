@@ -60,7 +60,7 @@ Click image to see the differences between the default and the customized visual
 Line color can be set to a single color. The color's name or its RGB value can be
 used. At `NetworkRouteVisualizer`,
 `TransportRouteVisualizer` and `MobilityVisualizer`, line color
-can be set also to a list of colors. The list of colors can be set by using the *"dark"*
+can be set also to a list of colors by using the *"dark"*
 or *"light"* keywords or by enumerating the colors separated by commas.
 The `lineStyle` parameter can be set to *"solid"*, *"dotted"* or
 *"dashed"*. Line width is represented by a number. The bigger the number,
@@ -100,7 +100,7 @@ Click the image to see the differences between the default and the customized vi
 
 Font family, font size and font style can be set by using the `labelFont`
 parameter. You can omit any value from the parameter, if you do not want to
-change that value. For example, you can set `labelFont` to *"bold"* so
+change that. For example, you can set `labelFont` to *"bold"* so
 that font family and font size remain unchanged. The
 `labelColor` parameter can be set to a single color by using the color's name
 or the color's RGB value.
@@ -158,7 +158,7 @@ When many annotations are placed in the same position around the node, the
 simulation can be confusing. By displacing annotations, you can make the
 simulation more understandable.
 
-The following example shows how to displace annotations around network nodes.
+The following example shows how to displace annotations around network node.
 A simulation is created for this example, it can be run by selecting the
 `Annotation` configuration from the ini file.
 
@@ -174,10 +174,8 @@ We use the following configuration to displace annotations.
 
 Click image to see the differences between the default and the customized visualization.
 
-<!--TODO: images -->
 <img id="annotImg" onclick="swapImage('annotImg','Annotation_default_v0802.png','Annotation_custom_v0802.png')" src="Annotation_default_v0802.png" class="screen" />
 
-<!-- TODO: explanation -->
 The annotations can be placed in eight directions around the node: *topCenter,
 left, right, bottomCenter, topLeft, topRight, bottomLeft, bottomRight*. Using the
 `displacementHint` parameter, we can determine where the
