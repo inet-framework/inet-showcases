@@ -179,10 +179,8 @@ This example only demonstrated the key features of transport path visualization.
 For more information, refer to the `TransportRouteVisualizer` NED
 documentation.
 
-<!--
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/10"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
--->
