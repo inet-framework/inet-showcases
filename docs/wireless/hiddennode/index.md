@@ -133,8 +133,8 @@ the RTS/CTS frames contribute some overhead, more packets are received
 correctly at Host B. When RTS/CTS is used, the number of packets received
 correctly at Host B is the same regardless of the presence of the wall.
 
-The number of received packets at Host B (RTS/CTS off): **1936**
-The number of received packets at Host B (RTS/CTS off): **1987**
+The number of received packets at Host B (RTS/CTS off): **1936**<br>
+The number of received packets at Host B (RTS/CTS on): **1987**
 
 ## Further information
 
