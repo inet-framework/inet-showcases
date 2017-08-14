@@ -199,7 +199,7 @@ the visualizer to `"destinationHost"`.
 
 The following animation depicts what happens when the simulation is run.
 
-<p><video autoplay loop controls src="routingtablevisualizer2.mp4" onclick="this.paused ? this.play() : this.pause();" width="854" height="740">
+<p><video autoplay loop controls src="routingtablevisualizer2.mp4" onclick="this.paused ? this.play() : this.pause();" width="854" height="720">
 </video></p>
 
 When `destinationHost` starts to move downwards, packets get routed
