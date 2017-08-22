@@ -39,7 +39,7 @@ table. The endpoint node of the arrow is the next hop in the visualized routing
 table entry. By default, the routing entry is displayed on the arrows in following
 format:
 
-<p><div class="include" style="font-family: monospace;">destination/mask -> gateway (interface)</div></p>
+<pre class="fit"><code>destination/mask -> gateway (interface)</code></pre>
 
 The format can be changed by setting the visualizer's `labelFormat` parameter.
 
@@ -133,7 +133,7 @@ It consists of a router connected to a switch. Two `StandardHosts` are
 connected to the switch, and two additional `StandardHosts` are
 connected to the router.
 
-**Unfiltered routing table visualization**
+### Unfiltered routing table visualization
 
 The example simulation can be run by choosing the `Unfiltered`
 configuration from the ini file. The defaults of the `nodeFilter` and
@@ -151,7 +151,7 @@ that goes through the switch. However, in the general case, there may be multipl
 interconnected switches and multiple paths that the packets can take, making the
 visualization a complicated issue.
 
-**Filtered routing table visualization**
+### Filtered routing table visualization
 
 The example simulation can be run by choosing the `Filtered`
 configuration from the ini file. This example simulation only visualizes the routes
@@ -224,4 +224,3 @@ documentation.
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/2"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
-
