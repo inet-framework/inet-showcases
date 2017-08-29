@@ -4,26 +4,43 @@ title: Using Multiple Visualizer Modules
 hidden: true
 ---
 
-    TODO:
-
-    The title could be "Advanced Visualizer module use cases"
-
-TODO: emphasize how this visualization needs two visualizer modules
+- TODO: The title could be "Advanced Visualizer module use cases" or not NOPE
+- TODO: emphasize how this visualization needs two visualizer modules
+- TODO: another configuration where there are two radioMediums -> need two visualizers
+      there are 2.4 and 5 GHz wifi hosts...the frequency should be color coded
 
 ## Goals
 
-Complex simulations often require complex visualization to better
-understand what is happening in the network. For example, one might want
-to configure different path visualizations for different parts of the
-network. Multiple visualizer modules can be included in the network if
-the desired visualization cannot be accomplished with a single
+```
+TODO: another angle: it is possible to create more complex visualizations
+by including multiple visualizer modules, which can be configured independently.
+The focus is on the possibility...not the need
+
+More complex visualizations can be created by using more than one visualizer.
+Something like that.
+```
+
+V2
+
+It is possible to create more complex visualization by using multiple visualizer modules modules
+of the same type instead of just one. The modules can be configured independently, providing a flexible way to customize visualization of complex simulations. For example, it can be useful to configure different path visualizations for different parts of the network.
+
+V3
+
+The modules can be configured independently, providing a flexible way to customize visualization of complex simulations.
+The modules can be configured independently to suit visualization of complex simulations.
+
+V1
+
+Complex simulations can benefit from complex visualization to better
+understand what is happening in the network. Multiple visualizer modules of the same type can be included in the network if the desired visualization cannot be accomplished with a single
 visualizer module. The various visualizer modules can be configured
 independently, providing a flexible way to customize visualizations to
-one's needs.
+one's needs. For example, one can configure different path visualizations for different parts of the network.
 
 This showcase describes the various types of compound visualizer
 modules, such as `IntegratedVisualizer`. It demonstrates the
-use of multiple visualizers with an example simulation, and shows how
+use of multiple visualizers with two example simulations, and shows how
 the visualization settings can be modified at runtime. Finally, it
 demonstrates how to add your own visualizer types to the existing
 compound visualizer modules.
@@ -31,58 +48,62 @@ compound visualizer modules.
 INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/advanced" target="_blank">`inet/showcases/visualizer/advanced`</a>
 
-## About Visualizer Module Types
+## About visualizer module types
 
-INET has visualizer simple modules for specific visualization tasks,
+INET contains visualizer simple modules suitable for a single visualization task,
 such as `RoutingTableCanvasVisualizer` or
 `InterfaceTableOsgVisualizer`. However, there are visualizer
-compound modules, which contain multiple visualizer simple modules. The
-following section aims to clarify the various visualizer types available
+compound modules, which contain multiple single-task visualizer simple modules. One has to include just one
+compound visualizer module in the network, and multiple visualizers can be configured from the ini file.
+The following section aims to clarify the various simple and compound visualizer module types available
 in INET.
 
-V1
+- **Canvas and Osg simple modules**
 
--   Canvas and Osg simple modules
+  There are separate types of visualizer simple modules for 2D and
+  3D visualization. 2D visualization is implemented by `Canvas
+  visualizer` modules, while 3D visualization is handled by
+  `Osg visualizers`. The visualizer simple modules have the
+  word `Canvas` or `Osg` in their type names, e.g.
+  `RoutingTableCanvasVisualizer` or
+  `StatisticOsgVisualizer`.
 
-    There are separate types of visualizer simple modules for 2D and
-    3D visualization. 2D visualization is implemented by `Canvas
-    visualizer` modules, while 3D visualization is handled by
-    `Osg visualizers`. The visualizer simple modules have the
-    word `Canvas` or `Osg` in their type names, e.g.
-    `RoutingTableCanvasVisualizer` or
-    `StatisticOsgVisualizer`.
+- **Compound modules of Canvas and Osg visualizers**
 
--   Compound modules of Canvas and Osg visualizers
+  There are compound modules containing the Canvas and Osg versions of
+  single-task visualizers, e.g. the
+  `RoutingTableVisualizer` compound module contains a
+  `RoutingTableCanvasVisualizer` and a
+  `RoutingTableOsgVisualizer` simple module.
+  These single-task compound visualizers can provide both 2D and 3D visualizations (i.e. the RoutingTableVisualizer module can visualize routing tables in both 2D and 3D.) A rule of thumb
+  is if the type name doesn't contain either `Canvas` or
+  `Osg`, the module contains both kinds of visualizers.
 
-    There are compound modules containing the Canvas and Osg versions of
-    specific types of visualizers, e.g. the
-    `RoutingTableVisualizer` compound module contains a
-    `RoutingTableCanvasVisualizer` and a
-    `RoutingTableOsgVisualizer` simple module. A rule of thumb
-    is if the type name doesn't contain either `Canvas` or
-    `Osg`, the module contains both kinds of visualizers.
+  <img class="screen" src="compound.png">
 
--   Integrated Canvas and Osg visualizers
+- **Integrated Canvas and Osg visualizers**
 
-    The `IntegratedCanvasVisualizer` and
-    `IntegratedOsgVisualizer` compound modules each contain all
-    available Canvas and Osg visualizer types, respectively.
+  The `IntegratedCanvasVisualizer` and
+  `IntegratedOsgVisualizer` compound modules each contain all
+  available Canvas and Osg visualizer types, respectively.
 
--   Integrated visualizer
+  <img class="screen" src="integratedcanvasosg.png">
 
-    The `IntegratedVisualizer` contains an
-    `IntegratedCanvasVisualizer` and a
-    `IntegratedOsgVisualizer`. Thus it contains all
-    available visualizers.
+- **Integrated visualizer**
 
-<!-- -->
+  The `IntegratedVisualizer` contains an
+  `IntegratedCanvasVisualizer` and a
+  `IntegratedOsgVisualizer`. Thus it contains all
+  available visualizers.
 
-    TODO:
+  <img class="screen" src="integrated.png">
 
-    if one doesnt include a canvas then there is no 2D visualization
-    the same for osg
+- **Multi-visualizers**
 
-    some diagrams of the hierarchy
+  Multi-visualizers are compound visualizer modules containing submodule vectors of visualizer simple modules. Such visualizers are useful if multiple visualizers of the same type are required for creating complex visualizations. The available multi visualizer modules are `IntegratedMultiCanvasVisualizer` and `IntegratedMultiOsgVisualizer`, each containing submodule vectors of canvas and osg visualizer simple modules. The `IntegratedMultiVisualizer` contains both an `IntegratedMultiCanvasVisualizer` and an `IntegratedMultiOsgVisualizer`, similarly to `IntegratedVisualizer`. By default, the canvas and osg multi visualizers contain one submodule of each visualizer simple module. The number of submodules can be specified for each visualizer submodule with parameters, e.g. `numTransportConnectionVisualizers = 2` or `numDataLinkVisualizers = 3`.
+
+  <img src="multicanvas.png" width="70%"><img src="multiintegrated2.png" width="22%" style="vertical-align: top">
+
 
 <!--pre>
 Consisely
@@ -98,6 +119,7 @@ Consisely
   simple module types
 </pre-->
 
+<!--
 <p>V2</p>
 
 <ul>
@@ -170,14 +192,13 @@ The `IntegratedVisualizer` contains an `IntegratedCanvasVisualizer` and an `Inte
 <img class="screen" src="integrated.png">
 </p></li>
 </ul>
+-->
 
-<li><p>
-By including an `IntegratedVisualizer` in the network, the features of all contained visualizers are available in
+By including an `IntegratedVisualizer` or `IntegratedMultiVisualizer` in the network, the features of all contained visualizers are available in
 the simulation using the network, both in 2D and 3D.
 The parameters of the visualizer simple modules can be configured from the ini file.
-</p></li>
-</ul>
 
+<!--
 <p>
 TODO: are these screenshots needed? seem to cut up the flow of text. without it it was more fluid
 </p>
@@ -190,15 +211,16 @@ For consistency, these should be made with the IDE
 The modules names should be capitalized
 Actually, the qtenv looks better
 </pre>
+-->
 
-## Including Multiple Visualizer Modules
+## Including multiple visualizer modules
 
 Visualizations from multiple visualizer modules of the same type can be
 combined to create more complex visualizations that would not be
 possible using a single visualizer module. In this section, we present
-an example simulation that demonstrates the use of two visualizer
-modules. The configuration for the simulation is defined in the
-omnetpp.ini file. The configuration uses the following network:
+two example simulations that demonstrates the use of two visualizer
+modules. The configurations for the simulations are defined in the
+omnetpp.ini file. TODO: rewrite for two configs The configuration uses the following network:
 
 <img class="screen" src="network.png">
 
@@ -224,7 +246,7 @@ TCP packet paths with blue arrows, and the
 `NetworkRouteVisualizer` in `visualizer2` to indicate
 UDP packet paths with red arrows.
 
-``` {.snippet}
+```
 *.visualizer1.networkRouteVisualizer.displayRoutes = true
 *.visualizer1.networkRouteVisualizer.packetFilter = "*tcp* or *ACK* or *SYN*"
 *.visualizer1.networkRouteVisualizer.lineColor = "blue"
@@ -246,14 +268,50 @@ nodes. The other `StatisticVisualizer` in
 `visualizer2` is configured to indicate the total size of the
 received TCP data.
 
+```
+*.visualizer1.statisticVisualizer.displayStatistics = true
+*.visualizer1.statisticVisualizer.signalName = "passedUpPk"
+*.visualizer1.statisticVisualizer.sourceFilter = "**.udp"
+*.visualizer1.statisticVisualizer.format = "UDP packets received: %v"
+
+*.visualizer2.statisticVisualizer.displayStatistics = true
+*.visualizer2.statisticVisualizer.signalName = "rcvdPk"
+*.visualizer2.statisticVisualizer.statisticName = "rcvdBytes"
+*.visualizer2.statisticVisualizer.unit = "KiB"
+*.visualizer2.statisticVisualizer.sourceFilter = "**.tcpApp[*]"
+*.visualizer2.statisticVisualizer.format = "TCP data received: %v %u"
+```
+
 Additionally, the `TransportConnectionVisualizer` in
 `visualizer1` is enabled, and set to visualize transport
-connections in the network, i.e. the TCP connections. The color of the
-icons is set to blue, to match the color of the TCP network path arrows.
+connections in the network, i.e. the TCP connections. The set of colors for the icons to use is set to yellow and green.
+
+<!--
+V2
+Additionally, the `TransportConnectionVisualizer` in
+`visualizer1` is enabled, and set to visualize transport
+connections in the network, i.e. the TCP connections. The set of colors for the icons to use is set to blue and darkblue to differentiate the two TCP connections.
+-->
+
+TODO: why cant it be blue?
+
+TODO: maybe it should be two shades of blue (darkblue, lightblue)
+
+```
+*.visualizer1.transportConnectionVisualizer.displayTransportConnections = true
+*.visualizer1.transportConnectionVisualizer.iconColor = "green, yellow"
+```
+
+The `NetworkNodeVisualizer` module creates the visualization figures for all other visualizers. By default, the two visualizer modules in the network each use their own NetworkNodeVisualizer. The NetworkNodeVisualizer modules would create overlapping visualizations, so `visualizer2` has to be configured to display its visualizations using `visualizer1's networkNodeVisualizer` module. The following keys achieve this:
+
+```
+*.visualizer2.networkNodeVisualizerType = ""
+*.visualizer2.*.networkNodeVisualizerModule = "visualizer1.networkNodeVisualizer"
+```
 
 When the simulation is run, this happens:
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="advanced3.mp4" width="864" height="610"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="advanced3.mp4" width="864" height="610"></video></p>
 
 The server starts sending the UDP and TCP streams to the hosts. The
 paths of UDP packets are indicated with red arrows, and the paths of TCP
@@ -266,14 +324,41 @@ TCP hosts. TCP connection visualization icons are differentiated based
 on the letters in the icons, as the
 `TransportConnectionVisualizer` is using just one color.
 
-## Modifying Visualizer Parameters at Runtime
+### Visualizing multiple radio mediums
 
-    normally you set the visualizer parameters in the ini file
-    but you can modify them in the graphical runtime environment
-    click here and there and they change
-    these and those parameters can be modified from the runtime environment
-    -> filters, display flag, format
-    illustrated with screenshots
+V1
+
+This example simulation features two wireless networks, which operate in different frequency bands (2.4 Ghz and 5 Ghz.) The two wireless networks are in independent frequency bands, and thus can operate concurrently without interfering with each other. The simulation can be optimized by configuring the two wireless networks to use two different radio medium modules. This way radio medium modules have to send transmissions only to those hosts that can receive them. The transmissions on the two radio mediums can only be visualized using two visualizer modules.
+
+TODO: actually, the same can be achieved by one radio medium and one visualizer, but it is not efficient
+
+V2
+
+This example simulation features two wireless networks operating in non-interfering frequency bands (2.4 and 5 GHz.)
+
+- there is no interference
+- the radioMedium still sends every transmission to every node, regardless of the node's ability to receive it
+- when it is certain that some nodes wont receive a transmission, because it is certain they are out of range
+- or they operate in different frequency bands
+- it can be useful to have two radio medium modules, and put the separate networks on their own radio medium
+- this way transmission are only sent to nodes that can receive it. this can optimize performance.
+
+key things: the radio medium sends transmission to all nodes, even those that are out of range or on different
+channels or frequency bands. The simulation can be optimized by putting those hosts that are known not to interfere to different radio mediums.
+
+V3
+
+Radio medium modules send all transmissions in the network to all wireless nodes. The individual nodes calculate wether or not they can receive the transmissions correctly. When there are multiple wireless networks, and it is certain that they cannot receive each other's transmissions (e.g. they are out of range or operate on different channels or frequency domainsa), the simulation can be optimized by putting each wireless network on a different radio medium.
+
+The `MediumVisualizer` module can visualize transmissions from just one radio medium, so more visualizer modules are needed if there are multiple radio medium modules. This example simulation features two wireless networks, which operate in different frequency bands (2.4 and 5 GHz.) The two networks are put on two different radio mediums, and two visualizer modules are used for visualizing transmissions.
+
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Wireless2.mp4"></video></p>
+
+Note that even though the two signals overlap, the transmissions are received correctly at both wireless networks, because the signals are in different frequency bands and don't interfere with each other.
+
+TODO: configure them to 2.4 and 5 GHz or just say it doesnt matter or just use different wifi channels
+
+## Modifying visualizer parameters at runtime
 
 Visualizer parameters are usually set from the ini file, but it is also
 possible to modify some of the parameters in the graphical runtime
@@ -288,15 +373,20 @@ following parameters react to changes in qtenv:
 -   `format string`: used to customize how information is
     displayed
 
-TODO: not sure the description is needed...as this is an advanced
-showcase, should be familiar with those
-
 The parameters can be changed by clicking on the appropriate visualizer
 module in the network. The parameters are displayed in the inspector
 panel to the right (make sure children mode is selected at the top of
 the panel.)
 
+<!--
 <img class="screen" src="modify.png">
+
+TODO: this image is too big
+-->
+
+<img class="screen" src="modify_4.png">
+
+<img class="screen" src="modify_3.png">
 
 Double click a parameter to select it, then double click on the value
 field to change it:
@@ -305,12 +395,11 @@ field to change it:
 
 The changes will take effect immediatelly.
 
-## Including Your Own Visualizers in the Integrated Visualizer Modules
+## Including your own visualizers in the integrated visualizer modules
 
-    It is possible to replace the specific visualizer types in the compound visualizer modules with your own
-    for example you have a CustomRoutingTableCanvasVisualizer module, you can use that in IntegratedCanvasVisualizer
-    instead of the default RoutingTableCanvasVisualizer module.
-    How to do it, illustrated with screenshots
+It is possible to replace the specific visualizer types in the compound visualizer modules with your own
+for example you have a CustomRoutingTableCanvasVisualizer module, you can use that in IntegratedCanvasVisualizer
+instead of the default RoutingTableCanvasVisualizer module.
+How to do it, illustrated with screenshots
 
-## Further Information
-
+## Further information
