@@ -26,40 +26,40 @@ TODO: this works with what inet version ?
 There are several types of instrument figures available in INET. Some of
 them are the following:
 
--   <p>`gauge:` A circular gauge similar to a speedometer or
+-   `gauge:` A circular gauge similar to a speedometer or
     pressure indicator
 
-    <img class="screen" src="gauge.png"></p>
+    <img class="screen" src="gauge.png">
 
--   <p>`linearGauge:` A horizontal linear gauge similar to a vu
+-   `linearGauge:` A horizontal linear gauge similar to a vu
     meter
 
-    <img class="screen" src="linear.png"></p>
+    <img class="screen" src="linear.png">
 
--   <p>`progressMeter:` A horizontal progress bar
+-   `progressMeter:` A horizontal progress bar
 
-    <img class="screen" src="progress.png"></p>
+    <img class="screen" src="progress.png">
 
--   <p>`couter:` An integer counter
+-   `couter:` An integer counter
 
-    <img class="screen" src="counter.png"></p>
+    <img class="screen" src="counter.png">
 
--   <p>`thermometer:` A vertical meter similar to a thermometer
+-   `thermometer:` A vertical meter similar to a thermometer
 
-    <img class="screen" src="thermometer.png"></p>
+    <img class="screen" src="thermometer.png">
 
--   <p>`indexedImage:` A figure displaying images corresponding to
+-   `indexedImage:` A figure displaying images corresponding to
     different states
 
     <center>
     <img class="border" src="idle.png" width="100px">
     <img class="border" src="listen.png" width="100px">
     <img class="border" src="clock.png" width="100px">
-    </center></p>
+    </center>
 
--   <p>`plot:` A graph figure that can plot a statistic vs. time
+-   `plot:` A graph figure that can plot a statistic vs. time
 
-    <img class="screen" src="plot.png"></p>
+    <img class="screen" src="plot.png">
 
 There are three components needed for the figures to work: a signal, a
 statistic, and a figure.
@@ -79,9 +79,9 @@ the following example:
 -   A signal called `rcvdPk` is defined in a submodule (e.g. a
     TCP application). The signal is emitted whenever a packet arrives:
 
-    <p><div class="snippet">
+    <p><pre class="snippet">
     @signal[rcvdPk](type=cPacket);
-    </div></p>
+    </pre></p>
 
 -   A statistic called `numRcvdPk` and a figure called
     `numRcvdPkCounter` is declared in the simulation's
@@ -92,10 +92,10 @@ the following example:
     type of the figure is specified to be `counter`, which is a
     figure type well suited for counting packets.
 
-    <p><div class="snippet">
+    <p><pre class="snippet">
     @statistic[numRcvdPk](source=count(rcvdPk); record=figure; targetFigure=numRcvdPkCounter);
     @figure[numRcvdPkCounter](type=counter);
-    </div></p>
+    </pre></p>
 
 TODO: this seems redundant
 
