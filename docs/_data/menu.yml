@@ -6,7 +6,7 @@
      - page: visualizer/networkpathactivity/index.md
      - page: visualizer/datalinkactivity/index.md
      - page: visualizer/physicallinkactivity/index.md
-     - page: visualizer/physicalmediumactivity/index.md
+     - page: visualizer/radiomediumactivity/index.md
      - page: visualizer/linkbreak/index.md
      - page: visualizer/obstacleloss/index.md
      - page: visualizer/routingtable/index.md

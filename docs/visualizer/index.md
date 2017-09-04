@@ -21,7 +21,7 @@ Communication:
   {%include link.i page='visualizer/networkpathactivity/index.md' %}
   {%include link.i page='visualizer/datalinkactivity/index.md' %}
   {%include link.i page='visualizer/physicallinkactivity/index.md' %}
-  {%include link.i page='visualizer/physicalmediumactivity/index.md' %}
+  {%include link.i page='visualizer/radiomediumactivity/index.md' %}
   {%include link.i page='visualizer/linkbreak/index.md' %}
   {%include link.i page='visualizer/obstacleloss/index.md' %}
   {%include link.i page='visualizer/routingtable/index.md' %}
