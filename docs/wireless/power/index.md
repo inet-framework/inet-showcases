@@ -66,9 +66,9 @@ set to a random value with a mean of 25s for each host.
 Energy storage and generator modules are controlled by energy management
 modules. In this showcase, hosts are configured to contain a
 `SimpleEpEnergyManagemenet` module. We configure energy management
-modules to shut down hosts when their energy levels reach zero, and restart them
+modules to shut down hosts when their energy levels reach 10% of nominal capacity (0.005 Joules), and restart them
 when their energy storage charges to half of their nominal energy capacity, i.e.
-0.025 Joules.
+0.025 Joules. These settings can be specified by the energy management module's `nodeShutdownCapacity` and `nodeStartCapacity` parameters.
 
 ### Radio modes and states
 
@@ -92,7 +92,15 @@ and even more when they are transmitting.
 
 TODO: some of the default values in StateBasedEnergyConsumer?
 
+### Energy storage visualization
+
+The energy storage capacity of nodes can be visualized by the `EnergyStorageVisualizer` module, which displays a battery icon next to nodes, indicating their charge levels. It is included in this network as part of the `IntegratedCanvasVisualizer` module.
+
 ## Results
+
+The following video shows the nodes shutting down and restarting, and their changing energy levels:
+
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="power2.mp4"></video></p>
 
 `Host[0]` is the target for the ping requests of all other hosts. It
 doesn't send ping requests, but it replies to all requests. After a while, the energy
@@ -105,7 +113,7 @@ they are depleted or not (as if they were charged by a solar panel).
 The following plot shows the energy storage levels (recorded as the
 `residualEnergyCapacity` statistic) of all the hosts through the course of the
 simulation. In general, hosts start from a given charge level, and their energy
-storage level depletes, and reaches zero. When that happens, the hosts shut
+storage level depletes, and reaches the shutdown capacity. When that happens, the hosts shut
 down. Then they start to charge, and when their charge level reaches the 0.025J
 threshold, they turn back on. They continue sending ping requests, until they get
 depleted again. The generator generates more power than hosts consume when
@@ -114,7 +122,7 @@ graph as increasing curves when the generator is charging, with tiny zigzags
 associated with receptions and transmissions. When hosts get fully charged, they
 maintain the maximum charge level while the generator is charging.
 
-<img src="residualcapacity2.png" class="screen" width="850" />
+<img class="screen" src="residualcapacity3.png" width="850px" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 The plot below shows the energy storage level (red curve) and the energy
 generator output (blue curve) of `Host[12]`. The intervals when the
@@ -135,7 +143,7 @@ transmissions (the power requirement of transmissions is 100 mW). In the
 intervals when the host is turned off, the host doesn't transmit, and the curve is
 smooth (note that there are drawing artifacts due to multiple line segments).
 
-<img src="host12_2.png" class="screen" width="850" />
+<img src="host12_3.png" class="screen" width="850" />
 
 The following plot shows how the energy level of `Host[12]` changes
 during a transmission while charging.
@@ -155,7 +163,7 @@ decrease 20 times as fast because most of the time the hosts are listening.
 Transmissions are rare, and the time hosts spend transmitting is far less than they
 spend listening. Energy consumtion is dominated by reception.
 
-<img src="consumption3_2.png" class="screen" width="850" />
+<img src="consumption4.png" class="screen" width="850" />
 
 The following plot shows a ping request-ping reply exchange (with the associated
 ACKs) between hosts 0 and 3 on the sequence chart and the corresponding
