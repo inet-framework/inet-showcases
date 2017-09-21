@@ -56,7 +56,7 @@ omnetpp.ini is the following:
 
 It looks like the following when the simulation is run:
 
-<a href="defaultmap.png" data-lightbox="defaultmap"><img class="shadow" src="defaultmap.png" width="850px"></a>
+<img class="shadow" src="defaultmap.png" onclick="imageFullSizeZoom(this);">
 
 The map is displayed on the 3D scene. Since there are no nodes or objects in the network, the size of the playground is zero (thus not visible).
 
@@ -92,7 +92,7 @@ monospace;">obstacle.xml</span> config file.
 
 It looks like the following when the simulation is run:
 
-<a href="objectsmap.png" data-lightbox="objectsmap"><img class="shadow" src="objectsmap.png" width="850px"></a>
+<img class="shadow" src="objectsmap.png" onclick="imageFullSizeZoom(this);">
 
 The objects representing building blocks are displayed with transparent red, and
 there is a line of trees on the other side of the road displayed in transparent
@@ -154,7 +154,7 @@ Choose *Share* from the menu at the right, and tick *Include marker*. The
 marker can be dragged on the map, and the coordinates of the marker's location
 is shown in the Share panel.
 
-<a href="openstreetmap.png" data-lightbox="openstreetmap"><img class="shadow" src="openstreetmap.png" width="850px"></a>
+<img class="shadow" src="openstreetmap.png" onclick="imageFullSizeZoom(this);">
 
 It looks like the following when the simulation is run:
 
@@ -167,12 +167,3 @@ TODO: This paragraph doesn't seem useful
 ## Further Information
 
 For further information about the visualizer, refer to the `SceneOsgEarthVisualizer` NED documentation.
-
-<script src="lightbox-plus-jquery.min.js"></script>
-<script>
-    lightbox.option({
-      'resizeDuration': 0,
-      'fadeDuration': 0,
-      'imageFadeDuration': 0
-    })
-</script>
