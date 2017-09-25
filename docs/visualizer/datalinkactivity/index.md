@@ -1,21 +1,20 @@
 ---
 layout: page
 title: Visualizing Data Link Activity
-hidden: true
 ---
 
 <script type="text/javascript" src="../../javascripts/imgToFullSize.js" charset="UTF-8"></script>
 
 ## Goals
 
-In INET simulations, it is often useful to be able to visualize traffic between
-network nodes. INET offers several visualizers for this task, operating at various
+With INET simulations, it is often useful to be able to visualize network traffic.
+INET offers several visualizers for this task, operating at various
 levels of the network stack. In this showcase, we examine
 `DataLinkVisualizer` that can provide graphical feedback about data link
 level traffic.
 
 The showcase consists of four simulation models, each demonstrating different
-features of data link activity visualization.
+features of the data link activity visualizer.
 
 INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity" target="_blank">`inet/showcases/visualizer/datalinkactivity`</a>
@@ -50,25 +49,24 @@ visualizer's `packetFilter`, `interfaceFilter`, and
 ## Enabling Visualization of Data Link Activity
 
 The following example shows how to enable the visualization of data link activity,
-and how the visualization looks like. In the first example we configure a simulation
-for a wired network. This simulation can be run by choosing the
+and what the visualization looks like. In the first example, we configure a simulation
+for a wired network. The simulation can be run by choosing the
 `EnablingVisualizationWired` configuration from the ini file.
 
-The wired network contains two `StandardHosts` (
-`wiredSource` and `wiredDestination`). The
-`linkVisualizer` module's type is `DataLinkVisualizer`.
+The wired network contains two `StandardHosts`, `wiredSource` and 
+`wiredDestination`. The `linkVisualizer` module's type is `DataLinkVisualizer`.
 
 <img src="DataLinkVisualizerSimpleWired.png" class="screen" />
 
-In this configuration, `wiredSource` pings
-`wiredDestination`. Data link activity visualization is enabled by setting the
+In this configuration, `wiredSource` pings `wiredDestination`. 
+Data link activity visualization is enabled by setting the
 `displayLinks` parameter to true.
 
 ``` {.snippet}
 *.linkVisualizer.*.displayLinks = true
 ```
 
-When we start the simulation, here is what happens.
+The following video shows what happens when the simulation is started.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWired_v0613.m4v"></video>
 
@@ -83,9 +81,9 @@ quickly, because the `fadeOutTime` parameter of the visualizer is set
 to a small value.
 
 Visualization in a wireless network is very similar. Our next example is the
-wireless variant of the above simulation. In this network we use
-`AdhocHosts` (`wirelessSource` and
-`wirelessDestination`). The traffic and the visualization settings are the same
+wireless variant of the above simulation. In this network we use two
+`AdhocHosts`, `wirelessSource` and `wirelessDestination`.
+The traffic and the visualization settings are the same
 as the configuration of the wired example. The simulation can be run by choosing
 the `EnablingVisualizationWireless` configuration from the ini file.
 
@@ -103,9 +101,8 @@ visualization, because ACK frames do not pass through data link layer.
 ## Filtering Data Link Activity
 
 In complex networks with many nodes and several protocols in use, it is often
-useful to be able to filter network traffic, and visualize only the part of the traffic
-we are interested in.
-
+useful to be able to filter network traffic, and visualize only the part of the
+traffic we are interested in.
 The following example shows how to set packet filtering in
 `DataLinkVisualizer`. This simulation can be run by choosing the
 `Filtering` configuration from the ini file.
@@ -115,18 +112,16 @@ We use the following network for this showcase.
 <img src="DataLinkVisualizerFiltering.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
 This network consists of four switches (`etherSwitch1..etherSwitch4`)
-and six endpoints: two source hosts (`source1`,
-`source2`), two destination hosts (`destination1`,
-`destination2`) and two other hosts (`host1`,
-`host2`) which are inactive in this simulation. `Source1` pings
-`destination1`, and `source2` pings
-`destination2`.
+and six endpoints: two source hosts (`source1`, `source2`), two destination 
+hosts (`destination1`, `destination2`) and two other hosts (`host1`, `host2`) 
+which are inactive in this simulation. `Source1` pings `destination1`, and 
+`source2` pings `destination2`.
 
 For this network, the visualizer's type is `IntegratedVisualizer`. Data
 link activity visualization is filtered to display only ping messages. The other
 packets, e.g. ARP packets, are not visualized by `DataLinkVisualizer`.
-We adjust the `fadeOutMode` and the `fadeOutTime`
-parameters so that the activity arrows do not fade out completely before the next
+We adjust the `fadeOutMode` and the `fadeOutTime` parameters so that 
+the activity arrows do not fade out completely before the next
 ping messages are sent.
 
 We use the following configuration for the visualization.
@@ -146,25 +141,23 @@ of the `packetFilter` parameter.
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering_v0613.m4v"></video>
 
 It also is possible to filter for network nodes. For the following example, let's
-assume we want to display traffic between the hosts `source1` and
-`destination1` only, along the path `etherSwitch1`,
-`etherSwitch4` and `etherSwitch2`. To this end, we set the
-visualizer's `nodeFilter` parameter by using the following line (note
-the curly brace syntax used for specifying numeric substrings).
+assume we want to display traffic between the hosts `source1` and `destination1`
+only, along the path `etherSwitch1`, `etherSwitch4` and `etherSwitch2`. 
+To this end, we set the visualizer's `nodeFilter` parameter by using the 
+following line (note the curly brace syntax used for specifying numeric substrings).
 
 ``` {.snippet}
 *.visualizer.*.dataLinkVisualizer.nodeFilter = "source1 or etherSwitch{1,4,2} or destination1"
 ```
 
-This what it looks like when we run the simulation:
+This is what it looks like when we run the simulation:
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering2_v0613.m4v"></video>
 
 As you can see, visualization allows us to follow the ping packets between
 `source1` and `destination1`. Note, however, that ping traffic
-between the two other hosts, `source2` and
-`destination2`, also activates the visualization on the link between
-`etherSwitch1` and `etherSwitch4`.
+between the two other hosts, `source2` and `destination2`, also activates 
+the visualization on the link between `etherSwitch1` and `etherSwitch4`.
 
 ## Visualizing Data Link Activity in a Mobile Ad-Hoc Network
 
@@ -259,14 +252,13 @@ movement. AODV is only activated when the existing route breaks.
 
 ## More Information
 
-This example only demonstrated the key features of data link activity
+This example only demonstrates the key features of data link activity
 visualization. For more information, refer to the `DatalinkVisualizer`
 NED documentation.
 
-<!--
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/12"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
--->
+

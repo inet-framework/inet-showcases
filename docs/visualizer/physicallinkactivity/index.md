@@ -1,19 +1,18 @@
 ---
 layout: page
 title: Visualizing Physical Link Activity
-hidden: true
 ---
 
 ## Goals
 
-In INET simulations, it is often advantageous to be able to show traffic between
-network nodes. For this task, there are several visualizers in INET, operating at
+With INET simulations, it is often useful to be able to visualize network traffic.
+For this task, there are several visualizers in INET, operating at
 various levels of the network stack. In this showcase, we demonstrate working of
 `PhysicalLinkVisualizer` that can provide graphical feedback about
-physical layer level traffic.
+physical layer traffic.
 
-The showcase consists of three simulation models each demonstrating different
-features of physical link visualization.
+The showcase consists of three simulation models, each demonstrating different
+features of the physical link visualizer.
 
 INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicallinkactivity" target="_blank">`inet/showcases/visualizer/physicallinkactivity`</a>
@@ -83,25 +82,23 @@ In complex networks with many nodes and several protocols in use, it is often
 useful to be able to filter network traffic, and visualize only the part of the traffic
 we are interested in.
 
-The following example shows how to set packet filtering. A simulation is created
-for this example. It can be run by choosing the `Filtering`
-configuration from the ini file.
+The following example shows how to set packet filtering. The simulation 
+can be run by choosing the `Filtering` configuration from the ini file.
 
-We configure a wifi infrastructure mode network for this showcase. The network
-consists of one `accessPoint` and three `wirelessHosts`
-(`source`, `destination` and `host1`). In this
-configuration, the `source` host will be pinging the
+We have configured a wifi infrastructure mode network for this showcase. The network
+consists of one `accessPoint` and three wireless hosts, `source`, `destination` 
+and `host1`. In this configuration, the `source` host will be pinging the
 `destination` host. The `host1` node does not generate any
-traffic except for connect to `accessPoint`.
+traffic except for connecting to `accessPoint`.
 
-The communication ranges of the nodes (blue circles in the picture) are reduced
-so that `source` and `destination` can not receive frames
+The communication ranges of the nodes (blue circles in the picture) have been
+reduced so that `source` and `destination` cannot receive frames
 correctly from each other.
 
 <img src="Filtering_sh_all_comm_ranges.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
-For this network, the type of `visualizer` module is
-`IntegratedVisualizer`. Physical link activity visualization is filtered to display
+For this network, the type of `visualizer` module is `IntegratedVisualizer`. 
+Physical link activity visualization is filtered to display
 only ping traffic. Other frames, e.g. Beacon frames and ACK frames, are not
 displayed by `PhysicalLinkVisualizer`.
 
@@ -113,24 +110,21 @@ We use the following configuration for the visualization.
 *.visualizer.*.physicalLinkVisualizer.fadeOutTime = 5s
 ```
 
-The following video shows what happens when the simulation is run. The video is
-captured from the simulation after endpoints have associated with
-`accessPoint`.
+The following video shows what happens when the simulation is run. The video was
+captured from the point when the hosts had already associated with `accessPoint`.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="802" height="432" src="Filtering_v0614.m4v"></video>
 
 You can see that although there are also ACK frames, Beacon frames and ping
-traffic in the network, `PhysicalLinkVisualizer` displays only the latter,
+traffic in the network, `PhysicalLinkVisualizer` displays only ping,
 due to the presence of `packetFilter`. The ping frames travel between
-`source` and `destination` through
-`accessPoint`, but `host1` also receives ping frames from
-`accessPoint` and `source`. This is, because `host1`
-is within the communication range of `source` and
-`accessPoint`.
+`source` and `destination` through `accessPoint`, but `host1` also receives
+ping frames from `accessPoint` and `source`. That is because `host1`
+is within the communication range of `source` and `accessPoint`.
 
 ## Physical Link Activity in a Mobile Ad-Hoc Network
 
-The goal of this simulation is visualizing dynamically changing physical link
+The goal of this simulation is to visualize dynamically changing physical link
 activity in a mobile wireless environment. This simulation can be run by choosing
 the `Mobile` configuration from the ini file.
 
@@ -142,10 +136,9 @@ nodes.
 
 <img src="PhysicalLinkVisualizerDynamic.png" class="screen" />
 
-The nodes send UDP packets in every second by an `UDPBasicApp`
-application. The packets' name are set to `Broadcast`. The nodes
-manage the received `Broadcast` packets by an `UDPSink`
-application.
+The nodes send UDP packets in every second by using an `UDPBasicApp`
+application. The packets' names are set to `Broadcast-nnn`. The nodes
+manage the received `Broadcast` packets using an `UDPSink` application.
 
 The visualizer's `packetFilter` parameter is set to display only
 `Broadcast` traffic.
@@ -159,27 +152,28 @@ Here is the configuration of the visualization.
 *.visualizer.*.physicalLinkVisualizer.fadeOutTime = 5s
 ```
 
-Here is what happens, when we run the simulation.
+The following video shows what happens when we run the simulation. (If the 
+video does not show up, try refreshing the page with Ctrl+Shift+R.)
+<!-- TODO that happens at least with Chrome 59 on Ubuntu; investigate! -->
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="682" height="732" src="Mobile_v0614.m4v"></video>
 
-Here, physical link activity looks like connection graphs in which the vertices are
-hosts, and each edge is physical link activity between two hosts. It is changing
-between which nodes there is physical link activity, as a result of the nodes'
-movement. When two nodes drifting away (out of the communication range of
-each other), the physical link is broken between them. If two nodes go within each
-other's communication range, there will be physical link activity between them.
+Here, physical link activity looks like a connection graph, where vertices are
+hosts, and each edge is physical link activity between two hosts. The graph is
+continually changing as a result of node movement. When two nodes drift
+away (out of the communication range of each other), the physical link between
+them breaks. When two nodes come close (move within each other's communication
+range), there will be physical link activity between them again.
 
 ## More Information
 
-This example only demonstrated the key features of physical link visualization.
+This example only demonstrates the key features of physical link visualization.
 For more information, refer to the `PhysicalLinkVisualizer` NED
 documentation.
 
-<!--
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/13"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
--->
+

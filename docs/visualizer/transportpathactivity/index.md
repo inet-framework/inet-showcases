@@ -1,18 +1,21 @@
 ---
 layout: page
 title: Visualizing Transport Path Activity
-hidden: true
 ---
 
 ## Goals
 
-In INET simulations, it is often useful to show network traffic between nodes. INET
-provides several visualizers for this task, operating at various levels of the
+With INET simulations, it is often useful to be able to visualize network traffic.
+INET provides several visualizers for this task, operating at various levels of the
 network stack. In this showcase, we examine `TransportRouteVisualizer` 
-that can provide graphical feedback about transport layer level traffic.
+that can provide graphical feedback about transport traffic, i.e. traffic that
+passes through the transport layers of two endpoints.  
 
-The showcase consists of simulation models, demonstrating important features of
-transport path activity visualization.
+<!-- TODO it would be more natural to be able to say "traffic between the transport 
+layers of two endpoints", but *unfortunately* that would not be true -->
+
+The showcase consists of two simulation models, both demonstrating different
+features of the transport path activity visualizer.
 
 INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportpathactivity" target="_blank">`inet/showcases/visualizer/transportpathactivity`</a>
@@ -27,7 +30,7 @@ by default, it can be enabled by setting the visualizer's
 `displayRoutes` parameter to true.
 
 `TransportRouteVisualizer` observes packets that pass through the
-transport layer i.e. carry data from/to higher layers.
+transport layer, i.e. carry data from/to higher layers.
 
 The activity between two nodes is represented visually by a polyline arrow which
 points from the source node to the destination node.
@@ -64,7 +67,7 @@ In this simulation, `pathVisualizer's` type is
 *.pathVisualizer.*.displayRoutes = true
 ```
 
-Here is what happens when the simulation is run.
+The following video shows what happens when the simulation is run.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="522" height="352" src="EnablingPathVisualizationWired_v0615.m4v"></video>
 
@@ -77,7 +80,7 @@ animation for packet transmissions, and has nothing to do with
 activity. The packet's name is also displayed above the arrow.
 
 Note, however, that the ARP packets do not activate the visualization, because ARP
-packets do not pass through transport layer. The transport path activity arrow
+packets do not pass through the transport layer. The transport path activity arrow
 fades out quickly, because the `fadeOutTime` parameter of the
 visualizer is set to a small value.
 
@@ -175,7 +178,7 @@ setting.
 
 ## More Information
 
-This example only demonstrated the key features of transport path visualization.
+This example only demonstrates the key features of transport path visualization.
 For more information, refer to the `TransportRouteVisualizer` NED
 documentation.
 

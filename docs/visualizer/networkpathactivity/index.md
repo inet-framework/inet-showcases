@@ -1,19 +1,18 @@
 ---
 layout: page
 title: Visualizing Network Path Activity
-hidden: true
 ---
 
 ## Goals
 
-In INET simulations, it is often useful to be able to visualize traffic between
-network nodes. INET offers several visualizers for this task, operating at various
+With INET simulations, it is often useful to be able to visualize network traffic.
+INET offers several visualizers for this task, operating at various
 levels of the network stack. In this showcase, we examine
 `NetworkRouteVisualizer` that can provide graphical feedback about
 network layer level traffic.
 
 The showcase consists of four simulation models, each demonstrating different
-features of network path activity visualization.
+features of the network path activity visualizer.
 
 INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity" target="_blank">`inet/showcases/visualizer/networkpathactivity`</a>
@@ -108,8 +107,8 @@ are inactive in this simulation.
 
 For this network, the visualizer's type is `IntegratedVisualizer`.
 Network path visualization is filtered to display only ping traffic. The video stream
-packets are not visualized by network path activity visualizer. We adjust the
-`fadeOutMode` and the `fadeOutTime` parameters, so
+packets are not visualized by network path activity visualizer. The
+`fadeOutMode` and `fadeOutTime` parameters have been adjusted so that the
 network path activity arrow does not fade out completely before the next ping
 packet arrives.
 
@@ -120,7 +119,7 @@ packet arrives.
 *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
 ```
 
-The following video shows what happens, when the simulation is run.
+The following video shows what happens when the simulation is run.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="664" src="StaticNetworkPaths_v0703.m4v"></video>
 
@@ -132,28 +131,22 @@ although there is both video stream and ping traffic in the network,
 ## Visualizing Network Path Activity in a Mobile Ad-Hoc Network
 
 The following example shows how visualization can help you to follow dynamically
-changing network path activity in a wireless environment. A simulation is created
-for this example, that can be run by choosing the `Mobile`
-configuration from the ini file.
+changing network path activity in a wireless environment. The simulation 
+can be run by choosing the `Mobile` configuration from the ini file.
 
 Nodes are of the type `AODVRouter`, and are placed randomly on the
 playground. One of the nodes is the `source` node which will be
-pinging the `destination` node. The communication range of the
-nodes is chosen so that the network is connected, but nodes can typically only
+pinging the `destination` node. The communication ranges of the
+nodes have been chosen so that the network is connected but nodes can typically only
 communicate by using multi-hop paths. The nodes will also randomly roam within
 predefined borders.
 
 <img src="NetworkPathMobileShowcase_v0606.png" class="screen" />
 
-The routing protocol is AODV. It works as follows: As long as `source`
-has a valid route towards `destination`, AODV is inactive. When a new
-route is needed towards `destination`, for example
-`source` wants to send a packet to `destination`,
-`source` starts to flood the network with AODV route request (RREQ)
-messages. RREQ messages propagate through the intermediate nodes until one of
-them reaches the `destination` node. The route is made available by
-unicasting AODV route reply (RREP) messages back to the originator of the RREQ
-messages. (You can watch a video about AODV route searching process in the
+The routing protocol is AODV, a reactive (on-demand) MANET routing protocol.
+AODV operates with RREQ and RRES messages, but these messages do not appear in
+the visualization because they do not pass through the network layer.
+(You can watch a video about the AODV route searching process in the
 `Data Link Activity` showcase, in the `Visualizing Data Link
 Activity in a Mobile Ad-Hoc Network` configuration.)
 
@@ -201,20 +194,20 @@ connected so as to create redundant network paths. The network also contains six
 hosts. There are a wired and a wireless source-destination pair. The remaining two
 hosts are inactive in this simulation. The wired hosts are connected to the routers
 via switches (`etherSwitch0` and `etherSwitch1`), the
-wireless hosts are connected to the routers via access points (
-`accessPoint0` and `accessPoint1`).
+wireless hosts are connected to the routers via access points (`accessPoint0` 
+and `accessPoint1`).
 
 The following image displays the network for this example.
 
 <img src="NetworkPathChanging.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
-We assign IP addresses manually by creating a configuration file (
-`configuration.xml`). A lifecycle is also created (
-`changeRoute.xml`) for this configuration to turn off and on the routers at a
-certain time. Network routes will change dynamically, because RIP routing
-protocol is used in this example. During the simulation, `wiredSource`
-will be pinging `wiredDestination` and `wirelessSource`
-will be pinging `wirelessDestination`.
+IP addresses are assigned manually, using the configuration file
+`configuration.xml`. A lifecycle control script (`changeRoute.xml`) has also been
+created for this configuration to turn the routers off and on at certain times. 
+The network uses the RIP routing protocol to ensure that routing tables will
+be dynamically updated as a reaction to network topology changes. 
+During the simulation, `wiredSource` will be pinging `wiredDestination` and 
+`wirelessSource` will be pinging `wirelessDestination`.
 
 In this showcase, we set the `packetFilter` parameter to display only
 ICMP echo traffic. We use the following configuration for the visualization.
@@ -226,22 +219,23 @@ ICMP echo traffic. We use the following configuration for the visualization.
 *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
 ```
 
-In the following video we can examine that how network path activity visualization follows the routing changes in a complex network.
+In the following video we can examine that how network path activity visualization
+follows the routing changes in a complex network.
 
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="610" src="ChangingPaths_v0614.m4v"></video>
 
-In the beginning of the video, ping traffic goes towards `router1`.
-After five seconds small cogwheels appear above `router1`
-then cogwheels change to a red cross, indicating `router1`
-went offline.
+At the beginning of the video, ping traffic is routed through `router1`.
+After five seconds, small cogwheels appear above `router1`, then cogwheels 
+change to a red cross, indicating that `router1` has gone offline.
+Routers immediately update their routing tables by using the RIP routing protocol.
+In the next few seconds, the traffic between the sources and the destinations
+travels via `router3`.
 
-Routers update their routing tables in no time by using RIP routing protocol.
-In the next few seconds, the traffic goes towards `router3`
-between the sources and the destinations. While ping traffic goes towards
-`router3`, `router1` turns on again (the red cross
-disappears). In the 15th second, you can see that `router3` goes offline. 
-Routing tables are updated by using RIP and as a result of this, ping traffic 
-goes through `router1` again. At the end of the video, `router3`
+After a while, `router1` turns on again (the red cross 
+disappears), but this does not affect the ping traffic which still goes via `router3`. 
+In the 15th second, we can see that `router3` goes offline. 
+Routing tables are updated by using RIP, and as a result of this, ping traffic 
+flows through `router1` again. At the end of the video, `router3`
 turns on, but it does not have an effect on the network traffic.
 
 
@@ -251,10 +245,9 @@ This example only demonstrated the key features of network path visualization.
 For more information, refer to the `NetworkRouteVisualizer` NED
 documentation.
 
-<!--
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/"
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/11"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
--->
+
