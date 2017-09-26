@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet/showcases/wireless/qos/results/Mac*Qos-*.vec"/>
+    <inputs name="/inet/showcases/wireless/qos/results/Mac*Qos-*.sca"/>
+  </inputs>
+  <datasets>
+    <datasets name="QosShowcase">
+      <items xsi:type="scave:Add" filterPattern="name(endToEndDelay:vector)"/>
+      <items xsi:type="scave:LineChart"/>
+    </datasets>
+    <datasets name="Qos2">
+      <items xsi:type="scave:Add" filterPattern="name(endToEndDelay:histogram:stddev) AND run(MacNonQos*) "/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacNonQos-#0.sca) AND attr:configname(MacNonQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[0]) AND name(endToEndDelay:histogram:stddev)" type="HISTOGRAM"/>
+      <items xsi:type="scave:LineChart"/>
+      <items xsi:type="scave:ScatterChart"/>
+      <items xsi:type="scave:HistogramChart" name="">
+        <properties name="Hist.Data" value="Count"/>
+      </items>
+    </datasets>
+    <datasets name="Qos3">
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacQos-#0.vec) AND attr:configname(MacQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[3]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacQos-#0.vec) AND attr:configname(MacQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[2]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacQos-#0.vec) AND attr:configname(MacQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[1]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacQos-#0.vec) AND attr:configname(MacQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[0]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Group">
+        <items xsi:type="scave:Apply" operation="difference"/>
+        <items xsi:type="scave:ScatterChart"/>
+      </items>
+      <items xsi:type="scave:Group">
+        <items xsi:type="scave:Apply" operation="difference"/>
+        <items xsi:type="scave:LineChart" name="" lineNameFormat="">
+          <properties name="Y.Axis.Min" value="-0.008"/>
+          <properties name="Y.Axis.Max" value="0.008"/>
+          <properties name="Line.Type" value="Linear"/>
+        </items>
+      </items>
+    </datasets>
+    <datasets name="Qos4">
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacNonQos-#0.vec) AND attr:configname(MacNonQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[0]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacNonQos-#0.vec) AND attr:configname(MacNonQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[1]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacNonQos-#0.vec) AND attr:configname(MacNonQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[2]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/inet/showcases/wireless/qos/results/MacNonQos-#0.vec) AND attr:configname(MacNonQos) AND attr:runnumber(0) AND module(QosThroughput.srvHost.app[3]) AND name(endToEndDelay:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Group">
+        <items xsi:type="scave:Apply" operation="difference"/>
+        <items xsi:type="scave:ScatterChart"/>
+      </items>
+      <items xsi:type="scave:Group">
+        <items xsi:type="scave:Apply" operation="difference"/>
+        <items xsi:type="scave:LineChart" name="" lineNameFormat="">
+          <properties name="Y.Axis.Min" value="-0.008"/>
+          <properties name="Y.Axis.Max" value="0.008"/>
+          <properties name="Line.Type" value="Linear"/>
+        </items>
+      </items>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.1/@items.2 //@datasets/@datasets.1/@items.3 //@datasets/@datasets.1/@items.4 //@datasets/@datasets.2/@items.4/@items.1 //@datasets/@datasets.3/@items.4/@items.1 //@datasets/@datasets.2/@items.5/@items.1 //@datasets/@datasets.3/@items.5/@items.1"/>
+  </chartSheets>
+</scave:Analysis>

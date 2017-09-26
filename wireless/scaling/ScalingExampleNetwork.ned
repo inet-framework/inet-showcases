@@ -18,7 +18,7 @@
 
 package inet.showcases.wireless.scaling;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.contract.packetlevel.IRadioMedium;
 
@@ -31,7 +31,7 @@ network ScalingExampleNetwork
         @signal[dummy];
         @statistic[a](source=dummy; record=elapsedTime);
     submodules:
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }

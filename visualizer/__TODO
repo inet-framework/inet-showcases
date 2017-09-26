@@ -2,8 +2,6 @@ InterfaceTableVisualizer:
 - jobb paraméternév lenne a displayInterfaceData (displayInterfaceTables azt sugallja, hogy táblázatot rajzol ki)
 
 MobilityVisualizer:
-+ moduleFilter nem mukodik
-- nyilván kéne tartania a visualizernek hogy van-e már olyan szín a movementTrail-ek között, amit használni akar --> ne húzzon két node ugyanolyan színű movementTrail-t
 
 MediumVisualizer
 - X távolsággal menjen tovább a signal rajzolása, mint az utolsó receiver
@@ -42,7 +40,7 @@ InfoVisualizer
 + Amikor a statistic value-ja 0, akkor '-' van kiírva
 - InfoVisualizerShowcase: ha format = "%d" akkor nem csak a contention state van kiírva hanem exp. access is, de ez lehet hogy feature
 			  nagyon gyorsan eltűnik a kiírás amikor nem IDLE, nem lehet elolvasni
-- A displacement default-ból top, de egymás mellé rakja őket. Zavaró lehet, hogy az "IDLE" átvált "DEFER+exp access"-re, és megváltozik a doboz helye + mérete
+- A placement default-ból top, de egymás mellé rakja őket. Zavaró lehet, hogy az "IDLE" átvált "DEFER+exp access"-re, és megváltozik a doboz helye + mérete
 + when content = "str" some strange symbols appear
 
 StatisticVisualizer
@@ -57,15 +55,8 @@ SceneVisualizer
 - Az animation speed-et lehessen kontrollálni a szimulációs idő függvényében
 
 DatalinkVisualizer & PhysicallinkVisualizer:
-+ Csak akkor legyen nyíl 2 node között, ha a csomag közvetlenül megy át közöttük és nincs más node ahol megjelenik:
-    nodeFilter-ben a source és a destination volt megadva, köztük voltak switchek, a visualizer pedig behúzott egy nyilat a source és a destination közé KÖZVETLENÜL
 
 NetworkPathVisualizer:
-+ showcases/visualizer/networkpathvisualizer-ben
-    Config StaticNetworkPaths-ban
-        CreateArrowheadGeometry, inet/common/OSGUtils.cc line 106
-        at t=1.001055s event #512
-+ Ha éles a szög akkor a metszéspont messzire kerül és nagyon messze rajzolja a node-tól a nyílnak a töréspontját
 - VideoStrmPk bug: ha olyan packet-ek mennek egyszerre, amiknek ugyanaz a nevük, akkor a nyíl következő töréspontja mindig a packetek következő időbeli felbukkanásához vezet.
     Pl. NetworkPathActivity showcase --> Config StaticNetworkPaths --> packetFilter=ping-et ki kell kommentezni --> Run
 
@@ -74,7 +65,7 @@ PacketDropVisualizer:
 - lehessen szűrni reason szerint
 
 PathVisualizer-ek:
-- arrowlabel nem fade-el, csak a nyíl
+
 
 IPv4NetworkConfigurator:
 
@@ -92,9 +83,6 @@ TCP
 TransportRoute:
 - TCP-vel nem működik, csak UDP-vel
 - TransportRouteVisualizer-nek lehetne portFilter-e, hogy csak bizonyos portokon folyó kommunikációk transport route-jait láthassuk
-+ Nem jeleníti meg végig a route-ot: utolsó switch és a destination node közötti rész kimarad
-  Sometimes the arrow tip is missing. For example, the route would go through an AP and end at a wirelesshost, but the polyline stops at the AP without an arrow tip.
-  (filtering showcase, ec97684 ("filtering xxx", 2017-05-09)) there are NaN values in the list of points of the polyline
 - VideoStrmPk bug: ha olyan packet-ek mennek egyszerre, amiknek ugyanaz a nevük, akkor a nyíl következő töréspontja mindig a packetek következő időbeli felbukkanásához vezet.
     Pl. TransportPathActivity --> Config Filtering --> packetFilter-t és nodeFilter-t ki kell kommentezni --> Run
 

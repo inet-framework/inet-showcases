@@ -1,0 +1,29 @@
+Infrastructure
+--------------
+
+what is this about?
+
+- how to configure it
+- how to check if it is configured properly
+
+In the real world, 802.11 devices can operate in infrastructure mode and adhoc mode
+Infrastructure mode, where wireless networks are created by access points and hosts connect
+to that
+Adhoc mode where wireless hosts can create an adhoc network in the absence of any network
+infrastructure
+
+In infrastructure mode, the access point provides services such as internet access
+
+Is it possible to relay packets in adhoc mode ?
+
+it is not part of 802.11
+
+if the routes are configured properly, it can be done.
+
+by default, i think they are on the same subnet, and assume all nodes are directly reachable
+
+i think
+
+
+This showcase is about how to configure the infrastructure mode and adhoc mode (and how to check if it
+is configured properly)

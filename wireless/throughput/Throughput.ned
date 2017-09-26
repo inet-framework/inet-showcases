@@ -15,7 +15,7 @@
 
 package inet.showcases.wireless.throughput;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 
@@ -30,7 +30,7 @@ network Throughput
         destinationHost: WirelessHost {
             @display("p=328,160");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=100,100");
         }
         radioMedium: Ieee80211ScalarRadioMedium {

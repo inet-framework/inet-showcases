@@ -1,0 +1,21 @@
+Dynamic
+-------
+
+- folyamatosan keletkeznek és megszűnnek a node-ok
+- ne legyen hamar vége -> kell egy script
+- létrejön -> mozog -> megszűnik
+
+- átlapolódva, mozognak random -> random helyen random mozgás random ideig -> dynamic network
+- python-ban :)
+
+- akkor jut érvényre a config amikor létrejön
+
+
+
+Spawn module at random location, with random mobility settings
+
+configure to start pinging ?
+
+is it possible to set the ping start time to before the node comes into existence ? -> seems to be
+
+the spawning feature is not documented

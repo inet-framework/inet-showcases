@@ -1,0 +1,34 @@
+<!-- OSM Mapnik map. It works.
+<map name="OSM-Mapnik" type="geocentric" version="2">
+	<options lighting="true">
+		<terrain lighting="false"/>
+	</options>
+		
+	<image name="osm_mapnik" driver="xyz">
+        <url>http://[abc].tile.openstreetmap.org/{z}/{x}/{y}.png</url>
+        <profile>spherical-mercator</profile>
+    </image>
+  
+    <elevation name="readymap_elevation" driver="tms">
+        <url>http://readymap.org/readymap/tiles/1.0.0/9/</url>
+    </elevation>
+-->
+
+
+<!--	Readymap. It works.
+-->
+<map name="Readymap-map" type="geocentric" version="2">
+     
+    <options lighting="true">
+		<terrain lighting="false"/>
+	</options>
+	
+    <image name="readymap_imagery" driver="tms">
+        <url>http://readymap.org/readymap/tiles/1.0.0/7/</url>
+    </image>
+    
+    <elevation name="readymap_elevation" driver="tms">
+        <url>http://readymap.org/readymap/tiles/1.0.0/116/</url>
+    </elevation>
+
+</map>

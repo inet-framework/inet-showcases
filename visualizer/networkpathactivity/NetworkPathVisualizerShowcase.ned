@@ -16,8 +16,8 @@
 package inet.showcases.visualizer.networkpathactivity;
 import inet.common.lifecycle.LifecycleController;
 import inet.common.scenario.ScenarioManager;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
-import inet.node.aodv.AODVRouter;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+import inet.node.aodv.AodvRouter;
 import inet.node.ethernet.Eth100M;
 import inet.node.ethernet.EtherSwitch;
 import inet.node.inet.Router;
@@ -40,7 +40,7 @@ network NetworkPathSimpleShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }
@@ -66,7 +66,7 @@ network NetworkPathComplexShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }
@@ -153,31 +153,31 @@ network NetworkPathMobileShowcase
         visualizer: IntegratedVisualizer {
             @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=100,150");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=100,250");
         }
-        source: AODVRouter {
+        source: AodvRouter {
             @display("p=229,46");
         }
-        destination: AODVRouter {
+        destination: AodvRouter {
             @display("p=488.832,512.952");
         }
-        aodvRouter1: AODVRouter {
+        aodvRouter1: AodvRouter {
             @display("p=421.296,295.872");
         }
-        aodvRouter2: AODVRouter {
+        aodvRouter2: AodvRouter {
             @display("p=273.36002,440.592");
         }
-        aodvRouter3: AODVRouter {
+        aodvRouter3: AodvRouter {
             @display("p=305.52,188.136");
         }
-        aodvRouter4: AODVRouter {
+        aodvRouter4: AodvRouter {
             @display("p=562.8,328.032");
         }
-        aodvRouter5: AODVRouter {
+        aodvRouter5: AodvRouter {
             @display("p=421.296,77.184");
         }
 }
@@ -193,7 +193,7 @@ network NetworkPathRIPShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }

@@ -2,7 +2,7 @@ package inet.showcases.visualizer.earth;
 
 import inet.common.geometry.common.OsgGeographicCoordinateSystem;
 import inet.environment.common.PhysicalEnvironment;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
@@ -47,7 +47,7 @@ network EarthVisualization3 extends EarthVisualizationExample
         host4: AdhocHost {
             @display("p=487,150");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=259,150");
         }
         radioMedium: Ieee80211ScalarRadioMedium {

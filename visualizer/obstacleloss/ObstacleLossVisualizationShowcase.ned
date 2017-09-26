@@ -1,7 +1,7 @@
 package inet.showcases.visualizer.obstacleloss;
 
 import inet.environment.common.PhysicalEnvironment;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
@@ -16,7 +16,7 @@ network ObstacleLossVisualizationEnablingShowcase
         destination: AdhocHost {
             @display("p=530.64,180.90001");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=88,51");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
@@ -40,7 +40,7 @@ network ObstacleLossVisualizationMultipleObstaclesShowcase
         destination: AdhocHost {
             @display("p=700,350");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=88,51");
         }
         radioMedium: Ieee80211ScalarRadioMedium {

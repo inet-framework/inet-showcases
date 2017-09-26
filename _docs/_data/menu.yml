@@ -1,0 +1,57 @@
+- name: Visualization Showcases
+  link: /inet-showcases/visualizer
+  submenu:
+     - page: _docs/visualizer/packetdrop/index.md
+     - page: _docs/visualizer/transportpathactivity/index.md
+     - page: _docs/visualizer/networkpathactivity/index.md
+     - page: _docs/visualizer/datalinkactivity/index.md
+     - page: _docs/visualizer/physicallinkactivity/index.md
+     - page: _docs/visualizer/radiomediumactivity/index.md
+     - page: _docs/visualizer/linkbreak/index.md
+     - page: _docs/visualizer/obstacleloss/index.md
+     - page: _docs/visualizer/routingtable/index.md
+     - page: _docs/visualizer/interfacetable/index.md
+     - page: _docs/visualizer/ieee80211/index.md
+     - page: _docs/visualizer/transportconnection/index.md
+     - separator: true
+     - page: _docs/visualizer/environment/index.md
+     - page: _docs/visualizer/networknode/index.md
+     - page: _docs/visualizer/mobility/index.md
+     - page: _docs/visualizer/earth/index.md
+#     - separator: true
+     - page: _docs/visualizer/instrument/index.md
+     - page: _docs/visualizer/statistic/index.md
+     - page: _docs/visualizer/info/index.md
+     - page: _docs/visualizer/advanced/index.md
+#     - separator: true
+     - page: _docs/visualizer/styling/index.md
+     - page: _docs/visualizer/filtering/index.md
+- name: Wireless Showcases
+  link: /inet-showcases/wireless
+  submenu:
+     - page: _docs/wireless/levelofdetail/index.md
+     - page: _docs/wireless/scaling/index.md
+     - page: _docs/wireless/power/index.md
+     - page: _docs/wireless/pathloss/index.md
+     - page: _docs/wireless/ieee802154/index.md
+     - page: _docs/wireless/sensornetwork/index.md
+     - separator: true
+     - page: _docs/wireless/throughput/index.md
+     - page: _docs/wireless/errorrate/index.md
+     - page: _docs/wireless/hiddennode/index.md
+     - page: _docs/wireless/handover/index.md
+     - page: _docs/wireless/ratecontrol/index.md
+     - page: _docs/wireless/crosstalk/index.md
+     - page: _docs/wireless/infrastructure/index.md
+     - page: _docs/wireless/multiradio/index.md
+- name: Routing Showcases
+  link: /inet-showcases/routing
+  submenu:
+     - page: _docs/routing/manetprotocols/index.md
+- name: General Showcases
+  link: /inet-showcases/general
+  submenu:
+     - page: _docs/general/pcaprecording/index.md
+     - page: _docs/general/dynamic/index.md
+- name: Back to INET
+  link: https://inet.omnetpp.org/

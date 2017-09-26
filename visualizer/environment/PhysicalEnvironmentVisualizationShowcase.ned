@@ -1,7 +1,7 @@
 package inet.showcases.visualizer.environment;
 
 import inet.environment.common.PhysicalEnvironment;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
@@ -25,7 +25,7 @@ network PhysicalEnvironmentVisualizationShowcase
 //network PhysicalEnvironment2 extends PhysicalEnvironmentVisualizationShowcase
 //{
 //    submodules:
-//        configurator: IPv4NetworkConfigurator {
+//        configurator: Ipv4NetworkConfigurator {
 //            @display("p=51,106");
 //        }
 //        radioMedium: Ieee80211ScalarRadioMedium {

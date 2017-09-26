@@ -17,7 +17,7 @@ package inet.showcases.visualizer.linkbreak;
 
 import inet.common.lifecycle.LifecycleController;
 import inet.common.scenario.ScenarioManager;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
@@ -42,7 +42,7 @@ network LinkBreakA
         destination2: AdhocHost {
             @display("p=509,378");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=71,44");
         }
         radioMedium: Ieee80211ScalarRadioMedium {

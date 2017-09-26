@@ -15,7 +15,7 @@
 
 package inet.showcases.visualizer.filtering;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.Router;
@@ -30,7 +30,7 @@ network FilteringShowcase
 {
     @display("bgb=1357.62,798.49005");
     submodules:
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=57,43");
         }
         visualizer: IntegratedVisualizer {

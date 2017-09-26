@@ -17,9 +17,9 @@
 
 package inet.showcases.wireless.levelofdetail;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
-import inet.physicallayer.apskradio.bitlevel.APSKLayeredScalarRadioMedium;
+import inet.physicallayer.apskradio.bitlevel.ApskLayeredScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 
 network LevelofDetail
@@ -33,11 +33,11 @@ network LevelofDetail
             parameters:
                 @display("p=100,250");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }
-        radioMedium: APSKLayeredScalarRadioMedium {
+        radioMedium: ApskLayeredScalarRadioMedium {
             parameters:
                 @display("p=100,50");
         }

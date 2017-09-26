@@ -15,13 +15,14 @@
 
 package inet.showcases.visualizer.datalinkactivity;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
-import inet.node.aodv.AODVRouter;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+import inet.node.aodv.AodvRouter;
 import inet.node.ethernet.Eth100M;
 import inet.node.ethernet.EtherSwitch;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.StandardHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.visualizer.integrated.IntegratedMultiVisualizer;
 import inet.visualizer.integrated.IntegratedVisualizer;
 import inet.visualizer.linklayer.DataLinkVisualizer;
 
@@ -37,7 +38,7 @@ network DataLinkVisualizerEnablingWiredShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }
@@ -63,7 +64,7 @@ network DataLinkVisualizerEnablingWirelessShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,120");
         }
@@ -79,6 +80,35 @@ network DataLinkVisualizerEnablingWirelessShowcase
         }
 }
 
+//
+// TODO documentation
+//
+network DataLinkVisualizerActivityLevelShowcase
+{
+    @display("bgb=700,250");
+    submodules:
+        visualizer: IntegratedMultiVisualizer {
+            parameters:
+                @display("p=100,50");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            parameters:
+                @display("p=100,120");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            parameters:
+                @display("p=100,190");
+        }
+        person1: AdhocHost {
+            @display("p=269,42;i=misc/person3");
+        }
+        videoServer: AdhocHost {
+            @display("p=636,41;i=misc/desktoppc2");
+        }
+        person2: AdhocHost {
+            @display("p=452,180;i=misc/person4");
+        }
+}
 
 //
 // TODO documentation
@@ -90,7 +120,7 @@ network DataLinkVisualizerFilteringShowcase
         visualizer: IntegratedVisualizer {
             @display("p=80,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=80,120");
         }
@@ -146,43 +176,43 @@ network DataLinkVisualizerMobileShowcase
         visualizer: IntegratedVisualizer {
             @display("p=70,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=70,150");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=70,250");
         }
-//        RREQVisualizer: DataLinkVisualizer {
-//            @display("p=70,350");
+//        rreqVisualizer: DataLinkVisualizer {
+//        	@display("p=70,350");
 //        }
-//        RREPVisualizer: DataLinkVisualizer {
+//        rrepVisualizer: DataLinkVisualizer {
 //            @display("p=70,450");
 //        }
-        destination: AODVRouter {
+        destination: AodvRouter {
             @display("p=512.272,249.796");
         }
-        source: AODVRouter {
+        source: AodvRouter {
             @display("p=187.664,207.952");
         }
-        aodvRouter1: AODVRouter {
+        aodvRouter1: AodvRouter {
             @display("p=201.612,311.928");
         }
-        aodvRouter2: AODVRouter {
+        aodvRouter2: AodvRouter {
             @display("p=465.356,158.5");
         }
-        aodvRouter3: AODVRouter {
+        aodvRouter3: AodvRouter {
             @display("p=426.048,311.928");
         }
-        aodvRouter4: AODVRouter {
+        aodvRouter4: AodvRouter {
             @display("p=400.688,88.76");
         }
-        aodvRouter5: AODVRouter {
+        aodvRouter5: AodvRouter {
             @display("p=333.484,177.52");
         }
-        aodvRouter6: AODVRouter {
+        aodvRouter6: AodvRouter {
             @display("p=323.34,262.476");
         }
-        aodvRouter7: AODVRouter {
+        aodvRouter7: AodvRouter {
             @display("p=265.012,109.048");
         }
 }

@@ -25,6 +25,7 @@
       <items xsi:type="scave:LineChart" name="Host 0 and three other hosts" lineNameFormat="">
         <filters xsi:type="scave:Select" filterPattern="name(residualEnergyCapacity:vector) AND (module(*.host[0].*) OR module(*.host[14].*) OR module(*.host[17].*) OR module(*.host[15].*))" type="VECTOR"/>
         <properties name="Legend.Display" value="true"/>
+        <properties name="X.Axis.Max" value="100.0"/>
         <properties name="Line.Name/PowerConsumptionExample.host[0].energyStorage" value="Host[0]"/>
         <properties name="Line.Name/PowerConsumptionExample.host[14].energyStorage" value="Host[14]"/>
         <properties name="Line.Name/PowerConsumptionExample.host[15].energyStorage" value="Host[15]"/>
