@@ -69,7 +69,7 @@ In this simulation, `pathVisualizer's` type is
 
 The following video shows what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="522" height="352" src="EnablingPathVisualizationWired_v0615.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="522" height="352" src="EnablingPathVisualizationWired_v0615.m4v"></video></p>
 
 At the beginning of the video, a red strip appears and moves from
 `source` to `destination`. This strip is the standard OMNeT++
@@ -96,7 +96,7 @@ Here is the network for the wireless configuration.
 
 The following video shows what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="522" height="352" src="EnablingPathVisualizationWireless_v0615.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="522" height="352" src="EnablingPathVisualizationWireless_v0615.m4v"></video></p>
 
 This animation is similar to the video of the wired example (apart from an extra
 blue dotted line which is also part of the standard OMNeT++ packet animation).
@@ -144,7 +144,7 @@ arrived.
 The following video has been captured from the simulation, and shows what
 happens if `packetFilter` is set.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="664" src="Filtering_PacketFilter_v0615.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="664" src="Filtering_PacketFilter_v0615.m4v"></video></p>
 
 You can see that although there are both video stream and
 `UDPBasicAppData` traffic in the network,
@@ -168,7 +168,7 @@ We add the following line to the configuration:
 The following video has been captured from the simulation, and shows what
 happens if `nodeFilter` is set.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="664" src="Filtering_NodeFilter_v0615.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="664" src="Filtering_NodeFilter_v0615.m4v"></video></p>
 
 If you observe the default OMNeT++ packet transmission animation (red stripes),
 you can see that although there is UDP data traffic between both source-

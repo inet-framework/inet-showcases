@@ -68,7 +68,7 @@ Data link activity visualization is enabled by setting the
 
 The following video shows what happens when the simulation is started.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWired_v0613.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWired_v0613.m4v"></video></p>
 
 At the beginning of the video, a red strip appears and moves from
 `wiredSource` to `wiredDestination`. This strip is the standard
@@ -91,7 +91,7 @@ the `EnablingVisualizationWireless` configuration from the ini file.
 
 The following animation depicts what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWireless_v0613.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="722" height="352" src="EnablingVisualizationWireless_v0613.m4v"></video></p>
 
 This animation is similar to the video of the wired example (apart from an extra
 blue dotted line which can be ignored, as it is also part of the standard OMNeT++
@@ -138,7 +138,7 @@ can see that although there is both ARP and ping traffic in the network,
 `DataLinkVisualizer` only takes the latter into account, due to the presence
 of the `packetFilter` parameter.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering_v0613.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering_v0613.m4v"></video></p>
 
 It also is possible to filter for network nodes. For the following example, let's
 assume we want to display traffic between the hosts `source1` and `destination1`
@@ -152,7 +152,7 @@ following line (note the curly brace syntax used for specifying numeric substrin
 
 This is what it looks like when we run the simulation:
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering2_v0613.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="Filtering2_v0613.m4v"></video></p>
 
 As you can see, visualization allows us to follow the ping packets between
 `source1` and `destination1`. Note, however, that ping traffic
@@ -211,7 +211,7 @@ which flood the network. When an RREQ message reaches
 back towards `source`. Note that nodes appear stationary because the
 whole process takes place in a very short time period.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="602" src="AODV_v0614.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="602" src="AODV_v0614.m4v"></video></p>
 
 In the second experiment, we configure the visualizer to display only the ping
 traffic between `source` and `destination`. (The AODV
@@ -230,7 +230,7 @@ We use the following configuration for the visualization.
 
 The following animation illustrates what happens when the simulation is run.
 
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="602" src="Dynamic_v0613.m4v"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="642" height="602" src="Dynamic_v0613.m4v"></video></p>
 
 The communication ranges of `source` and `destination`
 are visualized as blue circles.
