@@ -42,7 +42,7 @@ InfoVisualizer
 + Amikor a statistic value-ja 0, akkor '-' van kiírva
 - InfoVisualizerShowcase: ha format = "%d" akkor nem csak a contention state van kiírva hanem exp. access is, de ez lehet hogy feature
 			  nagyon gyorsan eltűnik a kiírás amikor nem IDLE, nem lehet elolvasni
-- A displacement default-ból top, de egymás mellé rakja őket. Zavaró lehet, hogy az "IDLE" átvált "DEFER+exp access"-re, és megváltozik a doboz helye + mérete
+- A placement default-ból top, de egymás mellé rakja őket. Zavaró lehet, hogy az "IDLE" átvált "DEFER+exp access"-re, és megváltozik a doboz helye + mérete
 + when content = "str" some strange symbols appear
 
 StatisticVisualizer

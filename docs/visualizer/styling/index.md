@@ -158,7 +158,7 @@ When many annotations are placed in the same position around the node, the
 simulation can be confusing. By displacing annotations, you can make the
 simulation more understandable.
 
-The following example shows how to displace annotations around network node.
+The following example shows how to place annotations around network node.
 A simulation is created for this example, it can be run by selecting the
 `Annotation` configuration from the ini file.
 
@@ -166,10 +166,10 @@ Nodes are type of `WirelessHost`. In this simulation,
 `TransportConnectionVisualizer` and `Ieee80211Visualizer` are
 used (as a part of `IntegratedVisualizer`).
 
-We use the following configuration to displace annotations.
+We use the following configuration to place annotations.
 
 ``` {.snippet}
-*.visualizer.*.transportConnectionVisualizer.displacementHint = "bottom"
+*.visualizer.*.transportConnectionVisualizer.placementHint = "bottom"
 ```
 
 Click image to see the differences between the default and the customized visualization.
@@ -178,11 +178,11 @@ Click image to see the differences between the default and the customized visual
 
 The annotations can be placed in eight directions around the node: *topCenter,
 left, right, bottomCenter, topLeft, topRight, bottomLeft, bottomRight*. Using the
-`displacementHint` parameter, we can determine where the
+`placementHint` parameter, we can determine where the
 annotations will be placed. The parameter has an additional option: *any*. If
 *any* is set, annotations will be placed automatically as close as possible to the
 node. We can determine the order of annotation positioning by using the
-`displacementPriority` parameter. Zero is the largest priority.
+`placementPriority` parameter. Zero is the largest priority.
 
 ## More Information
 
