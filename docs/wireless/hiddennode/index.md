@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Hidden Node Example
-hidden: true
+title: The Hidden Node Problem
 ---
 
 ## Goals
@@ -13,75 +12,78 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ### Description of the hidden node problem
 
-For example, the hidden node problem occurs in a wireless network when two
-transmitting nodes are out of range of each other, and cannot detect when the
-other is transmitting. They simultaneously transmit to an intermediate node that
-is in transmission range of both. Since they don't know when the other is
-transmitting, normal collision avoidance is not effective, and their transmissions
-will often interfere at the intermediate node. Note that this is the simplest hidden
-node problem, there are more complicated ones (see <a
-href="https://en.wikipedia.org/wiki/Hidden_node_problem" target="blank">
-Hidden node problem</a> on wikipedia.)
+The hidden node problem is the collective name of situations where a transmitting
+node does not know about the existence of another node (the "hidden node") while
+transmitting to a third node which is within the range of both nodes.
+Since the node doesn't know when the hidden node is transmitting, normal
+collision avoidance is not effective, and their transmissions will often
+collide at the third node. The hidden node problem reduces channel utilization
+and damages network performance. Hidden nodes may be created by distance, by
+obstacles that block radio signals, by unequal transmission powers, or
+by other factors. The situation may be symmetric or asymmetric (the
+roles of the originator and the hidden node may or may not be interchangeable.)
+You can read more about the hidden node problem e.g.
+<a href="https://en.wikipedia.org/wiki/Hidden_node_problem" target="blank">
+here</a>.
 
-The solution employed in 802.11 networks is to use Request to send/Clear to send
-frames (RTS/CTS). Before transmitting a frame, hosts send an RTS frame
-addressed to the target node. The target node then replies with a CTS frame if the
-channel is idle. In response to the CTS frame, the transmitting node transmits the
-original frame.
-
-A nearby hidden node cannot receive the RTS, but it receives the CTS, which
-indicates that there is another node out of range, about to transmit. It defers from
-transmitting, until the ongoing transmission is over. It knows the exact time the
-transmission will take from the duration field of the CTS frame. The CTS, RTS and
-ACK frames each have a duration field, which indicate how much time is left until
-the entire packet exchange (RTS, CTS, payload frame, and ACK) is completed.
-Thus any node that receives one of the frames knows when the channel will
-become available for transmission.
+The 802.11 protocol allows transmissions to be protected against interference
+from other stations by using the RTS/CTS mechanism. Using RTS/CTS, the node
+wishing to transmit first sends an RTS (Request To Send) frame to the target
+node. The target node, if the channel is clear, responds with a CTS (Clear To Send)
+frame that not only informs the originator that it may transmit, but also tells
+other stations to refrain from using the channel for the specified amount of time.
+RTS/CTS obviously adds some overhead to the transmission process, so it is
+normally used to protect longer frames which are more expensive to retransmit.
+RTS/CTS does not completely solve the hidden node problem, but it can
+significantly help under certain conditions. A slightly more in-depth
+coverage of RTS/CTS and challenges associated with it can be found e.g.
+<a href="https://en.wikipedia.org/wiki/IEEE_802.11_RTS/CTS" target="blank">
+here</a>.
 
 ### Demonstrating the hidden node problem
 
-The showcase contains four simulation models. The first one doesn't use the
-RTS/CTS mechanism, so effectively the hidden node problem is not addressed
-here. The second one adds the RTS/CTS mechanism, which addresses the
-problem, adding some overhead to the transmissions in the process. The third
-and forth are for reference, showing what would happen if there were no hidden
-nodes in the first place.
+In this showcase, we'll set up a wireless network that contains a hidden node.
+To ensure that two selected nodes don't hear one another, we'll place an
+obstacle (a section of wall that blocks radio signals) between them. We'll
+run the simulation without RTS/CTS, with RTS/CTS turned on, and for reference,
+also with the wall removed.
 
 ## The model
 
-The network for all simulations contains three hosts, arranged in a triangle. Host A
-and C are separated by a wall which completely blocks transmissions, thus the
-nodes cannot transmit to each other, and cannot sense when the other is
-transmitting. The wall is enabled or disabled in the various simulations. They both
-send UDP packets to Host B, which can receive the transmissions of both hosts.
+The network for all simulations contains three hosts, arranged in a triangle.
+Host A and C are separated by a wall which completely blocks transmissions,
+thus the nodes cannot transmit to each other, and cannot sense when the other is
+transmitting. The wall is enabled or disabled in the various simulations.
+Hosts A and C both send UDP packets to Host B, which is able to receive the
+transmissions of both hosts.
 
 <img class="screen" src="network.png">
 
 The RTS/CTS mechanism can be enabled or disabled by setting the
-`rtsThresholdBytes` parameter in the `MAC` module of hosts.
-The RTS/CTS mechanism is used before packets whose size exceeds the size of the
-threshold.
+`rtsThresholdBytes` parameter in the `mac` submodule of hosts.
+The RTS/CTS mechanism is used for transmitting frames whose size exceeds
+the threshold.
 
-In the first configuration (`WallOnRTSoff`), the RTS/CTS mechanism is
-disabled. Host A and C will likely transmit at the same time very often. This will
-result in collisions at Host B. In the `WallOnRTSoff` configuration, the
-RTS/CTS mechanism is enabled. This is expected to reduce the number of
-collisions, and Host B will receive more packets correctly than in the previous
-configuration. In the third model the wall is removed, and RTS/CTS is disabled.
-This model will highlight the effect of the RTS/CTS mechanism and the RTS/CTS
-overhead. In the `WallOffRtsOn` configuration, the wall is disabled
-and RTS/CTS is enabled. Again, this configuration will show the effects of the
-RTS/CTS mechanism. This way the four models can be compared by the number of
-packets received at Host B.
+We will run the simulation in four configurations:
+
+- `WallOnRtsOff`: RTS/CTS mechanism disabled
+- `WallOnRtsOn`: RTS/CTS mechanism enabled
+- `WallOffRtsOff`: Wall removed, no RTS/CTS
+- `WallOffRtsOn`: Wall removed, RTS/CTS on
+
+In all configurations, hosts A and C will both send constant size (1000-byte) UDP packets
+at a rate that saturates the MAC most of the time. The transmission power and all other
+parameters of the two hosts are identical. We will run each configuration for the same
+simulation time interval (5 seconds), and count the number of packets received by Host B.
 
 ## Results
 
-**RTS/CTS disabled**
+### RTS/CTS disabled
 
 Both Host A and C frequently transmit simultaneously, thus the number of
 collisions at Host B is high.
 
-The animation above depicts such a collision. Host C starts transmitting, and Host
+The animation below depicts such a collision. Host C starts transmitting, and Host
 A starts transmitting as well, before Host C's transmission is over. As neither
 packet can be received correctly by Host B (and thus they are not ACKed), Hosts A
 and C retry transmitting the same packet multiple times after the backoff period.
@@ -95,34 +97,35 @@ Here is what a collision looks like in the log:
 
 <img src="collision.png" class="screen" />
 
-The number of packets received by Host B (Wall on, RTS/CTS off): **1402**
+The number of packets received by Host B (RTS/CTS off): **1470**
 
-**RTS/CTS enabled**
+### RTS/CTS enabled
 
-With RTS/CTS enabled, there are no more collisions, except for between RTS
-frames. RTS and CTS frames are much shorter than data frames (about 50ns vs
-2ms), thus the probability of RTS frames colliding is less than for data frames. The
-result is that a low number of RTS frames collide, and since they are short, the
-collisions don't take up much time.
+With RTS/CTS enabled, there are no more collisions, except for RTS frames.
+RTS and CTS frames are much shorter than data frames (about 34us vs 1.45ms),
+thus the probability of RTS frames colliding is less than for data frames.
+The result is that a low number of RTS frames collide, and since they are short,
+the collisions don't take up much time.
+
+The following sequence chart has been recorded from the simulation, and
+depicts an RTS collision.
 
 <img src="rtscollision.png" class="screen" />
 
 The following animation shows the RTS/CTS and data frame exchange.
 
-<img src="hiddennode11.gif" class="screen" /> <!--TODO: remove, left here to compare to video-->
-
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="WallOnRtsOn.mp4" width="756" height="640"></video>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="WallOnRtsOn.mp4" width="756" height="640"></video></p>
 
 The following sequence chart illustrates that the RTS/CTS mechanism makes the
-communication more orderly, as the nodes know when to transmit in order to
+communication more coordinated, as the nodes know when to transmit in order to
 avoid collisions. It also illustrates that RTS and CTS frames are much shorter than
 data frames.
 
 <img src="rts-seq.png" class="screen" width="900" />
 
-The number of received packets at Host B (Wall on, RTS/CTS off): **1987**
+The number of received packets at Host B (RTS/CTS on): **1971**
 
-**Wall removed**
+### Wall removed
 
 With the wall removed, hidden nodes are no longer a problem. When the RTS/CTS
 mechanism is not used, collision avoidance mechanisms can work, and the
@@ -131,11 +134,18 @@ so only the RTS and CTS frames can collide. The RTS and CTS frames are much
 shorter than data frames, thus retrasmitting them takes less time. Even though
 the RTS/CTS frames contribute some overhead, more packets are received
 correctly at Host B. When RTS/CTS is used, the number of packets received
-correctly at Host B is the same regardless of the presence of the wall.
+correctly at Host B is approximately the same regardless of the presence of the wall.
 
-The number of received packets at Host B (RTS/CTS off): **1936**<br>
-The number of received packets at Host B (RTS/CTS on): **1987**
+The number of received packets at Host B (wall removed, RTS/CTS off): **1966**<br>
+The number of received packets at Host B (wall removed, RTS/CTS on): **1987**
 
 ## Further information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/16"
+target="_blank">this page</a> in the GitHub issue tracker for commenting on
+this showcase.
+
