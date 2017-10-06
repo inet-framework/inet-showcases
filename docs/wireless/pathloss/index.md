@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Path Loss Models
+title: Path Loss Models (RELEASE PENDING)
 hidden: true
 ---
 
@@ -14,63 +14,69 @@ models and how to use them in simulations.
 The showcase contains an example simulation, which computes received power
 vs. distance using several path loss model types.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss" target="_blank">`inet/showcases/wireless/pathloss`</a>
 
 ## About path loss models
 
 Path loss models are used to compute the decrease in the power of a radio signal
 as it propagates away from the transmitter. The default path loss model in INET is
-free space path loss, which only computes attenuation due to the inverse square
+free space path loss, which computes attenuation according to the inverse square
 law along a single line-of-sight propagation path. This is a simple model, and
-realistic only in certain cases, e.g. when modeling satellite-to-satellite communications. Because of its low
-computing requirement, it is also useful if the emphasis of the simulation is not on
-the accuracy of radio propagation (e.g. testing protocols.) However, there are
-more path loss models available in INET, suitable to many scenarios. Here is a list
-of the path loss models featured in the example simulation, along with brief
-descriptions:
+realistic only in certain cases, e.g. when modeling satellite-to-satellite
+communications. Because of its low computational cost, it is also useful if the
+emphasis of the simulation is not on the accuracy of radio propagation (e.g.
+for testing protocols.) However, there are several more path loss models
+available in INET, suitable for various other scenarios.
+Here is a list of those featured in this showcase example:
 
--   `FreeSpacePathLoss:` Computes loss of signal power in a single line-of-sight propagation path, without any reflections or shadowing.
--   `TwoRayGroundReflection:` Computes loss of signal power by assuming a line-of-sight wave interfering with another wave reflected from the ground between the transmitter and the receiver. This model computes interference in the far-field only, and is the same as free space path loss up until a certain crossover distance.
--   `TwoRayInterference:` This model is the same as the two-ray ground reflection model in the far-field, but it models the interference of the two waves in the near-field as well.
--   `RicianFading:` It's a stochastic path loss model which assumes a dominant line-of-sight signal and multiple reflected signals between the transmitter and the receiver. It is useful for modeling radio propagation in an urban environment.
--   `LogNormalShadowing:` It's a stochastic path loss model, where power levels follow a lognormal distribution. It is useful for modeling shadowing caused by objects such as trees.
+- `FreeSpacePathLoss:` Computes loss of signal power in a single line-of-sight
+  propagation path, without any reflections or shadowing.
+- `TwoRayGroundReflection:` Computes loss of signal power by assuming a
+  line-of-sight wave interfering with another wave reflected from the ground
+  between the transmitter and the receiver. This model computes interference
+  in the far-field only, and is the same as free space path loss up until a
+  certain crossover distance.
+- `TwoRayInterference:` This model is the same as the two-ray ground reflection
+  model in the far-field, but it models the interference of the two waves
+  in the near-field as well.
+- `RicianFading:` It's a stochastic path loss model which assumes a dominant
+  line-of-sight signal and multiple reflected signals between the transmitter
+  and the receiver. It is useful for modeling radio propagation in an urban
+  environment.
+- `LogNormalShadowing:` It's a stochastic path loss model, where power levels
+  follow a lognormal distribution. It is useful for modeling shadowing caused
+  by objects such as trees.
 
-Other path loss models in INET include `RayleighFading`,
-`NakagamiFading`, `UWBIRStochasticPathLoss`,
-`BreakpointPathLoss`, and `SUIPathLoss`.
+Other path loss models in INET include `RayleighFading`, `NakagamiFading`,
+`UWBIRStochasticPathLoss`, `BreakpointPathLoss`, and `SUIPathLoss`.
 
 The various path loss models each have sets of parameters to fine-tune their
 behavior. In this showcase we leave the parameters at their defaults.
 
-TODO: is this needed? its in the goals section
-The study will involve two nodes communicating with increasing distance. We will record the received
-power vs. distance, using various path loss models.
 
 ## The model
 
-The example simulation uses the following network:
+The study will involve two wireless hosts that communicate at a varying
+distance. For each distance and path loss model, a probe packet will be sent
+from one host to the other, and the signal's received power will be recorded.
+
+In addition to the two hosts named named `source` and `destination`, the network
+also contains a `PhysicalEnvironment` module, an `IPv4NetworkConfigurator`, and
+a `Ieee80211ScalarRadioMedium`:
 
 <img src="network.png" class="screen" />
 
-The network contains two `adhocHosts` named `source`
-and `destination`. It also contains a `PhysicalEnvironment`
-module, in addition to `IPv4NetworkConfigurator` and
-`Ieee80211ScalarRadioMedium`.
-
-The two-ray ground reflection and interference models take the heights of the two nodes into account when computing path loss.
-
-In the case of the two-ray ground reflection and two-ray interference models, the heights of the two nodes are important.
-
-The heights of the two nodes are important when calculating path loss with the two-ray ground reflection and two-ray interference models.
-
-The two-ray ground reflection and two-ray interference models need to know how high each of the two nodes are above the ground when computing path loss. The two-ray ground reflection model needs a ground model, which contains the elevation of the ground. The two-ray interference model assumes the ground elevation to be 0.
 <!--TODO: rewrite when the two-ray interference model is modified to use the ground model if there is one-->
 
-The antenna height of the transmitter and the receiver is an important part of the two-ray ground reflection and two-ray interference model, because it affects path loss. The two-ray interference model calculates antenna heights from the z co-ordinates of the two nodes by assuming the z co-ordinate of the ground to be 0.
-The two-ray ground reflection model needs a ground model, which contains the elevation of the ground.
-The ground model is part of the physical environment module. By default, the physical environment module
-doesn't use a ground model, but it is set in the configuration to use
-`FlatGround`:
+The antenna height of the transmitter and the receiver is an important part of
+the two-ray ground reflection and two-ray interference model, because it affects path loss.
+The two-ray interference model calculates antenna heights from the z co-ordinates
+of the two nodes by assuming the z co-ordinate of the ground to be 0.
+The two-ray ground reflection model needs a ground model, which contains the elevation
+of the ground. The ground model is part of the physical environment module.
+By default, the physical environment module doesn't use a ground model, but
+it is set in the configuration to use `FlatGround`:
 
 ```
 *.physicalEnvironment.groundType = "FlatGround"
@@ -106,9 +112,9 @@ transmitter module.)
 
 ## Results
 
-The power of the received signal vs. distance, using
-`FreeSpacePathLoss`, `TwoRayGroundReflection` and
-`TwoRayInterference` path loss models, is displayed on the following plot:
+The power of the received signal vs. distance, using `FreeSpacePathLoss`,
+`TwoRayGroundReflection` and `TwoRayInterference` path loss models, 
+is displayed on the following plot:
 
 <a href="tworay.svg" target="_blank"><img class="screen" src="tworay.png"></a>
 
@@ -124,17 +130,18 @@ field. Thus the two-ray interference model can be used for more realistic two-ra
 propagation simulations.
 
 The next plot displays the power of the received signal vs. distance using the
-`RicianFading` and `LogNormalShadowing` models, and
-the `FreeSpacePathLoss` model for reference:
+`RicianFading` and `LogNormalShadowing` models, and the `FreeSpacePathLoss` model
+for reference:
 
 <a href="ricianlognormal.svg" target="_blank"><img class="screen" src="ricianlognormal.png"></a>
 
-The curves don't fluctuate as much after a while, because the data points are less
-dense. Here is the same plot zoomed in on the near-field:
+The sharp visual change in the "raggedness" of the curves near 100m is due to
+the data points becoming less dense. Here is the same plot zoomed in on the
+near-field:
 
 <a href="ricianlognormal2.svg" target="_blank"><img class="screen" src="ricianlognormal2.png"></a>
 
-## Further information
+## Further Information
 
 For more information about the path loss models in INET, refer to the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
 The following links provide more information about the path loss models in general (not about the INET implementation):
@@ -146,3 +153,6 @@ The following links provide more information about the path loss models in gener
 - <a href="https://en.wikipedia.org/wiki/Log-distance_path_loss_model" target="_blank">Log-normal shadowing</a>
 
 ## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

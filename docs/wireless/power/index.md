@@ -1,39 +1,44 @@
 ---
 layout: page
-title: Power Consumption
+title: Power Consumption (RELEASE PENDING)
 hidden: true
 ---
 
 ## Goals
 
-This showcase is about the effect of wireless communication on the power
-consumption of mobile devices. It models the power consumption associated with
-the physical layer of wireless hosts. It demonstrates energy consumption, storage
-and generation.
+This showcase demonstrates the modeling of energy consumption, energy storage
+and generation in the INET Framework through the example of a mobile ad-hoc
+network. We'll examine the effect of wireless communication on the power consumption
+of the mobile nodes. The main energy consumer in the nodes will thus be the
+radio; the modeled devices will also have energy storage (battery) and energy
+"generator" (e.g. solar cells) units built into them.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/power" target="_blank">`inet/showcases/wireless/power`</a>
 
 ## The model
 
-The hosts will send out ping requests, which will deplete their energy storage,
-while their power generators will charge them. After the simulation has
-concluded, we will analyze energy storage statistics.
-
 ### The network
 
-The network contains mobile hosts (type `AdhocHost`), the number of
-which can be specified in the ini file. The default number specified is 20. They are
-randomly placed on the playground, and they're static (they don't move around).
-Here is what it looks like when the simulation is run:
+The network consists of a configurable number of stationary wireless nodes of
+the type `AdhocHost`. The hosts are placed on the playground randomly at the
+start of the simulation. The radios are configured so that hosts can reach
+each other in one hop, so no routing is needed.
+We'll use the ping application in each host to generate network traffic.
+During simulation, radios will draw power from the nodes' energy storage units,
+while power generators will charge them. After the simulation has finished,
+we will analyze the recorded energy storage statistics.
+
+The simulations will be run using 20 hosts. Here is what the network will look
+like when the simulation is run:
 
 <img src="network4.png" class="screen" />
 
 ### Configuration and behavior
 
-All hosts are configured to send a ping request to `Host[0]` every
-second. `Host[0]` doesn't send ping requests, just replies to the
-requests that it receives. The radio transmissions will deplete hosts' energy
-storage. To reduce the probability of collisions, the ping application's start time is
+All hosts are configured ping `host[0]` every second. `host[0]` doesn't send
+ping requests, just replies to the requests that it receives.
+To reduce the probability of collisions, the ping application's start time is
 choosen randomly for each hosts as a value between 0 and 1 seconds. Since ping
 requests have a short duration and hosts transmit infrequently, it is assumed that
 the probability of collisions will be very low.
@@ -42,11 +47,11 @@ the probability of collisions will be very low.
 
 Hosts are configured to contain a `SimpleEpEnergyStorage` module.
 `SimpleEpEnergyStorage` keeps a record of stored energy in Joules,
-and power input/output in Watts. (The letters `Ep` stand for energy
+and power input/output in Watts. The letters `Ep` stand for energy
 and power, denoting how the module represents energy storage and power
-input/output. There are other energy storage models in INET that similarly to real
+input/output. There are other energy storage models in INET that, similarly to real
 batteries, use charge and current (denoted by `Cc`), such as
-`SimpleCsBattery`.) `SimpleEpEnergyStorage` models energy
+`SimpleCcBattery`. `SimpleEpEnergyStorage` models energy
 storage by integrating the difference of absorbed and provided power over time.
 It does not simulate other effects of real batteries, such as temperature
 dependency and hysteresis. It is used in this model because the emphasis is on
@@ -56,19 +61,21 @@ charge they contain at the beginning of the simulation is randomly selected
 between zero and the nominal capacity for each host.
 
 Each host contains an `AlternatingEnergyGenerator` module. This
-module alternates between generation and sleep modes. It starts in generation
-mode, and generates the amount of power that is specified by its
-`powerGeneration` parameter (now set to 4 mW). In sleep mode, it generates
-no power. It stays in each mode for the duration specified by the
+module alternates between generation (active) and sleep states. It starts in
+the generation state, and while there, it generates the power that is specified in
+its `powerGeneration` parameter (now set to 4mW). In the sleep state, it generates
+no power. It stays in each mode for the durations specified in the
 `generationInterval` and `sleepInterval` parameters. These are
 set to a random value with a mean of 25s for each host.
 
 Energy storage and generator modules are controlled by energy management
 modules. In this showcase, hosts are configured to contain a
-`SimpleEpEnergyManagemenet` module. We configure energy management
-modules to shut down hosts when their energy levels reach 10% of nominal capacity (0.005 Joules), and restart them
-when their energy storage charges to half of their nominal energy capacity, i.e.
-0.025 Joules. These settings can be specified by the energy management module's `nodeShutdownCapacity` and `nodeStartCapacity` parameters.
+`SimpleEpEnergyManagement` module. We configure energy management
+modules to shut down hosts when their energy levels reach 10% of the
+nominal capacity (0.005 Joules), and restart them when their energy storage
+charges to half of their nominal energy capacity, i.e. 0.025 Joules.
+These settings can be specified in the energy management module's
+`nodeShutdownCapacity` and `nodeStartCapacity` parameters.
 
 ### Radio modes and states
 
@@ -76,7 +83,7 @@ In the `Ieee80211ScalarRadio` model used in this simulation (and in
 other radio models), there are different modes in which radios operate, such as
 off, sleep, receiver, transmitter. The mode is set by the model, and does not
 depend on external effects. In addition to mode, radios have states, which depend
-on what they are doing in the given mode - ie. listening, receiving a transmission,
+on what they are doing in the given mode -- i.e. listening, receiving a transmission,
 or transmitting. This depends on external factors, such as if there are
 transmissions going on in the medium.
 
@@ -94,71 +101,68 @@ TODO: some of the default values in StateBasedEnergyConsumer?
 
 ### Energy storage visualization
 
-The energy storage capacity of nodes can be visualized by the `EnergyStorageVisualizer` module, which displays a battery icon next to nodes, indicating their charge levels. It is included in this network as part of the `IntegratedCanvasVisualizer` module.
+The energy storage capacity of nodes can be visualized by the
+`EnergyStorageVisualizer` module, which displays a battery icon next to the nodes,
+indicating their charge levels. This visualizer is included in the network
+as part of the `IntegratedCanvasVisualizer` module.
 
 ## Results
 
-The following video shows the nodes shutting down and restarting, and their changing energy levels:
+The following video has been captured from the simulation. The gauges next
+to each host indicate energy levels, and a red "x" on a host's icon means
+that the host is down. Note how energy levels change while the simulation is running.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="power2.mp4"></video></p>
 
-`Host[0]` is the target for the ping requests of all other hosts. It
-doesn't send ping requests, but it replies to all requests. After a while, the energy
-storage of hosts get depleted, and the hosts shut down. This is indicated by a red
-x on the host's symbol. The energy generator charges hosts regardless of whether
-they are depleted or not (as if they were charged by a solar panel).
+The following plot shows the energy storage levels of all the hosts through
+the course of the simulation, recorded as the `residualEnergyCapacity` statistic.
+We can see that each host starts from a given charge level, and their
+energy levels constantly decrease from there. It eventually reaches the shutdown
+capacity, and when that happens, the host shuts down. Then it starts to charge,
+and when the charge level reaches the 0.025J threshold, the host turns back on.
 
-<img src="depleted.png" class="screen" />
-
-The following plot shows the energy storage levels (recorded as the
-`residualEnergyCapacity` statistic) of all the hosts through the course of the
-simulation. In general, hosts start from a given charge level, and their energy
-storage level depletes, and reaches the shutdown capacity. When that happens, the hosts shut
-down. Then they start to charge, and when their charge level reaches the 0.025J
-threshold, they turn back on. They continue sending ping requests, until they get
-depleted again. The generator generates more power than hosts consume when
-they are idle, but not when they are receiving or transmitting. This appears on the
-graph as increasing curves when the generator is charging, with tiny zigzags
-associated with receptions and transmissions. When hosts get fully charged, they
+The generator generates more power than hosts consume when they are idle, but
+not when they are receiving or transmitting. This appears on the graph as
+increasing curves when the generator is charging, with tiny zigzags associated
+with receptions and transmissions. When hosts get fully charged, they
 maintain the maximum charge level while the generator is charging.
 
 <img class="screen" src="residualcapacity3.png" width="850px" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 The plot below shows the energy storage level (red curve) and the energy
-generator output (blue curve) of `Host[12]`. The intervals when the
+generator output (blue curve) of `host[12]`. The intervals when the
 generator is charging the energy storage can be discerned on the energy storage
 graph as increasing slopes. When the host is transmitting and the generator is
-charging, the energy levels don't increase as fast. The generator generates 4 mW
-of power, and radios consume 2 mW when they are idle in receiver mode. Radios
-are in idle state most of the time, thus their power consumption is roughly 2 mW.
-When the host is turned on and it is being charged, the net charge is 2 mW (4 mW
-provided by the generator and 2 mW consumed by the radio). When the host is
-turned off and being charged, the net charge is 4 mW. The latter corresponds to
-the most steeply increasing curve sections. When the host is turned on but not
-charging, the consumption is 2 mW, and the curve is decreasing.
+charging, the energy levels don't increase as fast. The generator generates 4mW
+of power, and radios consume 2mW when they are idle in receiver mode. Radios
+are in idle state most of the time, thus their power consumption is roughly 2mW.
+When the host is up and being charged, the net charge is 2mW (4mW provided by
+the generator and 2mW consumed by the radio). When the host is down and being
+charged, the net charge is 4mW. The latter corresponds to the most steeply
+increasing curve sections. When the host is up but not charging, the consumption
+is 2mW, and the curve is decreasing.
 
-When hosts are turned on, they occasionally transmit. This results in tiny zigzags
-in the graph because of temporary increase in power consumption associated with
-transmissions (the power requirement of transmissions is 100 mW). In the
-intervals when the host is turned off, the host doesn't transmit, and the curve is
-smooth (note that there are drawing artifacts due to multiple line segments).
+The tiny zigzags in the graph when the host is up are because of the increased
+power consumption associated with transmitting (it requires 100mW of power).
+In the intervals when the host is down, the curve is smooth (there are still
+some drawing artifacts due to multiple line segments, but that can be ignored).
 
 <img src="host12_3.png" class="screen" width="850" />
 
-The following plot shows how the energy level of `Host[12]` changes
+The following plot shows how the energy level of `host[12]` changes
 during a transmission while charging.
 
 <img src="host12-2.png" class="screen" />
 
-`Host[0]` is different from the other hosts in that it doesn't generate
+`host[0]` is different from the other hosts in that it doesn't generate
 ping requests, but sends replies to all the ping requests it receives. Therefore it
 consumes energy faster. As other hosts just send one ping request every second,
-`Host[0]` has to reply to 20 ping request each second. This increased
+`host[0]` has to reply to 20 ping request each second. This increased
 consumption can be seen on the following energy level graph as more rapidly
-decreasing curve (`Host[0]` is the blue curve).
+decreasing curve (`host[0]` is the blue curve).
 
-`Host[0]` transmits around 20 times more than the other hosts, thus it
-consumes 20 times more energy when it is transmitting. The curve doesn't
+`host[0]` transmits around 20 times more than the other hosts, thus it
+consumes 20 times more energy when it is transmitting. (TODO ?????) The curve doesn't
 decrease 20 times as fast because most of the time the hosts are listening.
 Transmissions are rare, and the time hosts spend transmitting is far less than they
 spend listening. Energy consumtion is dominated by reception.
@@ -167,10 +171,10 @@ spend listening. Energy consumtion is dominated by reception.
 
 The following plot shows a ping request-ping reply exchange (with the associated
 ACKs) between hosts 0 and 3 on the sequence chart and the corresponding
-changes in energy levels of `Host[0]`. Note that `Host[0]`
+changes in energy levels of `host[0]`. Note that `host[0]`
 consumes less energy receiving than transmitting. In the intervals between the
 transmissions, the curve is increasing, because the generator is charging
-`Host[0]`. This image shows that hosts indeed consume more power when
+`host[0]`. This image shows that hosts indeed consume more power when
 transmitting than the generator generates. However, transmissions are very short
 and very rare, so one needs to zoom in on the graph to see this effect.
 
@@ -179,3 +183,9 @@ and very rare, so one needs to zoom in on the graph to see this effect.
 ## Further Information
 
 More information can be found in the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html" target="_blank">INET Reference</a>.
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.
+
