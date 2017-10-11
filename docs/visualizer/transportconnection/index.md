@@ -1,13 +1,12 @@
 ---
 layout: page
 title: Visualizing Transport Connections
-hidden: true
 ---
 
 ## Goals
 
 In a large network with a complex topology, there might be many
-transport layer applications, and many nodes communicating. In such a
+transport layer applications and many nodes communicating. In such a
 case, it might be difficult to see which nodes communicate with which,
 or if there is any communication at all. Transport connection
 visualization makes it easy to get information about the active
@@ -24,7 +23,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## About the visualizer
 
-The `TransportConnectionVisualizer` (also part of
+The `TransportConnectionVisualizer` module (also part of
 `IntegratedVisualizer`) displays color-coded icons above the
 two endpoints of an active, established transport layer level
 connection. The icons will appear when the connection is established,
@@ -79,9 +78,9 @@ will appear above the hosts. The network will look like the following:
 
 ## Multiple transport connections
 
-This example simulation demonstrates the visualization of multiple
-connections, and the filtering of nodes and ports. It can be run by
-choosing the `MultipleConnections` configuration from the ini
+The following example simulation demonstrates the visualization of multiple
+connections, and the filtering by node and port number. The simulation
+can be run by choosing the `MultipleConnections` configuration from the ini
 file. It uses the following network:
 
 <img class="screen" src="complexnetwork.png">
@@ -121,13 +120,26 @@ look like this:
 
 Additionally, to visualize port 22 connections at `host2` only,
 the `sourceNodeFilter` parameter should be set to
-`host2`. It looks like this:
+`host2`. The result looks like this:
 
-<img class="screen" src="port22host2.png"> <!--
+<img class="screen" src="port22host2.png">
+
+<!--
+TODO: demonstrate the letters too! A, B, C, AA, AB, etc. "To differentiate connections with the same icon color, capital letters are displayed on the icon."
+
 To differentiate connections with the same icon color, capital letters are displayed on the icon.
+To demonstrate the letters, the `destinationPortFilter` parameter is set to "`*`" (the default setting) to visualize all three transport connections in the network. Also, the `iconColor` parameter is set to `"blue, red"` to limit the number of used colors to two:
+
+<img class="screen" src="letters.png">
 -->
 
 ## Further information
 
 For more information, refer to the
 `TransportConnectionVisualizer` NED documentation.
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/15"
+target="_blank">this page</a> in the GitHub issue tracker for commenting on
+this showcase.

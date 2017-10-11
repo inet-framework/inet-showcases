@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Path Loss Models (RELEASE PENDING)
-hidden: true
+title: Path Loss Models
 ---
 
 ## Goals
@@ -154,5 +153,6 @@ The following links provide more information about the path loss models in gener
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/TODO" target="_blank">this page</a>
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/19" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
+

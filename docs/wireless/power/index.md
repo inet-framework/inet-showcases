@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Power Consumption (RELEASE PENDING)
-hidden: true
+title: Power Consumption
 ---
 
 ## Goals
@@ -97,7 +96,7 @@ amount of power when they are idle in receive mode, i.e. when they are listening
 for transmissions. They consume more when they are receiving a transmission,
 and even more when they are transmitting.
 
-TODO: some of the default values in StateBasedEnergyConsumer?
+<!-- TODO: some of the default values in StateBasedEnergyConsumer? -->
 
 ### Energy storage visualization
 
@@ -154,18 +153,14 @@ during a transmission while charging.
 
 <img src="host12-2.png" class="screen" />
 
-`host[0]` is different from the other hosts in that it doesn't generate
-ping requests, but sends replies to all the ping requests it receives. Therefore it
-consumes energy faster. As other hosts just send one ping request every second,
-`host[0]` has to reply to 20 ping request each second. This increased
-consumption can be seen on the following energy level graph as more rapidly
-decreasing curve (`host[0]` is the blue curve).
-
-`host[0]` transmits around 20 times more than the other hosts, thus it
-consumes 20 times more energy when it is transmitting. (TODO ?????) The curve doesn't
-decrease 20 times as fast because most of the time the hosts are listening.
-Transmissions are rare, and the time hosts spend transmitting is far less than they
-spend listening. Energy consumtion is dominated by reception.
+`host[0]` is different from the other hosts in that it doesn't send
+ping requests, it "only" sends replies to the pings sent by the other
+hosts. (Hosts send one ping request every second.)
+Note that although `host[0]` transmits around 20 times more than the other hosts,
+its energy consumption is similar to the other hosts' (`host[0]` is the blue curve).
+This is so because is its energy consumption is still dominated by reception:
+the host spends most of its time listening, and only a fraction of time
+transmitting.
 
 <img src="consumption4.png" class="screen" width="850" />
 
@@ -186,6 +181,6 @@ More information can be found in the <a href="https://omnetpp.org/doc/inet/api-c
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/TODO" target="_blank">this page</a>
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/18" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
 
