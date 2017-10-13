@@ -16,8 +16,10 @@ simulation.
 INET can visualize the intersections of obstacles and signals, with several details.
 
 This showcase contains two simulations, which demonstrate the visualization of
-obstacle loss. The showcase works with INET 3.6. The source files are located in
-the `inet/showcases/visualizer/obstacleloss` directory.
+obstacle loss.
+
+INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/obstacleloss" target="_blank">`inet/showcases/wireless/obstacleloss`</a>
 
 ## About the visualizer
 
@@ -93,3 +95,8 @@ The fading time, as well several other parameters can be configured.
 ## Further information
 
 For more information, refer to the `ObstacleLossVisualizer` NED documentation.
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

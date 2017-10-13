@@ -19,7 +19,8 @@ particular kinds of data.
 This example contains a configuration that demonstrates multiple
 instrument figures.
 
-TODO: this works with what inet version ?
+INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrument" target="_blank">`inet/showcases/visualizer/instrument`</a>
 
 ## About the instrument figures
 
@@ -254,3 +255,8 @@ For more information, refer to the documentation of the figures.
 
 TODO: ...which are non existent now? the omnet manual has information
 about figures in general
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

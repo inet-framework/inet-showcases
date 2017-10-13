@@ -403,3 +403,8 @@ instead of the default RoutingTableCanvasVisualizer module.
 How to do it, illustrated with screenshots
 
 ## Further information
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

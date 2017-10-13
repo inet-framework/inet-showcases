@@ -22,6 +22,9 @@ visualize only certain kinds of packets, at certain nodes.
 This showcase demonstrates with examples the filtering features
 available in many visualizer modules.
 
+INET version: `3.6`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/filtering" target="_blank">`inet/showcases/visualizer/filtering`</a>
+
 ## Filter Types in Visualizers
 
 There are five types of filters, and different visualizers feature a
@@ -147,3 +150,8 @@ packetFilter = bitRate(24Mbps) OR bitrate(6Mbps) AND NOT packetname(ICMP)
 
 this would visualize 24mbps and 6mbps transmissions that are not icmp messages
 -->
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

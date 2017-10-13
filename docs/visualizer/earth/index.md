@@ -15,7 +15,7 @@ This showcase is about placing a map in the simulation. It contains three exampl
 configurations of increasing complexity, each demonstrating various features of
 the visualization.
 
-INET version: `3.6`
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank">`inet/showcases/visualizer/earth`</a>
 
 ## About the Visualizer
@@ -167,3 +167,8 @@ TODO: This paragraph doesn't seem useful
 ## Further Information
 
 For further information about the visualizer, refer to the `SceneOsgEarthVisualizer` NED documentation.
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

@@ -136,3 +136,8 @@ close to `source`.
 
 For further information, refer to the `InfoVisualizer` NED
 documentation.
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

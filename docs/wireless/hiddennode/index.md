@@ -8,6 +8,7 @@ title: The Hidden Node Problem
 This showcase demonstrates the hidden node problem in 802.11 wireless
 networks, and the RTS/CTS mechanism that addresses it.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/hiddennode" target="_blank">`inet/showcases/wireless/hiddennode`</a>
 
 ### Description of the hidden node problem
@@ -148,4 +149,3 @@ More information can be found in the <a href="https://omnetpp.org/doc/inet/api-c
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/16"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
-

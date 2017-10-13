@@ -10,8 +10,8 @@ in an 802.11 wireless LAN using infrastructure mode. The goal is to show how the
 handover takes place between the two APs, including beacons, active scanning,
 the authentication and association processes.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/handover" target="_blank">`inet/showcases/wireless/handover`</a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/8" target="_blank">on GitHub</a>.
 
 ## The Model
 
@@ -115,6 +115,5 @@ More information can be found in the <a href="https://omnetpp.org/doc/inet/api-c
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/8" target="_blank">this page</a> 
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/8" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-

@@ -8,8 +8,8 @@ title: IEEE 802.11 Throughput
 This example analyzes how application-level throughput changes as a function of
 nominal bitrate in a 802.11g network.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/throughput" target="_blank">`inet/showcases/wireless/throughput`</a>
-<br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/6" target="_blank">on GitHub</a>.
 
 ## The model
 
@@ -90,6 +90,5 @@ More information can be found in the <a href="https://omnetpp.org/doc/inet/api-c
 
 ## Discussion
 
-Use <a href="https://github.com/inet-framework/inet-showcases/issues/6" target="_blank">this page</a> 
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/6" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-

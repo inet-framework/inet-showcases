@@ -170,3 +170,8 @@ Here, the visualizer displays the UDP application's number of sent and
 received packets, in addition to the contention state.
 
 TODO: some kind of conclusion like in the other samples
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.
