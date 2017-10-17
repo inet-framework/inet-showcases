@@ -122,18 +122,13 @@ state. It takes on the following values:
 The following animation illustrates as a packet from `source`
 makes its way to `destination`:
 
-<img class="screen" src="info1.gif">
-
-<img class="screen" src="info2.gif">
-
-TODO: remove these
-
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="VisualizingSubmoduleInformation0.mp4" width="718" height="480"></video></p>
 
 <!--internal video recording playback speed 0.43 animation speed none-->
 
 TODO: what is happening on the animation
 
+<!--
 When `source` starts transmitting the UDP packet, its state
 changes to OWNING. The relay host's state is IDLE while receiving this
 packet. After it has received it, the state changes to IFS+BKOFF, then,
@@ -153,6 +148,7 @@ has the packet it wants to relay to the destination host. After the ACK,
 the relay host gets the channel. The state of the destination host
 remains IDLE, as it doesn't transmit any packets, just ACKs the ones it
 receives.
+-->
 
 Multiple submodules can be specified with the visualizer's
 `modules` parameter. For example, the UDP application's state
@@ -169,7 +165,10 @@ This would look like the following:
 Here, the visualizer displays the UDP application's number of sent and
 received packets, in addition to the contention state.
 
-TODO: some kind of conclusion like in the other samples
+## More information
+
+For more information, refer to the `InfoVisualizer` NED
+documentation.
 
 ## Discussion
 
