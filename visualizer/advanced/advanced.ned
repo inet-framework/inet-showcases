@@ -15,7 +15,7 @@
 
 package inet.showcases.visualizer.advanced;
 
-import inet.visualizer.integrated.IntegratedMultiCanvasVisualizer;
+import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.WirelessHost;
 import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
@@ -77,7 +77,7 @@ network UsingMultipleVisualizerModulesShowcaseA
         configurator: IPv4NetworkConfigurator {
             @display("p=60,60");
         }
-        visualizer: IntegratedMultiCanvasVisualizer {
+        visualizer: IntegratedCanvasVisualizer {
             @display("p=60,120");
         }
     connections:
@@ -138,7 +138,7 @@ network UsingMultipleVisualizerModulesShowcaseB
         configurator: IPv4NetworkConfigurator {
             @display("p=60,60");
         }
-        visualizer: IntegratedMultiCanvasVisualizer {
+        visualizer: IntegratedCanvasVisualizer {
             @display("p=60,120");
         }
         adhocHost2: AdhocHost {

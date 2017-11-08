@@ -25,6 +25,7 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 network PathLossShowcase
 {
     @display("bgb=1400,400");
+    @statistic[receptionPower](source="receptionMinSignalPower(radioMedium.receptionStarted)"; record=last);
     submodules:
         source: AdhocHost {
             @display("p=144.37871,110.05918");
