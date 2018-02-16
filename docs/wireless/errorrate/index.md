@@ -9,35 +9,7 @@ In this showcase we perform a parameter study examining how packet error rate
 changes as a function of distance in a 802.11g wireless network.
 
 INET version: `3.6`<br>
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/earth" target="_blank">`inet/showcases/wireless/errorrate`</a>
-
-<!--TODO:
-
-    Hogy konfigurálod be az inetet, hogy ilyen parameter study-t tudj csinálni
-
-    effective bitrate <- throughput DONE
-    bele vannak számolva a bit hibák miatti veszteségek
-
-    - hogy keletkezett ez a diagram...milyen statistisztikákat recordoltak, hogy kell beállítani a chart-ot
-    - "a 10^-13-ont nullának tekintjük" DONE
-    - #!!! ezeket el kell magyarázni mert essential
-    - ahol lehet mást választani ott elmondani hogy mit lehet DONE
-    - SNIRThreshold vs Sensitivity DONE
-    - sensitivity: DONE
-    - minden SNIR-rel kapcsolatos dolog szimulációs optimalizáció DONE
-    - Packet loss vs. distance using various wifi bitrates DONE
-    - legyen g(erp)-vel DONE
-    - freespacepathloss legyen? -> inkább tworay DONE
-    - kell a táblázat / összehasonlítás ? -> referenciaként be lehet linkelni...mérnöki hibahatáron belül van DONE
-    - NIST error model ne a goals-ba DONE
--->
-<!--
-    TODO
-
-    The Ieee80211NistErrorModel is based on the NIST error rate model, which is the default 802.11 error rate model in
-    the ns-3 network simulator. URL HERE
-    Which is based on [miller2003], done at NIST (Nation Institude of Standards and Technology)
-    -->
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/errorrate" target="_blank">`inet/showcases/wireless/errorrate`</a>
 
 ## The Model
 
