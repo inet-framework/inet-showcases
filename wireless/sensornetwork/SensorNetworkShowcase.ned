@@ -10,8 +10,7 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 
 network SensorNetworkShowcaseA
 {
-    // ;bgg=5,5
-    @display("bgb=60,30;bgi=background/warehouse5_50_7,s");
+    @display("bgb=60,30;bgi=showcases/warehouse,s");
     submodules:
         configurator: Ipv4NetworkConfigurator {
             @display("p=3.4662657,4.033473");

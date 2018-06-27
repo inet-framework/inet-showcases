@@ -37,16 +37,8 @@
         <averagedFields>measurement</averagedFields>
       </items>
     </datasets>
-    <datasets name="xxx">
-      <items xsi:type="scave:Add" filterPattern="name(residualEnergyCapacity:last) "/>
-      <items xsi:type="scave:ComputeScalar" scalarName="meanResidualCapacity" valueExpr="-sum('residualEnergyCapacity:last')" moduleExpr="SensorNetworkShowcaseB" groupByExpr="experiment" averageReplications="true"/>
-      <items xsi:type="scave:BarChart" name="">
-        <filters xsi:type="scave:Select" filterPattern="meanResidualCapacity"/>
-        <averagedFields>measurement</averagedFields>
-      </items>
-    </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.6 //@datasets/@datasets.0/@items.5 //@datasets/@datasets.0/@items.8 //@datasets/@datasets.0/@items.12 //@datasets/@datasets.1/@items.2"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.6 //@datasets/@datasets.0/@items.5 //@datasets/@datasets.0/@items.8 //@datasets/@datasets.0/@items.12"/>
   </chartSheets>
 </scave:Analysis>

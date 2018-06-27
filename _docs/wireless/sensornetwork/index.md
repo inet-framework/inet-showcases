@@ -18,14 +18,12 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## Part 1: Demonstrating the MAC protocols
 
-V1
+<!-- V1
 
 The devices that make up wireless sensor networks (WSNs) are often power constrained,
 and the networks have high latency and low throughput, as compared to WLANs, for example.
 There are two main categories of MAC protocols for WSNs: time-division multiple access based
-(TDMA), such as LMAC, and carrier-sense multiple access (CSMA) based, such as B-MAC and X-MAC.
-
-V2
+(TDMA), such as LMAC, and carrier-sense multiple access (CSMA) based, such as B-MAC and X-MAC. -->
 
 There are two main categories of MAC protocols for WSNs, according to how the MAC manages
 when certain nodes can communicate on the channel:
@@ -101,13 +99,7 @@ The MACs don't have corresponding physical layer models. They can be used with
 existing generic radio models in INET, such as `UnitDiskRadio` or `ApskRadio`.
 We're using `ApskRadio` in this showcase, because it is more realistic than `UnitDiskRadio`.
 
-<!-- <pre>
-- the scenario
-- the configuration
-- the configuration and parameters of each mac
-- results
-- statistics
-</pre> -->
+INET doesn't have WSN routing protocol models (such as Collection Tree Protocol), so we're using Ipv4 and static routing.
 
 ### Configuration
 
@@ -115,7 +107,15 @@ The showcase contains three example simulations, which demonstrate the three MAC
 in a wireless sensor network. The scenario is that there are wireless sensor nodes
 in a refrigerated warehouse, monitoring the temperature at their location.
 They periodically transmit temperature data wirelessly to a gateway node,
-which forwards the data to a server via a wired connection. To run the example simulations,
+which forwards the data to a server via a wired connection.
+
+Note that in WSN terminology, the gateway would be called sink. Ideally,
+there should be a specific application in the gateway node called `sink`,
+which would receive the data from the WSN, and send it to the server over IP.
+Thus the node would act as a gateway between the WSN and the outside
+IP network. In the example simulations, the gateway just forwards the data packets over IP.
+
+To run the example simulations,
 choose the `BMac`, `LMac` and `XMac` configurations from
 <a srcFile="wireless/sensornetwork/omnetpp.ini"/>. Most of the configuration keys
 in the ini file are shared between the three simulations (they are defined in the
@@ -125,7 +125,7 @@ defined in <a srcFile="wireless/sensornetwork/SensorNetworkShowcase.ned"/>:
 
 <img class="screen" src="network.png">
 
-In the network, the wireless sensor nodes are `SensorNode`s, named `sensor1` up to
+In the network, the wireless sensor nodes are of the type `SensorNode`, named `sensor1` up to
 `sensor4`, and `gateway`. The node named `server` is a `StandardHost`.
 The network also contains an `Ipv4NetworkConfigurator`, an `IntegratedVisualizer`,
 and an `ApskScalarRadioMedium` module. The nodes are placed against the backdrop of a
@@ -139,8 +139,11 @@ The wireless interface in the sensor nodes and the gateway is specified in
 default wlan interface in `SensorNode`). The radio type is set to `ApskScalarRadio`:
 
 <p>
-<pre class="include" src="omnetpp.ini" from="typename" upto="radioType"></pre>
+<pre class="include" src="omnetpp.ini" from="typename" upto="radio.typename"></pre>
 </p>
+
+Note that the wireless interface module's name is `wlan` in all host types that have a wireless
+interface. The term doesn't imply that it's Wifi, but stands for <strong>wireless LAN</strong>.
 
 We are using `ApskScalarRadio` here, because it is a relatively simple, generic radio.
 It uses amplitude and phase-shift keying modulations (e.g. BPSK, QAM-16 or QAM-64,
