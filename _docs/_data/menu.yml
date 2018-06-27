@@ -1,4 +1,4 @@
-- name: Visualization Showcases
+- name: Visualization
   link: /inet-showcases/visualizer
   submenu:
      - page: _docs/visualizer/packetdrop/index.md
@@ -26,7 +26,7 @@
 #     - separator: true
      - page: _docs/visualizer/styling/index.md
      - page: _docs/visualizer/filtering/index.md
-- name: Wireless Showcases
+- name: Wireless
   link: /inet-showcases/wireless
   submenu:
      - page: _docs/wireless/levelofdetail/index.md
@@ -44,14 +44,15 @@
      - page: _docs/wireless/crosstalk/index.md
      - page: _docs/wireless/infrastructure/index.md
      - page: _docs/wireless/multiradio/index.md
-- name: Routing Showcases
+- name: Routing
   link: /inet-showcases/routing
   submenu:
-     - page: _docs/routing/manetprotocols/index.md
-- name: General Showcases
+     - page: _docs/routing/manet/index.md
+- name: General
   link: /inet-showcases/general
   submenu:
      - page: _docs/general/pcaprecording/index.md
      - page: _docs/general/dynamic/index.md
+     - page: _docs/general/mobility/index.md
 - name: Back to INET
   link: https://inet.omnetpp.org/

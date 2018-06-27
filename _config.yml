@@ -6,7 +6,7 @@ layouts_dir: _docs/_layouts
 exclude: [
 "general/dynamic/results",
 "general/pcaprecording/results",
-"routing/manetprotocols/results",
+"routing/manet/results",
 "visualizer/advanced/results",
 "visualizer/datalinkactivity/results",
 "visualizer/earth/results",
