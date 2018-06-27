@@ -54,7 +54,11 @@ It takes the DIFS, data frame duration, SIFS, ACK duration, and backoff period i
 backoff time that is half of the minimal contention window to calculate the theoretical
 throughput:
 
-`throughput` = 1 / (`frameExchangeDuration` + `minContentionWindow` / 2 * `slotTime`) * `payloadBytes` * 8 [bps]
+- `throughput` = 1 / `frameExchangeDuration` * `payloadLength` * 8 [bps]
+
+- where `frameExchangeDuration` = `DIFS` + `backoffDuration` + `dataFrameDuration` + `SIFS` + `ACKFrameDuration`
+
+- and `backoffDuration` = `minContentionWindow` / 2 * `slotTime`
 
 The following plot compares the computed throughput to the results of the
 simulation for all bitrates and both packet sizes:
@@ -66,14 +70,12 @@ increase in a linear way with the bitrate, especially at higher bitrates.
 The curve for the 2268-byte packets is nearly linear, while the curve for the 100-byte
 packets is not linear, because the 100-byte packets have relatively more overhead due to various
 protocol headers, such as UDP header and 802.11 MAC header.
-Also, faster bitrates have more overhead. For example, at 6 Mbps the
+Also, faster bitrates have more overhead. For example, with 1000-byte packets, at 6 Mbps the
 application-level throughput is 5 Mbps (16% overhead), whereas at 54 Mbps it is
 only about 24.5 Mbps (54% overhead). Faster modes only transmit the MAC
 header and content part of frames at higher bitrates, the preamble, physical
 header, interframe spaces and backoff stay the same, thus the overhead gets
 larger as the bitrate increases.
-
-TODO: compare the two packet sizes (rewrite)
 
 The following sequence chart excerpt illustrates overhead increasing with bitrate.
 It shows frame exchanges for 1000-byte UDP packets, with bitrates of 6, 18, and 54 Mbps, on the same linear
