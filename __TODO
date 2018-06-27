@@ -21,3 +21,7 @@ Eventually all sensor nodes get into this state and the number of successfully s
 - Ieee802154 showcase / StatisticVisualizer: 7594a70 ("sensornetwork", 2018-02-28): the statistic visualizer displays '-' as the number of received packets when there is one received packet
 - Ieee802154NarrowbandScalarRadio: the packet don't have PHY header (according to the inspector)
 - InfoVisualizer (and probably other visualizers): when DisplayHint = "bottom", the figure is on top of the module's name
+- Sensornetwork: mac headerLength is set to 8b, but by default it's 10b (BMac, LMac) and 80b (XMac). This setting seems to be required for the macs to work correctly.
+- SuperpositioningMobility should have faceForward (maybe all mobilities should?)
+- SuperpositioningMobility: support for enabling orientation and position separatelly
+- EntangledMobility vs AttachedMobility: support for enabling orientation and position separatelly
