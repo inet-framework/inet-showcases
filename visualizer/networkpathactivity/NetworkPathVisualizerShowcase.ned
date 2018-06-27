@@ -14,7 +14,6 @@
 // 
 
 package inet.showcases.visualizer.networkpathactivity;
-import inet.common.lifecycle.LifecycleController;
 import inet.common.scenario.ScenarioManager;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.aodv.AodvRouter;
@@ -204,9 +203,6 @@ network NetworkPathRIPShowcase
         scenarioManager: ScenarioManager {
             parameters:
                 @display("p=100,350");
-        }
-        lifecycleController: LifecycleController {
-            @display("p=100,450");
         }
         wiredSource: StandardHost {
             @display("p=257.28,535.464");
