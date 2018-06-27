@@ -188,14 +188,12 @@ The destination host is configured to be stationary, and the source hosts are co
 to have `LinearMobility`, and move around in random directions:
 
 <p>
-<pre class="snippet" src="omnetpp.ini" from="destinationNode.mobilityType" upto="initFromDisplayString"></pre>
+<pre class="snippet" src="omnetpp.ini" from="destinationNode.mobility.typename" upto="initFromDisplayString"></pre>
 </p>
 
-The XML scenario used for this simulation is defined in <a srcfile="general/dynamic/scenario6.xml"/>.
+The XML scenario used for this simulation is defined in <a srcfile="general/dynamic/scenario.xml"/>.
 The scenario creates 10 `DynamicHost`s named `sourceNodeX` (where is X is the index) periodically,
 with a period of 2.71 seconds. Each host is deleted 4 seconds after creation.
-
-TODO: it should be just scenario.xml
 
 ## Results
 
