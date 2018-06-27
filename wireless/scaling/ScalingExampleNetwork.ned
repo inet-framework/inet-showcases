@@ -27,7 +27,6 @@ network ScalingExampleNetwork
 {
     parameters:
         int numHosts;
-        string radioMediumType;
         @signal[dummy];
         @statistic[a](source=dummy; record=elapsedTime);
     submodules:
@@ -35,7 +34,7 @@ network ScalingExampleNetwork
             parameters:
                 @display("p=100,150");
         }
-        radioMedium: <radioMediumType> like IRadioMedium {
+        radioMedium: <> like IRadioMedium {
             parameters:
                 @display("p=100,250");
         }
