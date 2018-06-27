@@ -59,7 +59,7 @@ network UsingMultipleVisualizerModulesShowcaseA
         }
         host5: StandardHost {
             @display("p=745.875,434.5625");
-            @statistic[rcvdBytes](title="bytes received"; source="sum(packetBytes(app[0].packetReceived))"; record=last);
+            @statistic[rcvdBytes](title="bytes received"; source="sum(packetBytes(app[0].packetReceived))"; record=last; checkSignals=false);
         }
         host1: StandardHost {
             @display("p=365.5,78.625");
@@ -69,7 +69,7 @@ network UsingMultipleVisualizerModulesShowcaseA
         }
         host3: StandardHost {
             @display("p=574.8125,168.9375");
-            @statistic[rcvdBytes](title="bytes received"; source="sum(packetBytes(app[0].packetReceived))"; record=last);
+            @statistic[rcvdBytes](title="bytes received"; source="sum(packetBytes(app[0].packetReceived))"; record=last; checkSignals=false);
         }
         server: StandardHost {
             @display("p=110.5,375.0625;i=device/server");
