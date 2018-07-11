@@ -68,7 +68,7 @@ a `Ieee80211ScalarRadioMedium`:
 <!--TODO: rewrite when the two-ray interference model is modified to use the ground model if there is one-->
 
 The antenna height of the transmitter and the receiver is an important part of
-the two-ray ground reflection and two-ray interference model, because it affects path loss.
+the two-ray ground reflection and two-ray interference models, because the antenna heights affect path loss.
 The two-ray interference model calculates antenna heights from the z co-ordinates
 of the two nodes by assuming the z co-ordinate of the ground to be 0.
 The two-ray ground reflection model needs a ground model, which contains the elevation
@@ -105,8 +105,10 @@ following values: `FreeSpacePathLoss`, `TwoRayGroundReflection`,
 `TwoRayInterference`, `RicianFading`, `LogNormalShadowing`.
 
 The source host will transmit with the default power of 20mW. We will record the
-power of the received transmission (`receptionPower` signal in the
-transmitter module.)
+power of the received transmission, using the `receptionPower` statistic.
+The `receptionPower` statistic is declared in the NED file, and it uses the `receptionMinSignalPower` signal of the radio medium module as input:
+
+<pre class="include" src="PathLossShowcase.ned" from="statistic" until="submodules"></pre>
 
 ## Results
 
@@ -154,4 +156,3 @@ The following links provide more information about the path loss models in gener
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/19" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-
