@@ -1,7 +1,6 @@
 ---
 layout: page
 title: PCAP Recording
-hidden: true
 ---
 
 ## Goals
@@ -253,3 +252,8 @@ The ARP packets from `host2`:
 The TCP data packets from `router2`:
 
 <img class="screen" src="tcpdata.png">
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/22" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.

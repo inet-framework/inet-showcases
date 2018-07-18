@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Routing protocols for mobile ad hoc networks
-hidden: true
 ---
 
 ## Goals
@@ -381,3 +380,8 @@ The following papers describe the three MANET routing protocols featured in this
 - <a href="https://www.rfc-editor.org/info/rfc3561" target="_blank">Ad hoc On-Demand Distance Vector (AODV) Routing</a>
 - <a href="http://www.netlab.tkk.fi/opetus/s38030/k02/Papers/03-Guoyou.pdf" target="_blank">Destination-Sequenced Distance Vector (DSDV) Protocol</a>
 - <a href="http://www.icir.org/bkarp/jobs/gpsr-mobicom2000.pdf" target="_blank">GPSR: Greedy Perimeter Stateless Routing for Wireless Networks</a>
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/21" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.
