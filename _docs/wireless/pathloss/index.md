@@ -19,15 +19,14 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 ## About path loss models
 
 Path loss models are used to compute the decrease in the power of a radio signal
-as it propagates away from the transmitter. The default path loss model in INET is
-free space path loss, which computes attenuation according to the inverse square
+as it propagates away from the transmitter. Path loss models are implemented by path loss modules, which are submodules of the radio medium module. The default path loss model is most often free space path loss, which computes attenuation according to the inverse square
 law along a single line-of-sight propagation path. This is a simple model, and
 realistic only in certain cases, e.g. when modeling satellite-to-satellite
 communications. Because of its low computational cost, it is also useful if the
 emphasis of the simulation is not on the accuracy of radio propagation (e.g.
 for testing protocols.) However, there are several more path loss models
 available in INET, suitable for various other scenarios.
-Here is a list of those featured in this showcase example:
+Here is a list of the path loss module types featured in this showcase example:
 
 - `FreeSpacePathLoss:` Computes loss of signal power in a single line-of-sight
   propagation path, without any reflections or shadowing.
@@ -47,10 +46,10 @@ Here is a list of those featured in this showcase example:
   follow a lognormal distribution. It is useful for modeling shadowing caused
   by objects such as trees.
 
-Other path loss models in INET include `RayleighFading`, `NakagamiFading`,
+Other path loss modules in INET include `RayleighFading`, `NakagamiFading`,
 `UwbIrStochasticPathLoss`, `BreakpointPathLoss`, and `SuiPathLoss`.
 
-The various path loss models each have sets of parameters to fine-tune their
+The various path loss modules each have sets of parameters to fine-tune their
 behavior. In this showcase we leave the parameters at their defaults.
 
 
@@ -112,7 +111,7 @@ transmitter module.)
 ## Results
 
 The power of the received signal vs. distance, using `FreeSpacePathLoss`,
-`TwoRayGroundReflection` and `TwoRayInterference` path loss models, 
+`TwoRayGroundReflection` and `TwoRayInterference` path loss module types,
 is displayed on the following plot:
 
 <a href="tworay.svg" target="_blank"><img class="screen" src="tworay.png"></a>
