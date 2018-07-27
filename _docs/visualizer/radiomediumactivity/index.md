@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Visualizing Radio Medium Activity
-hidden: true
 ---
 
 ## Goals
