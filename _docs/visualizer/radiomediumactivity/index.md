@@ -4,16 +4,7 @@ title: Visualizing Radio Medium Activity
 hidden: true
 ---
 
-TODO: rename
-github discussion link
-github discussion
-
 ## Goals
-
-In a large network, there might be multiple wireless nodes transmitting
-simultaneously, resulting in interference at receiving nodes, and
-incorrecly received packets. The logs contain the clues as to what
-happened to various packets, but scanning through the logs is tedious.
 
 INET contains support for visualizing radio signals as they propagate
 through space, making it easy to see which nodes are transmitting and
@@ -23,7 +14,7 @@ present at various nodes.
 This showcase contains three configurations of increasing complexity,
 each showing different features of the visualization.
 
-INET version: `3.6`<br>
+INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/radiomediumactivity" target="_blank">`inet/showcases/visualizer/radiomediumactivity`</a>
 
 ## About the visualizer
@@ -35,8 +26,8 @@ and boolean parameters for turning them on/off:
 
 -   **Visualization of propagating signals**: Signals are visualized as animated
 disks (`displaySignals` parameter)
--   **Indication of transmitting and receiving nodes**: Icons are placed above nodes
-when they are transmitting or receiving (`displayTransmissions` and `displayReceptions` parameters)
+-   **Indication of signal departures and arrivals**: Icons are placed above nodes
+when a signal is departing from them or arriving at their location (`displaySignalDepartures` and `displaySignalArrivals` parameters)
 -   **Displaying communication and interference ranges**: Ranges are displayed as circles around nodes
 `displayCommunicationRanges` and `displayInterferenceRanges` parameters)
 
@@ -44,7 +35,7 @@ The features above will be described in more detail in the following sections.
 The scope of the visualization can be adjusted with parameters as well.
 By default, all packets, interfaces and nodes are considered for the
 visualization. The selection can be narrowed with the visualizer's
-`packetFilter`, `interfaceFilter`, and
+`packetFilter`, `packetDataFilter`, `interfaceFilter`, and
 `nodeFilter` parameters. Note that one `MediumVisualizer` module can only visualize
 signals of one radio medium module. For visualizing multiple radio medium modules,
 multiple `MediumVisualizer` modules are required.
@@ -52,7 +43,7 @@ multiple `MediumVisualizer` modules are required.
 ## Displaying signal propagation, transmissions and receptions
 
 In the example simulation for this section, we enable visualization of propagating signals,
-displaying communication/interference ranges, and transmission/reception indication.
+displaying communication/interference ranges, and signal departure/arrival indication.
 We demonstrate the visualization with the visualizer's default settings.
 The simulation can be run by choosing the `DisplayingPropagationTransmissionsReceptions`
 configuration from the ini file. The simulation uses the following network:
@@ -65,13 +56,7 @@ configured to send UDP packets to `host2`. Displaying of
 transmissions and receptions, propagating signals, communication and
 interference ranges are enabled with the following visualizer settings:
 
-```
-*.visualizer.*.mediumVisualizer.displaySignals = true
-*.visualizer.*.mediumVisualizer.displayReceptions = true
-*.visualizer.*.mediumVisualizer.displayTransmissions = true
-*.visualizer.*.mediumVisualizer.displayCommunicationRanges = true
-*.visualizer.*.mediumVisualizer.displayInterferenceRanges = true
-```
+<p><pre class="include" src="omnetpp.ini" from="displaySignals" upto="displayInterferenceRanges"></pre></p>
 
 When the simulation is run the network looks like this:
 
@@ -107,13 +92,13 @@ are visualized with animated disks. The disk have an opacity gradient,
 which correlates with the decrease in signal power as the distance from
 the transmitter increases. The opacity indicates how strong the signal is compared to
 the maximum power near the transmitter (but not compared to other signals.)
-The blue transmission indicator icons are displayed
-above nodes when they are transmitting. Similarly, the red reception indicators
+The blue signal departure indicator icons are displayed
+above nodes when they are transmitting. Similarly, the red signal arrival indicators
 are displayed above them when they are receiving. The transmission power and power of
-the received signal is indicated on the transmission/reception icons in
-dBW. Note that the reception indicator icon is display even when the
+the received signal is indicated on the signal departure/arrival icons in
+dBW. Note that the signal arrival indicator icon is displayed even when the
 receiving node cannot receive the transmission correctly.
-(The reception icons are placed above nodes when there is a signal present at the
+(The signal arrival icons are placed above nodes when there is a signal present at the
 location of the node. It does not imply that the signal is receivable or that the node
 attempts reception. Basically the icon is displayed above all nodes that use the
 same radio medium module.)
@@ -231,18 +216,12 @@ To demonstrate that the animation duration is proportional to the real duration 
 
 The visualizer's configuration keys are the following:
 
-```
-*.visualizer.*.mediumVisualizer.signalPropagationAnimationSpeed = 500/3e8
-*.visualizer.*.mediumVisualizer.signalTransmissionAnimationSpeed = 50000/3e8
-*.visualizer.*.mediumVisualizer.displaySignals = true
-*.visualizer.*.mediumVisualizer.displayTransmissions = true
-*.visualizer.*.mediumVisualizer.displayReceptions = true
-```
+<p><pre class="include" src="omnetpp.ini" from="signalPropagationAnimationSpeed" upto="displaySignalArrivals" comment="#"></pre></p>
 
 The visualization of propagating radio signals is turned on.
 The animation speed for the expansion and recession specified so that the expanding signal
 will travel 500 meters per second on the playground.
-The indication of transmitting and receiving nodes are also turned on. The communication and
+The indication of signal departures and arrivals are also turned on. The communication and
 interference range circles are not enabled in this simulation; the following screenshot
 illustrates where the communication range circles would be if they were enabled:
 
@@ -311,6 +290,6 @@ documentation.
 
 ## Discussion
 
-Use <a href="TODO"
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/23"
 target="_blank">this page</a> in the GitHub issue tracker for commenting on
 this showcase.
