@@ -1,7 +1,6 @@
 ---
 layout: page
 title: MAC Protocols for Wireless Sensor Networks
-hidden: true
 ---
 
 ## Goals
