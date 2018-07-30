@@ -392,7 +392,7 @@ The power configs will use the same network as the statistic configs, `SensorNet
 
 We will examine the three simulations with the chosen parameters in terms of power consumption.
 
-V1
+<!-- V1
 
 We want to record energy consumption in the radios of the wireless nodes.
 The `SensorNode` type has, by default, an energy storage model which will
@@ -417,7 +417,7 @@ Note that the energy consumption values are parameters of the consumer module,
 they don't come from the radio. `SensorStateBasedEpEnergyConsumer` is an
 extension of `StateBasedEnergyConsumer` with default consumption values typical
 for low power wireless sensor nodes. (Note that the consumption values should be
-set to more accurate ones if needed.)
+set to more accurate ones if needed.) -->
 
 <!-- TODO rewrite or delete
 v1
@@ -433,20 +433,21 @@ These values are typical...but if you want more accuracy, you need to set them t
 v4
 Note that the consumption values can be set to more accurate ones if needed. -->
 
-V2
+<!-- V2 -->
 
 We want to record the power consumption of the radios in the wireless nodes.
-The `SensorNode` host type has an energy consumer module in its radio by default,
+The `SensorNode` host type has an energy consumer submodule in its radio by default,
 `SensorStateBasedEpEnergyConsumer`. This module assigns a constant power consumption value
 to each radio mode and transmitter/receiver state. Note that the values for each state are
 parameters of the energy consumer module, and don't come from other modules (such as the radio),
 so they need to be set correctly in order to obtain accurate power consumption results.
 `SensorStateBasedEpEnergyConsumer` has default power consumption values typical for
 wireless sensor nodes, thus we leave module's parameters on default.
-`SensorNode` has an energy storage model by default, `IdealEpEnergyStorage`.
+`SensorNode` has an energy storage submodule by default, `IdealEpEnergyStorage`.
 This module keeps track of the node's energy consumption. It stores an
-infinite amount of energy, and cannot get fully charged or depleted.
-It is useful for measuring energy consumption in nodes.
+infinite amount of energy, and cannot get fully charged or depleted,
+and it is useful if we only want to model and measure power consumption,
+but not energy capacity, charging, etc.
 
 <!-- The configurations extending the `PowerBase` configurations in
 <a srcFile="wireless/sensornetwork/omnetpp.ini"/> will use the
@@ -460,7 +461,7 @@ best-performing parameter values selected in the previous section:
 parameter values for the three MACs, and -->
 
 The results for the parameter studies contain the required power consumption data.
-We just need to select the appropriate results files. `PowerConsumption.anf` selects
+We just need to select the appropriate result files. `PowerConsumption.anf` selects
 the result files corresponding to the best performing parameter values selected
 in the previous sections. We will plot the results on bar charts.
 We'll examine the following statistics:
@@ -496,3 +497,8 @@ Here are the documents describing the MAC protocols and the INET implementations
 - <a href="http://www.cs.cmu.edu/~andersoe/papers/xmac-sensys.pdf" target="_blank">X-MAC: A Short Preamble MAC Protocol for Duty-Cycled Wireless Sensor Networks</a>
 - <a href="http://ieeexplore.ieee.org/document/7024195/" target="_blank">Has Time Come to Switch From Duty-Cycled MAC Protocols to Wake-Up Radio for Wireless Sensor Networks? (X-MAC)</a>
 - <a href="https://ris.utwente.nl/ws/portalfiles/portal/5427399" target="_blank">A Lightweight Medium Access Protocol (LMAC) for Wireless Sensor Networks</a>
+
+## Discussion
+
+Use <a href="https://github.com/inet-framework/inet-showcases/issues/24" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.
