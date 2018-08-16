@@ -6,12 +6,13 @@ hidden: true
 
 ## Goals
 
-In INET, mobility models are used to describes motion. This showcase introduces the concepts of mobility, and demonstrates various available mobility models, grouped along several dimensions into several categories. It contains example simulations demonstrating mobility modules from each category.
+In INET, mobility models are used to describe motion. This showcase introduces the concepts of mobility, and demonstrates various available mobility models, grouped along several dimensions into several categories. It contains example simulations demonstrating mobility modules from each category.
 
 INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/general/mobility" target="_blank">`inet/showcases/general/mobility`</a>
 
 TODO: separate showcase for geographic vs. Euclidean which is this one
+TODO: in 2D y axis is flipped, resulting in lefthandedness
 
 ## Concepts
 
@@ -153,7 +154,7 @@ The two modules move around inside the constraint area (which currently matches 
 In the **second simple example**, there are two mobility modules, which are set to not move anything. They will just keep track of position and orientation, which can be visualized with `MobilityVisualizer`.
 The configuration extends the previous one, but uses the `MobilityShowcaseSimplistic2` network:
 
-<p><pre class="include" src="MobilityShowcase.ned" from="MobilityShowcaseSimplistic2" until="MobilityShowcaseI"></pre></p>
+<p><pre class="include" src="MobilityShowcase.ned" from="MobilityShowcaseSimplistic2" until="MobilityShowcaseE"></pre></p>
 
 It contains two `LinearMobility` modules, and an `IntegratedVisualizer` module. The configuration in omnetpp.ini is the following:
 
@@ -192,7 +193,7 @@ Users are likely to have ideas about different kinds of motion, and mental model
 There are all kinds of motions that can be modeled. This section takes a look at them, and gives examples of how they can be simulated in inet, which mobility modules implement them, and how to combine mobility modules to create complex motion.
 
 The models can be grouped <!--according to several aspects/-->along several dimensions.
-The following sections will describe such dimensions and their categories, illustrating mobility models in each category with mobility modules and example simulations. Of course, a mobility module can belong to multiple categories. The dimensions along which we categorize mobility models in this showcase are the following:
+The following sections describe such dimensions and their categories, illustrating mobility models in each category with mobility modules and example simulations. Of course, a mobility module can belong to multiple categories. The dimensions along which we categorize mobility models in this showcase are the following:
 
 - **Type of movement**
 - **Scope of the model**
@@ -209,7 +210,7 @@ Note that this showcase describes the featured mobility modules and their import
 ### The configuration / about the simulations
 
 In the example simulations, the mobility modules are submodules of network nodes, as this is the most prevalent use case.
-The simulations use one of two networks, `MobilityShowcaseA` and `MobilityShowcaseB`.
+Most of the simulations use one of two networks, `MobilityShowcaseA` and `MobilityShowcaseB`.
 In both of them, the size of the playground is 400x400 meters.
 Both of them contain `StandardHost`s.
 `MobilityShowcaseA`, defined in <a srcfile="general/mobility/MobilityShowcase.ned"/>, looks like the following:
@@ -234,7 +235,7 @@ Both networks also contain an `IntegratedVisualizer` module to visualize some as
 
 The `General` configuration in <a srcfile="general/mobility/omnetpp.ini"/> contains some configuration keys common to all example simulations:
 
-<p><pre class="include" src="omnetpp.ini" from="General" until="StaticPosition" comment="#"></pre></p>
+<p><pre class="include" src="omnetpp.ini" from="General" until="Simplistic1" comment="#"></pre></p>
 
 By default, hosts look for the configurator module in the top level of the network, under the name `configurator`. Since the network doesn't need and doesn't have a configurator, the configurator module path in all hosts is set to an empty string to prevent error messages.
 
@@ -319,9 +320,9 @@ Mobility models in this category contain random elements when describing the mov
 
 The example simulation for this category is the `StochasticMotion` configuration, which uses the `GaussMarkovMobility` module.
 
-V1
+<!-- V1
 
-`GaussMarkovMobility` uses a Gauss-Markov model to contol randomness in the movement. It has an `alpha` parameter, which can run from 0 (totally random motion) to 1 (deterministic linear motion), with the default of 0.5. There is also a `speed` parameter with no default, and an `angle` parameter with random angle by default. TODO: what does variance do ?
+`GaussMarkovMobility` uses a Gauss-Markov model to contol randomness in the movement. It has an `alpha` parameter, which can run from 0 (totally random motion) to 1 (deterministic linear motion), with the default of 0.5. There is also a `speed` parameter with no default, and an `angle` parameter with random angle by default. TODO: what does variance do ? -->
 
 <!-- `GaussMarkovMobility` uses a Gauss-Markov model to control the randomness in the movement. -->
 
@@ -329,8 +330,8 @@ V2
 
 `GaussMarkovMobility` uses a Gauss-Markov model to contol randomness in the movement.
 <!-- The movement of node has a mean angle, and some random variations applied to the angle. -->
-The mobility starts with a mean direction. At constant intervals, a new direction is chosen based on the mean direction, the direction in the previous time interval, and a gaussian random variable. The alpha parameter controls how much the random variable affects the direction.
-It has an `alpha` parameter, which can run from 0 (totally random motion) to 1 (deterministic linear motion), with the default of 0.5. The random variable has a mean of 0, and its variance can be set by the `variance` parameter.
+The mobility starts with a mean direction. At constant intervals, a new direction is chosen based on the mean direction, the direction in the previous time interval, and a gaussian random variable. The `alpha` parameter controls how much the random variable affects the direction.
+The `alpha` parameter can run from 0 (totally random motion) to 1 (deterministic linear motion), with the default of 0.5. The random variable has a mean of 0, and its variance can be set by the `variance` parameter.
 There is also a `speed` parameter with no default, and an `angle` parameter with random angle by default.
 <!--The `margin` parameter can set a margin to the constraint area...TODO
 A margin can be set by the `margin` parameter, which in essence reduces the available space for the mobility, from the constraint area.
@@ -480,7 +481,7 @@ Compund mobilities use multiple mobility modules to describe a motion.
 There are two examples, `AttachedMobility` and `SuperpositioningMobility`.
 Both are demonstrated below.
 
-##### <!--Category: -->**Compound** mobilities
+##### <!--Category: -->**Compound** mobilities: **AttachedMobility**
 
 `AttachedMobility` can "attach" itself to another mobility module, with a certain offset. I.e. the `AttachedMobility` module takes the mobility state of the mobility module it is attached to, and applies and optional offset to the position and orientation. It keeps its mobility state up-to-date.
 Position and orientation, and their derivatives are all affected by the mobility where the `AttachedMobility` is attached.
@@ -532,7 +533,7 @@ The attached hosts will keep the offset from `host[0]`, and they'll move circula
 
 The relative position of the hosts is constant. `host[4]` is configured to orbit on the opposite side of the circle. It appears as if host[4] is orbiting on the same circle, and in the same direction, but actually it is just offset in `host[0]`'s coordinate system by the circle radius and -180 degrees.
 
-##### **`SuperpositioningMobility`**
+##### **Compound** mobilities: **`SuperpositioningMobility`**
 
 `SuperpositioningMobility` combines the effect of multiple mobility models. It is a compound module containing other mobility modules. The number and type of mobility modules is configurable.
 
@@ -560,11 +561,9 @@ The constraint area TODO
 
 <p><video autoplay loop controls src="Superposition1.mp4" onclick="this.paused ? this.play() : this.pause();" max-width-percent="50"></video></p>
 
-### More superpositioning examples here
-
 ##### **`SuperpositioningMobility`**: Example 2
 
-TODO: it combines attached and superpositioning
+TODO: it combines attached and superpositioning -> not sure its needed
 
 In the second example simulation, a host will move in a hexagonal pattern (indentically to the previous example simulation featuring `TurtleMobility`). Another host will orbit around the first host as it moves.
 The first host, `host[0]` uses `TurtleMobility`, the host's trajectory and turtle script is indentical to the previous example simulation featuring `TurtleMobility`. The other host, `host[1]`, uses `SuperpositioningMobility`, with the superposition of an `AttachedMobility` and a `CircleMobility`.
@@ -578,6 +577,10 @@ Here is the configuration in omnetpp.ini:
 The mobility of `host[1]` is attached to `host[0]`'s mobility, without an offset. The `CircleMobility` in `host[1]` is configured to circle around 0,0 with a radius of 50m. The constraint area of the `CircleMobility` module is interpreted in the coordinate system of the mobility module it is attached to. By default, it is limited between 0 and 400m as defined in the `General` configuration. Position 0,0 in this coordinate system is at the position of `host[0]`'s mobility. So when `host[1]` starts to orbit around 0,0 (`host[0]`), the `CircleMobility`'s coordinates would become negative, and the host would bounce back. Thus the constraint area of the `CircleMobility` module need to be set to allow negative values for the X and Y coordinates.
 
 <p><video autoplay loop controls src="Superposition2.mp4" onclick="this.paused ? this.play() : this.pause();" max-width-percent="50"></video></p>
+
+TODO:
+
+<img class="screen" src="velocity.png">
 
 ### Categorizing mobility models according to **time of positioning**
 
@@ -635,4 +638,84 @@ The example simulation also aims to illustrate that `SuperpositioningMobility` a
 
 TODO: maybe rewrite this ?
 
-### The mars rover example -> using the mobility to orient antennas
+<!-- ### The mars rover example -> using the mobility to orient antennas -->
+### Using mobility to orient antennas
+
+Mobility modules can be used to orient antennas independently from the orientation of their containing network node. This section describes just that, and demonstrates it with an example simulation.
+
+<!-- TODO: actually, the receiver and transmitter submodule uses the antenna's position and orientation -->
+
+<!-- antennas can have mobility submodules (so own position and orientation)
+it is useful for orienting antennas independently of the network node -->
+
+<!--how can antennas themselves be oriented, without changing the orientation of the network node itself?-->
+By default, radio modules contain antenna submodules, whose position is taken into account when simulating wireless signal transmission and reception. In network nodes (more specifically, in those that extend `LinkLayerNodeBase`), the antenna module uses the containing network node's mobility submodule to describe the antenna's position and orientation. Thus, by default, the position and orientation of the antenna (where the signal reception and transmission takes place) is the same as the position and orientation of the containing network node. However, antenna modules have optional mobility submodules. The antenna's mobility submodule allows the network node to have antennas whose position and orientation is different from those of the network node.
+
+Thus antennas can be oriented independently of the network node's orientation. The antennas' position can also be independent of the containing network node's position, but in many cases, it makes more sense to attach the antenna position to the network nodes' at some offset. This allows for creating nodes that are extended objects (as opposed to being point objects)(they are by default point objects)
+
+<!-- Orienting antennas might not make sense when they lack directionality, but in this example, yes. TODO.
+
+Antenna orientation might be irrelevant when the antenna lacks directionality, but -->
+
+Note that antenna orientation is only relevant with directional antennas. This example uses isotropic antennas (and there is no communication), because the goal is to just demonstrate how antennas can be oriented independently.
+
+
+
+<!-- Thus it is more realistic, because antennas can be oriented independently of the network node's orientation. They can be elsewhere. This only makes sense when the antenna position somehow depends on the network node's position, e.g. it is attached. This implies a kind of extended body for the network node.
+I.e. the network node has a position XY, and the antennas are offset from that.
+
+Antenna modules have optinal mobility submodule. In LinkLayerNodeBase, the mobility submodule of the contained antenna module is set to be the network node's mobility module. The antenna module can have its own mobility submodule. Thus its own position and orientation.
+Thus antennas can be oriented independently of the containing network node's orientation, and can be also positioned independently. The latter makes sense if it is somehow attached to the network node. -->
+
+<!-- TODO: antenna orientation doesn't make sense with isotropic antennas. -->
+
+<!-- Which leads to there should be directional antennas.
+Which leads to there should be communication, the success of which depends on the properly oriented antennas.
+Which leads to the idea that this example is kind of an outlier, and might belong in another (but connected) showcase.
+
+OR
+
+this example is just a simple version of this other showcase, which contains directional antennas and communication as well.
+
+OR
+
+this example should be here, and use isotropic antennas...and it should be noted that this whole thing doesn't make sense with isotropic antennas which is kind of dumb -->
+
+<!-- - the scenario -->
+
+<!-- The scenario is the following: a mars rover prototype is being tested in the desert. It has two antennas, each of them oriented differently. -->
+
+The scenario for the example simulation is the following: a Mars rover prototype is being tested in the desert. The rover moves in a straight line, and has two antennas. It uses them to communicate with a base, and a nearby circling drone.
+Each antenna is oriented independently. One of the antennas tracks the drone, the other one is directed at the base.
+
+The simulation is defined in the `AntennaOrientation` configuration. It uses the `MobilityShowcaseC` network. The size of the network is 800x800 meters.
+The network contains an `Ieee80211ScalarRadioMedium` and an `IntegratedMultiVisualizer` module.
+The `rover`, `base` and `drone` are `StandardHost`s.<!-- The configuration in omnetpp.ini is the following:-->
+
+<!-- <p><pre class="include" src="omnetpp.ini" from="AntennaOrientation8" upto="yellow"></pre></p> -->
+
+<!-- TODO: this is too long - the antenna mobility settings only? -->
+
+The `rover` is configured to use `LinearMobility` to move on the playground. The `drone` uses `CircleMobility` to circle around the center of the playground. The `rover` has two wireless interfaces, and thus two antennas, which have a mobility submodule.
+The configuration in omnetpp.ini related to antenna mobility is the following:
+
+<p><pre class="include" src="omnetpp.ini" from="antenna.mobility" upto="initFromDisplayString"></pre></p>
+<!--this include should work after ini cleanup-->
+
+<!-- TODO: about the mobility configuration -->
+
+Each antenna needs to be attached to the network node, and also face towards its target.
+Thus each antenna has a `SuperpositioningMobility` submodule. Element[0] of the array is an `AttachedMobility`, and the antenna's position is attached to and offset from the position of the host. Element[1] is a `FacingMobility`, the antenna tracks its target.
+
+TODO: IF IT IS ATTACHED, AND THE ROVER DOESN'T MOVE FORWARD, what happens to the facing ? does it need face forward = false ? -> meaning it doesnt move in the 0,0,0 direction
+
+<!-- the antennas have superpositioning mobility -> attached, and facing
+they are attached at an offset
+
+most of the time, whether and object is extended or point-like is not relevant. this is not relevant.
+
+actually, the offset is like 45m...this is ridiculous -> but it is more visible that way. -->
+
+- the results
+
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="antennaorientation2.mp4" max-width-percent="65"></video></p>
