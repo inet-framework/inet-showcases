@@ -33,18 +33,17 @@ into a limited number of forwarding classes, and encodes the forwarding
 class into the 6-bit DSCP field of the IP header. The DSCP field will
 then determine the treatment of packets (resource priority and drop
 priority) at intermediate nodes.
-
 In theory, a network could have up to 64 (i.e. 26) different traffic
 classes using different DSCPs. In practice, however, most networks use
 the following commonly defined per-hop behaviors:
 
--  *Default PHB* which is typically best-effort traffic
+-  *Default PHB* typically maps to best-effort traffic.
 -  *Expedited Forwarding (EF) PHB* is dedicated to low-loss, low-latency
-   traffic
+   traffic.
 -  *Assured Forwarding (AF) PHBs* give assurance of delivery under
    prescribed conditions; there are four classes and three drop
    probabilities, yielding twelve separate DSCP encodings from AF11
-   through AF43
+   through AF43.
 -  *Class Selector PHBs* provide backward compatibility with the
    IP Precedence field.
 
@@ -57,39 +56,40 @@ The model
 The network
 ~~~~~~~~~~~
 
+We will simulate one direction of a VoIP telephone call over the Internet 
+while background traffic is present. Background traffic will be heavy
+enough to cause congestion in the first-hop router 
+and impair voice quality at the receiver. Then we will use DiffServ 
+to prioritize voice over background traffic to improve voice quality and
+reduce latency.
+
 The following image shows the layout of the network:
 
 .. figure:: diffserv_network_layout.png
    :width: 100%
 
-We will simulate one direction of a VoIP conversation. The
-``voipPhone1`` module transmits VoIP packets to ``voipPhone2``,
-representing a VoIP telephone call over the Internet. The ``client``
-generates non-VoIP traffic towards the ``server``, representing for
-example web traffic or file transfer. In order to demonstrate the
-principles by which Differentiated Services works, ``client`` is
-configured to generate traffic which exceeds the 128kbps capacity of the
-link between the ``router`` and the ``internet``. This causes congestion
-at the router's PPP interface. Differentiated handling of the VoIP
-packets is required in order to achieve a high quality voice
-transmission between the two VoIP devices.
+In our setup, ``voipPhone1`` will transmit VoIP packets to ``voipPhone2``. 
+``client`` will generate background traffic towards ``server``. 
+The ``internet`` node represents the Internet. We set the capacity of the link
+between ``router`` and ``internet`` deliberately low, to 128kbps, 
+so we can more easily saturate it and demonstrate the effects of congestion on voice quality.
 
-The module called ``internet`` is technically a router and it is there
-to represent the Internet.
+To make the example more realistic, ``voipPhone1`` will transmit the actual
+contents of an audio file as VoIP traffic, and ``voipPhone2`` will record the
+received audio into a WAV file. By playing back the WAV file produced by the
+simulation, we can directly assess voice quality.
+(Note that some quality degradation will be inevitable, because the 
+sender application will resample and downmix the originally 44.1kHz stereo 
+sound to 8kHz mono.)
 
-This showcase does not describe a real-life scenario. The links'
-capacities and the number of clients are deliberately set low, because
-that makes it easier to demonstrate the effects of Differentiated
-Services.
+The background traffic will be constant bit rate UDP traffic. Note that we use 
+UDP instead of TCP, because congestion control algorithms present in TCP make
+it difficult to cause congestion with it. 
+
+
 
 Configuration and Behavior
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In the simulation, ``voipPhone1`` will send the content of an audio file
-in a VoIP session. Note that some quality degradation will be
-inevitable, because the sender application will resample and downmix the
-originally 44.1kHz stereo sound to 8kHz mono. The ``client`` node will
-generate constant bit rate UDP background traffic.
 
 The showcase contains three different configurations:
 
@@ -104,17 +104,16 @@ The showcase contains three different configurations:
    expected.
 
 In the ``VoIP_WithPolicing`` and ``VoIP_WithPolicingAndQueuing``
-configurations, the ``TrafficConditioner`` module is used in the
+configurations, INET's ``TrafficConditioner`` module is used in the
 router's PPP interface in order to achieve the required policing.
 
 .. figure:: TrafficConditioner.png
    :width: 80%
    :align: center
 
-The ``TrafficConditioner``, offered by INET, is an example traffic
-conditioner. The ``mfClassifier`` module is used for separating packets
-of different flows for marking with different DSCP values. It contains a
-list of filters that identifies the flow and determines their classes.
+In ``TrafficConditioner``, the ``mfClassifier`` submodule is used for 
+separating packets of different flows for marking with different DSCP values. 
+It contains a list of filters that identifies the flow and determines their classes.
 Each filter can match the source and destination address, IP protocol
 number, source and destination ports, or ToS of the datagram. The first
 matching filter determines the index of the out gate. If no matching
@@ -174,8 +173,8 @@ above.
 Results
 -------
 
-Original Sound Track
-~~~~~~~~~~~~~~~~~~~~
+Original Audio
+~~~~~~~~~~~~~~
 
 As a reference, you can listen to the original audio file by clicking
 the play button below:
@@ -184,8 +183,8 @@ the play button below:
 
    <audio controls> <source src="ria_44100_stereo.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio>
 
-VoIP_WithoutQoS configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Without QoS
+~~~~~~~~~~~
 
 As expected, the quality of the received sound using the
 ``VoIP_WithoutQoS`` configuration is very low:
@@ -194,12 +193,11 @@ As expected, the quality of the received sound using the
 
    <audio controls> <source src="VoIP_WithoutQoS_results.wav" type="audio/wav">Your browser does not support the audio tag.</audio>
 
-This low quality is due to the fact that approximately half of the VoIP
-data sent by ``voipPhone1`` are dropped by the router's
-``DropTailQueue`` before reaching the server, due to the lack of traffic
-conditioning.
+The jaggedness in the received audio is due to the fact that approximately half 
+of the VoIP packets sent by ``voipPhone1`` are dropped by ``DropTailQueue`` 
+in the output interface of the router.
 
-The delay of the VoIP packets is very high, approximately 2.5 seconds,
+The delay of the VoIP packets also is very high, approximately 2.5 seconds,
 which is way too much compared to a real phone call. The following plot
 shows the delay of each VoIP packet:
 
@@ -207,13 +205,13 @@ shows the delay of each VoIP packet:
    :width: 100%
 
 The dropouts you hear can also easily be observed if we zoom into the
-timeline of the received audio track using `Audacity <https://www.audacityteam.org/>`__:
+timeline of the received audio using `Audacity <https://www.audacityteam.org/>`__:
 
 .. figure:: VoIP_WithoutQoS_audio.png
    :width: 100%
 
-VoIP_WithPolicing configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+With Traffic Policing
+~~~~~~~~~~~~~~~~~~~~~
 
 In this configuration we use a traffic conditioner inside the router's
 PPP interface. The following (edited) video, captured from the
@@ -250,8 +248,8 @@ if we take a look at the audio track:
 .. figure:: VoIP_WithPolicing_audio.png
    :width: 100%
 
-VoIP_WithPolicingAndQueuing configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+With Traffic Policing and Priority Queuing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With the ``VoIP_WithPolicingAndQueuing`` configuration, where the
 router's queue is configured to prioritize EF packets (VoIP traffic in
