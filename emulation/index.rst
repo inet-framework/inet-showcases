@@ -24,20 +24,29 @@ of the simulation unchanged, while simply extracting the other into the
 real world.
 
 Several setups are possible when one can take advantage of the emulation
-capabilities of INET: - simulated node in a real network - a simulated
-subnet in real network - real-world node in simulated network - etc.
+capabilities of INET: 
+
+-  simulated node in a real network\ 
+-  a simulated subnet in real network\
+-  real-world node in simulated network\
+-  etc.\
 
 To act as a network emulator, two major problems need to be solved: on
 one hand the simulation must run in real time, or the real clock must be
 configured according to the simulation time (synchronization), on the
 other hand the simulation must be able to communicate with the real
-world (communication). This is achieved in INET as the following: -
-Synchronization: - ``RealTimeScheduler:`` It is a socket aware real-time
-scheduler class responsible for synchronization. Using this method, the
-simulation is run according to real time. - ``OppClock:`` Using this
-method the simulation runs according to simulation time, and configures
-the clocks of real applications running on the OS for maintaining
-synchronization.
+world (communication). This is achieved in INET as the following:
+ 
+- Synchronization:\
+
+  - ``RealTimeScheduler:`` It is a socket aware real-time
+    scheduler class responsible for synchronization. Using this method, the
+    simulation is run according to real time.\
+
+  - ``OppClock:`` Using this
+    method the simulation runs according to simulation time, and configures
+    the clocks of real applications running on the OS for maintaining
+    synchronization.\
 
 -  Communication:
 

@@ -36,6 +36,9 @@ and data network.
 The model
 ---------
 
+The ``ExtUdp`` module makes it possible to divide the simulated model into
+two parts at the transport layer, exchange one part with real
+
 The ``ExtUdp`` module makes it possible for the model to be extracted
 from the simulation and be used in a real operating environment. The
 model executes the configured behavior in the real world while still
@@ -56,11 +59,13 @@ There are only two modules per "network". There is a
 Both Applications contain a ``ExtUdp`` module, called ``udp``. The
 layout of the two applications can be seen in the following image:
 
-+------------------------------------------+--+----------------------------------+
-| Voip Stream Sender Application           |  | Voip Stream Receiver Application |
-+==========================================+==+==================================+
-| ` <VoipStreamReceiverApplication.png>`__ |  |                                  |
-+------------------------------------------+--+----------------------------------+
++----------------------------------------------+--+---------------------------------------------+
+|        Voip Stream Sender Application        |  |      Voip Stream Receiver Application       |
++==============================================+==+=============================================+
+|.. image:: VoipStreamSenderApplication.png    |  |.. image:: VoipStreamReceiverApplication.png |
+|   :width: 100%                               |  |   :width: 100%                              |
+|   :align: center                             |  |   :align: center                            |
++----------------------------------------------+--+---------------------------------------------+
 
 These two simulations work completely separated form each other, meaning
 that they could also be run on different devices. However, for the sake
@@ -89,16 +94,18 @@ computer. That is why the ``destAddress`` parameter is set to
 ``27.0.0.1`` address, called the loopback address, referring to *this
 computer*.
 
-   <p>.. literalinclude:: ../sender.ini
-    from="packetTimeLength" comment="#!"</p>
+.. literalinclude:: ../sender.ini
+   :language: ini
+   :start-at: packetTimeLength
 
 The ``VoIP`` configuration is run in order to demonstrate that the sound
 is actually transmitted from the sender to the receiver.
 
 **VoipStreamReceiver:**
 
-   <p>.. literalinclude:: ../receiver.ini
-    from="localPort" comment="#!"</p>
+.. literalinclude:: ../receiver.ini
+   :language: ini
+   :start-at: localPort
 
 Although the ``udp`` module is the key module of the emulation, it does
 not need any configuration. This module acts as a bridge between the
@@ -119,13 +126,15 @@ Another important point of the emulation is to set the
 Using this scheduler, the execution of the simulation is synchronized to
 the real time of the CPU.
 
-**Note:** *Operation of the real-time scheduler: a "base time" is
-determined when ``startRun()`` is called. Later on, the scheduler object
-calls ``usleep()`` from ``getNextEvent()`` to synchronize the simulation
-time to real time, that is, to wait until the current time minus base
-time becomes equal to the simulation time. Should the simulation lag
-behind real time, this scheduler will try to catch up by omitting sleep
-calls altogether.*
+.. note::
+
+   Operation of the real-time scheduler: a "base time" is
+   determined when ``startRun()`` is called. Later on, the scheduler object
+   calls ``usleep()`` from ``getNextEvent()`` to synchronize the simulation
+   time to real time, that is, to wait until the current time minus base
+   time becomes equal to the simulation time. Should the simulation lag
+   behind real time, this scheduler will try to catch up by omitting sleep
+   calls altogether.
 
 Results
 -------
@@ -148,7 +157,7 @@ other simulation at the ``ExtUdp`` of the receiver side. In between the
 packets travel across the real network (the computer's loopback
 interface in our case).
 
-``VoIP`` configuration
+**VoIP** configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Due to the high sampling rate, the quality of the received sound is
@@ -166,6 +175,8 @@ the traffic rate of the loopback interface (named ``lo``) changes while
 the simulation is running:
 
 .. video:: loopback.mp4
+   :width: 100%
+|
 
 It is clearly visible that the traffic rate of the loopback interface
 increases from the former value of zero to a higher, relatively constant
@@ -185,7 +196,7 @@ simpler.
 Further Information
 -------------------
 
-The following link provides more information about VoIP in general: -
+The following link provides more information about VoIP in general:
 `VoIP <https://en.wikipedia.org/wiki/Voice_over_IP>`__
 
 The network traffic was observed using
