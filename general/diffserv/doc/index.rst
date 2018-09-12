@@ -99,12 +99,20 @@ The showcase contains three different configurations:
    packets are prioritized over other packets, so lower delays are
    expected.
 
+The router's PPP interface contains the key elements of Differentiated
+Services in this network: a queue (``queue``) and a traffic conditioner (``egressTC``). 
+If both of them are used, the layout of the interface looks like the following:
+
+.. figure:: RouterPPP.png
+   :scale: 100%
+   :align: center
+
 In the ``VoIP_WithPolicing`` and ``VoIP_WithPolicingAndQueuing``
 configurations, INET's :ned:`TrafficConditioner` module is used in the
 router's PPP interface in order to achieve the required policing.
 
 .. figure:: TrafficConditioner.png
-   :width: 80%
+   :scale: 100%
    :align: center
 
 In :ned:`TrafficConditioner`, the ``mfClassifier`` submodule is used for
@@ -143,7 +151,7 @@ In the ``VoIP_WithPolicingAndQueuing`` configuration, a
 router's PPP interface in order to achieve priority queuing.
 
 .. figure:: DiffServQueue.png
-   :width: 70%
+   :scale: 100%
    :align: center
 
 :ned:`DiffservQueue`, offered by INET, is an example queue that can be used
