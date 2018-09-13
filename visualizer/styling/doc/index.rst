@@ -52,8 +52,8 @@ and the customized visualization.
 
 The ``lineColor`` parameter specifices the color of the arrow, and it
 accepts English color names (more precisely, SVG color names) and
-HTML-style RGB values. For the ``NetworkRouteVisualizer``,
-``TransportRouteVisualizer`` and ``MobilityVisualizer`` modules,
+HTML-style RGB values. For the :ned:`NetworkRouteVisualizer`,
+:ned:`TransportRouteVisualizer` and :ned:`MobilityVisualizer` modules,
 ``lineColor`` may be set to a list of colors separated by commas, or to
 the ``dark`` and ``light`` keywords which will be interpreted as a list
 of good dark (light) colors. The ``lineStyle`` parameter can be set to
@@ -77,7 +77,7 @@ two hosts communicating wirelessly. We customize the font used in labels
 on data link activity arrows.
 
 To customize the fonts used in labels, we configure
-``DataLinkVisualizer`` in the following way:
+:ned:`DataLinkVisualizer` in the following way:
 
 .. code-block:: none
 
@@ -101,14 +101,14 @@ name or a HTML-style RGB value.
 Labels are enabled by default. (Labels can be disabled by setting the
 ``displayLabels`` parameter to false.)
 
-For ``InterfaceTableVisualizer`` and ``StatisticVisualizer``, the
+For :ned:`InterfaceTableVisualizer` and :ned:`StatisticVisualizer`, the
 ``font`` parameter is used instead of ``labelFont``, and ``textColor``
 is used instead of ``labelColor``.
 
 Customizing Icons
 -----------------
 
-Some visualizers, such as ``TransportConnectionVisualizer``, display
+Some visualizers, such as :ned:`TransportConnectionVisualizer`, display
 icons. The following example shows how to customize icon appearance in
 INET.
 
@@ -116,7 +116,7 @@ The simulation can be run by choosing the ``Icon`` configuration from
 the ini file. The network is the same as in the previous examples: two
 hosts communicating wirelessly. This time, however, we add TCP traffic
 between them, so that we can show how the icons displayed by
-``TransportConnectionVisualizer`` can be customized.
+:ned:`TransportConnectionVisualizer` can be customized.
 
 We use the following configuration to customize the transport connection
 icons:
@@ -143,13 +143,13 @@ resolves to the ``inet/images/misc/marker2.png`` file:
    :align: center
 
 The ``iconColor`` parameter allows you to colorize (tint) the icon. As
-``TransportConnectionVisualizer`` potentially displays several icons per
+:ned:`TransportConnectionVisualizer` potentially displays several icons per
 network node, the parameter accepts a (space-separated) list of colors,
 and the module will cycle through them as it assigns colors to icons. It
 also accepts the ``dark`` and ``light`` keywords, which will be
 interpreted as a list of good dark (light) colors.
 
-The ``LinkBreakVisualizer`` and ``PacketDropVisualizer`` modules have an
+The :ned:`LinkBreakVisualizer` and :ned:`PacketDropVisualizer` modules have an
 ``iconTintColor`` parameter instead of ``iconColor``. However, note,
 that ``iconTintColor`` can be set only to a single color. These
 visualizers also have an ``iconTintAmount`` parameter. By adjusting
@@ -169,7 +169,7 @@ The following example shows how to control the placement of annotations.
 The simulation can be run by selecting the ``Annotation`` configuration
 from the ini file. The network is the same as in the previous example.
 The simulation will set up several TCP connections between the two
-hosts, and ``TransportConnectionVisualizer`` will be used to visualize
+hosts, and :ned:`TransportConnectionVisualizer` will be used to visualize
 them as marker icons.
 
 We use the following configuration to place the annotation icons.

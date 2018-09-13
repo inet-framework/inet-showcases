@@ -19,9 +19,9 @@ Source files location: `inet/showcases/visualizer/radiomediumactivity <https://g
 About the visualizer
 --------------------
 
-The ``MediumVisualizer`` module (included in the networks for this
-showcase as part of ``IntegratedVisualizer``) can visualize various
-aspects of radio communications. ``MediumVisualizer`` has the following
+The :ned:`MediumVisualizer` module (included in the networks for this
+showcase as part of :ned:`IntegratedVisualizer`) can visualize various
+aspects of radio communications. :ned:`MediumVisualizer` has the following
 three main features, and boolean parameters for turning them on/off:
 
 -  **Visualization of propagating signals**: Signals are visualized as
@@ -40,9 +40,9 @@ as well. By default, all packets, interfaces and nodes are considered
 for the visualization. The selection can be narrowed with the
 visualizer's ``packetFilter``, ``packetDataFilter``,
 ``interfaceFilter``, and ``nodeFilter`` parameters. Note that one
-``MediumVisualizer`` module can only visualize signals of one radio
+:ned:`MediumVisualizer` module can only visualize signals of one radio
 medium module. For visualizing multiple radio medium modules, multiple
-``MediumVisualizer`` modules are required.
+:ned:`MediumVisualizer` modules are required.
 
 Displaying signal propagation, transmissions and receptions
 -----------------------------------------------------------
@@ -125,7 +125,7 @@ does not imply that the signal is receivable or that the node attempts
 reception. Basically the icon is displayed above all nodes that use the
 same radio medium module.)
 
-(The ``RadioVisualizer`` module can be used for displaying radio states,
+(The :ned:`RadioVisualizer` module can be used for displaying radio states,
 including when the radio is idle, sensing a signal, attempting
 reception, etc.)
 
@@ -307,7 +307,7 @@ The playground size is 1000x500 meters. The network contains three
 configuration. The hosts on the two sides, ``source1`` and ``source2``,
 are configured to ping the host in the middle, ``destination``. There is
 a wall positioned between the two hosts on the sides. The obstacle loss
-model is ``IdealObstacleLoss``, thus the wall blocks transmissions
+model is :ned:`IdealObstacleLoss`, thus the wall blocks transmissions
 completely. Both source hosts can reach the destination, but cannot
 reach each other, and cannot detect whatsoever when the other source is
 transmitting. Thus the collision avoidance mechanism can't work
@@ -342,7 +342,7 @@ enough to garble the other transmission.
 More information
 ----------------
 
-For further information, refer to the ``MediumVisualizer`` NED
+For further information, refer to the :ned:`MediumVisualizer` NED
 documentation.
 
 Discussion

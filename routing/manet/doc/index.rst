@@ -207,16 +207,16 @@ simulations, which demonstrate the MANET routing protocols ``AODV``,
 The GPSR simulation use the ``ManetRoutingProtocolsShowcaseB`` network,
 featuring stationary hosts. The networks are defined in
 :download:`ManetProtocolsShowcase.ned <../ManetProtocolsShowcase.ned>`.
-Both networks contain hosts of the type ``ManetRouter`` (an extension of
-``WirelessHost``), whose routing module type is configurable. Just as
-``WirelessHost``, it uses ``Ieee80211ScalarRadio`` by default. It also
+Both networks contain hosts of the type :ned:`ManetRouter` (an extension of
+:ned:`WirelessHost`), whose routing module type is configurable. Just as
+:ned:`WirelessHost`, it uses :ned:`Ieee80211ScalarRadio` by default. It also
 has IP forwarding enabled, and its management module is set to
-``Ieee80211MgmtAdhoc``. In the network, there is a source host named
+:ned:`Ieee80211MgmtAdhoc`. In the network, there is a source host named
 ``source``, a destination host named ``destination``, and a number of
 other hosts, which are named ``node1`` up to ``node10`` (their numbers
 vary in the different networks). In addition to mobile nodes, both
-networks contain an ``Ieee80211ScalarRadioMedium``, an
-``Ipv4NetworkConfigurator``, and an ``IntegratedMultiVisualizer``
+networks contain an :ned:`Ieee80211ScalarRadioMedium`, an
+:ned:`Ipv4NetworkConfigurator`, and an :ned:`IntegratedMultiVisualizer`
 module. The nodes' default PHY model (IEEE 802.11) will suffice, because
 we're focusing on the routing protocols.
 
@@ -224,7 +224,7 @@ In all three simulations, the source node pings the destination node.
 The two nodes are out of communication range of each other, and the
 other nodes are responsible for forwarding packets between the two.
 Since routes are managed dynamically by the MANET routing algorithms,
-the ``Ipv4NetworkConfigurator`` module is instructed not to add any
+the :ned:`Ipv4NetworkConfigurator` module is instructed not to add any
 routes (it will only assign IP addresses). The netmask routes added by
 network interfaces are disabled as well. The following keys in the
 ``General`` configuration in :download:`omnetpp.ini <../omnetpp.ini>`
@@ -237,7 +237,7 @@ achieve this:
 AODV
 ~~~~
 
-The example simulation featuring AODV is defined in the ``Aodv``
+The example simulation featuring AODV is defined in the :ned:`Aodv`
 configuration in :download:`omnetpp.ini <../omnetpp.ini>`. This
 configuration uses the ``ManetProtocolShowcaseA`` network. The network
 looks like the following:
@@ -267,19 +267,19 @@ edge of the playground. The mobility settings are the following:
 The ping app in ``source`` will send one ping request every second to
 ``destination``.
 
-In INET, AODV is implemented by the ``Aodv`` module. This is configured
+In INET, AODV is implemented by the :ned:`Aodv` module. This is configured
 in :download:`omnetpp.ini <../omnetpp.ini>` as the routing protocol
-type in ``ManetRouter``:
+type in :ned:`ManetRouter`:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: "Aodv"
    :end-at: "Aodv"
 
-The ``Aodv`` module has many parameters for contolling the operation of
+The :ned:`Aodv` module has many parameters for contolling the operation of
 the protocol. The parameters should be set according to the number of
 nodes in a network, the nodes' mobility levels, traffic, and radio
 transmission power levels/communication ranges. All of the parameters
-have default values, and ``Aodv`` should work out of the box, without
+have default values, and :ned:`Aodv` should work out of the box, without
 setting any of the parameters. We will fine tune the protocol's behavior
 to our scenario by setting two of the parameters:
 
@@ -319,7 +319,7 @@ RREQ message arrived on
 (``destination``->``node6``->``node1``->``source``). As the intermediate
 nodes receive the RREP message, the routes to ``destination`` are
 created. The routes are visualized with black arrows, the
-``RoutingTableVisualizer`` is configured to only visualize routes
+:ned:`RoutingTableVisualizer` is configured to only visualize routes
 leading to ``destination``. When the route is established in ``source``,
 it sends the ping request packet, which gets to the destination. The
 ping reply packet gets back to ``source`` on the reverse path.
@@ -337,20 +337,20 @@ The following log excerpt shows ``node6`` handling the first RREQ and
 RREP messages:
 
 .. figure:: aodvlog3.png
-   :width: 100% 
+   :width: 100%
 
 DSDV
 ~~~~
 
-The example simulation featuring DSDV is defined in the ``Dsdv``
+The example simulation featuring DSDV is defined in the :ned:`Dsdv`
 configuration in :download:`omnetpp.ini <../omnetpp.ini>`. Just like
 the AODV configuration, this one uses the
 ``ManetRoutingProtocolsShowcaseB`` network. The mobility settings are
 also the same as in the AODV simulation. The ping app in ``source`` will
 send a ping request every second.
 
-The DSDV protocol is implemented in the ``Dsdv`` module. The routing
-protocol type in all hosts is set to ``Dsdv``:
+The DSDV protocol is implemented in the :ned:`Dsdv` module. The routing
+protocol type in all hosts is set to :ned:`Dsdv`:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: "Dsdv"
@@ -360,7 +360,7 @@ Currently, complete routing table broadcasts are not implemented, only
 the broadcasting of changes in the routing table using periodic hello
 messages.
 
-Like ``Aodv`` (and most routing protocol modules), ``Dsdv`` has many
+Like :ned:`Aodv` (and most routing protocol modules), :ned:`Dsdv` has many
 parameters with default values that yield a working simulation without
 any configuration. In this simulation, similarly to the previous one, we
 set two parameters of the protocol:
@@ -400,16 +400,16 @@ The following video shows ``source`` pinging ``destination``:
 GPSR
 ~~~~
 
-The example simulation featuring GPSR is defined in the ``Gpsr``
+The example simulation featuring GPSR is defined in the :ned:`Gpsr`
 configuration in :download:`omnetpp.ini <../omnetpp.ini>`. It uses the
 ``ManetRoutingProtocolsShowcaseB`` network. The network looks like the
 following:
 
 .. figure:: networkB.png
-   :width: 100% 
+   :width: 100%
 
 Just as with the previous two configurations, the nodes are
-``ManetRouter``\ s. The nodes are laid out along a chain. The
+:ned:`ManetRouter`\ s. The nodes are laid out along a chain. The
 transmitter power of the radios is configured so that nodes can only
 reach their neighbors in the chain (except for node9, which can reach
 nodes 11, 5, and 8). There is forest, which represents a void that GPSR
@@ -419,7 +419,7 @@ node will ping the destination node, which is on the other side of the
 void. (The ping app in ``source`` will send one ping request every
 second.)
 
-The hosts' routing protocol type is set to ``Gpsr``:
+The hosts' routing protocol type is set to :ned:`Gpsr`:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: "Gpsr"
@@ -459,13 +459,13 @@ closer neighbor, because the sender doesn't yet know about it (and its
 position).
 
 Also note that there are no IP routes, the ``ipv4`` module routing
-tables are empty. Instead, ``Gpsr`` maintains the positions of the nodes
+tables are empty. Instead, :ned:`Gpsr` maintains the positions of the nodes
 in communication range (those that a beacon was received from), and uses
 that for routing decisions. Here is ``node12``'s neightbor position
 table:
 
 .. figure:: positions.png
-   :width: 100% 
+   :width: 100%
 
 The table links node positions with IP addresses (it also contains the
 beacon arrival time).

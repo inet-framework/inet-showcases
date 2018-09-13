@@ -23,17 +23,17 @@ meters, in 2 meter steps. The bitrate will take the ERP modes in
 2100 simulation runs.
 
 To make the model more realistic, we will simulate multipath propagation
-using the ``TwoRayGroundReflection`` path loss model. (There are various
-path loss models in INET, including ``FreeSpacePathLoss``,
-``RayleighFading``, ``RicianFading``, ``LogNormalShadowing`` and
-``NakagamiFading``). The two ray ground reflection path loss model
+using the :ned:`TwoRayGroundReflection` path loss model. (There are various
+path loss models in INET, including :ned:`FreeSpacePathLoss`,
+:ned:`RayleighFading`, :ned:`RicianFading`, :ned:`LogNormalShadowing` and
+:ned:`NakagamiFading`). The two ray ground reflection path loss model
 requires a ground model, which is configured in the
-``physicalEnvironment`` module to be ``FlatGround``. The heights of the
+``physicalEnvironment`` module to be :ned:`FlatGround`. The heights of the
 hosts above the ground is set to 1.5 meters. We assume isotropic
-background noise of -86 dBm (``IsotropicScalarBackgroundNoise``.)
+background noise of -86 dBm (:ned:`IsotropicScalarBackgroundNoise`.)
 
-We will use ``Ieee80211NistErrorModel`` to compute bit errors. The
-``Ieee80211NistErrorModel`` is based on the Nist error rate model.
+We will use :ned:`Ieee80211NistErrorModel` to compute bit errors. The
+:ned:`Ieee80211NistErrorModel` is based on the Nist error rate model.
 
 In each simulation run, the source host will send a single UDP packet
 (56 bytes of UDP data, resulting in a 120-byte frame) to the destination
@@ -66,7 +66,7 @@ it is the same for all bitrates. This can be seen on the following plot,
 which displays SNIR against distance.
 
 .. figure:: SNIR_distance_v2.png
-   :width: 100% 
+   :width: 100%
 
 The next plot shows how packet error rate decreases with SNIR. Slower
 bitrates use simpler modulation like binary phase shift keying, which is
@@ -87,14 +87,14 @@ are due to the signal power decreasing below the sensitivity of the
 receiver.
 
 .. figure:: PER_SNIR_v3.png
-   :width: 100% 
+   :width: 100%
 
 The following plot shows the packet error rate vs distance. Again,
 slower bitrates show less packet errors as the distance increases
 because of the simpler modulation.
 
 .. figure:: PER_distance_v3.png
-   :width: 100% 
+   :width: 100%
 
 We also compute the effective bitrate, which is the gross bitrate
 decreased by packet errors. It is computed with the following formula:
@@ -110,7 +110,7 @@ drops rapidly after a critical distance. This critical distance is
 farther for slower bitrates, and the decrease is not as rapid.
 
 .. figure:: throughput_distance3.png
-   :width: 100% 
+   :width: 100%
 
 802.11 ranges depend on many variables, e.g. transmission power,
 receiver sensitivity, antenna gains and directionality, and background

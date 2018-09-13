@@ -55,8 +55,8 @@ packet loss. When too many packets are lost (ie. the ACK for them
 doesn't arrive) the transmission rate is lowered. When a number of
 packets are sent without loss, the rate is increased.
 
-INET has different rate control models, such as ``ArfRateControl``,
-``AarfRateControl`` and ``OnoeRateControl``.
+INET has different rate control models, such as :ned:`ArfRateControl`,
+:ned:`AarfRateControl` and :ned:`OnoeRateControl`.
 
 The network
 ~~~~~~~~~~~
@@ -90,7 +90,7 @@ Results
 
 Below are two animations showing the hosts going around the obstacle. In
 the first video, the hosts don't use rate control, and always transmit
-with 54 Mbps. In the second video, hosts use ``AarfRateControl``. The
+with 54 Mbps. In the second video, hosts use :ned:`AarfRateControl`. The
 transmissions intersect the obstacle during the simulation. The path the
 transmission takes through the obstacle varies in length as the hosts
 are moving. When using rate control, ``sinkHost`` manages to receive

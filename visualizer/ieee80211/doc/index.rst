@@ -18,13 +18,13 @@ About the visualizer
 --------------------
 
 In INET, IEEE 802.11 network membership can be visualized by including a
-``Ieee80211Visualizer`` module in the simulation. Adding an
-``IntegratedVisualizer`` is also an option, because it also contains a
-``Ieee80211Visualizer``. Displaying network membership is disabled by
+:ned:`Ieee80211Visualizer` module in the simulation. Adding an
+:ned:`IntegratedVisualizer` is also an option, because it also contains a
+:ned:`Ieee80211Visualizer`. Displaying network membership is disabled by
 default, it can be enabled by setting the visualizer's
 ``displayAssociations`` parameter to ``true``.
 
-The ``Ieee80211Visualizer`` displays an icon and the SSID above network
+The :ned:`Ieee80211Visualizer` displays an icon and the SSID above network
 nodes which are part of a wifi network. The icons are color-coded
 according to the SSID. The icon, colors, and other visual properties can
 be configured via parameters of the visualizer.
@@ -46,7 +46,7 @@ following network:
    :width: 60%
    :align: center
 
-The network contains a ``WirelessHost`` and an ``AccessPoint``. The
+The network contains a :ned:`WirelessHost` and an :ned:`AccessPoint`. The
 access point SSID is left at the default setting, ``"SSID"``. At the
 beginning of the simulation, the host will initate association with the
 access point. When the association process goes through, the node
@@ -91,7 +91,7 @@ The following example simulation shows how visualization can help you
 follow handovers in the network. The simulation can be run by choosing
 the ``VisualizingHandover`` configuration from the ini file. The network
 contains two ``AccessPoints`` with different SSIDs, ``alpha`` and
-``bravo``. There is also a ``WirelessHost`` which is configured to move
+``bravo``. There is also a :ned:`WirelessHost` which is configured to move
 horizontally back and forth between the two access points. Transmission
 powers are configured so that when a host gets near one access point, it
 will go out of the range of the other access point. This will trigger a

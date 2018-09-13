@@ -7,7 +7,7 @@ Goals
 With INET simulations, it is often useful to be able to visualize
 network traffic. INET offers several visualizers for this task,
 operating at various levels of the network stack. In this showcase, we
-examine ``NetworkRouteVisualizer`` that can provide graphical feedback
+examine :ned:`NetworkRouteVisualizer` that can provide graphical feedback
 about network layer level traffic.
 
 The showcase consists of four simulation models, each demonstrating
@@ -21,13 +21,13 @@ About the Visualizer
 --------------------
 
 In INET, network path activity can be visualized by including a
-``NetworkRouteVisualizer`` module in the simulation. Adding an
-``IntegratedVisualizer`` module is also an option, because it also
-contains a ``NetworkRouteVisualizer`` module. Network path activity
+:ned:`NetworkRouteVisualizer` module in the simulation. Adding an
+:ned:`IntegratedVisualizer` module is also an option, because it also
+contains a :ned:`NetworkRouteVisualizer` module. Network path activity
 visualization is disabled by default, it can be enabled by setting the
 visualizer's ``displayRoutes`` parameter to true.
 
-``NetworkRouteVisualizer`` currently observes packets that pass through
+:ned:`NetworkRouteVisualizer` currently observes packets that pass through
 the network layer (i.e. carry data from/to higher layers), but not those
 that are internal to the operation of the network layer protocol. That
 is, packets such as ARP, although potentially useful, will not trigger
@@ -36,7 +36,7 @@ INET revisions.
 
 The activity between two nodes is represented visually by a polyline
 arrow which points from the source node to the destination node.
-``NetworkRouteVisualizer`` follows packet throughout its path so the
+:ned:`NetworkRouteVisualizer` follows packet throughout its path so the
 polyline goes through all nodes that are part of the packet's path. The
 arrow appears after the first packet has been received, then gradually
 fades out unless it is reinforced by further packets. Color, fading time
@@ -63,7 +63,7 @@ pinging the ``destination`` host.
    :width: 80%
    :align: center
 
-The ``pathVisualizer's`` type is ``NetworkRouteVisualizer``. We enable
+The ``pathVisualizer's`` type is :ned:`NetworkRouteVisualizer`. We enable
 network path activity visualization by setting the ``displayRoutes``
 parameter to true.
 
@@ -80,9 +80,9 @@ The following video shows what happens when we start the simulation.
 At the beginning of the video, a red strip appears and moves from
 ``source`` to ``destination``. This strip is the standard OMNeT++
 animation for packet transmissions, and has nothing to do with
-``NetworkRouteVisualizer``. When the packet is received in whole by
+:ned:`NetworkRouteVisualizer`. When the packet is received in whole by
 ``destination`` (the red strip disappears), an arrow is added by
-``NetworkRouteVisualizer`` between the two hosts, indicating network
+:ned:`NetworkRouteVisualizer` between the two hosts, indicating network
 path activity. The packet's name is also displayed on the arrow. The
 arrow fades out quickly, because the ``fadeOutTime`` parameter of the
 visualizer is set to a small value.
@@ -114,7 +114,7 @@ The network consists of five ``routers`` (``router0..router4``), four
 a video to the ``videoClient`` node. The remaining two endpoints
 (``host1`` and ``host2``) are inactive in this simulation.
 
-For this network, the visualizer's type is ``IntegratedVisualizer``.
+For this network, the visualizer's type is :ned:`IntegratedVisualizer`.
 Network path visualization is filtered to display only ping traffic. The
 video stream packets are not visualized by network path activity
 visualizer. The ``fadeOutMode`` and ``fadeOutTime`` parameters have been
@@ -135,7 +135,7 @@ The following video shows what happens when the simulation is run.
 
 Each arrow has a different color indicating different paths. You can see
 that although there is both video stream and ping traffic in the
-network, ``NetworkRouteVisualizer`` displays only the latter, due to the
+network, :ned:`NetworkRouteVisualizer` displays only the latter, due to the
 presence of the ``packetFilter`` parameter.
 
 Visualizing Network Path Activity in a Mobile Ad-Hoc Network
@@ -146,7 +146,7 @@ dynamically changing network path activity in a wireless environment.
 The simulation can be run by choosing the ``Mobile`` configuration from
 the ini file.
 
-Nodes are of the type ``AodvRouter``, and are placed randomly on the
+Nodes are of the type :ned:`AodvRouter`, and are placed randomly on the
 playground. One of the nodes is the ``source`` node which will be
 pinging the ``destination`` node. The communication ranges of the nodes
 have been chosen so that the network is connected but nodes can
@@ -263,7 +263,7 @@ More Information
 
 This example only demonstrated the key features of network path
 visualization. For more information, refer to the
-``NetworkRouteVisualizer`` NED documentation.
+:ned:`NetworkRouteVisualizer` NED documentation.
 
 Discussion
 ----------

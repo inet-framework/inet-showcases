@@ -56,10 +56,10 @@ The model
 The network
 ~~~~~~~~~~~
 
-We will simulate one direction of a VoIP telephone call over the Internet 
+We will simulate one direction of a VoIP telephone call over the Internet
 while background traffic is present. Background traffic will be heavy
-enough to cause congestion in the first-hop router 
-and impair voice quality at the receiver. Then we will use DiffServ 
+enough to cause congestion in the first-hop router
+and impair voice quality at the receiver. Then we will use DiffServ
 to prioritize voice over background traffic to improve voice quality and
 reduce latency.
 
@@ -68,10 +68,10 @@ The following image shows the layout of the network:
 .. figure:: diffserv_network_layout.png
    :width: 100%
 
-In our setup, ``voipPhone1`` will transmit VoIP packets to ``voipPhone2``. 
-``client`` will generate background traffic towards ``server``. 
+In our setup, ``voipPhone1`` will transmit VoIP packets to ``voipPhone2``.
+``client`` will generate background traffic towards ``server``.
 The ``internet`` node represents the Internet. We set the capacity of the link
-between ``router`` and ``internet`` deliberately low, to 128kbps, 
+between ``router`` and ``internet`` deliberately low, to 128kbps,
 so we can more easily saturate it and demonstrate the effects of congestion on voice quality.
 
 To make the example more realistic, ``voipPhone1`` will transmit the actual
@@ -79,9 +79,9 @@ contents of an audio file as VoIP traffic, and ``voipPhone2`` will record the
 received audio into a WAV file. By playing back the WAV file produced by the
 simulation, we can directly assess voice quality.
 
-The background traffic will be constant bit rate UDP traffic. Note that we use 
+The background traffic will be constant bit rate UDP traffic. Note that we use
 UDP instead of TCP, because congestion control algorithms present in TCP make
-it difficult to cause congestion with it. 
+it difficult to cause congestion with it.
 
 
 Configuration and Behavior
@@ -100,15 +100,15 @@ The showcase contains three different configurations:
    expected.
 
 In the ``VoIP_WithPolicing`` and ``VoIP_WithPolicingAndQueuing``
-configurations, INET's ``TrafficConditioner`` module is used in the
+configurations, INET's :ned:`TrafficConditioner` module is used in the
 router's PPP interface in order to achieve the required policing.
 
 .. figure:: TrafficConditioner.png
    :width: 80%
    :align: center
 
-In ``TrafficConditioner``, the ``mfClassifier`` submodule is used for 
-separating packets of different flows for marking with different DSCP values. 
+In :ned:`TrafficConditioner`, the ``mfClassifier`` submodule is used for
+separating packets of different flows for marking with different DSCP values.
 It contains a list of filters that identifies the flow and determines their classes.
 Each filter can match the source and destination address, IP protocol
 number, source and destination ports, or ToS of the datagram. The first
@@ -139,14 +139,14 @@ the ``omnetpp.ini`` file:
    :end-before: ####
 
 In the ``VoIP_WithPolicingAndQueuing`` configuration, a
-``DiffServQueue`` module is used instead of ``DropTailQueue`` in the
+``DiffServQueue`` module is used instead of :ned:`DropTailQueue` in the
 router's PPP interface in order to achieve priority queuing.
 
 .. figure:: DiffServQueue.png
    :width: 70%
    :align: center
 
-``DiffservQueue``, offered by INET, is an example queue that can be used
+:ned:`DiffservQueue`, offered by INET, is an example queue that can be used
 in interfaces of Differentiated Services core and edge nodes to support
 AFxy and EF per-hop behaviors. The incoming packets are first classified
 by the ``classifier`` module according to their DSCP field previously
@@ -185,8 +185,8 @@ As expected, the quality of the received sound using the
 
 .. audio:: VoIP_WithoutQoS_results.wav
 
-The jaggedness in the received audio is due to the fact that approximately half 
-of the VoIP packets sent by ``voipPhone1`` are dropped by ``DropTailQueue`` 
+The jaggedness in the received audio is due to the fact that approximately half
+of the VoIP packets sent by ``voipPhone1`` are dropped by :ned:`DropTailQueue`
 in the output interface of the router.
 
 The delay of the VoIP packets also is very high, approximately 2.5 seconds,
@@ -251,11 +251,11 @@ The following video shows how the different types of packets are handled:
    :align: center
 
 Note that the ``priority`` module always prefers ``efQueue``; it only takes packets
-from the other queues (via ``wrr``) when ``efQueue`` is empty. 
+from the other queues (via ``wrr``) when ``efQueue`` is empty.
 
 The fact that EF packets face shorter queues and have priority reduces their latency.
 Some delay still remains, of course, but the best audio quality could be
-reached with this configuration. The initial dropouts that were present in 
+reached with this configuration. The initial dropouts that were present in
 the previous configuration are almost inaudible now.
 
 .. audio:: VoIP_WithPolicingAndQueueing_results.wav

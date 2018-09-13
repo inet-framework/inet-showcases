@@ -24,8 +24,8 @@ Source files location: `inet/showcases/visualizer/transportconnection <https://g
 About the visualizer
 --------------------
 
-The ``TransportConnectionVisualizer`` module (also part of
-``IntegratedVisualizer``) displays color-coded icons above the two
+The :ned:`TransportConnectionVisualizer` module (also part of
+:ned:`IntegratedVisualizer`) displays color-coded icons above the two
 endpoints of an active, established transport layer level connection.
 The icons will appear when the connection is established, and disappear
 when it is closed. Naturally, there can be multiple connections open at
@@ -33,7 +33,7 @@ a node, thus there can be multiple icons. Icons have the same color at
 both ends of the connection. In addition to colors, letter codes (A, B,
 AA, ...) may also be displayed to help in identifying connections. Note
 that this visualizer does not display the paths the packets take. If you
-are interested in that, take a look at ``TransportRouteVisualizer``,
+are interested in that, take a look at :ned:`TransportRouteVisualizer`,
 covered in the `Visualizing Transport Path
 Activity <../transportpathactivity>`__ showcase.
 
@@ -63,8 +63,8 @@ following network:
 
 The network contains two ``StandardHosts`` connected to each other, each
 containing a TCP application. IP addresses and routing tables are
-configured by a ``Ipv4NetworkConfigurator`` module. The visualizer
-module is a ``TransportConnectionVisualizer``. The application in
+configured by a :ned:`Ipv4NetworkConfigurator` module. The visualizer
+module is a :ned:`TransportConnectionVisualizer`. The application in
 ``host1`` is configured to open a TCP connection to ``host2``, and send
 data to it. The visualization of transport connections is enabled with
 the visualizer's ``displayTransportConnections`` parameter:
@@ -94,10 +94,10 @@ configuration from the ini file. It uses the following network:
    :align: center
 
 There are two ``StandardHosts`` connected to a switch, which is
-connected via a router to the server, another ``StandardHost``. IP
+connected via a router to the server, another :ned:`StandardHost`. IP
 addresses and routing tables are configured by a
-``Ipv4NetworkConfigurator`` module. The visualizer module is an
-``IntegratedVisualizer``.
+:ned:`Ipv4NetworkConfigurator` module. The visualizer module is an
+:ned:`IntegratedVisualizer`.
 
 The hosts are configured to open TCP connections to the server:
 
@@ -152,7 +152,7 @@ looks like this:
 Further information
 -------------------
 
-For more information, refer to the ``TransportConnectionVisualizer`` NED
+For more information, refer to the :ned:`TransportConnectionVisualizer` NED
 documentation.
 
 Discussion

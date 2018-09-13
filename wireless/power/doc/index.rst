@@ -23,7 +23,7 @@ The network
 ~~~~~~~~~~~
 
 The network consists of a configurable number of stationary wireless
-nodes of the type ``AdhocHost``. The hosts are placed on the playground
+nodes of the type :ned:`AdhocHost`. The hosts are placed on the playground
 randomly at the start of the simulation. The radios are configured so
 that hosts can reach each other in one hop, so no routing is needed.
 We'll use the ping application in each host to generate network traffic.
@@ -52,13 +52,13 @@ collisions will be very low.
 Energy Storage, Generation and Management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Hosts are configured to contain a ``SimpleEpEnergyStorage`` module.
-``SimpleEpEnergyStorage`` keeps a record of stored energy in Joules, and
+Hosts are configured to contain a :ned:`SimpleEpEnergyStorage` module.
+:ned:`SimpleEpEnergyStorage` keeps a record of stored energy in Joules, and
 power input/output in Watts. The letters ``Ep`` stand for energy and
 power, denoting how the module represents energy storage and power
 input/output. There are other energy storage models in INET that,
 similarly to real batteries, use charge and current (denoted by ``Cc``),
-such as ``SimpleCcBattery``. ``SimpleEpEnergyStorage`` models energy
+such as :ned:`SimpleCcBattery`. :ned:`SimpleEpEnergyStorage` models energy
 storage by integrating the difference of absorbed and provided power
 over time. It does not simulate other effects of real batteries, such as
 temperature dependency and hysteresis. It is used in this model because
@@ -79,7 +79,7 @@ host.
 
 Energy storage and generator modules are controlled by energy management
 modules. In this showcase, hosts are configured to contain a
-``SimpleEpEnergyManagement`` module. We configure energy management
+:ned:`SimpleEpEnergyManagement` module. We configure energy management
 modules to shut down hosts when their energy levels reach 10% of the
 nominal capacity (0.005 Joules), and restart them when their energy
 storage charges to half of their nominal energy capacity, i.e. 0.025
@@ -89,7 +89,7 @@ module's ``nodeShutdownCapacity`` and ``nodeStartCapacity`` parameters.
 Radio modes and states
 ~~~~~~~~~~~~~~~~~~~~~~
 
-In the ``Ieee80211ScalarRadio`` model used in this simulation (and in
+In the :ned:`Ieee80211ScalarRadio` model used in this simulation (and in
 other radio models), there are different modes in which radios operate,
 such as off, sleep, receiver, transmitter. The mode is set by the model,
 and does not depend on external effects. In addition to mode, radios
@@ -118,9 +118,9 @@ Energy storage visualization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The energy storage capacity of nodes can be visualized by the
-``EnergyStorageVisualizer`` module, which displays a battery icon next
+:ned:`EnergyStorageVisualizer` module, which displays a battery icon next
 to the nodes, indicating their charge levels. This visualizer is
-included in the network as part of the ``IntegratedCanvasVisualizer``
+included in the network as part of the :ned:`IntegratedCanvasVisualizer`
 module.
 
 Results
@@ -174,13 +174,13 @@ smooth (there are still some drawing artifacts due to multiple line
 segments, but that can be ignored).
 
 .. figure:: host12_3.png
-   :width: 100% 
+   :width: 100%
 
 The following plot shows how the energy level of ``host[12]`` changes
 during a transmission while charging.
 
 .. figure:: host12-2.png
-   :width: 100% 
+   :width: 100%
 
 ``host[0]`` is different from the other hosts in that it doesn't send
 ping requests, it "only" sends replies to the pings sent by the other
@@ -192,7 +192,7 @@ dominated by reception: the host spends most of its time listening, and
 only a fraction of time transmitting.
 
 .. figure:: consumption4.png
-   :width: 100% 
+   :width: 100%
 
 The following plot shows a ping request-ping reply exchange (with the
 associated ACKs) between hosts 0 and 3 on the sequence chart and the
@@ -205,7 +205,7 @@ generates. However, transmissions are very short and very rare, so one
 needs to zoom in on the graph to see this effect.
 
 .. figure:: ping-ack2.png
-   :width: 80% 
+   :width: 80%
 
 Further Information
 -------------------

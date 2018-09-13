@@ -20,8 +20,8 @@ Source files location: `inet/showcases/visualizer/mobility <https://github.com/i
 About the Visualizer
 --------------------
 
-In INET, mobility of nodes can be visualized by ``MobilityVisualizer``
-module (included in the network as part of ``IntegratedVisualizer``). By
+In INET, mobility of nodes can be visualized by :ned:`MobilityVisualizer`
+module (included in the network as part of :ned:`IntegratedVisualizer`). By
 default, mobility visualization is enabled, it can be disabled by
 setting ``displayMovements`` parameter to false.
 
@@ -55,7 +55,7 @@ The following example shows how to enable mobility visualization
 features. The simulation can be run by choosing the
 ``VisualizingFeatures`` configuration from the ini file.
 
-Three nodes of the type ``AdhocHost``, ``host1``, ``host2`` and
+Three nodes of the type :ned:`AdhocHost`, ``host1``, ``host2`` and
 ``host3``, are placed in the playground. They are roaming within
 predefined borders.
 
@@ -97,7 +97,7 @@ More Information
 ----------------
 
 This example only demonstrates the key features of mobility
-visualization. For more information, refer to the ``MobilityVisualizer``
+visualization. For more information, refer to the :ned:`MobilityVisualizer`
 NED documentation.
 
 Discussion

@@ -108,8 +108,8 @@ unclaimed time slot.
 The INET implementations
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The three MACs are implemented in INET as the ``BMac``, ``XMac``, and
-``LMac`` modules. They have parameters to adapt the MAC protocol to the
+The three MACs are implemented in INET as the :ned:`BMac`, :ned:`XMac`, and
+:ned:`LMac` modules. They have parameters to adapt the MAC protocol to the
 size of the network and the traffic intensity, such as slot time, clear
 channel assessment duration, bitrate, etc. The parameters have default
 values, thus the MAC modules can be used without setting any of their
@@ -118,8 +118,8 @@ parameters. Check the NED files of the MAC modules (``BMac.ned``,
 
 The MACs don't have corresponding physical layer models. They can be
 used with existing generic radio models in INET, such as
-``UnitDiskRadio`` or ``ApskRadio``. We're using ``ApskRadio`` in this
-showcase, because it is more realistic than ``UnitDiskRadio``.
+:ned:`UnitDiskRadio` or :ned:`ApskRadio`. We're using :ned:`ApskRadio` in this
+showcase, because it is more realistic than :ned:`UnitDiskRadio`.
 
 INET doesn't have WSN routing protocol models (such as Collection Tree
 Protocol), so we're using Ipv4 and static routing.
@@ -141,22 +141,22 @@ server over IP. Thus the node would act as a gateway between the WSN and
 the outside IP network. In the example simulations, the gateway just
 forwards the data packets over IP.
 
-To run the example simulations, choose the ``BMac``, ``LMac`` and
-``XMac`` configurations from :download:`omnetpp.ini <../omnetpp.ini>`.
+To run the example simulations, choose the :ned:`BMac`, :ned:`LMac` and
+:ned:`XMac` configurations from :download:`omnetpp.ini <../omnetpp.ini>`.
 Most of the configuration keys in the ini file are shared between the
 three simulations (they are defined in the ``General`` configuration),
 except for the MAC protocol specific settings. All three simulations
-will use the same network, ``SensorNetworkShowcaseA``, defined in
+will use the same network, :ned:`SensorNetworkShowcaseA`, defined in
 :download:`SensorNetworkShowcase.ned <../SensorNetworkShowcase.ned>`:
 
 .. figure:: network.png
    :width: 100%
 
 In the network, the wireless sensor nodes are of the type
-``SensorNode``, named ``sensor1`` up to ``sensor4``, and ``gateway``.
-The node named ``server`` is a ``StandardHost``. The network also
-contains an ``Ipv4NetworkConfigurator``, an ``IntegratedVisualizer``,
-and an ``ApskScalarRadioMedium`` module. The nodes are placed against
+:ned:`SensorNode`, named ``sensor1`` up to ``sensor4``, and ``gateway``.
+The node named ``server`` is a :ned:`StandardHost`. The network also
+contains an :ned:`Ipv4NetworkConfigurator`, an :ned:`IntegratedVisualizer`,
+and an :ned:`ApskScalarRadioMedium` module. The nodes are placed against
 the backdrop of a warehouse floorplan. The playground size is 60x30
 meters. The warehouse is just a background image providing context.
 Obstacle loss is not modelled, so the background image doesn't affect
@@ -164,9 +164,9 @@ the simulation in any way.
 
 The wireless interface in the sensor nodes and the gateway is specified
 in :download:`omnetpp.ini <../omnetpp.ini>` to be the generic
-``WirelessInterface`` (instead of the Ieee802154 specific
-``Ieee802154NarrowbandInterface``, which is the default wlan interface
-in ``SensorNode``). The radio type is set to ``ApskScalarRadio``:
+:ned:`WirelessInterface` (instead of the Ieee802154 specific
+:ned:`Ieee802154NarrowbandInterface`, which is the default wlan interface
+in :ned:`SensorNode`). The radio type is set to :ned:`ApskScalarRadio`:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: typename
@@ -176,7 +176,7 @@ Note that the wireless interface module's name is ``wlan`` in all host
 types that have a wireless interface. The term doesn't imply that it's
 Wifi, but stands for wireless LAN.
 
-We are using ``ApskScalarRadio`` here, because it is a relatively
+We are using :ned:`ApskScalarRadio` here, because it is a relatively
 simple, generic radio. It uses amplitude and phase-shift keying
 modulations (e.g. BPSK, QAM-16 or QAM-64, BPSK by default), without
 additional features such as forward error correction, interleaving or
@@ -193,7 +193,7 @@ some other parameters of the radio to arbitrary values:
 
 Routes are set up according to a star topology, with the gateway at the
 center. This is achieved by dumping the full configuration of
-``Ipv4NetworkConfigurator`` (which was generated with the configurator's
+:ned:`Ipv4NetworkConfigurator` (which was generated with the configurator's
 default settings), and then modifying it. The modified configuration is
 in the :download:`config.xml <../config.xml>` file. The following
 image shows the routes:
@@ -216,7 +216,7 @@ The MAC-specific parameters are set in the configurations for the
 individual MACs.
 
 For B-MAC, the wireless interface's ``macType`` parameter is set to
-``BMac``. Also, the ``slotDuration`` parameter is set to 0.025s (an
+:ned:`BMac`. Also, the ``slotDuration`` parameter is set to 0.025s (an
 arbitrary value.) This parameter is essentially the nodes' sleep
 duration. Here is the configuration in
 :download:`omnetpp.ini <../omnetpp.ini>`:
@@ -226,7 +226,7 @@ duration. Here is the configuration in
    :end-at: slotDuration
 
 For X-MAC, the wireless interface's ``macType`` parameter is set to
-``XMac``. The MAC's ``slotDuration`` parameter determines the duration
+:ned:`XMac`. The MAC's ``slotDuration`` parameter determines the duration
 of the nodes' sleep periods. It is set to 0.25s for the sensor nodes,
 and 0.1s for the gateway. Nodes transmit preambles for the duration of
 their own sleep periods, unless interrupted by an acknowledgement from
@@ -243,7 +243,7 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>`:
    :end-at: sensor
 
 For LMAC, the wireless interface's ``macType`` parameter is set to
-``LMac``. The ``numSlots`` parameter is set to 8, as it is sufficient
+:ned:`LMac`. The ``numSlots`` parameter is set to 8, as it is sufficient
 (there are only five nodes in the wireless sensor network.) The
 ``reservedMobileSlots`` parameter reserves some of the slots for mobile
 nodes, these slots are not chosen by any of the nodes during network
@@ -270,7 +270,7 @@ The following video shows sensor nodes sending data to the server:
 
    <!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
 
-``BMac`` actually sends multiple shorter preambles instead of a long
+:ned:`BMac` actually sends multiple shorter preambles instead of a long
 one, so that waking nodes can receive the one that starts after they
 woke up. ``sensor3`` starts sending preambles, while the other nodes are
 asleep. All of them wake up before the end of the preamble transmission.
@@ -323,7 +323,7 @@ performance of the network in a particular scenario. We'll optimize for
 the number of packets received by the server, i.e. we want to minimize
 packet loss.
 
-The scenario will be the same as in the ``BMac``, ``XMac`` and ``LMac``
+The scenario will be the same as in the :ned:`BMac`, :ned:`XMac` and :ned:`LMac`
 configurations (each sensor sending data every second to the server),
 except that it will use a similar, but more generic network layout
 instead of the warehouse network:
@@ -360,7 +360,7 @@ studies for the individual MACs are detailed in the following sections.
 Optimizing B-MAC
 ~~~~~~~~~~~~~~~~
 
-The goal is to optimize ``BMac``'s ``slotTime`` parameter for the number
+The goal is to optimize :ned:`BMac`'s ``slotTime`` parameter for the number
 of packets received by the server. The configuration in
 :download:`omnetpp.ini <../omnetpp.ini>` for this is
 ``StatisticBMac``. It contains 1000 runs. Here is the configuration:
@@ -387,7 +387,7 @@ Optimizing X-MAC
 ~~~~~~~~~~~~~~~~
 
 Again, we optimize the ``slotTime`` parameter for the number of packets
-received by the server. As in the ``XMac`` configuration, the
+received by the server. As in the :ned:`XMac` configuration, the
 ``slotTime`` for the gateway will be shorter than for the sensors. The
 configuration in :download:`omnetpp.ini <../omnetpp.ini>` for this is
 ``StatisticXMac``. It contains 1000 runs. Here is the configuration:
@@ -396,7 +396,7 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>` for this is
    :start-at: StatisticXMac
    :end-at: slotDuration
 
-The default of ``slotDuration`` for ``XMac`` is 100ms. In the study, the
+The default of ``slotDuration`` for :ned:`XMac` is 100ms. In the study, the
 gateway's ``slotDuration`` will run from 10ms to 1s in 10ms increments,
 similarly to the parameter study for B-MAC. The ``slotDuration`` for the
 sensors will be 2.5 times that of the gateway (an arbitrary value.) Here
@@ -429,7 +429,7 @@ seconds):
    :width: 100%
 
 It is apparent from the results that the network can carry almost all
-the traffic in this scenario (as opposed to the ``XMac`` and ``LMac``
+the traffic in this scenario (as opposed to the :ned:`XMac` and :ned:`LMac`
 results.) The best performing value for ``slotDuration`` is 50ms. Note
 that the lowest ``slotDuration`` values up until 120ms yield
 approximatelly the same results (around 400 packets), with the 50ms
@@ -459,7 +459,7 @@ Measuring power consumption
       :start-at: PowerBase???
       :end-at: energyStorageType
 
-   The power configs will use the same network as the statistic configs, `SensorNetworkShowcaseB`
+   The power configs will use the same network as the statistic configs, :ned:`SensorNetworkShowcaseB`
    defined in :download:[SensorNetworkShowcase.ned](../SensorNetworkShowcase.ned). The simulations
    will be run for 100s. Vector recording is turned off, because we are not interested in how energy
    levels change over time, we only require the last value of the `residualEnergyCapacity` statistic.
@@ -471,13 +471,13 @@ terms of power consumption.
 .. V1
 
 .. We want to record energy consumption in the radios of the wireless
-   nodes. The ``SensorNode`` type has, by default, an energy storage model
+   nodes. The :ned:`SensorNode` type has, by default, an energy storage model
    which will record the energy consumption, and an energy consumer model,
    which will provide how much energy is consumed. The energy storage
-   module is ``IdealEpEnergyStorage``, which is an energy/power-based
+   module is :ned:`IdealEpEnergyStorage`, which is an energy/power-based
    storage model (the two available types of storage models are the simpler
    energy/power-based, and the more realistic charge/current-based, denoted
-   by ``Ep`` and ``Cc`` in the type name.) ``IdealEpEnergyStorage``
+   by ``Ep`` and ``Cc`` in the type name.) :ned:`IdealEpEnergyStorage`
    provides infinite energy, cannot be fully charged or depleted, and it is
    useful if we only want to model and measure power consumption, but not
    energy capacity, charging, etc. We are interested in the
@@ -486,14 +486,14 @@ terms of power consumption.
    because energy generation is assumed to be positive, while energy
    consumption to be negative.)
 
-.. The ``SensorNode`` type has an energy consumer module in its radio by
-   default, it is ``SensorStateBasedEpEnergyConsumer``. State based energy
+.. The :ned:`SensorNode` type has an energy consumer module in its radio by
+   default, it is :ned:`SensorStateBasedEpEnergyConsumer`. State based energy
    consumer models associate energy consumption values to the different
    radio modes and transmitter/receiver states. Energy consumption is
    dependent on these values and on how much time the radio spends in each
    mode/state. Note that the energy consumption values are parameters of
    the consumer module, they don't come from the radio.
-   ``SensorStateBasedEpEnergyConsumer`` is an extension of
+   :ned:`SensorStateBasedEpEnergyConsumer` is an extension of
    ``StateBasedEnergyConsumer`` with default consumption values typical for
    low power wireless sensor nodes. (Note that the consumption values
    should be set to more accurate ones if needed.)
@@ -518,17 +518,17 @@ terms of power consumption.
 .. V2
 
 We want to record the power consumption of the radios in the wireless
-nodes. The ``SensorNode`` host type has an energy consumer submodule in
-its radio by default, ``SensorStateBasedEpEnergyConsumer``. This module
+nodes. The :ned:`SensorNode` host type has an energy consumer submodule in
+its radio by default, :ned:`SensorStateBasedEpEnergyConsumer`. This module
 assigns a constant power consumption value to each radio mode and
 transmitter/receiver state. Note that the values for each state are
 parameters of the energy consumer module, and don't come from other
 modules (such as the radio), so they need to be set correctly in order
 to obtain accurate power consumption results.
-``SensorStateBasedEpEnergyConsumer`` has default power consumption
+:ned:`SensorStateBasedEpEnergyConsumer` has default power consumption
 values typical for wireless sensor nodes, thus we leave module's
-parameters on default. ``SensorNode`` has an energy storage submodule by
-default, ``IdealEpEnergyStorage``. This module keeps track of the node's
+parameters on default. :ned:`SensorNode` has an energy storage submodule by
+default, :ned:`IdealEpEnergyStorage`. This module keeps track of the node's
 energy consumption. It stores an infinite amount of energy, and cannot
 get fully charged or depleted, and it is useful if we only want to model
 and measure power consumption, but not energy capacity, charging, etc.
@@ -575,12 +575,12 @@ negative, so it is inverted in the anf file. Here are the results:
    :width: 100%
 
 From this, it is apparent that LMac carried the most packets, and
-``BMac`` the least. ``BMac`` consumed significantly more power than the
-others. All three carried around 90-100% of the traffic (``BMac`` 90%,
-``XMac`` 99.25%, ``LMac`` 97%), thus BMac has significantly more power
+:ned:`BMac` the least. :ned:`BMac` consumed significantly more power than the
+others. All three carried around 90-100% of the traffic (:ned:`BMac` 90%,
+:ned:`XMac` 99.25%, :ned:`LMac` 97%), thus BMac has significantly more power
 consumption per packet. The conclusion is that in this scenario, with
-the selected parameter values, ``XMac`` turned out to be the most energy
-efficient MAC protocol, although ``LMac`` carried a bit more traffic.
+the selected parameter values, :ned:`XMac` turned out to be the most energy
+efficient MAC protocol, although :ned:`LMac` carried a bit more traffic.
 
 Further information
 -------------------

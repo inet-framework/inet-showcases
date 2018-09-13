@@ -21,11 +21,11 @@ Source files location: `inet/showcases/general/pcaprecording <https://github.com
 The model
 ---------
 
-In order to record PCAP traces in a node, a ``PcapRecorder`` module
+In order to record PCAP traces in a node, a :ned:`PcapRecorder` module
 needs to be included in it. Pcap recorder modules can be easily included
 in hosts and routers by specifying their ``numPcapRecorders`` parameter
-(available in modules that extend ``LinkLayerNodeBase``, such as
-``StandardHost`` and derivatives, and router modules.)
+(available in modules that extend :ned:`LinkLayerNodeBase`, such as
+:ned:`StandardHost` and derivatives, and router modules.)
 
 The PCAP recorder module records packets sent to and from modules that
 are in the same host as the PCAP recorder module. By default, it records
@@ -117,12 +117,12 @@ network:
    :width: 100%
 
 The network contains two ``adhocHost``\ s named ``host1`` and ``host2``,
-and two ``StandardHost``\ s named ``ethHost1`` and ``ethHost2``. There
-are two ``Router`` modules (``router1`` and ``router2``), which are
+and two :ned:`StandardHost`\ s named ``ethHost1`` and ``ethHost2``. There
+are two :ned:`Router` modules (``router1`` and ``router2``), which are
 connected to each other by ppp. Each wired host is connected to one of
 the routers via ethernet. The network also contains an
-``Ipv4NetworkConfigurator``, an ``Ieee80211ScalarRadioMedium``, and an
-``IntegratedMultiVisualizer`` module.
+:ned:`Ipv4NetworkConfigurator`, an :ned:`Ieee80211ScalarRadioMedium`, and an
+:ned:`IntegratedMultiVisualizer` module.
 
 Traffic generation is set up the following way: ``host1`` is configured
 to send a UDP stream to ``host2`` (via 802.11), ``ethHost1`` is
@@ -134,7 +134,7 @@ file (via ethernet). Additionally, ``ethHost1`` is configured to ping
 
    <!-- V1
 
-   There are `PcapRecorder` modules added to `host1`, `host2`, `ethHost1`,
+   There are :ned:`PcapRecorder` modules added to `host1`, `host2`, `ethHost1`,
    `router1`, and `router2`. The keys in the ini file pertaining to PCAP recording
    configuration are the following:
 
@@ -215,7 +215,7 @@ In ``ethHost2``, we'll record traffic of the ``ipv4`` module. The
    :start-at: ethHost2.numPcapRecorders
    :end-at: dumpProtocols
 
-By default, modules like ``Ipv4`` and ``EthernetInterface`` don't
+By default, modules like :ned:`Ipv4` and :ned:`EthernetInterface` don't
 compute CRC and FCS frames, but assumes they are correct ("declared
 correct" mode.) In order to include the CRC and FCS values in the
 capture file, L2 and L3 modules need to be set to compute CRC and FCS:

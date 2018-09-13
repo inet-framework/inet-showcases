@@ -33,27 +33,27 @@ there are several more path loss models available in INET, suitable for
 various other scenarios. Here is a list of the path loss module types
 featured in this showcase example:
 
--  ``FreeSpacePathLoss:`` Computes loss of signal power in a single
+-  :ned:`FreeSpacePathLoss` computes loss of signal power in a single
    line-of-sight propagation path, without any reflections or shadowing.
--  ``TwoRayGroundReflection:`` Computes loss of signal power by assuming
+-  :ned:`TwoRayGroundReflection` computes loss of signal power by assuming
    a line-of-sight wave interfering with another wave reflected from the
    ground between the transmitter and the receiver. This model computes
    interference in the far-field only, and is the same as free space
    path loss up until a certain crossover distance.
--  ``TwoRayInterference:`` This model is the same as the two-ray ground
+-  :ned:`TwoRayInterference` is the same as the two-ray ground
    reflection model in the far-field, but it models the interference of
    the two waves in the near-field as well.
--  ``RicianFading:`` It's a stochastic path loss model which assumes a
+-  :ned:`RicianFading` is a stochastic path loss model which assumes a
    dominant line-of-sight signal and multiple reflected signals between
    the transmitter and the receiver. It is useful for modeling radio
    propagation in an urban environment.
--  ``LogNormalShadowing:`` It's a stochastic path loss model, where
+-  :ned:`LogNormalShadowing` is a stochastic path loss model where
    power levels follow a lognormal distribution. It is useful for
    modeling shadowing caused by objects such as trees.
 
-Other path loss modules in INET include ``RayleighFading``,
-``NakagamiFading``, ``UwbIrStochasticPathLoss``, ``BreakpointPathLoss``,
-and ``SuiPathLoss``.
+Other path loss modules in INET include :ned:`RayleighFading`,
+:ned:`NakagamiFading`, :ned:`UwbIrStochasticPathLoss`, :ned:`BreakpointPathLoss`,
+and :ned:`SuiPathLoss`.
 
 The various path loss modules each have sets of parameters to fine-tune
 their behavior. In this showcase we leave the parameters at their
@@ -68,8 +68,8 @@ sent from one host to the other, and the signal's received power will be
 recorded.
 
 In addition to the two hosts named named ``source`` and ``destination``,
-the network also contains a ``PhysicalEnvironment`` module, an
-``Ipv4NetworkConfigurator``, and a ``Ieee80211ScalarRadioMedium``:
+the network also contains a :ned:`PhysicalEnvironment` module, an
+:ned:`Ipv4NetworkConfigurator`, and a :ned:`Ieee80211ScalarRadioMedium`:
 
 .. figure:: network.png
    :width: 80%
@@ -88,7 +88,7 @@ ground reflection model needs a ground model, which contains the
 elevation of the ground. The ground model is part of the physical
 environment module. By default, the physical environment module doesn't
 use a ground model, but it is set in the configuration to use
-``FlatGround``:
+:ned:`FlatGround`:
 
 ``*.physicalEnvironment.groundType = "FlatGround"``
 
@@ -119,9 +119,9 @@ hosts:
    *.destination.mobility.initialX = ${distance=0..50 step 0.25, 51..100 step 1, 105..200 step 5, 220..1000 step 20}m
 
 The other variable in the parameter study is the path loss type, which
-takes on the following values: ``FreeSpacePathLoss``,
-``TwoRayGroundReflection``, ``TwoRayInterference``, ``RicianFading``,
-``LogNormalShadowing``.
+takes on the following values: :ned:`FreeSpacePathLoss`,
+:ned:`TwoRayGroundReflection`, :ned:`TwoRayInterference`, :ned:`RicianFading`,
+:ned:`LogNormalShadowing`.
 
 The source host will transmit with the default power of 20mW. We will
 record the power of the received transmission, using the
@@ -141,8 +141,8 @@ Results
 -------
 
 The power of the received signal vs. distance, using
-``FreeSpacePathLoss``, ``TwoRayGroundReflection`` and
-``TwoRayInterference`` path loss module types, is displayed on the
+:ned:`FreeSpacePathLoss`, :ned:`TwoRayGroundReflection` and
+:ned:`TwoRayInterference` path loss module types, is displayed on the
 following plot:
 
 .. image:: tworay.*
@@ -162,8 +162,8 @@ two-ray interference model can be used for more realistic two-ray
 propagation simulations.
 
 The next plot displays the power of the received signal vs. distance
-using the ``RicianFading`` and ``LogNormalShadowing`` models, and the
-``FreeSpacePathLoss`` model for reference:
+using the :ned:`RicianFading` and :ned:`LogNormalShadowing` models, and the
+:ned:`FreeSpacePathLoss` model for reference:
 
 .. image:: ricianlognormal.*
    :width: 100%

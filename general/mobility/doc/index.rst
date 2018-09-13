@@ -57,7 +57,7 @@ intrinsic rotations.
    systems, the projection is the Z axis by default, can be overridden with
    the scene visualizer
 
-The ``SceneCanvasVisualizer`` module allows configuring a different 2D
+The :ned:`SceneCanvasVisualizer` module allows configuring a different 2D
 projection using angle, scaling and translation parameters. For more
 information, see `Visualizing the Physical
 Environment </showcases/visualizater/environment>`__
@@ -82,7 +82,7 @@ motion pretty much always has a subject. For example, mobility models
 are used to describe the motion of wireless network nodes. In wireless
 networks, the signal strength depends on the position and orientation of
 transmitting and receiving nodes, which in turn determines the success
-of packet reception. In order to simulate this, the ``WirelessHost``
+of packet reception. In order to simulate this, the :ned:`WirelessHost`
 module contains a mobility submodule which describes its motion.
 
 In contrast, wired network nodes generally don't have mobility
@@ -114,7 +114,7 @@ display strings in the NED file, which tell the graphical runtime
 environment where to draw the icons representing the modules on the
 canvas (and also in the IDE). Display string p-tags are two-dimensional
 (X and Y), and their purpose is to contol where to draw the submodule
-icons. For example, a ``StandardHost`` with p tag set to the coordinates
+icons. For example, a :ned:`StandardHost` with p tag set to the coordinates
 (93,167):
 
 .. <p><pre class="include" src="MobilityShowcase.ned" from="host1" upto="display"></pre></p>
@@ -216,7 +216,7 @@ random value inside the constraint area.
 
 Other mobility modules (e.g. those that describe completely
 deterministic trajectory) initialize position with other parameters. For
-example, the ``CircleMobility`` module (describing circular motion) has
+example, the :ned:`CircleMobility` module (describing circular motion) has
 parameters to define the center and the radius of the circle, and also
 the starting angle. The starting angle parameter is what does the
 initial positioning, along the circle defined by the other parameters.
@@ -224,7 +224,7 @@ initial positioning, along the circle defined by the other parameters.
 Generic Parameters
 ~~~~~~~~~~~~~~~~~~
 
-All mobility modules in INET extend ``MobilityBase``. It has some
+All mobility modules in INET extend :ned:`MobilityBase`. It has some
 generic parameters, which are thus common to all mobility modules, such
 as the following:
 
@@ -254,7 +254,7 @@ Visualizing state of mobility modules
 
 .. <!-- What does the mobility visualizer do? -->
 
-The ``MobilityVisualizer`` module can display certain states of mobility
+The :ned:`MobilityVisualizer` module can display certain states of mobility
 modules:
 
 -  **Position** as a colored dot (useful when the mobility doesn't have
@@ -276,13 +276,13 @@ Simplistic examples
 This section demonstrates the above concepts in a very simple way. It
 contains two example simulations. The example simulations illustrate
 that mobility modules are abstract models, and the effects of the
-``visualRepresentation`` parameter of ``MobilityBase``. The example
+``visualRepresentation`` parameter of :ned:`MobilityBase`. The example
 simulations are defined in ``Simplistic1`` and ``Simplistic2``
 configurations in omnetpp.ini.
 
 In the **first example**, there are just two mobility modules in the
 network, which will move themselves. The mobility modules are of the
-type ``LinearMobility``. The ``LinearMobility`` module describes motion
+type :ned:`LinearMobility`. The :ned:`LinearMobility` module describes motion
 along a straight line. Here is the NED definition of the network:
 
 
@@ -327,9 +327,9 @@ matches the playground), bouncing back from the boundaries.
 
 In the **second simple example**, there are two mobility modules, which
 are set to not move anything. They will just keep track of position and
-orientation, which can be visualized with ``MobilityVisualizer``. The
+orientation, which can be visualized with :ned:`MobilityVisualizer`. The
 configuration extends the previous one, but uses the
-``MobilityShowcaseSimplistic2`` network:
+:ned:`MobilityShowcaseSimplistic2` network:
 
 
 
@@ -339,8 +339,8 @@ configuration extends the previous one, but uses the
    :start-at: MobilityShowcaseSimplistic2
    :end-before: MobilityShowcaseE
 
-It contains two ``LinearMobility`` modules, and an
-``IntegratedVisualizer`` module. The configuration in omnetpp.ini is the
+It contains two :ned:`LinearMobility` modules, and an
+:ned:`IntegratedVisualizer` module. The configuration in omnetpp.ini is the
 following:
 
 
@@ -363,8 +363,8 @@ And here are the relevant keys from the ``General`` configuration:
 
 In addition to the keys defined in the ``Simplistic1``, the visual
 representation is turned off in both mobility modules, so they won't
-move anything. In the ``MobilityVisualizer`` submodule of
-``IntegratedVisualizer``, all visualization features are is turned on,
+move anything. In the :ned:`MobilityVisualizer` submodule of
+:ned:`IntegratedVisualizer`, all visualization features are is turned on,
 and the ``moduleFilter`` is set to ``**.mobility*`` from the default of
 ``**.mobility``, because the modules are named ``mobility1`` and
 ``mobility2``. (It is needed because generally hosts contain one
@@ -433,17 +433,17 @@ The configuration / about the simulations
 
 In the example simulations, the mobility modules are submodules of
 network nodes, as this is the most prevalent use case. The simulations
-use one of two networks, ``MobilityShowcaseA`` and
-``MobilityShowcaseB``. In both of them, the size of the playground is
-400x400 meters. Both of them contain ``StandardHost``\ s.
-``MobilityShowcaseA``, defined in
+use one of two networks, :ned:`MobilityShowcaseA` and
+:ned:`MobilityShowcaseB`. In both of them, the size of the playground is
+400x400 meters. Both of them contain :ned:`StandardHost`\ s.
+:ned:`MobilityShowcaseA`, defined in
 :download:`MobilityShowcase.ned <../MobilityShowcase.ned>`, looks like
 the following:
 
 .. figure:: staticnetwork2.png
    :width: 100%
 
-The network contains seven ``StandardHost``\ s (``host1`` to ``host7``),
+The network contains seven :ned:`StandardHost`\ s (``host1`` to ``host7``),
 laid out on the playground using display string tags ("p" tags), like as
 follows:
 
@@ -455,7 +455,7 @@ follows:
    :start-at: MobilityShowcaseA
    :end-at: }
 
-In the ``MobilityShowcaseB`` network, the number of ``StandardHost``\ s
+In the :ned:`MobilityShowcaseB` network, the number of :ned:`StandardHost`\ s
 can be set with the ``numHosts`` parameter from the ini file. Also,
 there is no display string "p" tag:
 
@@ -472,7 +472,7 @@ Here is what the network looks like in the IDE:
 .. figure:: bnetwork.png
    :width: 100%
 
-Both networks also contain an ``IntegratedVisualizer`` module to
+Both networks also contain an :ned:`IntegratedVisualizer` module to
 visualize some aspects of mobility. No other modules are needed (i.e.
 Ipv4NetworkConfigurator or radio medium) to demonstrate the mobility
 models. There won't be any communication, just movement.
@@ -498,7 +498,7 @@ the network, under the name ``configurator``. Since the network doesn't
 need and doesn't have a configurator, the configurator module path in
 all hosts is set to an empty string to prevent error messages.
 
-All visualization features of ``MobilityVisualizer`` are turned on, and
+All visualization features of :ned:`MobilityVisualizer` are turned on, and
 the constraint areas of all mobility modules are set to match the size
 of the playground. (All nodes will move in the XY plane, so the Z
 coordinate is 0 everywhere.)
@@ -523,7 +523,7 @@ models:
 .. <!-- TODO: the definition should be not here? -->
 
 The example simulations for these categories use the
-``MobilityShowcaseA`` network.
+:ned:`MobilityShowcaseA` network.
 
 \ **Static position**
 '''''''''''''''''''''
@@ -531,8 +531,8 @@ The example simulations for these categories use the
 In this category, the position set by mobility models is constant, i.e.
 the nodes are stationary. These kinds of mobility models are useful for
 e.g. initial positioning of network nodes. Examples include
-``StationaryMobility``, ``StaticLinearMobility``,
-``StaticConcentricMobility``.
+:ned:`StationaryMobility`, :ned:`StaticLinearMobility`,
+:ned:`StaticConcentricMobility`.
 
 .. <!-- <pre>
    They just set the positions, and they are constant. Static movement -> constant position
@@ -541,8 +541,8 @@ e.g. initial positioning of network nodes. Examples include
    </pre> -->
 
 The example simulation for this category is the ``StaticPosition``
-configuration, using the ``StationaryMobility`` model. The
-``StationaryMobility`` model only sets position. It has ``initialX``,
+configuration, using the :ned:`StationaryMobility` model. The
+:ned:`StationaryMobility` model only sets position. It has ``initialX``,
 ``initialY``, ``initialZ`` and ``initFromDisplayString`` parameters. By
 default, the ``initFromDisplayString`` parameter is ``true``, and the
 initial coordinate parameters select a random value inside the
@@ -550,8 +550,8 @@ constraint area. Additionally, there are parameters to set the initial
 heading, elevation and bank (i.e. orientation in 3D), all zero by
 default. It also has parameters for positioning in a geographical
 coordinate system (undefined by default), but that is out of scope for
-this showcase. Note that ``StationaryMobility`` is the default mobility
-model in ``WirelessHost`` and derivatives.
+this showcase. Note that :ned:`StationaryMobility` is the default mobility
+model in :ned:`WirelessHost` and derivatives.
 
 The configuration for the example simulation in omnetpp.ini is the
 following:
@@ -567,7 +567,7 @@ following:
 The configuration just sets the mobility type, and turns off orientation
 visualization. Here is what it looks like when the simulation is run:
 
-.. <!-- Which is the default in `WirelessHost`. It just sets the positions. -->
+.. <!-- Which is the default in :ned:`WirelessHost`. It just sets the positions. -->
 
 |image1|
 
@@ -581,12 +581,12 @@ In this category, the mobility models describe movement
 deterministically, in the sense that the mobility model doesn't use
 randomness when calculating the trajectory (the parametrization can
 contain random values, however). Examples of such mobility modules
-include ``LinearMobility``, ``CircleMobility``, ``RectangleMobility``.
+include :ned:`LinearMobility`, :ned:`CircleMobility`, :ned:`RectangleMobility`.
 
 The example simulation for this category is the ``DeterministicMotion``
-configuration, which uses the ``LinearMobility`` module.
+configuration, which uses the :ned:`LinearMobility` module.
 
-The ``LinearMobility`` module describes a linear trajectory. It has
+The :ned:`LinearMobility` module describes a linear trajectory. It has
 parameters for speed, acceleration and starting angle. After the initial
 setting, the angle only changes when the node bounces back from the
 boundary of the constraint area. The model also has parameters for
@@ -599,7 +599,7 @@ There are additional parameters. By default, the ``speed`` and
 ``acceleration`` parameters are zero. The angle parameter sets the
 initial orientation, it is a random value by default.
 
-The ``LinearMobility`` model is a derivative of ``MovingMobilityBase``,
+The :ned:`LinearMobility` model is a derivative of :ned:`MovingMobilityBase`,
 which has the ``faceForward`` parameter. When this parameter is ``true``
 (the default), orientation matches the velocity vector. When it's
 ``false``, the orientation is (0,0,0).
@@ -629,26 +629,26 @@ speed (the speed is 0 by default).
 Mobility models in this category contain random elements when describing
 the movement (although in a sense the movement is deterministic, as the
 random number generators are deterministic.) Example mobility modules
-include ``GaussMarkovMobility``, ``MassMobility``, ``ChiangMobility``,
+include :ned:`GaussMarkovMobility`, :ned:`MassMobility`, :ned:`ChiangMobility`,
 ``RandomWayPointMobility``.
 
 The example simulation for this category is the ``StochasticMotion``
-configuration, which uses the ``GaussMarkovMobility`` module.
+configuration, which uses the :ned:`GaussMarkovMobility` module.
 
 V1
 
-``GaussMarkovMobility`` uses a Gauss-Markov model to contol randomness
+:ned:`GaussMarkovMobility` uses a Gauss-Markov model to contol randomness
 in the movement. It has an ``alpha`` parameter, which can run from 0
 (totally random motion) to 1 (deterministic linear motion), with the
 default of 0.5. There is also a ``speed`` parameter with no default, and
 an ``angle`` parameter with random angle by default. TODO: what does
 variance do ?
 
-.. <!-- `GaussMarkovMobility` uses a Gauss-Markov model to control the randomness in the movement. -->
+.. <!-- :ned:`GaussMarkovMobility` uses a Gauss-Markov model to control the randomness in the movement. -->
 
 V2
 
-``GaussMarkovMobility`` uses a Gauss-Markov model to contol randomness
+:ned:`GaussMarkovMobility` uses a Gauss-Markov model to contol randomness
 in the movement. The mobility starts with a mean direction. At constant
 intervals, a new direction is chosen based on the mean direction, the
 direction in the previous time interval, and a gaussian random variable.
@@ -704,22 +704,22 @@ motion.
 
 The mobility modules demonstrated so far were from the ``single``
 category. Examples from the ``group`` category include
-``StatisGridMobility`` and ``StaticConcentricMobility``.
+``StatisGridMobility`` and :ned:`StaticConcentricMobility`.
 
 \ **Group mobility**
 ''''''''''''''''''''
 
 The example simulation for this category is defined in the ``Group``
-configuration in omnetpp.ini. It uses the ``StaticGridMobility`` module.
+configuration in omnetpp.ini. It uses the :ned:`StaticGridMobility` module.
 
-``StaticGridMobility`` positions all nodes in a rectangular grid. It has
+:ned:`StaticGridMobility` positions all nodes in a rectangular grid. It has
 parameters for setting the properties of the grid, such as a margin, the
 number of row and columns, and the separation between rows and columns.
 By default grid has the same aspect ratio as the available space
 (constraint area by default). The ``numHosts`` parameter must be set in
 all mobility modules of the group.
 
-The simulation uses the ``MobilityShowcaseB`` network. The configuration
+The simulation uses the :ned:`MobilityShowcaseB` network. The configuration
 in omnetpp.ini is the following:
 
 
@@ -762,7 +762,7 @@ state of motion they **focus** on:
    elevation, bank), angular velocity/acceleration
 -  ``Both`` of the above
 
-Some modules only focus on position, such as ``StaticGridMobility``.
+Some modules only focus on position, such as :ned:`StaticGridMobility`.
 Most mobility modules focus on both position and orientation. The
 examples so far fell into the ``Position`` and ``Both`` category. What
 follows is an example from the ``Orientation`` category. Please rewrite
@@ -772,15 +772,15 @@ this.
 '''''''''''''''''
 
 Mobility models in this category only focus on orientation. The example
-simulation features the only such module, ``FacingMobility``.
+simulation features the only such module, :ned:`FacingMobility`.
 
-``FacingMobility`` sets the orientation of the mobility module to face
+:ned:`FacingMobility` sets the orientation of the mobility module to face
 towards another mobility module. More precisely, the orientation is set
 to point from a source mobility module to a target mobility module. Both
 can be selected by the ``sourceMobility`` and ``targetMobility``
 parameters. By default, the source mobility is the mobility module
 itself (``sourceMobility = default(".")``). The target mobility
-parameter has no default. ``FacingMobility`` also has the inital
+parameter has no default. :ned:`FacingMobility` also has the inital
 positioning parameters ``initialX``, ``initialY``, ``initialZ``, and
 ``initFromDisplayString``.
 
@@ -799,11 +799,11 @@ category, it's just for illustration.
 
 .. <!-- On to the example simulation... -->
 
-The example simulation demonstrating ``FacingMobility`` uses the
-``MobilityShowcaseA`` network. The nodes which are in a circle around
+The example simulation demonstrating :ned:`FacingMobility` uses the
+:ned:`MobilityShowcaseA` network. The nodes which are in a circle around
 the central node are configured to face towards the central node. The
 central node itself is configured to move around using
-``LinearMobility``. The example simulation is defined in the
+:ned:`LinearMobility`. The example simulation is defined in the
 ``Orientation`` configuration in omnetpp.ini:
 
 
@@ -841,25 +841,25 @@ for more flexible configuration.
 \ **Scriptable mobility models**
 ''''''''''''''''''''''''''''''''
 
-Mobility modules in this category include ``TurtleMobility`` and
-``BonnMotionMobility``. The example simulation uses the
-``TurtleMobility`` module.
+Mobility modules in this category include :ned:`TurtleMobility` and
+:ned:`BonnMotionMobility`. The example simulation uses the
+:ned:`TurtleMobility` module.
 
-Movement in ``TurtleMobility`` is controlled by an XML script. The
+Movement in :ned:`TurtleMobility` is controlled by an XML script. The
 script contains elements and attributes, which describe the motion, such
 as setting coordinates, turning by some angle, going a certain distance,
 etc. These motion elements can be used as building blocks for descibing
 complex motion. Motion elements can be repeated as well. See the example
 below. For the complete description of the XML language, see the `NED
 documentation of
-``TurtleMobility`` <https://github.com/inet-framework/inet/blob/master/src/inet/mobility/single/TurtleMobility.ned>`__.
+:ned:`TurtleMobility` <https://github.com/inet-framework/inet/blob/master/src/inet/mobility/single/TurtleMobility.ned>`__.
 The mobility model's only ini parameter is ``turtleScript``, which
 specifies the XML file to use.
 
 The XML script used in the example simulation describes a node moving
 along a perfect hexagon. The motion is described as such: start at X
 with a speed of V. Go 100 meters, then turn 60 degrees. Repeat the last
-two. The simulation uses the ``MobilityShowcaseB`` network, with one
+two. The simulation uses the :ned:`MobilityShowcaseB` network, with one
 host. Here is the configuration in omnetpp.ini:
 
 
@@ -899,9 +899,9 @@ It looks like the following when the simulation is run:
 
 .. <!--internal video recording, animation speed 1, playback speed 5.5, zoom 1.3-->
 
-Note that the flexibility of ``TurtleMobility`` allows for implementing
+Note that the flexibility of :ned:`TurtleMobility` allows for implementing
 the functionality of some of the other mobility models with a turtle
-script. There are some examples of this in the ```TurtleMobility`` NED
+script. There are some examples of this in the :ned:`TurtleMobility` NED
 documentation <https://github.com/inet-framework/inet/blob/master/src/inet/mobility/single/TurtleMobility.ned>`__.
 
 Categorizing mobility models according to their **complexity**
@@ -911,18 +911,18 @@ There are two categories of mobility models: - **simple** - **compound**
 
 The models described so far belonged in the simple category. Compund
 mobilities use multiple mobility modules to describe a motion. There are
-two examples, ``AttachedMobility`` and ``SuperpositioningMobility``.
+two examples, :ned:`AttachedMobility` and :ned:`SuperpositioningMobility`.
 Both are demonstrated below.
 
 \ **Compound** mobilities
 '''''''''''''''''''''''''
 
-``AttachedMobility`` can "attach" itself to another mobility module,
-with a certain offset. I.e. the ``AttachedMobility`` module takes the
+:ned:`AttachedMobility` can "attach" itself to another mobility module,
+with a certain offset. I.e. the :ned:`AttachedMobility` module takes the
 mobility state of the mobility module it is attached to, and applies and
 optional offset to the position and orientation. It keeps its mobility
 state up-to-date. Position and orientation, and their derivatives are
-all affected by the mobility where the ``AttachedMobility`` is attached.
+all affected by the mobility where the :ned:`AttachedMobility` is attached.
 
 .. todo::
 
@@ -935,12 +935,12 @@ coordinate offset parameters for position and orientation:
 -  ``offsetX``, ``offsetY``, ``offsetZ``
 -  ``offsetHeading``, ``offsetElevation``, ``offsetBank``
 
-**``AttachedMobility``**: Example 1
+**:ned:`AttachedMobility`**: Example 1
 '''''''''''''''''''''''''''''''''''
 
-In the first example, ``host[0]`` is moving using ``LinearMobility``.
-Three more hosts are attached to it using ``AttachedMobility`` at
-different offsets. The simulation uses the ``MobilityShowcaseB`` network
+In the first example, ``host[0]`` is moving using :ned:`LinearMobility`.
+Three more hosts are attached to it using :ned:`AttachedMobility` at
+different offsets. The simulation uses the :ned:`MobilityShowcaseB` network
 with four hosts. The simulation is defined in ``Attached1`` in
 omnetpp.ini:
 
@@ -953,7 +953,7 @@ omnetpp.ini:
    :end-at: offsetHeading
 
 ``host[0]`` starts at the center of the playground, and moves using
-``LinearMobility``. The other three hosts have ``AttachedMobility``, and
+:ned:`LinearMobility`. The other three hosts have :ned:`AttachedMobility`, and
 are attached to ``host[0]``'s mobility module. The offset is interpreted
 in the coordinate system of ``host[0]``'s mobility module. The
 coordinate system rotates and translates as ``host[0]`` moves.
@@ -979,12 +979,12 @@ in the position of the other hosts.
 
 .. <!-- The nodes move circularly, but keep the offset from the source node. They move circularly as the coordinate system of the source node rotates. -->
 
-**``AttachedMobility``**: Example 2
+**:ned:`AttachedMobility`**: Example 2
 '''''''''''''''''''''''''''''''''''
 
 In the second example simulation, one of the hosts will be moving along
 a circle, with other hosts "attached". The example simulation uses the
-``MobilityShowcaseB`` network, with five hosts. The simulation is
+:ned:`MobilityShowcaseB` network, with five hosts. The simulation is
 defined in the ``Attached2`` configuration in omnetpp.ini:
 
 
@@ -996,7 +996,7 @@ defined in the ``Attached2`` configuration in omnetpp.ini:
    :end-at: offsetHeading
 
 ``host[0]`` will move along a circle, orbiting around the center of the
-playground. The other hosts will use ``AttachedMobility``, and will be
+playground. The other hosts will use :ned:`AttachedMobility`, and will be
 attached to ``host[0]`` with various offsets, summarized on the
 following image:
 
@@ -1020,24 +1020,24 @@ host[4] is orbiting on the same circle, and in the same direction, but
 actually it is just offset in ``host[0]``'s coordinate system by the
 circle radius and -180 degrees.
 
-**``SuperpositioningMobility``**
+**:ned:`SuperpositioningMobility`**
 ''''''''''''''''''''''''''''''''
 
-``SuperpositioningMobility`` combines the effect of multiple mobility
+:ned:`SuperpositioningMobility` combines the effect of multiple mobility
 models. It is a compound module containing other mobility modules. The
 number and type of mobility modules is configurable.
 
-``SuperpositioningMobility`` combines the trajectory of multiple
+:ned:`SuperpositioningMobility` combines the trajectory of multiple
 mobility modules. It is a compound module, which contains other
 mobilities as submodules. The mobility state (position, orientation and
-their derivatives) of ``SuperpositioningMobility`` is the sum of the
+their derivatives) of :ned:`SuperpositioningMobility` is the sum of the
 states of the contained submodules. It allows to create complex motion
 with several simple mobilities, and to separate initial and over time
 positioning.
 
 The ``numElements`` parameter defines the number of mobility submodules,
 which are in a submodule vector named ``element``.
-``SuperpositioningMobility`` also disables the visual representation of
+:ned:`SuperpositioningMobility` also disables the visual representation of
 the mobility submodules by default, and does the representation itself
 according to the sum of the others. Rewrite.
 
@@ -1046,7 +1046,7 @@ were ordinary mobility submodules in a host, but they are one level
 deeper. So instead of ``mobility.typeName = XY``, the mobility
 submodules can be referenced with ``mobility.element[0].typeName = XY``
 
-**``SuperpositioningMobility``**: Example 1
+**:ned:`SuperpositioningMobility`**: Example 1
 '''''''''''''''''''''''''''''''''''''''''''
 
 .. todo::
@@ -1054,9 +1054,9 @@ submodules can be referenced with ``mobility.element[0].typeName = XY``
    <!-- In the first example simulation, a single host will be moving in a circle, with some randomness applied. -->
 
 In the first example simulation, ``host[0]`` will move in a circle using
-``CircleMobility``. Some random movement will be applied on the circular
-motion, using ``GaussMarkovMobility``. The simulation uses the
-``MobilityShowcaseB`` network with one host. The simulation is defined
+:ned:`CircleMobility`. Some random movement will be applied on the circular
+motion, using :ned:`GaussMarkovMobility`. The simulation uses the
+:ned:`MobilityShowcaseB` network with one host. The simulation is defined
 in the ``Superpositioning1`` configuration in omnetpp.ini:
 
 
@@ -1067,12 +1067,12 @@ in the ``Superpositioning1`` configuration in omnetpp.ini:
    :start-at: Superpositioning1
    :end-at: constraintAreaMaxZ
 
-So ``host[0]`` uses ``SuperpositioningMobility``. The mobility is
-configured to have two submodules: element[0] is a ``CircleMobility``
+So ``host[0]`` uses :ned:`SuperpositioningMobility`. The mobility is
+configured to have two submodules: element[0] is a :ned:`CircleMobility`
 
-``host[0]`` will move in a circle using ``CircleMobility``. Some random
+``host[0]`` will move in a circle using :ned:`CircleMobility`. Some random
 movement will be applied on the circular motion, using
-``GaussMarkovMobility``.
+:ned:`GaussMarkovMobility`.
 
 The circlemobility in host0 is configured to have two submodules, a
 circlemobility and a gauss markov mobility. The two mobility submodules
@@ -1086,7 +1086,7 @@ constraint area TODO
 More superpositioning examples here
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**``SuperpositioningMobility``**: Example 2
+**:ned:`SuperpositioningMobility`**: Example 2
 '''''''''''''''''''''''''''''''''''''''''''
 
 .. todo::
@@ -1095,13 +1095,13 @@ More superpositioning examples here
 
 In the second example simulation, a host will move in a hexagonal
 pattern (indentically to the previous example simulation featuring
-``TurtleMobility``). Another host will orbit around the first host as it
-moves. The first host, ``host[0]`` uses ``TurtleMobility``, the host's
+:ned:`TurtleMobility`). Another host will orbit around the first host as it
+moves. The first host, ``host[0]`` uses :ned:`TurtleMobility`, the host's
 trajectory and turtle script is indentical to the previous example
-simulation featuring ``TurtleMobility``. The other host, ``host[1]``,
-uses ``SuperpositioningMobility``, with the superposition of an
-``AttachedMobility`` and a ``CircleMobility``. The simulation uses the
-``MobilityShowcaseB`` network with two hosts. Here is the configuration
+simulation featuring :ned:`TurtleMobility`. The other host, ``host[1]``,
+uses :ned:`SuperpositioningMobility`, with the superposition of an
+:ned:`AttachedMobility` and a :ned:`CircleMobility`. The simulation uses the
+:ned:`MobilityShowcaseB` network with two hosts. Here is the configuration
 in omnetpp.ini:
 
 
@@ -1117,15 +1117,15 @@ in omnetpp.ini:
 .. <!-- TODO how it is attached. why the constraint area needed. The network, 2 hosts... -->
 
 The mobility of ``host[1]`` is attached to ``host[0]``'s mobility,
-without an offset. The ``CircleMobility`` in ``host[1]`` is configured
+without an offset. The :ned:`CircleMobility` in ``host[1]`` is configured
 to circle around 0,0 with a radius of 50m. The constraint area of the
-``CircleMobility`` module is interpreted in the coordinate system of the
+:ned:`CircleMobility` module is interpreted in the coordinate system of the
 mobility module it is attached to. By default, it is limited between 0
 and 400m as defined in the ``General`` configuration. Position 0,0 in
 this coordinate system is at the position of ``host[0]``'s mobility. So
 when ``host[1]`` starts to orbit around 0,0 (``host[0]``), the
-``CircleMobility``'s coordinates would become negative, and the host
-would bounce back. Thus the constraint area of the ``CircleMobility``
+:ned:`CircleMobility`'s coordinates would become negative, and the host
+would bounce back. Thus the constraint area of the :ned:`CircleMobility`
 module need to be set to allow negative values for the X and Y
 coordinates.
 
@@ -1159,18 +1159,18 @@ The two categories are illustrated with one example simulation, where
 mobilities responsible for initial positioning and those for over-time
 positioning is superimposed. (superpositioned?).
 
-The example simulation uses the ``MobilityShowcaseB`` network, with
-eight hosts. The example simulation uses ``SuperpositioningMobility`` to
+The example simulation uses the :ned:`MobilityShowcaseB` network, with
+eight hosts. The example simulation uses :ned:`SuperpositioningMobility` to
 combine the effects of multiple mobility modules. The scenario is that
 one of the hosts is stationary at the center of the playground. The
 other seven hosts are laid out in circle with one of them at the center.
 This group of hosts move in a circle around the host at the center,
 while facing towards it.
 
--  the center host uses ``StationaryMobility``
--  the other hosts have a ``SuperpositioningMobility`` module, with
+-  the center host uses :ned:`StationaryMobility`
+-  the other hosts have a :ned:`SuperpositioningMobility` module, with
    three mobility submodules
--  one of them is ``StaticConcentricMobility``...
+-  one of them is :ned:`StaticConcentricMobility`...
 
 Here is the configuration in omnetpp.ini:
 
@@ -1187,7 +1187,7 @@ V2
 Here is the configuration in omnetpp.ini:
 
 ``host[7]`` stays at the center of the playground, using
-``StationaryMobility``:
+:ned:`StationaryMobility`:
 
 
 
@@ -1197,9 +1197,9 @@ Here is the configuration in omnetpp.ini:
    :start-at: InitialVsOvertimePositioning
    :end-at: initialZ
 
-The other hosts have a ``SuperpositioningMobility`` module, with three
+The other hosts have a :ned:`SuperpositioningMobility` module, with three
 elements. Initial positioning is done by ``element[0]``, a
-``StaticConcentricMobility`` module:
+:ned:`StaticConcentricMobility` module:
 
 
 
@@ -1211,7 +1211,7 @@ elements. Initial positioning is done by ``element[0]``, a
 
 The other hosts will move around ``host[7]`` in a circle. This is
 achieved by ``element[1]`` in ``host[0]``, which is a
-``CircleMobility``:
+:ned:`CircleMobility`:
 
 .. todo::
 
@@ -1226,7 +1226,7 @@ achieved by ``element[1]`` in ``host[0]``, which is a
    :end-at: speed
 
 The other hosts (``host[1]`` to ``host[6]``) have an
-``AttachedMobility`` submodule as ``element[1]``.
+:ned:`AttachedMobility` submodule as ``element[1]``.
 
 .. todo::
 
@@ -1242,7 +1242,7 @@ The other hosts (``host[1]`` to ``host[6]``) have an
    :start-at: other hosts follow
    :end-at: mobilityModule
 
-Also, all moving hosts face towards ``host[7]`` with ``FacingMobility``:
+Also, all moving hosts face towards ``host[7]`` with :ned:`FacingMobility`:
 
 
 
@@ -1253,7 +1253,7 @@ Also, all moving hosts face towards ``host[7]`` with ``FacingMobility``:
    :end-at: targetMobility
 
 The example simulation also aims to illustrate that
-``SuperpositioningMobility`` and ``AttachedMobility`` can be combined to
+:ned:`SuperpositioningMobility` and :ned:`AttachedMobility` can be combined to
 create very complex motion patterns.
 
 .. todo::
@@ -1287,7 +1287,7 @@ just that, and demonstrates it with an example simulation.
 By default, radio modules contain antenna submodules, whose position is
 taken into account when simulating wireless signal transmission and
 reception. In network nodes (more specifically, in those that extend
-``LinkLayerNodeBase``), the antenna module uses the containing network
+:ned:`LinkLayerNodeBase`), the antenna module uses the containing network
 node's mobility submodule to describe the antenna's position and
 orientation. Thus, by default, the position and orientation of the
 antenna (where the signal reception and transmission takes place) is the
@@ -1352,7 +1352,7 @@ a nearby circling drone. Each antenna is oriented independently. One of
 the antennas tracks the drone, the other one is directed at the base.
 
 The simulation is defined in the ``AntennaOrientation`` configuration.
-It uses the ``MobilityShowcaseC`` network:
+It uses the :ned:`MobilityShowcaseC` network:
 
 
 
@@ -1363,8 +1363,8 @@ It uses the ``MobilityShowcaseC`` network:
    :end-before: until
 
 The size of the network is 800x800 meters. The network contains an
-``Ieee80211ScalarRadioMedium`` and an ``IntegratedMultiVisualizer``
-module. The ``rover``, ``base`` and ``drone`` are ``StandardHost``\ s.
+:ned:`Ieee80211ScalarRadioMedium` and an :ned:`IntegratedMultiVisualizer`
+module. The ``rover``, ``base`` and ``drone`` are :ned:`StandardHost`\ s.
 
 
 
@@ -1374,8 +1374,8 @@ module. The ``rover``, ``base`` and ``drone`` are ``StandardHost``\ s.
 
 .. <!-- TODO: this is too long - the antenna mobility settings only? -->
 
-The ``rover`` is configured to use ``LinearMobility`` to move on the
-playground. The ``drone`` uses ``CircleMobility`` to circle around the
+The ``rover`` is configured to use :ned:`LinearMobility` to move on the
+playground. The ``drone`` uses :ned:`CircleMobility` to circle around the
 center of the playground. The ``rover`` has two wireless interfaces, and
 thus two antennas, which have a mobility submodule. The configuration in
 omnetpp.ini related to antenna mobility is the following:
@@ -1397,10 +1397,10 @@ omnetpp.ini related to antenna mobility is the following:
 .. <!-- TODO: about the mobility configuration -->
 
 Each antenna needs to be attached to the network node, and also face
-towards its target. Thus each antenna has a ``SuperpositioningMobility``
-submodule. Element[0] of the array is an ``AttachedMobility``, and the
+towards its target. Thus each antenna has a :ned:`SuperpositioningMobility`
+submodule. Element[0] of the array is an :ned:`AttachedMobility`, and the
 antenna's position is attached to and offset from the position of the
-host. Element[1] is a ``FacingMobility``, the antenna tracks its target.
+host. Element[1] is a :ned:`FacingMobility`, the antenna tracks its target.
 
 .. todo::
 

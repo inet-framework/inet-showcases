@@ -21,16 +21,16 @@ Source files location: `inet/showcases/visualizer/environment <https://github.co
 About the visualizer
 --------------------
 
-The ``PhysicalEnvironmentVisualizer`` (also part of
-``IntegratedVisualizer``) is responsible for displaying the physical
+The :ned:`PhysicalEnvironmentVisualizer` (also part of
+:ned:`IntegratedVisualizer`) is responsible for displaying the physical
 objects. The objects themselves are provided by the
-``PhysicalEnvironment`` module; their geometry, physical and visual
+:ned:`PhysicalEnvironment` module; their geometry, physical and visual
 properties are defined in the XML configuration of the
-``PhysicalEnvironment`` module.
+:ned:`PhysicalEnvironment` module.
 
 The two-dimensional projection of physical objects is determined by the
-``SceneCanvasVisualizer`` module. (This is because the projection is
-also needed by other visualizers, for example ``MobilityVisualizer``.)
+:ned:`SceneCanvasVisualizer` module. (This is because the projection is
+also needed by other visualizers, for example :ned:`MobilityVisualizer`.)
 The default view is top view (z axis), but you can also configure side
 view (x and y axes), or isometric or ortographic projection.
 
@@ -41,7 +41,7 @@ This example configuration (``DefaultView`` in the ini file)
 demonstrates the default visualization of objects. The objects are
 defined in the ``indoor.xml`` file, which depicts an apartment with
 three rooms. The network contains just two modules, a
-``PhysicalEnvironment`` and an ``IntegratedVisualizer`` module. When the
+:ned:`PhysicalEnvironment` and an :ned:`IntegratedVisualizer` module. When the
 simulation is run, the network looks like this:
 
 .. figure:: default.png
@@ -53,7 +53,7 @@ The isometric view
 
 In this example configuration (``IsometricView`` in the ini file), the
 view is set to isometric projection. This is done by setting the
-``viewAngle`` parameter in ``SceneVisualizer``:
+``viewAngle`` parameter in :ned:`SceneVisualizer`:
 
 .. code-block:: none
 
@@ -72,7 +72,7 @@ The visualizer also supports OpenGL-based 3D rendering using the
 OpenSceneGraph (OSG) library. If your OMNeT++ installation has been
 compiled with OSG support, you can switch to 3D view using the toolbar.
 The result will look like the following. Note that the
-``SceneVisualizer`` view settings have no effect on the 3D view, you can
+:ned:`SceneVisualizer` view settings have no effect on the 3D view, you can
 use the mouse to move the camera and change the view angle.
 
 .. figure:: 3d.png
@@ -83,7 +83,7 @@ Further information
 -------------------
 
 For more information, refer to the NED documentation of
-``PhysicalEnvironmentVisualizer`` and ``SceneCanvasVisualizer``.
+:ned:`PhysicalEnvironmentVisualizer` and :ned:`SceneCanvasVisualizer`.
 
 Discussion
 ----------

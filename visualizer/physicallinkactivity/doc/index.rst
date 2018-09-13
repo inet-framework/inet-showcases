@@ -7,7 +7,7 @@ Goals
 With INET simulations, it is often useful to be able to visualize
 network traffic. For this task, there are several visualizers in INET,
 operating at various levels of the network stack. In this showcase, we
-demonstrate working of ``PhysicalLinkVisualizer`` that can provide
+demonstrate working of :ned:`PhysicalLinkVisualizer` that can provide
 graphical feedback about physical layer traffic.
 
 The showcase consists of three simulation models, each demonstrating
@@ -21,13 +21,13 @@ About the Visualizer
 --------------------
 
 In INET, physical link activity can be visualized by including a
-``PhysicalLinkVisualizer`` module in the simulation. Adding an
-``IntegratedVisualizer`` module is also an option, because it also
-contains a ``PhysicalLinkVisualizer`` module. Physical link activity
+:ned:`PhysicalLinkVisualizer` module in the simulation. Adding an
+:ned:`IntegratedVisualizer` module is also an option, because it also
+contains a :ned:`PhysicalLinkVisualizer` module. Physical link activity
 visualization is disabled by default, it can be enabled by setting the
 visualizer's ``displayLinks`` parameter to true.
 
-``PhysicalLinkVisualizer`` observes frames that pass through the
+:ned:`PhysicalLinkVisualizer` observes frames that pass through the
 physical layer, i.e. are received correctly.
 
 The activity between two nodes is represented visually by a dotted arrow
@@ -50,7 +50,7 @@ simulation for an ad-hoc wireless network. The simulation can be run by
 choosing the ``EnablingVisualization`` configuration from the ini file.
 
 The network contains two ``AdhocHosts``, ``source`` and ``destination``.
-The ``linkVisualizer's`` type is ``PhysicalLinkVisualizer``. In this
+The ``linkVisualizer's`` type is :ned:`PhysicalLinkVisualizer`. In this
 simulation, ``source`` will be pinging ``destination``.
 
 .. figure:: PhysicalLinkVisualizerSimple.png
@@ -71,11 +71,11 @@ The following animation shows what happens when we start the simulation.
 At the beginning of the animation, a red strip appears and moves from
 ``source`` to ``destination``. This strip is the standard OMNeT++
 animation for packet transmissions, and has nothing to do with
-``PhysicalLinkVisualizer``. A blue dotted line also appears at the same
+:ned:`PhysicalLinkVisualizer`. A blue dotted line also appears at the same
 time. It can be ignored, as it is also part of the standard OMNeT++
 animation for packet transmission. When the frame is received in whole
 by ``destination`` (the red strip disappears), a dotted arrow is added
-by ``PhysicalLinkVisualizer`` between the two hosts, indicating physical
+by :ned:`PhysicalLinkVisualizer` between the two hosts, indicating physical
 link activity. The frame's name is also displayed on the arrow. In this
 simulation, the arrow fades out quickly, because the ``fadeOutTime``
 parameter of the visualizer is set to a small value.
@@ -106,9 +106,9 @@ frames correctly from each other.
    :width: 100%
 
 For this network, the type of ``visualizer`` module is
-``IntegratedVisualizer``. Physical link activity visualization is
+:ned:`IntegratedVisualizer`. Physical link activity visualization is
 filtered to display only ping traffic. Other frames, e.g. Beacon frames
-and ACK frames, are not displayed by ``PhysicalLinkVisualizer``.
+and ACK frames, are not displayed by :ned:`PhysicalLinkVisualizer`.
 
 We use the following configuration for the visualization.
 
@@ -126,7 +126,7 @@ with ``accessPoint``.
    :width: 698
 
 You can see that although there are also ACK frames, Beacon frames and
-ping traffic in the network, ``PhysicalLinkVisualizer`` displays only
+ping traffic in the network, :ned:`PhysicalLinkVisualizer` displays only
 ping, due to the presence of ``packetFilter``. The ping frames travel
 between ``source`` and ``destination`` through ``accessPoint``, but
 ``host1`` also receives ping frames from ``accessPoint`` and ``source``.
@@ -141,7 +141,7 @@ physical link activity in a mobile wireless environment. This simulation
 can be run by choosing the ``Mobile`` configuration from the ini file.
 
 The network consists of seven nodes (``host1..host7``) are type of
-``AdhocHost``. The nodes are placed randomly on the playground and will
+:ned:`AdhocHost`. The nodes are placed randomly on the playground and will
 also randomly roam within predefined borders. The communication range of
 nodes is reduced so that nodes can typically communicate only with some
 closer nodes.
@@ -149,9 +149,9 @@ closer nodes.
 .. figure:: PhysicalLinkVisualizerDynamic.png
    :width: 100%
 
-The nodes send UDP packets in every second by using an ``UdpBasicApp``
+The nodes send UDP packets in every second by using an :ned:`UdpBasicApp`
 application. The packets' names are set to ``Broadcast-nnn``. The nodes
-manage the received ``Broadcast`` packets using an ``UdpSink``
+manage the received ``Broadcast`` packets using an :ned:`UdpSink`
 application.
 
 The visualizer's ``packetFilter`` parameter is set to display only
@@ -185,7 +185,7 @@ More Information
 
 This example only demonstrates the key features of physical link
 visualization. For more information, refer to the
-``PhysicalLinkVisualizer`` NED documentation.
+:ned:`PhysicalLinkVisualizer` NED documentation.
 
 Discussion
 ----------

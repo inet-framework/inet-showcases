@@ -22,8 +22,8 @@ Source files location: `inet/showcases/visualizer/routingtable <https://github.c
 About the visualizer
 --------------------
 
-In INET, the ``RoutingTableVisualizer`` module (included in the network
-as part of ``IntegratedVisualizer``) is responsible for visualizing
+In INET, the :ned:`RoutingTableVisualizer` module (included in the network
+as part of :ned:`IntegratedVisualizer`) is responsible for visualizing
 routing table entries.
 
 The visualizer basically annotates network links with labeled arrows
@@ -63,9 +63,9 @@ The following example demonstrates how to enable the visualization of
 routing tables, and how the visualization looks like. The simulation can
 be run by choosing the ``DisplayingAll`` configuration from the ini
 file. The network for the simulation contains two ``StandardHosts``,
-each connected to a ``Router``. IP addresses are assigned by the
+each connected to a :ned:`Router`. IP addresses are assigned by the
 ``IPv4Configurator`` module, which also fills in the routing tables
-automatically. The visualizer module is an ``IntegratedVisualizer``
+automatically. The visualizer module is an :ned:`IntegratedVisualizer`
 which contains all available visualizers as submodules.
 
 The configuration contains one line, which enables the visualization of
@@ -84,8 +84,8 @@ When the simulation is run, the network looks like this:
    :align: center
 
 Note that IP addresses are displayed above the nodes. This has nothing
-to do with the ``RoutingTableVisualizer``, they are displayed because we
-configured it in ``InterfaceTableVisualizer`` to improve clarity.
+to do with the :ned:`RoutingTableVisualizer`, they are displayed because we
+configured it in :ned:`InterfaceTableVisualizer` to improve clarity.
 
 Here are the routing tables of the two hosts and the router, with the
 visualized entries highlighted:
@@ -184,7 +184,7 @@ The visualized routing entries look like the following:
 
 The visualizer's parameters can be changed in the runtime environment,
 and the changes take effect immediately. Just select the
-``RoutingTableVisualizer`` module, and the parameters are listed in the
+:ned:`RoutingTableVisualizer` module, and the parameters are listed in the
 inspector panel:
 
 .. figure:: parameters.png
@@ -238,7 +238,7 @@ More information
 
 This example only demonstrated the key features of routing table
 visualization. For more information, refer to the
-``RoutingTableVisualizer`` NED documentation.
+:ned:`RoutingTableVisualizer` NED documentation.
 
 Discussion
 ----------

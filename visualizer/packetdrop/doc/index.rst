@@ -22,8 +22,8 @@ Source files location: `inet/showcases/visualizer/packetdrop <https://github.com
 About the visualizer
 --------------------
 
-Packet drops can be visualized by including a ``PacketDropVisualizer``
-module in the simulation. The ``PacketDropVisualizer`` module indicates
+Packet drops can be visualized by including a :ned:`PacketDropVisualizer`
+module in the simulation. The :ned:`PacketDropVisualizer` module indicates
 packet drops by displaying an animation effect at the node where the
 packet drop occurs. In the animation, a packet icon gets thrown out from
 the node icon, and fades away.
@@ -61,8 +61,8 @@ queue:
    :width: 80%
    :align: center
 
-It contains a ``StandardHost`` named ``source``, an ``EtherSwitch``, a
-``Router``, an ``AccessPoint``, and a ``WirelessHost`` named
+It contains a :ned:`StandardHost` named ``source``, an :ned:`EtherSwitch`, a
+:ned:`Router`, an :ned:`AccessPoint`, and a :ned:`WirelessHost` named
 ``destination``. The ``source`` is configured to send a stream of UDP
 packets to ``destination``. The packet stream starts at two seconds,
 after ``destination`` got associated with the access point. The
@@ -75,7 +75,7 @@ carry. The cause of packet drops in this case is that the queue in
 ``etherSwitch`` fills up.
 
 The queue types in the switch's ethernet interfaces are set to
-``DropTailQueue``, with a default length of 100 packets (by default, the
+:ned:`DropTailQueue`, with a default length of 100 packets (by default, the
 queues have infinite lengths). The packets are dropped at the ethernet
 queue of the switch.
 
@@ -119,7 +119,7 @@ cannot be resolved. The network for this configuration is the following:
 .. figure:: arpfailednetwork.png
    :align: center
 
-It contains only one host, an ``AdhocHost``.
+It contains only one host, an :ned:`AdhocHost`.
 
 The host is configured to ping the IP address 10.0.0.2. It will try to
 resolve the destination's MAC address with ARP. Since there are no other
@@ -179,7 +179,7 @@ The network is the following:
    :align: center
 
 It contains two connected ``StandardHosts``. The
-``Ipv4NetworkConfigurator`` is instructed not to add any static routes,
+:ned:`Ipv4NetworkConfigurator` is instructed not to add any static routes,
 and ``host1`` is configured to ping ``host2``.
 
 The ping packets can't be routed, thus the IP module drops them. This is
@@ -224,7 +224,7 @@ evidenced in the log:
 Further information
 -------------------
 
-For more information, refer to the ``PacketDropVisualizer`` NED
+For more information, refer to the :ned:`PacketDropVisualizer` NED
 documentation.
 
 Discussion

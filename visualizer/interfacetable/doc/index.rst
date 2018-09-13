@@ -7,7 +7,7 @@ Goals
 In the simulation of complex networks, it is often useful to be able to
 display node IP addresses, interface names, etc. above the node icons or
 on the links. For example, when automatic address assignment is used in
-a hierarchical network (e.g. using ``Ipv4NetworkConfigurator``), visual
+a hierarchical network (e.g. using :ned:`Ipv4NetworkConfigurator`), visual
 inspection can help to verify that the result matches the expectations.
 While it is true that addresses and other interface data can also be
 accessed in the GUI by diving into the interface tables of each node,
@@ -24,8 +24,8 @@ Source files location: `inet/showcases/visualizer/interfacetable <https://github
 About the visualizer
 --------------------
 
-The ``InterfaceTableVisualizer`` module (included in the network as part
-of ``IntegratedVisualizer``) displays data about network nodes'
+The :ned:`InterfaceTableVisualizer` module (included in the network as part
+of :ned:`IntegratedVisualizer`) displays data about network nodes'
 interfaces. (Interfaces are contained in interface tables, hence the
 name.) By default, the visualization is turned off. When it is enabled
 using the ``displayInterfaceTables`` parameter, the default is that
@@ -75,7 +75,7 @@ The simulation uses the following network:
    :align: center
 
 The network contains two connected ``StandardHosts``. IP addresses are
-auto-assigned by an ``Ipv4NetworkConfigurator`` module.
+auto-assigned by an :ned:`Ipv4NetworkConfigurator` module.
 
 We enable visualization by the following configuration line:
 
@@ -103,9 +103,9 @@ from the ini file. It uses the following network:
    :width: 80%
    :align: center
 
-It contains two ``StandardHosts`` connected to an ``EtherSwitch``. The
-switch is connected to a ``Router``, which is connected to an
-``AccessPoint``. There is a ``WirelessHost`` and an ``AdhocHost`` near
+It contains two ``StandardHosts`` connected to an :ned:`EtherSwitch`. The
+switch is connected to a :ned:`Router`, which is connected to an
+:ned:`AccessPoint`. There is a :ned:`WirelessHost` and an :ned:`AdhocHost` near
 the access point. They will obtain their addresses from the router via
 DHCP. We would like to see IP addresses appear above the hosts when they
 get their addresses.
@@ -138,7 +138,7 @@ displayed. The network will look like this:
 Further information
 -------------------
 
-For more information, refer to the ``InterfaceTableVisualizer`` NED
+For more information, refer to the :ned:`InterfaceTableVisualizer` NED
 documentation.
 
 Discussion
