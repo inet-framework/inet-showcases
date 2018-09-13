@@ -139,6 +139,7 @@ file (via ethernet). Additionally, ``ethHost1`` is configured to ping
    configuration are the following:
 
    .. literalinclude:: ../omnetpp.ini
+      :language: ini
       :start-at: host1.numPcapRecorders
       :end-before: verbose
 
@@ -159,6 +160,7 @@ configure ``host1``'s PCAP recorder to use the 802.11 link layer
 headers:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: host1.numPcapRecorders
    :end-at: /host1.pcap
 
@@ -168,6 +170,7 @@ on ``wlan0``. The link layer header type is set to 802.11, and the
 class:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: host2.numPcapRecorders
    :end-at: packetDataFilter
 
@@ -183,6 +186,7 @@ In ``ethHost1``, we'll record ethernet traffic on the ``eth0``
 interface. We set the link layer header type to ethernet:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: ethHost1.numPcapRecorders
    :end-at: /ethHost1.pcap
 
@@ -192,6 +196,7 @@ recording ethernet traffic on ``eth0`` and the other ppp traffic on
 PCAP recorder modules, because ``router1`` has two interfaces.
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: router1.numPcapRecorders
    :end-before: router2.numPcapRecorders
 
@@ -204,6 +209,7 @@ field's value is 576 (the size of TCP data packets with IP
 encapsulation):
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: router2.numPcapRecorders
    :end-at: totalLengthField
 
@@ -212,6 +218,7 @@ In ``ethHost2``, we'll record traffic of the ``ipv4`` module. The
 ``ethernetmac ppp ieee80211mac``, so it has to be set to ``ipv4``.
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: ethHost2.numPcapRecorders
    :end-at: dumpProtocols
 
@@ -221,6 +228,7 @@ correct" mode.) In order to include the CRC and FCS values in the
 capture file, L2 and L3 modules need to be set to compute CRC and FCS:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: crcMode
    :end-at: fcsMode
 
@@ -233,6 +241,7 @@ recorders to make sure there are recorded packets even if the simulation
 crashes:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: alwaysFlush
    :end-at: alwaysFlush
 

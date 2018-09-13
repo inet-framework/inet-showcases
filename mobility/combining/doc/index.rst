@@ -71,6 +71,7 @@ The simulation is run with four hosts. The configuration
 is defined in the omnetpp.ini file:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: *.numHosts = 4
    :end-at: offsetHeading
 
@@ -101,6 +102,7 @@ is run with five hosts. The simulation is
 defined in the ``Attached2`` configuration in omnetpp.ini:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: *.numHosts = 5
    :end-at: offsetHeading
 
@@ -146,6 +148,7 @@ the randomness in the movement. The simulation is run with only one host.
 You can take a look at the configuration in omnetpp.ini:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: *.numHosts = 1
    :end-at: constraintAreaMaxZ
 
@@ -184,12 +187,14 @@ the script coming from XML. The hexagonal pattern is achieved as
 following in the config.xml file:
 
 .. literalinclude:: ../config.xml
+   :language: xml
 
 The other host, ``host[1]``, uses :ned:`SuperpositioningMobility`, with the
 superposition of an :ned:`AttachedMobility` and a :ned:`CircleMobility`. Here
 is the configuration in omnetpp.ini:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: *.numHosts = 2
    :end-at: -50mps
 
@@ -267,6 +272,7 @@ thus two antennas, which have a mobility submodule. The configuration in
 omnetpp.ini related to antenna mobility is the following:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: antenna.mobility
    :end-at: initFromDisplayString
 

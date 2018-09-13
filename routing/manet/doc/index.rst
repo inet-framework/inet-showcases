@@ -231,6 +231,7 @@ network interfaces are disabled as well. The following keys in the
 achieve this:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: configurator
    :end-at: netmaskRoutes
 
@@ -261,6 +262,7 @@ directions with a speed of 25 meters per second, bouncing back from the
 edge of the playground. The mobility settings are the following:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: LinearMobility
    :end-at: MinY
 
@@ -272,6 +274,7 @@ in :download:`omnetpp.ini <../omnetpp.ini>` as the routing protocol
 type in :ned:`ManetRouter`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: "Aodv"
    :end-at: "Aodv"
 
@@ -284,6 +287,7 @@ setting any of the parameters. We will fine tune the protocol's behavior
 to our scenario by setting two of the parameters:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: activeRouteTimeout
    :end-at: deletePeriod
 
@@ -353,6 +357,7 @@ The DSDV protocol is implemented in the :ned:`Dsdv` module. The routing
 protocol type in all hosts is set to :ned:`Dsdv`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: "Dsdv"
    :end-at: "Dsdv"
 
@@ -366,6 +371,7 @@ any configuration. In this simulation, similarly to the previous one, we
 set two parameters of the protocol:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: helloInterval
    :end-at: routeLifetime
 
@@ -422,6 +428,7 @@ second.)
 The hosts' routing protocol type is set to :ned:`Gpsr`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: "Gpsr"
    :end-at: "Gpsr"
 

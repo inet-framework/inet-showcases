@@ -134,6 +134,7 @@ signal of the radio medium module as input:
 .. <pre class="include" src="PathLossShowcase.ned" from="statistic" until="submodules"></pre>
 
 .. literalinclude:: ../PathLossShowcase.ned
+   :language: ned
    :start-at: statistic
    :end-before: submodules
 

@@ -169,6 +169,7 @@ in :download:`omnetpp.ini <../omnetpp.ini>` to be the generic
 in :ned:`SensorNode`). The radio type is set to :ned:`ApskScalarRadio`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: typename
    :end-at: radio.typename
 
@@ -188,6 +189,7 @@ set to be very short for better compatibility with the MACs. We also set
 some other parameters of the radio to arbitrary values:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: carrierFrequency
    :end-at: snirThreshold
 
@@ -209,6 +211,7 @@ be routed via the gateway. Here are the application settings in
 :download:`omnetpp.ini <../omnetpp.ini>`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: numApps
    :end-at: localPort
 
@@ -222,6 +225,7 @@ duration. Here is the configuration in
 :download:`omnetpp.ini <../omnetpp.ini>`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: Config BMac
    :end-at: slotDuration
 
@@ -239,6 +243,7 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>`:
 
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: Config XMac
    :end-at: sensor
 
@@ -255,6 +260,7 @@ in the first five frames, i.e. in the first 2 seconds. Here is the
 configuration in :download:`omnetpp.ini <../omnetpp.ini>`:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: Config LMac
    :end-at: reservedMobileSlots
 
@@ -347,6 +353,7 @@ extend the ``StatisticBase`` config (as well as the ``General``
 configuration):
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: Config StatisticBase
    :end-at: repeat
 
@@ -366,6 +373,7 @@ of packets received by the server. The configuration in
 ``StatisticBMac``. It contains 1000 runs. Here is the configuration:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: StatisticBMac
    :end-at: slotDuration
 
@@ -393,6 +401,7 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>` for this is
 ``StatisticXMac``. It contains 1000 runs. Here is the configuration:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: StatisticXMac
    :end-at: slotDuration
 
@@ -417,6 +426,7 @@ received by the server. The configuration for this study in
 contains 1000 runs. Here is the configuration:
 
 .. literalinclude:: ../omnetpp.ini
+   :language: ini
    :start-at: StatisticLMac
    :end-at: reservedMobileSlots
 
@@ -456,6 +466,7 @@ Measuring power consumption
    (which itself is an extension of `StatisticBase`):
 
    literalinclude:: ../omnetpp.ini
+      :language: ini
       :start-at: PowerBase???
       :end-at: energyStorageType
 
@@ -541,6 +552,7 @@ and measure power consumption, but not energy capacity, charging, etc.
    best-performing parameter values selected in the previous section:
 
    literalinclude:: ../omnetpp.ini
+      :language: ini
       :start-at: PowerBMac???
       :end-at: reservedMobileSlots
 
