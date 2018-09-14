@@ -348,5 +348,5 @@ documentation.
 Discussion
 ----------
 
-Use this page in the GitHub issue tracker for commenting on this
+Use `this <https://github.com/inet-framework/inet-showcases/issues/23>`__ page in the GitHub issue tracker for commenting on this
 showcase.
