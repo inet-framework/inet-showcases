@@ -1,4 +1,4 @@
-package inet.showcases.general.compoundMobility;
+package inet.showcases.mobility.combining;
 
 import inet.node.inet.StandardHost;
 import inet.visualizer.integrated.IntegratedVisualizer;
@@ -27,7 +27,7 @@ network AntennaOrientation
 {
     @display("bgb=800,800;bgi=showcases/desert3,s");
     string minus = default("-");
-    
+
     submodules:
         rover: StandardHost {
             @display("p=247.632,395.568;b=100,64,rect,$minus,$minus;i=-");

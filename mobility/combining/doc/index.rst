@@ -17,7 +17,7 @@ models themselves are demonstrated in  :doc:`../../basic/doc/index`.)
 
 INET version: ``4.0``
 
-Source files location: `inet/showcases/general/mobility <https://github.com/inet-framework/inet-showcases/tree/master/mobility/combining>`__
+Source files location: `inet/showcases/mobility/combining <https://github.com/inet-framework/inet-showcases/tree/master/mobility/combining>`__
 
 Overview
 --------
@@ -106,7 +106,7 @@ defined in the ``Attached2`` configuration in omnetpp.ini:
    :start-at: *.numHosts = 5
    :end-at: offsetHeading
 
-``host[0]`` moves along a circle, orbiting around the center of the
+``host[0]`` moves along a circle, orbiting the center of the
 playground. The other hosts use :ned:`AttachedMobility`, and are
 attached to ``host[0]`` with various offsets, summarized on the
 following image:
@@ -121,10 +121,9 @@ move circularly as the coordinate system of ``host[0]`` moves and rotates:
 .. video:: Attached3.mp4
    :width: 50%
 
-The positions of the hosts relative to each other are constant. For example, it appears as if
-``host[4]`` is orbiting on the same circle as ``host[0]`` using :ned:`CircleMobility`.
-However, only its position inside ``host[0]``'s coordinate system relative to its
-center remains constant (twice the radius of the circle).
+The relative positions of the hosts are constant. For example, it appears as if
+``host[4]`` was using  a :ned:`CircleMobility` similar to ``host[0]``, 
+while actually its position in ``host[0]``'s coordinate system stays constant.
 
 SuperpositioningMobility
 ------------------------
@@ -179,12 +178,11 @@ On the following video, you can see the resulting motion:
 Example: Orbiting a Node
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-This simulation contains host, that moves in a hexagonal
-pattern, and another host, that orbits around the first host as it
+This simulation contains a host that moves in a hexagonal
+pattern, and another host that orbits the first host as it
 moves. The first host, ``host[0]``, uses :ned:`TurtleMobility`, which can
-be useful for describing random as well as deterministic scenarios with
-the script coming from XML. The hexagonal pattern is achieved as
-following in the config.xml file:
+be useful for describing random as well as deterministic scenarios. 
+The hexagonal pattern is achieved with the following config.xml file:
 
 .. literalinclude:: ../config.xml
    :language: xml
@@ -205,11 +203,10 @@ to circle around 0,0 with a radius of 50m. The constraint area of the
 mobility module it is attached to. By default, it is limited between 0
 and 400m as defined in the ``General`` configuration. Position 0,0 in
 this coordinate system is at the position of ``host[0]``'s mobility. So
-when ``host[1]`` starts to orbit around 0,0 (``host[0]``), the
+when ``host[1]`` starts to orbit point 0,0 (``host[0]``), the
 :ned:`CircleMobility`'s coordinates would become negative, and the host
-would bounce back. Thus the constraint area of the :ned:`CircleMobility`
-module needs to be set to allow negative values for the X and Y
-coordinates.
+would bounce back. Thus, the constraint area of the :ned:`CircleMobility`
+module needs to include negative values for the X and Y coordinates.
 
 The following video shows the resulting movement of the hosts:
 
@@ -219,7 +216,7 @@ The following video shows the resulting movement of the hosts:
 Example: Mars Rover
 -------------------
 
-The following simulation shows how :ned:`AttachedMobility` and the
+The following simulation shows how the :ned:`AttachedMobility` and
 :ned:`SuperpositioningMobility` models can be used to orient antennas
 independently from the orientation of their containing network node.
 The simulation contains the following nodes:
@@ -234,7 +231,7 @@ The following image shows the initial layout of the playground:
    :width: 75%
    :align: center
 
-By default, radio modules contain antenna submodules, whose position is
+By default, radio modules contain antenna submodules, whose positions are
 taken into account when simulating wireless signal transmission and
 reception. In network nodes (more specifically, in those that extend
 :ned:`LinkLayerNodeBase`), the antenna module uses the containing network
@@ -247,12 +244,12 @@ antenna's mobility submodule allows the network node to have antennas
 whose position and orientation is different from those of the network
 node.
 
-Thus antennas can be oriented independently of the network node's
-orientation. The antennas' position can also be independent of the
+Such antennas can be oriented independently of the network node's
+orientation. The antenna's position can also be independent of the
 containing network node's position. However, in many cases, it makes more
-sense to attach the antenna position to the network nodes' at some
-offset. This allows for creating nodes that are extended objects (as
-opposed to being point objects).
+sense to attach the antenna position to the network node's position, 
+with some offset. This allows for creating nodes that are extended objects
+(as opposed to being point objects).
 
 Note that antenna orientation is only relevant with directional
 antennas. This example uses isotropic antennas (and there is no
@@ -268,7 +265,7 @@ the antennas tracks the drone, the other one is directed at the base.
 The ``rover`` is configured to use :ned:`LinearMobility` to move on the
 playground. The ``drone`` uses :ned:`CircleMobility` to circle around the
 center of the playground. The ``rover`` has two wireless interfaces, and
-thus two antennas, which have a mobility submodule. The configuration in
+thus, two antennas, which each have a mobility submodule. The configuration in
 omnetpp.ini related to antenna mobility is the following:
 
 .. literalinclude:: ../omnetpp.ini
@@ -282,8 +279,8 @@ submodule. :par:`element[0]` of the array is an :ned:`AttachedMobility`, and the
 antenna's position is attached to and offset from the position of the
 host. ``element[1]`` is a :ned:`FacingMobility`, the antenna tracks its target.
 
-The offsets of the antennas are unrealistically large. This is only
-set that way for the sake of visibility.
+For demonstration purposes, we chose the offsets of the antennas to be
+unrealistically large.
 
 The following video shows the results:
 

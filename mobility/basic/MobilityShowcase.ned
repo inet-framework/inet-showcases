@@ -1,4 +1,4 @@
-package inet.showcases.general.simpleMobility;
+package inet.showcases.mobility.basic;
 
 import inet.node.inet.StandardHost;
 import inet.visualizer.integrated.IntegratedVisualizer;

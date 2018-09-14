@@ -17,7 +17,7 @@ Combining mobility models is covered in another showcase,
 
 INET version: ``4.0``
 
-Source files location: `inet/showcases/general/mobility <https://github.com/inet-framework/inet-showcases/tree/master/mobility/basic>`__
+Source files location: `inet/showcases/mobility/basic <https://github.com/inet-framework/inet-showcases/tree/master/mobility/basic>`__
 
 Overview
 --------
