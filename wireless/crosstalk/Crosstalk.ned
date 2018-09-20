@@ -57,3 +57,58 @@ network CrosstalkShowcasePartiallyOverlappingFrequencyBands extends CrosstalkSho
             @display("p=74,184");
         }
 }
+
+network Tmp1
+{
+    @display("bgb=661,400");
+    submodules:
+        host1: AdhocHost {
+            @display("p=231,201");
+        }
+        host2: AdhocHost {
+            @display("p=459,201");
+        }
+        host3: AdhocHost {
+            @display("p=610,352");
+        }
+        host4: AdhocHost {
+            @display("p=346,306");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=75,55");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=75,125");
+        }
+        radioMedium: Ieee80211DimensionalRadioMedium {
+            @display("p=76,194");
+        }
+}
+
+network HeatmapNetwork
+{
+    @display("bgb=100,100");
+    submodules:
+        host1: AdhocHost {
+            @display("p=0,50");
+        }
+        host2: AdhocHost {
+            @display("p=100,50");
+        }
+        host3: AdhocHost {
+            @display("p=50,0");
+        }
+        host4: AdhocHost {
+            @display("p=50,100");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=75,55");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=75,125");
+        }
+        radioMedium: Ieee80211DimensionalRadioMedium {
+            @display("p=74,184");
+        }
+}
+

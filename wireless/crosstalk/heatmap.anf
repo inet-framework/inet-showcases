@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<analysis version="2">
+    <inputs>
+        <input pattern="/inet/showcases/wireless/crosstalk/results/heatmap-*.vec"/>
+        <input pattern="/inet/showcases/wireless/crosstalk/results/heatmap-*.sca"/>
+    </inputs>
+    <charts>
+        <chart name="MatplotlibChart2" script="import results&#10;import matplotlib.pyplot as plt&#10;import numpy as np&#10;&#10;df = results.getScalars(&quot;&quot;&quot;&#10;ADD scalars WHERE run(heatmap-*) AND module(*.host4.app[0]) AND name(packetReceived:count)&#10;&#10;&quot;&quot;&quot;)&#10;&#10;df = results.pivotScalars(df,columns='xcoord',index='ycoord')&#10;&#10;plt.figure(figsize=(8,8))&#10;&#10;print(&quot;df:&quot;,df)&#10;&#10;plt.imshow( np.log10(df), cmap='Blues')&#10;&#10;&#10;#df.plot(kind='bar')&#10;&#10;plt.title(&quot;&quot;&quot;packetReceived:count&quot;&quot;&quot;)&#10;plt.tight_layout()&#10;&#10;plt.savefig('heatmap.png', dpi=150, transparent=True)&#10;" type="MatplotlibChart">
+            <property name="Graph.Title" value="packetReceived:count"/>
+        </chart>
+    </charts>
+</analysis>
