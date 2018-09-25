@@ -36,10 +36,10 @@ and data network.
 The model
 ---------
 
-The ``ExtUdp`` module makes it possible to divide the simulated model into
+The ``ExtLowerUdp`` module makes it possible to divide the simulated model into
 two parts at the transport layer, exchange one part with real
 
-The ``ExtUdp`` module makes it possible for the model to be extracted
+The ``ExtLowerUdp`` module makes it possible for the model to be extracted
 from the simulation and be used in a real operating environment. The
 model executes the configured behavior in the real world while still
 producing the same statistics as used to.
@@ -56,7 +56,7 @@ the other side.
 There are only two modules per "network". There is a
 ``VoipStreamSender`` in the sender application and a
 ``VoipStreamReceiver`` in the receiver application, both called ``app``.
-Both Applications contain a ``ExtUdp`` module, called ``udp``. The
+Both Applications contain a ``ExtLowerUdp`` module, called ``udp``. The
 layout of the two applications can be seen in the following image:
 
 +----------------------------------------------+--+---------------------------------------------+
@@ -83,7 +83,7 @@ Configuration and behaviour
 
 ``VoipStreamSender`` and ``VoipStreamReceiver`` modules are part of the
 simulation. There is no difference in the configuration of these modules
-compared to a fully simulated scenario. This means that the ``ExtUdp``
+compared to a fully simulated scenario. This means that the ``ExtLowerUdp``
 module looks and behaves just like the ``UdpApp`` from the point of view
 of the modules above them.
 
@@ -109,9 +109,9 @@ is actually transmitted from the sender to the receiver.
 
 Although the ``udp`` module is the key module of the emulation, it does
 not need any configuration. This module acts as a bridge between the
-simulated and the real world. When instead of ``UdpApp`` this ``ExtUdp``
+simulated and the real world. When instead of ``UdpApp`` this ``ExtLowerUdp``
 is used, it means that from that point on the emulation is running in
-the real world. In this case it means that at the ``ExtUdp`` the VoIP
+the real world. In this case it means that at the ``ExtLowerUdp`` the VoIP
 traffic exits the simulation and enters the real operating environment
 of the OS, and vice versa.
 
@@ -152,8 +152,8 @@ the play button below:
 
 This music is then sampled and forwarded by the ``VoipStreamSender``
 module and received by the ``VoipStreamReceiver`` module. The packets
-exit the simulation at the ``ExtUdp`` of the sender side and enter the
-other simulation at the ``ExtUdp`` of the receiver side. In between the
+exit the simulation at the ``ExtLowerUdp`` of the sender side and enter the
+other simulation at the ``ExtLowerUdp`` of the receiver side. In between the
 packets travel across the real network (the computer's loopback
 interface in our case).
 

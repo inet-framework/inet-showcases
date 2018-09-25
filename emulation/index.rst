@@ -53,7 +53,7 @@ world (communication). This is achieved in INET as the following:
    -  The interface between the real (an interface of the OS) and the
       simulated parts of the model are represented by external
       interfaces with names beginning with ``Ext~`` prefix in the
-      simulation (``ExtUdp``, ``ExtIpv4``, ``ExtEthernetInterface``,
+      simulation (``ExtLowerUdp``, ``ExtIpv4``, ``ExtEthernetInterface``,
       etc.). Packets sent to these modules will be sent out on the host
       OS interface, and packets received by the host OS interface (or
       rather, the appropriate subset of them) will appear in the
@@ -141,7 +141,7 @@ These showcases demonstrate several such emulation examples.
        tun/tap devices
        mpi
    modules representing the interface between the real and the simulated word:
-       ExtUdp, ExtIpv4, ExtEthernetInterface, Ext* ...
+       ExtLowerUdp, ExtIpv4, ExtEthernetInterface, Ext* ...
 
    optimization:
        disable optional features, compile static executable, release mode, etc. -> fast and small memory footprint makes it possible to use in embedded devices
