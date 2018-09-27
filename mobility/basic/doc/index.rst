@@ -80,7 +80,6 @@ This section covers mobility models that define motion. Such models in INET incl
 :ned:`BonnMotionMobility`,
 :ned:`ChiangMobility`,
 :ned:`CircleMobility`,
-:ned:`ConstSpeedMobility`,
 :ned:`FacingMobility`,
 :ned:`GaussMarkovMobility`,
 :ned:`LinearMobility`,
