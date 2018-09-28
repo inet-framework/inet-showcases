@@ -4,13 +4,13 @@ MANET Routing Protocols
 Goals
 -----
 
-Routing protocols for mobile adhoc networks (MANETs) often fall into two
-major categories: reactive and proactive. INET contains various routing
+Most routing protocols for mobile adhoc networks (MANETs) can be categorized
+as being either reactive or proactive. INET contains various routing
 protocols for MANETs from both categories, and from other categories as
 well.
 
 This showcase demonstrates the configuration and operation of three
-manet routing protocols with three example simulations, using a reactive
+MANET routing protocols with three example simulations, using a reactive
 (AODV), a proactive (DSDV), and a location based (GPSR) routing
 protocol.
 
@@ -63,7 +63,7 @@ information, latency is lower than in the case of reactive protocols.
 
 There are other types of MANET routing protocols, such as Hybrid (both
 reactive and proactive), Hierarchical, and Geographical routing. INET
-features several routing protocols, for MANETs, and for other uses
+features several routing protocols, for MANETs and for other uses
 (including wired and wireless cases). See
 `/inet/src/inet/routing <https://github.com/inet-framework/inet/tree/master/src/inet/routing>`__
 directory for the available routing protocols.
