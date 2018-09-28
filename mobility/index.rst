@@ -8,3 +8,4 @@ These showcases demonstrate node mobility support of INET:
 
    basic/doc/index
    combining/doc/index
+   spatial/doc/index
