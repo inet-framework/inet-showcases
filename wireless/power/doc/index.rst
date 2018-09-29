@@ -23,7 +23,7 @@ The network
 ~~~~~~~~~~~
 
 The network consists of a configurable number of stationary wireless
-nodes of the type :ned:`AdhocHost`. The hosts are placed on the playground
+nodes of the type :ned:`AdhocHost`. The hosts are placed on the scene
 randomly at the start of the simulation. The radios are configured so
 that hosts can reach each other in one hop, so no routing is needed.
 We'll use the ping application in each host to generate network traffic.

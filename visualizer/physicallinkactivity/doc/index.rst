@@ -141,7 +141,7 @@ physical link activity in a mobile wireless environment. This simulation
 can be run by choosing the ``Mobile`` configuration from the ini file.
 
 The network consists of seven nodes (``host1..host7``) are type of
-:ned:`AdhocHost`. The nodes are placed randomly on the playground and will
+:ned:`AdhocHost`. The nodes are placed randomly on the scene and will
 also randomly roam within predefined borders. The communication range of
 nodes is reduced so that nodes can typically communicate only with some
 closer nodes.

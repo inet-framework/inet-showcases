@@ -281,7 +281,7 @@ We use the following network for this simulation:
    :width: 100%
 
 Nodes are of the type :ned:`AodvRouter`, and are placed randomly on the
-playground. The communication range of the nodes is chosen so that the
+scene. The communication range of the nodes is chosen so that the
 network is connected, but nodes can typically only communicate by using
 multi-hop paths. The nodes will also randomly roam within predefined
 borders. The routing protocol is AODV. During the simulation, the
@@ -328,7 +328,7 @@ process takes place in a very short time period.
 In the second experiment, we configure the visualizer to display only
 the ping traffic between ``source`` and ``destination``. (The AODV
 visualizers will be disabled.) We'll simulate a longer time period so
-that nodes move around in the playground, forcing AODV to find new
+that nodes move around in the scene, forcing AODV to find new
 routes from time to time.
 
 We use the following configuration for the visualization.

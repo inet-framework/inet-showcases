@@ -229,7 +229,7 @@ date by AODV to relay the packets along the chain to
 ``destinationHost``. On the way back, the lower hosts are not taking
 part of the packet relay, and the unused entries remain in their routing
 tables for a while, then they time out and are removed. When
-``destinationHost`` gets to the top of the playground, the process
+``destinationHost`` gets to the top of the scene, the process
 starts over again. The visualizer continually reacts to changes in the
 routing tables, and updates the visualization accordingly.
 

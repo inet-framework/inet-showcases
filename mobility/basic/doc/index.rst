@@ -46,11 +46,11 @@ The Model
 ---------
 
 All simulations use the :ned:`MobilityShowcase` network.
-The size of the playground is 400x400x0 meters. It contains a configurable
+The size of the scene is 400x400x0 meters. It contains a configurable
 number of hosts and an :ned:`IntegratedVisualizer` module to
 visualize some aspects of mobility. The following image shows the layout of the network:
 
-.. figure:: playground.png
+.. figure:: scene.png
    :scale: 100%
    :align: center
 
@@ -64,7 +64,7 @@ keys common to all example simulations:
 
 All visualization features of :ned:`MobilityVisualizer` are turned on, and
 the constraint areas of all mobility modules are set to match the size
-of the playground. All nodes will move in the XY plane, so the Z
+of the scene. All nodes will move in the XY plane, so the Z
 coordinate is always set to 0.
 
 The model does not need a network configurator module because there is
@@ -117,7 +117,7 @@ The following video shows the motion of the nodes:
 .. video:: LinearMobility.mp4
    :width: 50%
 
-The video shows that the seven hosts are placed randomly on the playground with a
+The video shows that the seven hosts are placed randomly on the scene with a
 random starting angle. They all move along a straight line with a constant speed.
 They also bounce back from the boundaries of the constraint area when they reach it.
 
@@ -126,7 +126,7 @@ CircleMobility
 ~~~~~~~~~~~~~~
 
 The :ned:`CircleMobility` module describes circular motion around a center.
-This example uses two hosts orbiting the same center (the center of the playground)
+This example uses two hosts orbiting the same center (the center of the scene)
 with different radii, directions and speeds:
 
 .. literalinclude:: ../omnetpp.ini

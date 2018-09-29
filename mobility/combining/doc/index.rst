@@ -32,11 +32,11 @@ The model
 
 Example simulations in this showcase, except for the last one, use the following network:
 
-.. image:: playground.png
+.. image:: scene.png
    :width: 50%
    :align: center
 
-The size of the playground is 400x400x0 meters. It contains a configurable
+The size of the scene is 400x400x0 meters. It contains a configurable
 number of hosts and an :ned:`IntegratedVisualizer` module to visualize
 some aspects of mobility.
 
@@ -75,7 +75,7 @@ is defined in the omnetpp.ini file:
    :start-at: *.numHosts = 4
    :end-at: offsetHeading
 
-``host[0]`` starts at the center of the playground, and moves along a straight line using
+``host[0]`` starts at the center of the scene, and moves along a straight line using
 :ned:`LinearMobility`. The other three hosts have :ned:`AttachedMobility`, and
 are attached to ``host[0]``'s mobility module. Their offset is interpreted
 in the coordinate system of ``host[0]``'s mobility module. The
@@ -107,7 +107,7 @@ defined in the ``Attached2`` configuration in omnetpp.ini:
    :end-at: offsetHeading
 
 ``host[0]`` moves along a circle, orbiting the center of the
-playground. The other hosts use :ned:`AttachedMobility`, and are
+scene. The other hosts use :ned:`AttachedMobility`, and are
 attached to ``host[0]`` with various offsets, summarized on the
 following image:
 
@@ -122,7 +122,7 @@ move circularly as the coordinate system of ``host[0]`` moves and rotates:
    :width: 50%
 
 The relative positions of the hosts are constant. For example, it appears as if
-``host[4]`` was using  a :ned:`CircleMobility` similar to ``host[0]``, 
+``host[4]`` was using  a :ned:`CircleMobility` similar to ``host[0]``,
 while actually its position in ``host[0]``'s coordinate system stays constant.
 
 SuperpositioningMobility
@@ -181,7 +181,7 @@ Example: Orbiting a Node
 This simulation contains a host that moves in a hexagonal
 pattern, and another host that orbits the first host as it
 moves. The first host, ``host[0]``, uses :ned:`TurtleMobility`, which can
-be useful for describing random as well as deterministic scenarios. 
+be useful for describing random as well as deterministic scenarios.
 The hexagonal pattern is achieved with the following config.xml file:
 
 .. literalinclude:: ../config.xml
@@ -222,10 +222,10 @@ independently from the orientation of their containing network node.
 The simulation contains the following nodes:
 
 - ``rover:`` A Mars rover moving along a straight line.
-- ``drone:`` A drone orbiting around the center of the playground.
+- ``drone:`` A drone orbiting around the center of the scene.
 - ``base:`` A base station with a fixed position.
 
-The following image shows the initial layout of the playground:
+The following image shows the initial layout of the scene:
 
 .. image:: AntennaOrientation_layout.png
    :width: 75%
@@ -247,7 +247,7 @@ node.
 Such antennas can be oriented independently of the network node's
 orientation. The antenna's position can also be independent of the
 containing network node's position. However, in many cases, it makes more
-sense to attach the antenna position to the network node's position, 
+sense to attach the antenna position to the network node's position,
 with some offset. This allows for creating nodes that are extended objects
 (as opposed to being point objects).
 
@@ -263,8 +263,8 @@ a nearby circling drone. Each antenna is oriented independently. One of
 the antennas tracks the drone, the other one is directed at the base.
 
 The ``rover`` is configured to use :ned:`LinearMobility` to move on the
-playground. The ``drone`` uses :ned:`CircleMobility` to circle around the
-center of the playground. The ``rover`` has two wireless interfaces, and
+scene. The ``drone`` uses :ned:`CircleMobility` to circle around the
+center of the scene. The ``rover`` has two wireless interfaces, and
 thus, two antennas, which each have a mobility submodule. The configuration in
 omnetpp.ini related to antenna mobility is the following:
 

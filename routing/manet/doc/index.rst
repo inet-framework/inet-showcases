@@ -247,7 +247,7 @@ looks like the following:
    :width: 60%
    :align: center
 
-The nodes are scattered on the playground. The source and destination
+The nodes are scattered on the scene. The source and destination
 nodes are stationary, the other nodes are configured to move in random
 directions. The communication ranges are set up so that ``source``
 cannot reach ``destination`` directly, but through the intermediate
@@ -259,7 +259,7 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>`. The
 simulations for AODV and DSDV, which feature moving nodes, are based on
 this configuration. The nodes will be moving on linear paths in random
 directions with a speed of 25 meters per second, bouncing back from the
-edge of the playground. The mobility settings are the following:
+edge of the scene. The mobility settings are the following:
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini

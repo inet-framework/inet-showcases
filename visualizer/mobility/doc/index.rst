@@ -56,7 +56,7 @@ features. The simulation can be run by choosing the
 ``VisualizingFeatures`` configuration from the ini file.
 
 Three nodes of the type :ned:`AdhocHost`, ``host1``, ``host2`` and
-``host3``, are placed in the playground. They are roaming within
+``host3``, are placed in the scene. They are roaming within
 predefined borders.
 
 The following video has been captured from the simulation. The default

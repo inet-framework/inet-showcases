@@ -147,7 +147,7 @@ The simulation can be run by choosing the ``Mobile`` configuration from
 the ini file.
 
 Nodes are of the type :ned:`AodvRouter`, and are placed randomly on the
-playground. One of the nodes is the ``source`` node which will be
+scene. One of the nodes is the ``source`` node which will be
 pinging the ``destination`` node. The communication ranges of the nodes
 have been chosen so that the network is connected but nodes can
 typically only communicate by using multi-hop paths. The nodes will also

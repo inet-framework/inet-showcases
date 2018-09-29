@@ -58,7 +58,7 @@ network:
 .. figure:: simplenetwork.png
    :width: 100%
 
-The playground size is about 900x600 meters. The network contains two
+The scene size is about 900x600 meters. The network contains two
 ``WirelessHosts``. ``host1`` is configured to send UDP packets to
 ``host2``. Displaying of transmissions and receptions, propagating
 signals, communication and interference ranges are enabled with the
@@ -144,9 +144,9 @@ not to be observable (e.g. a signal's edge propagating from a node), and
 other events that take longer on the timescale don't appear to be slow
 and boring (e.g. the duration of a radio frame.) When there is a signal
 boundary (either at the beginning or at the end of a transmission)
-travelling on the playground, the simulation is slowed down, and the
+travelling on the scene, the simulation is slowed down, and the
 rippling wave pattern is visible as the signal is propagating. When the
-signal is "everywhere" on the playground, i.e. its "first bit" has
+signal is "everywhere" on the scene, i.e. its "first bit" has
 travelled past the farthest node, but its last bit has not been
 transmitted yet, the simulation is faster (the ripples are no longer
 visible, because of the increased simulation speed.)
@@ -157,7 +157,7 @@ different phases of signal propagation animation. The first is
 from the transmitter node, and lasts until the "first bit" has travelled
 past the node farthest from the transmitter. In this phase, the
 simulation slows down. The second one is "presence"; it's when the
-signal is "present" on the entire playground, at all nodes, and the
+signal is "present" on the entire scene, at all nodes, and the
 simulation speeds up. The third one is "recession"; it starts when the
 signal's "last bit" begins receding from the transmitter node, and lasts
 until the "last bit" has travelled past the farthest node. In this
@@ -203,7 +203,7 @@ by the visualizer's animation speed parameters. The two parameters are
 ``signalPropagationAnimationSpeed`` and
 ``signalTransmissionAnimationSpeed`` (not specified by default). The
 propagation animation speed pertains to the expansion/recession phase,
-when a signal boundary is propagating on the playground. The
+when a signal boundary is propagating on the scene. The
 transmission animation speed refers to the presence phase, when no
 signal boundary is visible. If no value is specified for these
 parameters, the ``signalPropagationAnimationTime`` and
@@ -219,7 +219,7 @@ node distances):
 -  Setting the propagation animation speed to 300/c, where c is the
    speed of light, results in the animation speed value of 10-6, and the
    animation of the propagating signal traveling 300 meters on the
-   playground in one second (when the playback speed is set to 1.)
+   scene in one second (when the playback speed is set to 1.)
 -  The transmission animation speed should be about two magnitudes
    larger, as the time it takes for the propagating signal to reach the
    node farthest from the transmitter is two magnitudes smaller than the
@@ -244,7 +244,7 @@ The example configuration for this section uses the following network:
 .. figure:: multiplenodesnetwork.png
    :width: 100%
 
-The playground size is 1000x500 meters. The network contains three
+The scene size is 1000x500 meters. The network contains three
 ``AdhocHosts``. The ``source`` is configured to ping the
 ``destination``. The communication ranges are configured so that hosts
 can reach only the adjacent hosts. The center host is configured to
@@ -266,7 +266,7 @@ The visualizer's configuration keys are the following:
 
 The visualization of propagating radio signals is turned on. The
 animation speed for the expansion and recession specified so that the
-expanding signal will travel 500 meters per second on the playground.
+expanding signal will travel 500 meters per second on the scene.
 The indication of signal departures and arrivals are also turned on. The
 communication and interference range circles are not enabled in this
 simulation; the following screenshot illustrates where the communication
@@ -286,7 +286,7 @@ The video above depicts a UDP packet from ``source`` as it makes its way
 to ``destination``. When a node starts to transmit a frame, the
 simulation is slower than during the propagation phase. As per the
 parameters, the transmission travels 500 meters per second on the
-playground. The animation durations of the transmissions are different
+scene. The animation durations of the transmissions are different
 for certain packets. The UDP packet transmission from ``relay`` takes
 more time than the one from ``source`` because of the different bitrate.
 Transmission of the ACKs are the shortest, because they are smaller
@@ -302,7 +302,7 @@ signals looks like. It uses the following network:
 .. figure:: interferencenetwork.png
    :width: 100%
 
-The playground size is 1000x500 meters. The network contains three
+The scene size is 1000x500 meters. The network contains three
 ``AdhocHosts`` laid out in a chain, just like in the previous
 configuration. The hosts on the two sides, ``source1`` and ``source2``,
 are configured to ping the host in the middle, ``destination``. There is
@@ -327,13 +327,13 @@ range with the destination, the simulatenous transmissions result in
 collisions.
 
 The simulation slows down whenever there is a signal boundary
-propagating on the playground, even when there is also a signal with no
+propagating on the scene, even when there is also a signal with no
 boundary present. Such is the case in the above video. ``source1``
 starts transmitting, and the signal edge is propagating. When it reaches
 the farthest node, ``source2``, the signal is present on the entire
-playground, and the simulation speeds up. When ``source2`` starts
+scene, and the simulation speeds up. When ``source2`` starts
 transmitting, the simulation slows down again, despite that
-``source1``'s signal is still present on the entire playground.
+``source1``'s signal is still present on the entire scene.
 
 Generally, several signals being present at a receiving node doesn't
 necessarily cause collision. One of the signals might not be strong

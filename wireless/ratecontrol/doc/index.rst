@@ -18,7 +18,7 @@ Source files location: `inet/showcases/wireless/ratecontrol <https://github.com/
 The model
 ---------
 
-Two hosts will move around on the playground, while one of them will
+Two hosts will move around on the scene, while one of them will
 send a wireless UDP stream to the other. Sometimes the transmission will
 be partially blocked by an obstacle, causing packet loss. Scenarios will
 demonstrate how this affects the throughput when the hosts use rate
@@ -62,10 +62,10 @@ The network
 ~~~~~~~~~~~
 
 Two ``StandardHosts`` (``sourceHost`` and ``sinkHost``) are placed on
-the edge of the playground. During the simulation, they will move along
-the edge of the playground with different speeds, while ``sourceHost``
+the edge of the scene. During the simulation, they will move along
+the edge of the scene with different speeds, while ``sourceHost``
 will send UDP packets to ``sinkHost``. There is a forest in the middle
-of the playground, acting as an obstacle. The line of transmission will
+of the scene, acting as an obstacle. The line of transmission will
 intersect the obstacle at certain times, which will degrade
 transmissions.
 

@@ -157,7 +157,7 @@ In the network, the wireless sensor nodes are of the type
 The node named ``server`` is a :ned:`StandardHost`. The network also
 contains an :ned:`Ipv4NetworkConfigurator`, an :ned:`IntegratedVisualizer`,
 and an :ned:`ApskScalarRadioMedium` module. The nodes are placed against
-the backdrop of a warehouse floorplan. The playground size is 60x30
+the backdrop of a warehouse floorplan. The scene size is 60x30
 meters. The warehouse is just a background image providing context.
 Obstacle loss is not modelled, so the background image doesn't affect
 the simulation in any way.

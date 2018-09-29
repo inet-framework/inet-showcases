@@ -46,8 +46,8 @@ configurable number of mobile nodes (hosts) and an :ned:`IntegratedVisualizer` m
    :scale: 80%
    :align: center
 
-Here are the key parts of the configuration regarding the visualization of the 
-playground in 3D:
+Here are the key parts of the configuration regarding the visualization of the
+scene in 3D:
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
@@ -119,7 +119,7 @@ In this example we use the ``drone.ive`` as the 3D OSG model of the hosts:
    :end-at: *.host[*].osgModel = "3d/drone.ive
 
 The :ned:`MassMobility` model is used in the drones in order to achieve a lifelike
-motion. 
+motion.
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
