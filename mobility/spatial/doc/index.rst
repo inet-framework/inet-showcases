@@ -1,14 +1,14 @@
-Spatial Movement
-================
+3D Mobility
+===========
 
 Goals
 -----
 
 Simulating scenarios that involve aircraft, drones, etc. require modeling
-of movement in three dimensions. In this showcase, we show how spatial
+of movement in three dimensions. In this showcase, we show how such spatial
 movement can be produced and visualized with INET.
 
-INET version: ``4.0``
+INET version: ``4.1``
 
 Source files location: `inet/showcases/mobility/spatial <https://github.com/inet-framework/inet-showcases/tree/master/mobility/spatial>`__
 
@@ -39,15 +39,15 @@ you won't be able to switch to 3D view using globe icon on the Qtenv toolbar.
 The model
 ---------
 
-The simulations use the :ned:`MobilityShowcase3D` network. It contains a configurable
-number of hosts, an :ned:`IntegratedVisualizer` module, and a :ned:`PhysicalEnvironment` module.
+The simulations use the :ned:`MobilityShowcase3D` network. It contains a
+configurable number of mobile nodes (hosts) and an :ned:`IntegratedVisualizer` module.
 
 .. figure:: Playground2D.png
-   :scale: 100%
+   :scale: 80%
    :align: center
 
-Here are the key parts of the configuration regarding the visualization of the playground
-in 3D:
+Here are the key parts of the configuration regarding the visualization of the 
+playground in 3D:
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
@@ -57,23 +57,16 @@ in 3D:
 By default, :ned:`IntegratedVisualizer` only contains an :ned:`IntegratedCanvasVisualizer`
 as submodule, but no OSG visualizer. To add it, we need to set the ``osgVisualizer`` submodule
 type to :ned:`IntegratedOsgVisualizer`. We use the ``desert`` image as ground,
-and set the background color (:par:`clearColor`) set to ``skyblue``. The coordinate axes
-can be displayed by setting the :par:`axisLength` parameter.
-
-The physical environment module is normally used for adding physical objects (obstacles
-for signal propagation) to the scene; here we use it to stretch the rendered physical
-environment a little larger than the constraint area of the mobility models, to enhance
-visual appearance.
+and set the background color (:par:`clearColor`) set to ``skyblue``.
+The coordinate axes can be displayed by setting the :par:`axisLength` parameter.
+Additional settings (not shown above) stretch the rendered scene a little larger
+than the constraint area of the mobility models to enhance visual appearance.
 
 Further settings enable various effects in the mobility visualization. Note however, that
 at the time of writing, not all features are implemented in :ned:`MobilityOsgVisualizer`
 (practically, only trail visualization is).
 
-The configurator module path in the hosts is set to the empty string, because
-the model does not need a network configurator (there is no communication
-between the hosts).
-
-The playground looks like the following, when the simulation is run in 3D:
+When simulations are run, the scene looks like the following in 3D view:
 
 .. figure:: 3DPlayground.png
    :scale: 100%
@@ -96,9 +89,11 @@ is also rotated by 180 degrees so that it faces forward as it moves.
    :start-at: *.host[*].osgModel = "3d/glider.osgb
    :end-at: *.host[*].osgModel = "3d/glider.osgb
 
-We configure the glider to move along a spiral path. This is achieved using the :ned:`SuperpositioningMobility`
-mobility model with :ned:`LinearMobility` and :ned:`CircleMobility` as its elements. This looks like
-the following in the configuration:
+We configure the glider to move along a spiral path. This is achieved using the
+:ned:`SuperpositioningMobility` mobility model with :ned:`LinearMobility` and
+:ned:`CircleMobility` as its components. The superposition of a circular motion
+in the XY plane and a linear motion in the positive Z direction will yield
+a spiral path. This looks like the following in the configuration:
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
@@ -124,12 +119,18 @@ In this example we use the ``drone.ive`` as the 3D OSG model of the hosts:
    :end-at: *.host[*].osgModel = "3d/drone.ive
 
 The :ned:`MassMobility` model is used in the drones in order to achieve a lifelike
-motion:
+motion. 
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
    :start-at: *.host[*].mobility.typename = "MassMobility"
    :end-at: *.host[*].mobility.faceForward = false
+
+The speed of drones is updated at every change interval, but more importantly,
+they also turn by a random but small angle. The change angle is nearly parallel
+to the XY plane, but not quite: there is a random inclination
+denoted by the :par:`rotationAxisAngle` parameter, which will cause the drones
+to ramble in three dimensions.
 
 The following video shows the movement of the drones:
 
