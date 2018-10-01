@@ -158,5 +158,6 @@ documentation.
 Discussion
 ----------
 
-Use this page in the GitHub issue tracker for commenting on this
+Use `this
+page <https://github.com/inet-framework/inet-showcases/issues/15>`__ in the GitHub issue tracker for commenting on this
 showcase.

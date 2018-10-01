@@ -268,5 +268,6 @@ visualization. For more information, refer to the
 Discussion
 ----------
 
-Use this page in the GitHub issue tracker for commenting on this
+Use `this
+page <https://github.com/inet-framework/inet-showcases/issues/11>`__ in the GitHub issue tracker for commenting on this
 showcase.
