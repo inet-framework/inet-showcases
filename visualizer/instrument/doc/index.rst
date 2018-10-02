@@ -1,23 +1,20 @@
 :orphan:
 
-Visualizing Information with Instrument Figures
-===============================================
+Displaying Statistics using Instrument Figures
+==============================================
 
 Goals
 -----
 
-In a complex simulation, there can be many statistics that are important
-to understand what is happening in the network. These are available in
-the depts of the inspector panel, and submodules of network nodes might
-display them, many levels down. However, it is convenient to visualize
-this data at the top level canvas. This information can be intuitively
-visualized with instrument figures, which can display important states
-and numeric data in the form of various gauges and meters. There are
-several instrument figure types available, each suited for displaying
-particular kinds of data.
+In complex simulations, there are usually several statistics that are vital
+for understanding what is happening inside the network. Although statistics
+can also be found and read in Qtenv's object inspector panel, it is often more
+convenient to directly display them on the top-level canvas in a graphical form.
+INET supports such visualization in the form of inspector figures
+that display various gauges and meters.
 
-This showcase contains a configuration that demonstrates multiple
-instrument figures.
+This showcase contains a configuration that demonstrates multiple instrument
+figures.
 
 | INET version: ``4.0``
 | Source files location: `inet/showcases/visualizer/instrument <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrument>`__
@@ -25,198 +22,147 @@ instrument figures.
 About the instrument figures
 ----------------------------
 
-.. There are several types of instrument figures available in INET. Some of
-   them are the following:
-
 Some of the instrument figure types available in INET are the following:
 
-- *gauge:* A circular gauge similar to a speedometer or pressure indicator
+- *gauge:* A circular gauge similar to a speedometer or pressure indicator.
 
 .. figure:: gauge.png
    :align: center
 
-- *linearGauge:* A horizontal linear gauge similar to a vu meter
+- *linearGauge:* A horizontal linear gauge similar to a VU meter.
 
 .. figure:: linear.png
    :align: center
 
-- *progressMeter:* A horizontal progress bar
+- *progressMeter:* A horizontal progress bar.
 
 .. figure:: progress.png
    :align: center
 
-- *couter:* An integer counter
+- *counter:* An integer counter.
 
 .. figure:: counter.png
    :align: center
 
-- *thermometer:* A vertical meter similar to a thermometer
+- *thermometer:* A vertical meter visually similar to a real-life thermometer.
 
 .. figure:: thermometer.png
    :align: center
 
-- *indexedImage:* A figure displaying images corresponding to different states
+- *indexedImage:* A figure that displays one of several images: the first image for the value 0, the second image for the value of 1, and so on.
 
-.. image:: idle.png
-   :width: 10%
+.. image:: trafficlights.png
+   :width: 30%
    :align: center
 
-.. image:: listen.png
-   :width: 10%
-   :align: center
-
-.. image:: clock.png
-   :width: 10%
-   :align: center
-
-- *plot:* A graph figure that can plot a statistic vs. time
+- *plot:* An XY chart that plots a statistic in the function of time.
 
 .. figure:: plot.png
    :align: center
 
 
-There are three components needed for the figures to work: a signal, a
-statistic, and a figure.
-
--  Various submodules in the network emit ``signals`` during the
-   simulation. The signals carry numeric data and information about
-   state changes.
--  ``Statistics`` are derived from the signals, often through
-   mathematical operations on the signal data.
--  ``Figures`` display the value of the statistics.
-
-Figures are configured in NED files. The configuration is illustrated by
-the following example:
-
--  A signal called ``rcvdPk`` is defined in a submodule (e.g. a TCP
-   application). The signal is emitted whenever a packet arrives:
-
-   .. code-block:: none
-
-      @signal[rcvdPk](type=cPacket);
-
--  A statistic called ``numRcvdPk`` and a figure called
-   ``numRcvdPkCounter`` is declared in the simulation's NED file. This
-   statistic counts how many times the rcvdPk signal is emitted. It
-   records the value in the numRcvdPkCounter figure. The type of the
-   figure is specified to be ``counter``, which is a figure type well
-   suited for counting packets.
-
-   .. code-block:: none
-
-      @statistic[numRcvdPk](source=count(rcvdPk); record=figure; targetFigure=numRcvdPkCounter);
-      @figure[numRcvdPkCounter](type=counter);
-
-.. todo::
-
-   this seems redundant
-
-Instrument figures visualize statistics derived from signals emited by
-modules in the network. This statistic is declared in the NED file, with
-the ``@statistic`` property. The property's ``source`` attribute is an
-expression that specifies the source signal and mathematical operations
-to derive the statistic. The property's ``source`` attribute is an
-expression that specifies which signals to use from which modules, and
-the mathematical operations on it, to derive the statistic. The
-``record`` attribute specifies where the values of the statistic is
-recorded into. In the case of instrument figures, this is set to
-``figure``, i.e. record=figure. This records the values of the statistic
-into a figure, instead of vectors or histograms used in post simulation
-analysis. The ``targetFigure`` property selects which figure should
-display the statistic. The instrument figure is specified in the NED
-file with the ``@figure`` property. The property's ``type`` attribute
-selects the type of the instrument figure. Here is an example from this
-configuration's NED file:
-
-.. code-block:: none
-
-   @figure[numRcvdPkCounter](type=counter; pos=413,327; label="Packets received"; decimalPlaces=4); @statistic[numRcvdPk](source=count(client.tcpApp[0].rcvdPk); record=figure; targetFigure=counter);
-
-This creates a figure named ``numRcvdPkCounter``, which is a counter
-type figure. The statistic ``numRcvdPk`` counts the number of packets
-received by ``client's TCP app``, and records it in the
-``numRcvdPkCounter`` figure.
-
-Instrument figures have various attributes that can customize their
-position, size, appearence, label text and font, minimum and maximum
-values, and so on.
-
-Using instrument figures
-------------------------
+The Network
+-----------
 
 The configuration for this showcase demonstrates the use of several
-instrument figures. It uses this network:
+instrument figures. It uses the following network:
 
 .. figure:: network3.png
-   :width: 100%
+   :width: 80%
 
-There are two ``AdhocHosts``. The visualizer is needed only to display
-the server's communication range. The scenario is that the ``client``
-connects to the ``server`` via wifi, and downloads a 1-megabyte file.
-The following statistics are displayed by instrument figures:
+The network contains two :ned:`AdhocHost` nodes, a client and a server. 
+(The visualizer is only needed to display the server's communication range.)
+The scenario is that client connects to the server via WiFi, and downloads a 1-megabyte file.
+The client is configured to first move away from the server, eventually
+moving out of its transmission range, then to move back. 
+Both hosts are configured to use WiFi adaptive rate control (:ned:`AarfRateControl`),
+so the WiFi transmission bit rate will adapt to the changing channel
+conditions, resulting in a varying application level throughput.
 
--  Application level throughput is displayed by a ``gauge`` figure.
-   Throughput is averaged over 0.1s or 100 packets.
--  Wifi bit rate determined by automatic rate control is displayed by a
-   ``linearGauge`` figure and a ``plot`` figure
--  Packet error rate estimated at the physical layer from signal to
-   noise ratio at the client, is displayed by a ``thermometer`` figure
-   and a ``plot`` figure
--  The Wifi MAC channel access contention state of the server is
+The Instruments
+---------------
+
+We would like the following statistics to be displayed using instrument figures:
+
+-  Application level throughput should be displayed by a ``gauge`` figure,
+   where throughput is averaged over 0.1s or 100 packets;
+-  Wifi bit rate determined by automatic rate control should be displayed by a
+   ``linearGauge`` figure and a ``plot`` figure;
+-  Packet error rate at the client, estimated at the physical layer from signal-to-noise
+   ratio, should be displayed by a ``thermometer`` figure and 
+   a ``plot`` figure;
+-  The Wifi MAC channel access contention state of the server should be
    displayed by an ``indexedImage`` figure. IDLE means nothing to send,
    DEFER means the channel is in use, IFS\_AND\_BACKOFF means channel is
-   free and contending to acquire channel
--  Download progress is displayed by a ``progessMeter`` figure
--  The number of socket data transfers to the client application is
-   displayed by a ``counter`` figure
+   free and contending to acquire channel;
+-  Download progress should be displayed by a ``progessMeter`` figure;
+-  The number of socket data transfers to the client application should be
+   displayed by a ``counter`` figure.
 
-The client is configured to move horiztontally back and forth, initially
-moving away from the server. The hosts are configured to use
-:ned:`AarfRateControl`, so the wifi speed and the application level
-throughput are expected to gradually drop as the client moves away from
-the server.
+This is achieved by adding the following lines to the network compound
+module:
 
-The gauge, linear gauge, and the thermometer figures have
-``minValue, maxValue and tickSize`` parameters, which can be used to
-customize the range and the granularity of the figures.
+.. literalinclude:: ../InstrumentShowcase.ned
+   :language: ned
+   :start-at: @statistic[throughput]
+   :end-at: @figure[bitratePlot]
 
--  The ``gauge`` figure ticks are configured to go from 0 to 25 Mbps in
+How does that work? Take the first one, ``throughputGauge``, for example.
+Instrument figures visualize statistics derived from OMNeT++ signals,
+emitted by modules in the network. The ``source`` attribute of 
+``@statistic[throughput]`` declares that the ``client.app[0]`` module's 
+``packetReceived`` signal should be taken (it emits the packet object),
+and the ``throughput()`` result filter should be applied and divided by
+1000000 to get the throughput in Mbps.
+Further two attributes, ``record`` and ``targetFigure`` specify that the
+resulting values should be sent to the ``throughputGauge`` instrument
+figure. The next, ``@figure[throughputGauge]`` line defines the figure
+in question. It sets the figure type to ``gauge``, and specifies various 
+attributes such as position, size, minimum and maximum value, and so on.
+
+Further details:
+
+-  The ``gauge``, ``linearGauge``, and ``thermometer`` figure types have
+   ``minValue``, ``maxValue`` and ``tickSize`` parameters, which can be used to
+   customize the range and the granularity of the figures.
+-  The ``throughputGauge`` figure's ticks are configured to go from 0 to 25 Mbps in
    5 Mbps increments - the maximum theoretical application level
-   throughput of g mode wifi is about 25 Mbps. The application level
+   throughput of WiFi "g" mode is about 25 Mbps. The application level
    throughput is computed from the the received packets at the client,
-   using the ``throughput`` result filter. It is divided by 1 million to
-   get the values in Mbps instead of Bps.
--  The ``linear gauge`` figure ticks are configured to go from 0 to 54
-   Mbps in increments of 6, thus all modes in 802.11g falls at a mark,
-   e.g. 54, 48, 36, 24 Mbps and so on. It is driven by the
+   using the ``throughput`` result filter.
+-  The ``bitrateLinearGauge`` figure's ticks are configured to go from 0 to 54
+   Mbps in increments of 6, thus all modes in 802.11g align with ticks,
+   e.g. 54, 48, 36, 24 Mbps and so on. The gauge is driven by the
    ``databitrate`` signal, again divided by 1 million to get the values
    in Mbps.
--  The ``thermometer`` figure displays the packet error rate estimation
+-  The ``perThermometer`` figure displays the packet error rate estimate
    as computed by the client's radio. The ticks go from 0 to 1, in
    increments 0.2. It is driven by the ``packetErrorRate`` signal of the
    client's radio.
--  There are two ``plot figures`` in the network. The ``perPlot`` figure
+-  There are two ``plot`` figures in the network. The ``perPlot`` figure
    displays the packet error rate in the client's radio over time. The
    time window is set to three seconds, so data from the entire
    simulation fits in the graph. The ``bitratePlot`` figure displays the
-   Wifi bit rate over time. Its value goes from 0 to 54, and the time
+   WiFi bit rate over time. Its value goes from 0 to 54, and the time
    window is 3 seconds.
--  The ``counter`` figure displays the number of data transfers received
+-  The ``numRcvdPkCounter`` figure displays the number of data transfers received
    by the client. It takes about 2000 packets to transmit the file, thus
    the number of decimal places to display is set to 4, instead of the
    default 3. It is driven by the ``rcvdPk`` signal of the client's TCP
    app, using the ``count`` result filter to count the packets.
--  The ``progress`` figure is used to display the progress of the file
-   transfer. The bytes recieved by the client's TCP app is summed, and
+-  The ``progressMeter`` figure is used to display the progress of the file
+   transfer. The bytes received by the client's TCP app are summed, and
    divided by the total size of the file. The result is multiplied by
    100 to get the value of progress in percent.
--  The ``indexedImage`` figure is used to display the contention state
+-  An ``indexedImage`` figure is used to display the contention state
    of the server's MAC. An image is assigned to each contention state -
    IDLE, DEFER, IFS\_AND\_BACKOFF. The images are specified by the
    figure's ``images`` attribute. Images are listed in the order of the
-   contention states as defined in Contention.h file. Images must be on
-   the IMAGE\_PATH? The custom images we use TODO: its possible to use
-   custom images, we're using custom images here
+   contention states as defined in Contention.h file.
+
+
+Running the Simulation
+----------------------
 
 This video illustrates what happens when the simulation is run:
 
@@ -248,28 +194,15 @@ The following picture (a zoomed in view of the ``plot1`` figure) clearly
 shows these fluctuations. It also shows packet error rate as a function
 of distance (due to constant speed).
 
-.. todo::
-
-   or not to do? In some ranges where the wifi bit rate is quasy-constant, the figure is similar to the one in such example.
-
-   .. figure:: per.png
-      :width: 100%
-
-   TODO: about the throughput, the contention state, more about the packet error rate fluctuation
-
-   TODO: why does the simulation speed up when the client is out of the
-   communication range?
 
 Further information
 -------------------
 
-For more information, refer to the documentation of the figures.
-
-TODO: ...which are non existent now? the omnet manual has information
-about figures in general
+For more information, refer to the :ref:`ug:cha:instrument-figures` chapter
+of the INET User's Guide.
 
 Discussion
 ----------
 
-Use `this page <TODO>`__ in the GitHub issue tracker for commenting on
-this showcase.
+Use `this page <https://github.com/inet-framework/inet-showcases/issues/???>`__ in
+the GitHub issue tracker for commenting on this showcase.

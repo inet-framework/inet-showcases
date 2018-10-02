@@ -24,29 +24,29 @@ network InstrumentShowcase
 {
     @display("bgb=840,400");
 
-    @figure[throughputGauge](type=gauge; pos=190,30; size=100,100; minValue=0; maxValue=25; tickSize=5; label="Application level throughput [Mbps]");
     @statistic[throughput](source=throughput(client.app[0].packetReceived)/1000000; record=figure; targetFigure=throughputGauge; checkSignals=false);
+    @figure[throughputGauge](type=gauge; pos=190,30; size=100,100; minValue=0; maxValue=25; tickSize=5; label="Application level throughput [Mbps]");
 
-    @figure[bitrateLinearGauge](type=linearGauge; pos=385,108; size=250,30; minValue=0; maxValue=54; tickSize=6; label="Wifi bit rate [Mbps]");
     @statistic[bitrate1](source=server.wlan[0].mac.dcf.rateControl.datarate/1000000; record=figure; targetFigure=bitrateLinearGauge);
+    @figure[bitrateLinearGauge](type=linearGauge; pos=385,108; size=250,30; minValue=0; maxValue=54; tickSize=6; label="Wifi bit rate [Mbps]");
 
-    @figure[progressMeter](type=progressMeter; pos=65,330; size=300,20; text="%.4g%%"; label="Download progress");
     @statistic[progress](source=100 * sum(packetBytes(client.app[0].packetReceived)) / 1048576; record=figure; targetFigure=progressMeter; checkSignals=false);
+    @figure[progressMeter](type=progressMeter; pos=65,330; size=300,20; text="%.4g%%"; label="Download progress");
 
-    @figure[numRcvdPkCounter](type=counter; pos=413,327; label="Packets received"; decimalPlaces=4);
     @statistic[numRcvdPk](source=count(client.app[0].packetReceived); record=figure; targetFigure=numRcvdPkCounter; checkSignals=false);
+    @figure[numRcvdPkCounter](type=counter; pos=413,327; label="Packets received"; decimalPlaces=4);
 
-    @figure[perThermometer](type=thermometer; pos=710,45; size=30,180; minValue=0; maxValue=1; tickSize=0.2; label="Packet error rate");
     @statistic[per1](source=packetErrorRate(client.wlan[0].radio.packetSentToUpper); record=figure; targetFigure=perThermometer);
+    @figure[perThermometer](type=thermometer; pos=710,45; size=30,180; minValue=0; maxValue=1; tickSize=0.2; label="Packet error rate");
 
-    @figure[ctnIndexedImage](type=indexedImage; pos=570,338; size=32,32; images=showcases/idle,showcases/listen,showcases/clock; label="contention state"; labelOffset=0,25; interpolation=best);
     @statistic[ctn](source=server.wlan[0].mac.dcf.channelAccess.contention.stateChanged; record=figure; targetFigure=ctnIndexedImage); // note: indexedImage takes the value modulo the number of images
+    @figure[ctnIndexedImage](type=indexedImage; pos=570,338; size=32,32; images=showcases/idle,showcases/listen,showcases/clock; label="contention state"; labelOffset=0,25; interpolation=best);
 
-    @figure[perPlot](type=plot; pos=647,260; size=150,90; timeWindow=3; maxValue=1; valueTickSize=1; label="Packet Error Rate");
     @statistic[per2](source=packetErrorRate(client.wlan[0].radio.packetSentToUpper); record=figure; targetFigure=perPlot);
+    @figure[perPlot](type=plot; pos=647,260; size=150,90; timeWindow=3; maxValue=1; valueTickSize=1; label="Packet Error Rate");
 
-    @figure[bitratePlot](type=plot; pos=385,25; size=250,40; timeWindow=3; maxValue=55; valueTickSize=54; label="Wifi bit rate [Mbps]"; numberSizeFactor=2.5);
     @statistic[bitrate2](source=server.wlan[0].mac.dcf.rateControl.datarate/1000000; record=figure; targetFigure=bitratePlot);
+    @figure[bitratePlot](type=plot; pos=385,25; size=250,40; timeWindow=3; maxValue=55; valueTickSize=54; label="Wifi bit rate [Mbps]"; numberSizeFactor=2.5);
 
     submodules:
         configurator: Ipv4NetworkConfigurator {
