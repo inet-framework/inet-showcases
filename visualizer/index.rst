@@ -44,10 +44,9 @@ Generic:
 
 .. toctree::
    :maxdepth: 1
-
+   instrumentfigures/doc/index
    styling/doc/index
 .. filtering/doc/index
-.. instrument/doc/index
 .. statistic/doc/index
 .. info/doc/index
 .. advanced/doc/index

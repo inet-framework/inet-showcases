@@ -1,7 +1,5 @@
-:orphan:
-
-Displaying Statistics using Instrument Figures
-==============================================
+Instrument Figures
+==================
 
 Goals
 -----
@@ -17,10 +15,10 @@ This showcase contains a configuration that demonstrates multiple instrument
 figures.
 
 | INET version: ``4.0``
-| Source files location: `inet/showcases/visualizer/instrument <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrument>`__
+| Source files location: `inet/showcases/visualizer/instrumentfigures <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrumentfigures>`__
 
-About the instrument figures
-----------------------------
+About Instrument Figures
+------------------------
 
 Some of the instrument figure types available in INET are the following:
 
@@ -206,3 +204,4 @@ Discussion
 
 Use `this page <https://github.com/inet-framework/inet-showcases/issues/???>`__ in
 the GitHub issue tracker for commenting on this showcase.
+
