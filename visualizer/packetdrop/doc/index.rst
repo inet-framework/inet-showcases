@@ -12,10 +12,10 @@ in a wireless network can cause senders to drop unacknowledged packets
 after the retry limit is exceeded. Congestion can cause queues to
 overflow in a bottleneck router, again resulting in packet drops.
 
-This example contains several simulation models demonstrating typical
+This showcase contains several simulation models demonstrating typical
 causes of packet drops.
 
-INET version: ``3.6``
+INET version: ``4.0``
 
 Source files location: `inet/showcases/visualizer/packetdrop <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/packetdrop>`__
 
@@ -29,14 +29,23 @@ packet drop occurs. In the animation, a packet icon gets thrown out from
 the node icon, and fades away.
 
 The visualization of packet drops can be enabled with the visualizer's
-``displayPacketDrops`` parameter. By default, packet drops at all nodes
+``displayPacketDrops`` parameter. By default, all packet drops at all nodes
 are visualized. This selection can be narrowed with the ``nodeFilter``,
-``interfaceFilter`` and ``packetFilter`` parameters.
+``interfaceFilter`` and ``packetFilter`` parameters, which match for node, interface and packet names.
+Additionally, the ``packetDataFilter`` parameter can be used to filter for packet data contents,
+and the ``detailsFilter`` parameter to filter for packet drop reason.
 
-One can click on the packet drop icon to display information about the
-packet drop in the inspector panel.
+The ``packetFormat`` parameter is a format string, and specifies the text displayed with the packet drop animation.
+By default, the dropped packet's name is displayed.
+The format string can contain the following directives:
 
-Packets are dropped for the following reasons:
+- `%n`: packet name
+- `%c`: packet class
+- `%r`: drop reason
+
+Packets are dropped for the following reasons, for example:
+
+.. For example, some of the reasons packets are dropped for are the following:
 
 -  queue overflow
 -  retry limit exceeded
@@ -44,9 +53,21 @@ Packets are dropped for the following reasons:
 -  network address resolution failed
 -  interface down
 
+One can click on the packet drop icon to display information about the
+packet drop in the inspector panel, such as the packet drop reason,
+or the module where the packet was dropped:
+
+.. figure:: inspector2.png
+   :width: 70%
+   :align: center
+
 .. todo::
 
    The color of the icon indicates the reason for the packet drop
+   There is a list of reasons, identified by a number
+
+The following sections demonstrate some reasons for dropped packets, with example simulations.
+In the simulations, the ``PacketDropVisualizer`` is configured to indicate the packet name and the drop reason.
 
 Queue overflow
 --------------
@@ -80,22 +101,23 @@ queues have infinite lengths). The packets are dropped at the ethernet
 queue of the switch.
 
 The visualization is activated with the ``displayPacketDrops``
-parameter. The fade out time is set to three seconds, so that the packet
-drop animation is more visible:
+parameter. The visualizer is configured to display the packet name
+and the drop reason, by setting the ``labelFormat`` parameter.
+Alos, the fade out time is set to three seconds, so that the packet
+drop animation is more visible.
 
-.. code-block:: none
-
-   *.visualizer.*.packetDropVisualizer.displayPacketDrops = true
-   *.visualizer.*.packetDropVisualizer.fadeOutTime = 3s
+.. literalinclude:: ../omnetpp.ini
+   :start-at: displayPacketDrops
+   :end-at: labelFormat
+   :language: ini
 
 When the simulation is run, the UDP stream starts at around two seconds,
 and packets start accumulating in the queue of the switch. When the
 queue fills up, the switch starts dropping packets. This is illustrated
 in this animation:
 
-.. video:: packetdrop4.mp4
+.. video:: queueoverflow1.mp4
    :width: 628
-   :height: 260
 
 Here is the queue in the switch's eth1 interface, showing the number of
 packet drops:
@@ -128,9 +150,8 @@ dropped.
 
 The following animation illustrates this:
 
-.. video:: packetdrop18.mp4
+.. video:: arp1.mp4
    :width: 366
-   :height: 386
 
 This excerpt shows this in the log:
 
@@ -158,9 +179,8 @@ MAC module drops the packets after the retry limit has been reached.
 
 This is illustrated in the following animation:
 
-.. video:: packetdrop14.mp4
+.. video:: retry.mp4
    :width: 512
-   :height: 385
 
 This looks like the following in the logs:
 
@@ -185,9 +205,8 @@ and ``host1`` is configured to ping ``host2``.
 The ping packets can't be routed, thus the IP module drops them. This is
 illustrated on the following video:
 
-.. video:: packetdrop21.mp4
+.. video:: noroute.mp4
    :width: 416
-   :height: 482
 
 Here is also a log excerpt illustrating this:
 
@@ -211,9 +230,8 @@ Since the cable between the hosts is configured to be disabled, the MAC
 module is unable to send the packets, and drops them. This is
 illustrated on the following animation:
 
-.. video:: packetdrop22.mp4
+.. video:: notconnected.mp4
    :width: 414
-   :height: 477
 
 Note the packet drop animation at ``host1``. The packet drops are also
 evidenced in the log:
