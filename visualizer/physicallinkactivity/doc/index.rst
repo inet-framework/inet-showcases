@@ -13,9 +13,8 @@ graphical feedback about physical layer traffic.
 The showcase consists of three simulation models, each demonstrating
 different features of the physical link visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/physicallinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicallinkactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/physicallinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicallinkactivity>`__
 
 About the Visualizer
 --------------------
@@ -59,9 +58,10 @@ simulation, ``source`` will be pinging ``destination``.
 Physical link activity visualization is enabled by setting the
 ``displayLinks`` parameter to true.
 
-.. code-block:: none
-
-   *.linkVisualizer.*.displayLinks = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: displayLinks
+   :end-at: displayLinks
+   :language: ini
 
 The following animation shows what happens when we start the simulation.
 
@@ -112,11 +112,10 @@ and ACK frames, are not displayed by :ned:`PhysicalLinkVisualizer`.
 
 We use the following configuration for the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.physicalLinkVisualizer.displayLinks = true
-   *.visualizer.*.physicalLinkVisualizer.packetFilter = "ping*"
-   *.visualizer.*.physicalLinkVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-at: physicalLinkVisualizer.displayLinks
+   :end-at: fadeOutTime
+   :language: ini
 
 The following video shows what happens when the simulation is run. The
 video was captured from the point when the hosts had already associated
@@ -159,12 +158,10 @@ The visualizer's ``packetFilter`` parameter is set to display only
 
 Here is the configuration of the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.physicalLinkVisualizer.displayLinks = true
-   *.visualizer.*.physicalLinkVisualizer.packetFilter = "*Broadcast*"
-   *.visualizer.*.physicalLinkVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.physicalLinkVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Visualizer settings
+   :end-at: fadeOutTime
+   :language: ini
 
 The following video shows what happens when we run the simulation. (If
 the video does not show up, try refreshing the page with Ctrl+Shift+R.)

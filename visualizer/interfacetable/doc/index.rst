@@ -13,11 +13,11 @@ While it is true that addresses and other interface data can also be
 accessed in the GUI by diving into the interface tables of each node,
 that is tedious, and unsuitable for getting an overview.
 
-This example contains two configurations. The first one demonstrates the
+This showcase contains two example simulations. The first one demonstrates the
 visualization with the visualizer's default settings, the second one is
 about the advanced features.
 
-INET version: ``3.6``
+INET version: ``4.0``
 
 Source files location: `inet/showcases/visualizer/interfacetable <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/interfacetable>`__
 
@@ -38,16 +38,15 @@ The visualizer has several configuration parameters. The ``format``
 parameter specifies what information is displayed about interfaces. It
 takes a format string, which can contain the following directives:
 
--  %N: interface name
--  %4: IPv4 address
--  %6: IPv6 address
--  %n: network address. This is either the IPv4 or the IPv6 address
--  %l: netmask length
--  %M: MAC address
--  %\\: conditional newline for wired interfaces. The '\\' needs to be
-   escaped with another '\\', i.e. '%\\\\'
--  %i and %s: the info() and str() functions for the interfaceEntry
-   class, respectively
+-  ``%N``: interface name
+-  ``%4``: IPv4 address
+-  ``%6``: IPv6 address
+-  ``%n``: network address. This is either the IPv4 or the IPv6 address
+-  ``%l``: netmask length
+-  ``%M``: MAC address
+-  ``%\\``: conditional newline for wired interfaces. (Note that the backslash
+   needs to be doubled, due to escaping.)
+-  ``%s``: the ``str()`` functions for the interface entry class
 
 The default format string is ``"%N %\\%n/%l"``, i.e. interface name, IP
 address and netmask length.
@@ -79,9 +78,10 @@ auto-assigned by an :ned:`Ipv4NetworkConfigurator` module.
 
 We enable visualization by the following configuration line:
 
-.. code-block:: none
-
-   *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: displayInterfaceTables
+   :end-at: displayInterfaceTables
+   :language: ini
 
 The interface names and the assigned IP addresses are displayed at the
 gates where the interfaces are connected. When the simulation is run,
@@ -113,9 +113,10 @@ get their addresses.
 We would like to hide the display of loopback addresses and of the
 unspecified address, so we set the following filter for the visualizer:
 
-.. code-block:: none
-
-   *.visualizer.*.interfaceTableVisualizer.interfaceFilter="not lo*  and not ipv4Address(< unspec >)"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: unspec
+   :end-at: unspec
+   :language: ini
 
 Initially, the addresses of the wired interfaces of ``host1``, ``host2``
 and the router are visualized. The wireless hosts have unspecified

@@ -43,7 +43,7 @@ The format string can contain the following directives:
 - `%c`: packet class
 - `%r`: drop reason
 
-Packets are dropped for the following reasons, for example:
+Packets can be dropped for the following reasons, for example:
 
 .. For example, some of the reasons packets are dropped for are the following:
 
@@ -108,7 +108,7 @@ drop animation is more visible.
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: displayPacketDrops
-   :end-at: labelFormat
+   :end-at: fadeOutTime
    :language: ini
 
 When the simulation is run, the UDP stream starts at around two seconds,

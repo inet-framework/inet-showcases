@@ -14,9 +14,8 @@ The visualization of physical objects present in the physical
 environment is essential. This showcase contains two example
 simulations, which demonstrate the visualization of physical objects.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/environment <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/environment <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/environment>`__
 
 About the visualizer
 --------------------
@@ -55,9 +54,10 @@ In this example configuration (``IsometricView`` in the ini file), the
 view is set to isometric projection. This is done by setting the
 ``viewAngle`` parameter in :ned:`SceneVisualizer`:
 
-.. code-block:: none
-
-   *.visualizer.canvasVisualizer.sceneVisualizer.viewAngle = "isometric"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: viewAngle
+   :end-at: viewAngle
+   :language: ini
 
 When the simulation is run, the network looks like the following.
 
@@ -78,6 +78,8 @@ use the mouse to move the camera and change the view angle.
 .. figure:: 3d.png
    :width: 80%
    :align: center
+
+Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`PhysicalEnvironmentVisualizationShowcase.ned <../PhysicalEnvironmentVisualizationShowcase.ned.ned>`
 
 Further information
 -------------------

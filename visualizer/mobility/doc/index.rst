@@ -13,9 +13,8 @@ but also indicates other properties like speed and direction.
 This showcase consists of one simulation model that demonstrates
 important features of the mobility visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/mobility <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/mobility>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/mobility <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/mobility>`__
 
 About the Visualizer
 --------------------
@@ -70,17 +69,10 @@ quite fast. In our next experiment, we enable movement trails, velocity
 vectors and orientation arcs. We expect that nodes can be tracked
 easier.
 
-.. code-block:: none
-
-   # Movement trail
-   *.visualizer.*.mobilityVisualizer.displayMovementTrails = true
-   *.visualizer.*.mobilityVisualizer.trailLength = 300
-
-   # Velocity vector
-   *.visualizer.*.mobilityVisualizer.displayVelocities = true
-
-   # Orientation arc
-   *.visualizer.*.mobilityVisualizer.displayOrientations = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: Movement trail settings
+   :end-at: displayOrientations
+   :language: ini
 
 The following video shows what happens when we run the simulation.
 
