@@ -164,8 +164,8 @@ Running the Simulation
 
 This video illustrates what happens when the simulation is run:
 
-.. video:: instrument18.mp4
-   :width: 698
+.. video:: instruments.mp4
+   :width: 904
 
 The client starts moving away from the server. At the beginning, the
 server transmits with 54 Mbps bit rate. The transmissions are received
