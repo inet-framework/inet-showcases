@@ -14,7 +14,7 @@ that display various gauges and meters.
 This showcase contains a configuration that demonstrates multiple instrument
 figures.
 
-| INET version: ``4.0``
+| INET version: ``4.1```
 | Source files location: `inet/showcases/visualizer/instrumentfigures <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrumentfigures>`__
 
 About Instrument Figures
@@ -165,7 +165,7 @@ Running the Simulation
 This video illustrates what happens when the simulation is run:
 
 .. video:: instruments.mp4
-   :width: 904
+   :width: 912
 
 The client starts moving away from the server. At the beginning, the
 server transmits with 54 Mbps bit rate. The transmissions are received
@@ -202,6 +202,6 @@ of the INET User's Guide.
 Discussion
 ----------
 
-Use `this page <https://github.com/inet-framework/inet-showcases/issues/???>`__ in
+Use `this page <https://github.com/inet-framework/inet-showcases/issues/29>`__ in
 the GitHub issue tracker for commenting on this showcase.
 
