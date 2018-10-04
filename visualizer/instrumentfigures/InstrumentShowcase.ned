@@ -24,7 +24,7 @@ network InstrumentShowcase
 {
     @display("bgb=900,500");
 
-    @statistic[throughput](source=throughput(client.app[0].packetReceived)/1000000; record=figure; targetFigure=throughputGauge; checkSignals=false);
+    @statistic[throughput](source=liveThroughput(client.app[0].packetReceived)/1000000; record=figure; targetFigure=throughputGauge; checkSignals=false);
     @figure[throughputGauge](type=gauge; pos=190,30; size=100,100; minValue=0; maxValue=25; tickSize=5; label="App level throughput [Mbps]");
 
     @statistic[bitrate1](source=server.wlan[0].mac.dcf.rateControl.datarate/1000000; record=figure; targetFigure=bitrateLinearGauge);
