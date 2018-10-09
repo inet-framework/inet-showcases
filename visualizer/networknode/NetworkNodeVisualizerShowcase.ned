@@ -18,9 +18,6 @@ import inet.node.inet.AdhocHost;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
-//
-// TODO documentation
-//
 network NetworkNodeVisualizerShowcase
 {
     @display("bgb=300,300");

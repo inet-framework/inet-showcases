@@ -1,17 +1,16 @@
-:orphan:
-
 Visualizing Network Nodes
 =========================
 
 Goals
 -----
 
-In network simulations, it is essential to visualize the participants of
-the communication. Customizing the appearance of nodes may also be
-important, for example, to highlight nodes or to distinguish nodes based
+INET provides several options for visualizing network nodes,
+both on the 2D canvas and in 3D scenes. Beyond aesthetics,
+customizing the appearance of nodes can also be useful, 
+for example, to highlight certain nodes or to distinguish nodes based
 on location or function.
 
-This showcase demonstrates how network nodes are visualized how their
+This showcase demonstrates how network nodes are visualized and how their
 appearance can be customized in INET simulations.
 
 | INET version: ``4.0``
@@ -23,92 +22,78 @@ About the Visualizer
 In INET simulations, :ned:`NetworkNodeVisualizer` module (included in the
 network as part of :ned:`IntegratedVisualizer`) is responsible for
 visualizing network nodes. :ned:`NetworkNodeVisualizer` includes two
-submodules: :ned:`NetworkNodeCanvasVisualizer` and
-:ned:`NetworkNodeOsgVisualizer`.
+submodules: :ned:`NetworkNodeCanvasVisualizer`, which is responsible for
+visualizing nodes on the 2D canvas, and :ned:`NetworkNodeOsgVisualizer`,
+which visualizes nodes in 3D scenes.
+Both visualizer modules operate on all network nodes by default, but you can narrow
+the list of nodes to be displayed by using the :par:`nodeFilter` parameter.
 
-All nodes can be visualized on a 2D canvas by the
-:ned:`NetworkNodeCanvasVisualizer` module and on a 3D scene by the
-:ned:`NetworkNodeOsgVisualizer` module. We can narrow the list of nodes to
-be displayed by using the ``nodeFilter`` parameter. The name of the node
-is displayed by default, but it can be hidden by setting the
-``displayModuleName`` parameter to ``false``.
+Visualization on the 2D canvas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Visualization on a 2D canvas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+On the 2D canvas, each node is represented by an icon, which can
+be displayed in various sizes and can also be colorized.
 
-:ned:`NetworkNodeCanvasVisualizer` is responsible for displaying nodes on a
-2D canvas. On the 2D canvas, each node is represented by an icon. The
-icon of the node can be customized by setting the display string of the
-node in the network description file (NED). The display string can be
-set by tags. The icon can be customized by specifying the ``i`` display
-string tag. It has three arguments:
+The icon of the node can be customized by setting the display string of the
+node in the network description (NED). Display strings, which appear
+as ``@display`` properties in NED, are explained in the
+`OMNeT++ Simulation Manual <https://omnetpp.org/doc/omnetpp/manual/#sec:graphics:display-strings>`__.
 
--  The first argument specifies the icon to be used. This argument is
-   used to find the image, just like the OMNeT++ image path or the
-   ``cIconFigure`` class.
--  The second argument specifies the color of the icon. It accepts
-   English color names (more precisely, SVG color names) and HTML-style
-   RGB values.
--  The third argument defines the amount of colorization in percent. If
-   the parameter value is 100, it means full colorization.
+Display strings consist of tags, and ``i`` defines the icon. It has three arguments.
+The first one selects the icon itself. The second and third define colorization:
+a color (color name or HTML-style RGB) and a colorization percentage.
+Icon size is denoted by an abbreviation (``vs`` for very small, ``s`` for small,
+``n`` for normal, ``l`` for large, and ``vl`` for very large), and can be
+specified either as a suffix on the icon name (``node/router_vl``), or 
+with the ``is`` display string tag.
 
-We can set the size of the icon by using the ``is`` display string tag.
-The size can be ``vs`` (very small), ``s`` (small), ``n`` (normal),
-``l`` (large) and ``vl`` (very large).
+The above display string based visualization, being an OMNeT++ mechanism, 
+do not require :ned:`NetworkNodeCanvasVisualizer` to be present. However,
+:ned:`NetworkNodeCanvasVisualizer` is required for several other visualizers
+(e.g. those that display annotations around the node icon) to work.
+In addition, :ned:`NetworkNodeCanvasVisualizer` lets you use an arbitrary image
+(not just an icon) for a node, by setting the node's :par:`canvasImage` and
+:par:`canvasImageColor` parameters.
 
-.. note::
-
-   All supported display string tags are listed in the `OMNeT++ Simulation
-   Manual <https://omnetpp.org/doc/omnetpp/manual/#cha:display-strings>`__.)
 
 Visualization on a 3D scene
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :ned:`NetworkNodeOsgVisualizer` is responsible for displaying nodes on a 3D
-scene. (In this version of INET,
-``IntegratedVisualizer.osgVisualizerType = "IntegratedOsgVisualizer"``
-must be set for visualizing nodes in 3D.) OMNeT++'s 3D visualization
-is based on the open-source ``OpenSceneGraph`` (osg) and ``osgEarth``
+scene. (Note that :ned:`IntegratedVisualizer`'s :par:`osgVisualizerType` 
+parameter must be set to ``"IntegratedOsgVisualizer"`` to visualize nodes in 3D.) 
+OMNeT++'s 3D visualization is based on the open-source OpenSceneGraph (OSG) and osgEarth
 libraries. These libraries offer high-level functionality, such as the
 ability of using 3D model files directly, accessing and rendering online
 map and satellite imagery data sources, and so on. In this showcase, we
-deal only with 3D models and we do not deal with maps. You can learn
-about maps in the `Visualizing Terrain and Urban
-Environment <https://inet.omnetpp.org/inet-showcases//visualizer/earth/>`__
-showcase.
+deal only with 3D models (and not with maps -- displaying maps is
+covered in other showcases).
 
-By default, each node is represented by a 2D icon on the 3D osg scene
-which is set in the display string of the node. If we want to replace
-the 2D icon, we need to load external resources, for example, images or
-3D models. The resource we want to load is specified in the ``osgModel``
-parameter. By default, the ``OMNeT++`` image path is used to find the
-image.
+By default, each node is represented in the 3D scene with the same
+icon used in the 2D canvas. If you want to replace the 2D icon, you need
+to reference an external resource, for example an image or a
+3D model file. The resource should be specified in the node's :par:`osgModel`
+parameter. By default, the OMNeT++ image path is used to find the
+image. OSG supports several 3D model (3dc, 3ds, flt, geo, iv, ive, 
+lwo, md2, obj, osg, osgb, etc.) and image file formats (bmp, gif, 
+jpg, png, rgb, tga, tif, etc.)
 
-.. note::
+There is support for so-called "pseudo loaders" in OSG, which provide
+additional options for loading 3D models. Pseudo loaders perform basic 
+transformations on the 3D model after it is loaded. 
+To use pseudo loaders, append modifiers to the end of the file name:
 
-   Here are some supported file formats: - geometric file
-   formats: 3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg, osgb, - image
-   file formats: bmp, gif, jpeg, rgb, tga, tif.
+-  The ``scale`` modifier multiplies the size of the model by a
+   certain factor. The format is ``f.scale``, where ``f`` is the numeric
+   factor. If a decimal fraction is used, it must be enclosed 
+   in parentheses, as in ``(0.8).scale``.
+-  The ``trans`` modifier translates the model along the X, Y and Z axes
+   by the given values. The format is ``X,Y,Z.trans``.
+-  The ``rot`` modifier rotates the model around the X, Y and Z axes.
+   The format of the ``rot`` pseudo loader is ``X,Y,Z.rot``, 
+   with the values given in degrees.
 
-There is support for so-called "pseudo loaders" in osg, which provide
-additional options for loading 3D models. Pseudo loaders are able to
-perform some basic operations on the 3D model, after it is loaded. To
-use pseudo loaders, append the parameters for the modifier followed by
-the name of it to the end of the file name upon loading the model. The
-pseudo loaders are able to use in any order and they are separated by
-dots.
-
--  The ``scale`` pseudo loader can multiply the size of the model by a
-   certain value. If decimal fraction is used, it must be written in
-   parentheses, e.g ``(0.8).scale``.
--  The ``trans`` pseudo loader can translate the model by a certain
-   value along the X, Y and Z axes. The values are separated by commas.
-   The format of the ``trans`` pseudo loader is ``X,Y,Z.trans``.
--  The ``rot`` pseudo loader can rotate the model by a certain degree
-   around the X, Y and Z axes. The format of the ``rot`` pseudo loader
-   is ``X,Y,Z.rot``.
-
-Examine the following example.
+The modifiers should be separated by dots. Consider the following example:
 
 .. code-block:: none
 
@@ -120,82 +105,105 @@ Examine the following example.
 -  ``0,0,10.trans`` translates ``example.osg`` 10 units upwards,
 -  ``180,0,90.rot`` rotates ``example.osg`` 180 degrees around the X
    axis and 90 degrees around the Z axis,
--  The parts of the parameter string are separated by dots.
 
 The color of the model also can be changed by using the
-``osgModelColor`` parameter. This parameter accepts English color names
+:par:`osgModelColor` parameter. This parameter accepts English color names
 (more precisely, SVG color names) and HTML-style RGB values.
 
+Displaying the node name is also optional: it is displayed by default, 
+but can be hidden by setting the visualizer's :par:`displayModuleName`
+parameter to ``false``.
 
-.. note::
+Examples
+--------
 
-   Further information about ``OpenSceneGraph`` can be found on
-   the `OpenSceneGraph web site <http://www.openscenegraph.org>`__ and in
-   dedicated `OpenSceneGraph
-   books <http://www.openscenegraph.org/index.php/documentation/books>`__.
+The following examples use the same network. The network contains two 
+network nodes, ``pedestrian`` and ``car``. Both of them are of the
+type :ned:`AdhocHost`, which has a cellphone icon by default.
 
-Customizing Appearance of Network Nodes
----------------------------------------
+Canvas (2D view)
+~~~~~~~~~~~~~~~~
 
-This example demonstrates how the nodes' look can be customized. A
-simulation is created for this example, it can be run by selecting the
-``VisualizingNodes`` configuration from the ini file.
-
-The network contains two :ned:`AdhocHost` nodes, ``pedestrian`` and
-``car``. The default icon of nodes is changed by modifying their display
-string in the ``NetworkNodeVisualizerShowcase.ned`` file. (The default
-icon also can be modified in the node's *Properties* on the *Appearance*
-tab.)
-
-.. code-block:: none
-
-   car: AdhocHost {
-     @display("p=168,117;i=misc/car2");
-   }
-   pedestrian: AdhocHost {
-     @display("p=113,156;i=misc/person3");
-   }
-
-.. figure:: IconsOnCanvas_v0111.png
-   :width: 100%
-
-On the 2D canvas, a car and a man appears, representing the nodes. The
-``p`` display string tag defines the position of the nodes. On the 2D
-canvas, the (0,0) position is in the upper left corner of the
+In this example, the node icons have been changed from the default 
+by modifying the corresponding submodule display strings 
+in the NED definition of the network.
+The ``p`` display string tag defines the position of the nodes. 
+On the 2D canvas, the (0,0) position is in the upper left corner of the
 playground.
 
-.. figure:: IconsOnOsgscene_v0111.png
-   :width: 100%
+.. literalinclude:: ../NetworkNodeVisualizerShowcase.ned
+   :start-at: car
+   :end-at: }
+   :language: ned
 
-By default, the icons on the 3D scene are the same as on the 2D canvas.
-The icons are automatically rotating towards the camera. The playground
-axes are also displayed.
+.. literalinclude:: ../NetworkNodeVisualizerShowcase.ned
+   :start-at: pedestrian
+   :end-at: }
+   :language: ned
+
+The simulation can be "run" (it does nothing) by selecting the ``Canvas``
+configuration from ``omnetpp.ini``. You should see the following:
+
+.. figure:: IconsOnCanvas_v0111.png
+   :width: 40%
+   :align: center
+
+The canvas displays a man and a car icon that represent the nodes. 
+
+Default 3D view
+~~~~~~~~~~~~~~~
+
+The OSG-based 3D view can be enabled by adding any visualizer module
+that uses it. In our case, we add a :ned:`NetworkNodeOsgVisualizer`
+by enabling it in :ned:`IntegratedVisualizer`.
+
+.. literalinclude:: ../omnetpp.ini
+   :start-at: osgVisualizer.typename
+   :end-at: osgVisualizer.typename
+   :language: ini
+
+When you run the ``Basic3D`` configuration on the ini file, you should
+see something like the following:
+
+.. figure:: IconsOnOsgscene_v0111.png
+   :width: 80%
+   :align: center
+
+By default, nodes are displayed on the 3D scene using the same icons as 
+on the 2D canvas. The playground axes are also displayed in the above
+screenshot (for brevity, the corresponding configuration lines have been
+omitted from the ini file).
+
+Using 3D models
+~~~~~~~~~~~~~~~
 
 In our next experiment, we replace the icon of the nodes with external
-3D models. The models will be scaled in order to be proportionate to
-each other.
+3D models, ``boxman.osgb`` and the ``car.osgb``. The models will be scaled
+in order to be proportionate to each other.
 
-.. code-block:: none
+.. literalinclude:: ../omnetpp.ini
+   :start-at: car.osgModel
+   :end-at: pedestrian.osgModel
+   :language: ini
 
-   *.pedestrian.osgModel = "boxman.osgb.(0.3).scale" *.car.osgModel = "car.osgb.50.scale"
-
-The ``boxman.osgb`` and the ``car.osgb`` files are loaded and scaled.
-This configuration affects only 3D models. The following animation shows
-how the nodes look like after we have replaced their icon with 3D
-models.
+You can run the simulation by selecting the ``Using3DModels`` configuration 
+from the ini file. The following animation shows how the nodes look 
+like after we have replaced their icons with 3D models.
 
 .. video:: ModelsLoaded.mp4
    :width: 698
 
-The ``pedestrian`` node is represented by an animated walking boxman and
-the ``car`` node is represented by a car model instead of 2D icons.
+The ``pedestrian`` node is represented by an animated walking boxman, and
+the ``car`` node is represented by a car model.
+
+Adjusting orientation
+~~~~~~~~~~~~~~~~~~~~~
 
 The orientation of network nodes is updated by their own mobility
-submodule. It is possible that orientation of the 3D model does not
-match with the orientation of the node, i.e. the ``pedestrian`` 3D model
-is moving sideways.
-
-
+submodules. It is possible that orientation of the 3D model does not
+match with the orientation of the node. For example, when we add motion
+to our previous configuration (select ``AddingMovement`` from the ini file),
+the boxman will walk sideways:
 
 .. video:: PedestrianMovesSideways.mp4
    :width: 698
@@ -206,14 +214,15 @@ node will manage future rotations of the node during the simulation. To
 achieve the correct orientation, the ``pedestrian`` 3D model should be
 rotated 90 degrees counterclockwise around the Z axis.
 
-.. code-block:: none
-
-   *.pedestrian.osgModel = "boxman.osgb.(0.3).scale.0,0,90.rot"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: 90.rot
+   :end-at: 90.rot
+   :language: ini
 
 .. video:: NodesOrientationIsRight.mp4
    :width: 698
 
-The above animation shows that both 3D model's orientation is correct.
+The above animation shows that both 3D models' orientation is correct.
 They are initialized by pseudo loaders and updated by the mobility model
 of the network node.
 
@@ -223,12 +232,12 @@ More Information
 ----------------
 
 This example only demonstrates the key features of network node
-visualization. For more information, refer to the
+visualization. For more information, refer to the NED documentation of
 :ned:`NetworkNodeVisualizer`, :ned:`NetworkNodeCanvasVisualizer` and
-:ned:`NetworkNodeOsgVisualizer` NED documentations.
+:ned:`NetworkNodeOsgVisualizer`.
 
 Discussion
 ----------
 
-Use `this page <https://github.com/inet-framework/inet-showcases/issues/TODO>`__ in the GitHub issue tracker for commenting on
-this showcase.
+Use `this page <https://github.com/inet-framework/inet-showcases/issues/30>`__ in
+the GitHub issue tracker for commenting on this showcase.
