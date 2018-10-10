@@ -79,7 +79,7 @@ use the mouse to move the camera and change the view angle.
    :width: 80%
    :align: center
 
-Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`PhysicalEnvironmentVisualizationShowcase.ned <../PhysicalEnvironmentVisualizationShowcase.ned.ned>`
+Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`PhysicalEnvironmentVisualizationShowcase.ned <../PhysicalEnvironmentVisualizationShowcase.ned>`
 
 Further information
 -------------------
