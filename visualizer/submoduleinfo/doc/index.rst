@@ -1,5 +1,3 @@
-:orphan:
-
 Visualizing Submodule Information
 =================================
 
@@ -149,5 +147,5 @@ Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`SubmoduleInformati
 Discussion
 ----------
 
-Use `this page <TODO>`__ in the GitHub issue tracker for commenting on
-this showcase.
+Use `this page <https://github.com/inet-framework/inet-showcases/issues/31>`__
+in the GitHub issue tracker for commenting on this showcase.

@@ -47,8 +47,8 @@ Generic:
 
    instrumentfigures/doc/index
    styling/doc/index
+   submoduleinfo/doc/index
 .. filtering/doc/index
 .. statistic/doc/index
-.. info/doc/index
 .. advanced/doc/index
 
