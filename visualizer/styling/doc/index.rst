@@ -34,14 +34,6 @@ The network consists of two nodes, ``host1`` and ``host2``, which
 communicate wirelessly, and we customize data link activity arrows. The
 following configuration is used for the visualizer:
 
-.. code-block:: none
-
-   *.visualizer.*.dataLinkVisualizer.lineColor = "blue"
-   *.visualizer.*.dataLinkVisualizer.lineStyle = "dashed"
-   *.visualizer.*.dataLinkVisualizer.lineWidth = 6
-   *.visualizer.*.dataLinkVisualizer.lineContactSpacing = 15
-   *.visualizer.*.dataLinkVisualizer.lineShift = 32
-
 .. literalinclude:: ../omnetpp.ini
    :start-after: Customizing Lines
    :end-at: dataLinkVisualizer.lineShift
@@ -86,11 +78,6 @@ on data link activity arrows.
 
 To customize the fonts used in labels, we configure
 :ned:`DataLinkVisualizer` in the following way:
-
-.. code-block:: none
-
-   *.visualizer.*.dataLinkVisualizer.labelFont = "Courier New, 12px, bold"
-   *.visualizer.*.dataLinkVisualizer.labelColor = "red"
 
 .. literalinclude:: ../omnetpp.ini
    :start-after: # Customizing Fonts
@@ -137,11 +124,6 @@ between them, so that we can show how the icons displayed by
 
 We use the following configuration to customize the transport connection
 icons:
-
-.. code-block:: none
-
-   *.visualizer.*.transportConnectionVisualizer.icon = "misc/marker2"
-   *.visualizer.*.transportConnectionVisualizer.iconColor = "light"
 
 .. literalinclude:: ../omnetpp.ini
    :start-after: # Customizing Icons
@@ -199,10 +181,6 @@ hosts, and :ned:`TransportConnectionVisualizer` will be used to visualize
 them as marker icons.
 
 We use the following configuration to place the annotation icons.
-
-.. code-block:: none
-
-   *.visualizer.*.transportConnectionVisualizer.placementHint = "bottom"
 
 .. literalinclude:: ../omnetpp.ini
    :start-after: # Placing Annotations
