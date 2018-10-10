@@ -1,5 +1,3 @@
-:orphan:
-
 Visualizing Statistics
 ======================
 
@@ -41,10 +39,10 @@ The :par:`format` parameter is a string that specifies how the visualizer
 displays the statistic value. The format string can contain the
 following directives:
 
--  %s: signal name
--  %n: statistic name
--  %v: statistic value
--  %u: statistic unit
+-  ``%s``: signal name
+-  ``%n``: name of statistic
+-  ``%v``: value of statistic
+-  ``%u``: unit of statistic
 
 The default setting for the format string is ``"%n %v %u"``, i.e. it
 displays the statistic name, followed by the value and the unit. The
@@ -143,5 +141,5 @@ Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`StatisticVisualiza
 Discussion
 ----------
 
-Use `this page <https://github.com/inet-framework/inet-showcases/issues/???>`__ 
+Use `this page <https://github.com/inet-framework/inet-showcases/issues/32>`__ 
 in the GitHub issue tracker for commenting on this showcase.
