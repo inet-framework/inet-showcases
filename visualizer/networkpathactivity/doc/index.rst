@@ -13,9 +13,8 @@ about network layer level traffic.
 The showcase consists of four simulation models, each demonstrating
 different features of the network path activity visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/networkpathactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/networkpathactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity>`__
 
 About the Visualizer
 --------------------
@@ -67,9 +66,10 @@ The ``pathVisualizer's`` type is :ned:`NetworkRouteVisualizer`. We enable
 network path activity visualization by setting the ``displayRoutes``
 parameter to true.
 
-.. code-block:: none
-
-   *.pathVisualizer.*.displayRoutes = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: pathVisualizer.*.displayRoutes
+   :end-at: pathVisualizer.*.displayRoutes
+   :language: ini
 
 The following video shows what happens when we start the simulation.
 
@@ -121,12 +121,10 @@ visualizer. The :par:`fadeOutMode` and :par:`fadeOutTime` parameters have been
 adjusted so that the network path activity arrow does not fade out
 completely before the next ping packet arrives.
 
-.. code-block:: none
-
-   *.visualizer.*.networkRouteVisualizer.displayRoutes = true
-   *.visualizer.*.networkRouteVisualizer.packetFilter = "ping*"
-   *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Visualizer settings
+   :end-at: networkRouteVisualizer.fadeOutTime
+   :language: ini
 
 The following video shows what happens when the simulation is run.
 
@@ -166,12 +164,10 @@ configuration.)
 
 We use the following configuration for the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.networkRouteVisualizer.displayRoutes = true
-   *.visualizer.*.networkRouteVisualizer.packetFilter = "ping*"
-   *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.networkRouteVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Displaying network path activity
+   :end-at: networkRouteVisualizer.fadeOutTime
+   :language: ini
 
 The following video shows what happens when the simulation is run.
 
@@ -232,9 +228,10 @@ In this showcase, we set the :par:`packetFilter` parameter to display only
 ICMP echo traffic. We use the following configuration for the
 visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.networkRouteVisualizer.displayRoutes = true *.visualizer.*.networkRouteVisualizer.packetFilter = "ping* and not *reply" *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime" *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Visualizer's parameters
+   :end-at: fadeOutTime
+   :language: ini
 
 In the following video we can examine that how network path activity
 visualization follows the routing changes in a complex network.

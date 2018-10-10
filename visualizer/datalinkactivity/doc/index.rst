@@ -13,9 +13,8 @@ data link level traffic.
 The showcase consists of five simulation models, each demonstrating
 different features of the data link activity visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/datalinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/datalinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity>`__
 
 About the Visualizer
 --------------------
@@ -72,9 +71,10 @@ In this configuration, ``wiredSource`` pings ``wiredDestination``. Data
 link activity visualization is enabled by setting the ``displayLinks``
 parameter to true.
 
-.. code-block: none
-
-   *.linkVisualizer.*.displayLinks = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: displayLinks
+   :end-at: displayLinks
+   :language: ini
 
 The following video shows what happens when the simulation is started.
 
@@ -143,12 +143,10 @@ completely before the next ping messages are sent.
 
 We use the following configuration for the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.dataLinkVisualizer.displayLinks = true
-   *.visualizer.*.dataLinkVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.dataLinkVisualizer.fadeOutTime = 1.4s
-   *.visualizer.*.dataLinkVisualizer.packetFilter = "ping*"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: dataLinkVisualizer.displayLinks
+   :end-at: dataLinkVisualizer.packetFilter
+   :language: ini
 
 The following animation shows what happens when we start the simulation.
 You can see that although there is both ARP and ping traffic in the
@@ -165,9 +163,10 @@ example, let's assume we want to display traffic between the hosts
 visualizer's :par:`nodeFilter` parameter by using the following line (note
 the curly brace syntax used for specifying numeric substrings).
 
-.. code-block:: none
-
-   *.visualizer.*.dataLinkVisualizer.nodeFilter = "source1 or etherSwitch{1,4,2} or destination1"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: dataLinkVisualizer.nodeFilter
+   :end-at: dataLinkVisualizer.nodeFilter
+   :language: ini
 
 This is what it looks like when we run the simulation:
 
@@ -209,22 +208,10 @@ configured, observing packets at *service*, *peer* and *protocol* level.
 They are marked with different colors. The ``visualizer`` module is
 configured as follows.
 
-.. code-block:: none
-
-   *.visualizer.*.numDataLinkVisualizers = 3
-   *.visualizer.*.dataLinkVisualizer[*].displayLinks = true
-   *.visualizer.*.dataLinkVisualizer[*].packetFilter = "*Video*"
-   *.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
-   *.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
-   *.visualizer.*.dataLinkVisualizer[0].activityLevel = "protocol"
-   *.visualizer.*.dataLinkVisualizer[0].lineColor = "purple"
-   *.visualizer.*.dataLinkVisualizer[0].labelColor = "purple"
-   *.visualizer.*.dataLinkVisualizer[1].activityLevel = "peer"
-   *.visualizer.*.dataLinkVisualizer[1].lineColor = "blue"
-   *.visualizer.*.dataLinkVisualizer[1].labelColor = "blue"
-   *.visualizer.*.dataLinkVisualizer[2].activityLevel = "service"
-   *.visualizer.*.dataLinkVisualizer[2].lineColor = "green"
-   *.visualizer.*.dataLinkVisualizer[2].labelColor = "green"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: numDataLinkVisualizers
+   :end-at: dataLinkVisualizer[2].labelColor
+   :language: ini
 
 By using the :par:`numDataLinkVisualizers` parameter, we set three
 :ned:`DataLinkVisualizer` modules. In this example, we are interested in
@@ -302,7 +289,7 @@ with the next hop address towards the destination node.
 As AODV operates with two message types, we'll use two
 :ned:`DataLinkVisualizer` modules configured to use two different colors.
 
-.. code-block:: none
+.. code-block:: ini
 
    *.rreqVisualizer.*.displayLinks = true
    *.rreqVisualizer.*.packetFilter = "AodvRreq"
@@ -333,12 +320,10 @@ routes from time to time.
 
 We use the following configuration for the visualization.
 
-.. code-block: none
-
-   *.visualizer.*.dataLinkVisualizer.displayLinks = true
-   *.visualizer.*.dataLinkVisualizer.packetFilter = "ping*"
-   *.visualizer.*.dataLinkVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.dataLinkVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Filtering ping packets
+   :end-at: fadeOutTime
+   :language: ini
 
 The following animation illustrates what happens when the simulation is
 run.

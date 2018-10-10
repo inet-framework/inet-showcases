@@ -19,9 +19,8 @@ layers of two endpoints.
 The showcase consists of two simulation models, both demonstrating
 different features of the transport path activity visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/transportpathactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportpathactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/transportpathactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/transportpathactivity>`__
 
 About the Visualizer
 --------------------
@@ -72,9 +71,10 @@ In this simulation, ``pathVisualizer's`` type is
 :ned:`TransportRouteVisualizer`. It is enabled by setting the
 :par:`displayRoutes` parameter to true.
 
-.. code-block:: none
-
-   *.pathVisualizer.*.displayRoutes = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: pathVisualizer.*.displayRoutes
+   :end-at: pathVisualizer.*.displayRoutes
+   :language: ini
 
 The following video shows what happens when the simulation is run.
 
@@ -150,12 +150,10 @@ activity visualizer. We adjust the visualizer's ``fadeOutMode`` and the
 does not fade out completely before the next ``UDPBasicAppData`` packet
 is arrived.
 
-.. code-block:: none
-
-   *.visualizer.*.transportRouteVisualizer.displayRoutes = true
-   *.visualizer.*.transportRouteVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.transportRouteVisualizer.fadeOutTime = 1.2s
-   *.visualizer.*.transportRouteVisualizer.packetFilter = "*UDPBasicAppData*"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: transportRouteVisualizer.displayRoutes
+   :end-at: transportRouteVisualizer.packetFilter
+   :language: ini
 
 The following video has been captured from the simulation, and shows
 what happens if :par:`packetFilter` is set.
@@ -179,9 +177,10 @@ visualized.
 
 We add the following line to the configuration:
 
-.. code-block:: none
-
-   *.visualizer.*.transportRouteVisualizer.nodeFilter = "source1 or switch* or router* or destination1"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: transportRouteVisualizer.nodeFilter
+   :end-at: transportRouteVisualizer.nodeFilter
+   :language: ini
 
 The following video has been captured from the simulation, and shows
 what happens if :par:`nodeFilter` is set.

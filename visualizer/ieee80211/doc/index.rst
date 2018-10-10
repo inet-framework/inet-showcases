@@ -10,9 +10,8 @@ change over time. It would be useful to be able to display e.g. the SSID
 above node icons. INET provides such a visualizer that we demonstrate in
 this showcase.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/ieee80211 <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/ieee80211 <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211>`__
 
 About the visualizer
 --------------------
@@ -56,9 +55,10 @@ the icon.
 The visualization is activated with the visualizer's
 :par:`displayAssociations` parameter:
 
-.. code-block:: none
-
-   *.visualizer.*.ieee80211Visualizer.displayAssociations = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: ieee80211Visualizer.displayAssociations
+   :end-at: ieee80211Visualizer.displayAssociations
+   :language: ini
 
 When the simulation is run for a while, the network will look like the
 following. Note the icons above the host and the access point.
@@ -118,4 +118,3 @@ Discussion
 
 Use `this page <https://github.com/inet-framework/inet-showcases/issues/4>`__ in
 the GitHub issue tracker for commenting on this showcase.
-
