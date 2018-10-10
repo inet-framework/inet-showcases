@@ -28,13 +28,13 @@ The :ned:`InterfaceTableVisualizer` module (included in the network as part
 of :ned:`IntegratedVisualizer`) displays data about network nodes'
 interfaces. (Interfaces are contained in interface tables, hence the
 name.) By default, the visualization is turned off. When it is enabled
-using the ``displayInterfaceTables`` parameter, the default is that
+using the :par:`displayInterfaceTables` parameter, the default is that
 interface names, IP addresses and netmask length are displayed, above
 the nodes (for wireless interfaces) and on the links (for wired
 interfaces). By clicking on an interface label, details are displayed in
 the inspector panel.
 
-The visualizer has several configuration parameters. The ``format``
+The visualizer has several configuration parameters. The :par:`format`
 parameter specifies what information is displayed about interfaces. It
 takes a format string, which can contain the following directives:
 
@@ -52,13 +52,13 @@ The default format string is ``"%N %\\%n/%l"``, i.e. interface name, IP
 address and netmask length.
 
 The set of visualized interfaces can be selected with the configurator's
-``nodeFilter`` and ``interfaceFilter`` parameters. By default, all
+:par:`nodeFilter` and :par:`interfaceFilter` parameters. By default, all
 interfaces of all nodes are visualized, except for loopback addresses
-(the default for the ``interfaceFilter`` parameter is ``"not lo\*"``.)
+(the default for the :par:`interfaceFilter` parameter is ``"not lo\*"``.)
 
 It is possible to display the labels for wired interfaces above the node
 icons, instead of on the links. This can be done by setting the
-``displayWiredInterfacesAtConnections`` parameter to ``false``.
+:par:`displayWiredInterfacesAtConnections` parameter to ``false``.
 
 There are also several parameters for styling, such as color and font
 selection.

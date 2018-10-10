@@ -24,7 +24,7 @@ In INET, physical link activity can be visualized by including a
 :ned:`IntegratedVisualizer` module is also an option, because it also
 contains a :ned:`PhysicalLinkVisualizer` module. Physical link activity
 visualization is disabled by default, it can be enabled by setting the
-visualizer's ``displayLinks`` parameter to true.
+visualizer's :par:`displayLinks` parameter to true.
 
 :ned:`PhysicalLinkVisualizer` observes frames that pass through the
 physical layer, i.e. are received correctly.
@@ -38,7 +38,7 @@ visualizer.
 
 By default, all packets, interfaces and nodes are considered for the
 visualization. This selection can be narrowed with the visualizer's
-``packetFilter``, ``interfaceFilter``, and ``nodeFilter`` parameters.
+:par:`packetFilter`, :par:`interfaceFilter`, and :par:`nodeFilter` parameters.
 
 Enabling Visualization of Physical Link Activity
 ------------------------------------------------
@@ -56,7 +56,7 @@ simulation, ``source`` will be pinging ``destination``.
    :width: 100%
 
 Physical link activity visualization is enabled by setting the
-``displayLinks`` parameter to true.
+:par:`displayLinks` parameter to true.
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: displayLinks
@@ -126,7 +126,7 @@ with ``accessPoint``.
 
 You can see that although there are also ACK frames, Beacon frames and
 ping traffic in the network, :ned:`PhysicalLinkVisualizer` displays only
-ping, due to the presence of ``packetFilter``. The ping frames travel
+ping, due to the presence of :par:`packetFilter`. The ping frames travel
 between ``source`` and ``destination`` through ``accessPoint``, but
 ``host1`` also receives ping frames from ``accessPoint`` and ``source``.
 That is because ``host1`` is within the communication range of
@@ -153,7 +153,7 @@ application. The packets' names are set to ``Broadcast-nnn``. The nodes
 manage the received ``Broadcast`` packets using an :ned:`UdpSink`
 application.
 
-The visualizer's ``packetFilter`` parameter is set to display only
+The visualizer's :par:`packetFilter` parameter is set to display only
 ``Broadcast`` traffic.
 
 Here is the configuration of the visualization.

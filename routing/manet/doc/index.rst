@@ -291,11 +291,11 @@ to our scenario by setting two of the parameters:
    :start-at: activeRouteTimeout
    :end-at: deletePeriod
 
-The ``activeRouteTimeout`` parameter sets the timeout for the active
+The :par:`activeRouteTimeout` parameter sets the timeout for the active
 routes. If the routes are not used for this period, they become
-inactive. The ``deletePeriod`` parameter sets the period after which the
-inactive routes are deleted. The ``activeRouteTimeout`` parameter is
-lowered from the default 3s to 1s, the ``deletePeriod`` parameter is
+inactive. The :par:`deletePeriod` parameter sets the period after which the
+inactive routes are deleted. The :par:`activeRouteTimeout` parameter is
+lowered from the default 3s to 1s, the :par:`deletePeriod` parameter is
 lowered from the default 15s to 0.5s in order to make the protocol react
 faster to the rapidly changing network topology. Higher mobility results
 in routes becoming invalid faster. Thus the routing protocol can work
@@ -375,7 +375,7 @@ set two parameters of the protocol:
    :start-at: helloInterval
    :end-at: routeLifetime
 
-The ``helloInterval`` parameter controls the frequency of the periodic
+The :par:`helloInterval` parameter controls the frequency of the periodic
 updates, or hello messages. Setting this parameter to a higher value
 decreases the protocol overhead, but the network will react more slowly
 to changes in topology. We lower it from the default 5s to 1s in order

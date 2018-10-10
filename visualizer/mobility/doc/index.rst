@@ -22,10 +22,10 @@ About the Visualizer
 In INET, mobility of nodes can be visualized by :ned:`MobilityVisualizer`
 module (included in the network as part of :ned:`IntegratedVisualizer`). By
 default, mobility visualization is enabled, it can be disabled by
-setting ``displayMovements`` parameter to false.
+setting :par:`displayMovements` parameter to false.
 
 By default, all mobilities are considered for the visualization. This
-selection can be narrowed with the visualizer's ``moduleFilter``
+selection can be narrowed with the visualizer's :par:`moduleFilter`
 parameter.
 
 The visualizer has several important features:
@@ -39,13 +39,13 @@ The visualizer has several important features:
    movement's direction. The arrow's length is proportional to the
    node's speed.
 -  **Orientation Arc**: Node orientation is represented by an arc whose
-   size is specified by the ``orientationArcSize`` parameter. This value
+   size is specified by the :par:`orientationArcSize` parameter. This value
    is the relative size of the arc compared to a full circle. The arc's
    default value is 0.25, i.e. a quarter of a circle.
 
 These features are disabled by default; they can be enabled by setting
 the visualizer's ``displayMovementTrails``, ``displayVelocities`` and
-``displayOrientations`` parameters to true.
+:par:`displayOrientations` parameters to true.
 
 Visualizing Mobility Features
 -----------------------------

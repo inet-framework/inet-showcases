@@ -71,7 +71,7 @@ nominal capacity for each host.
 Each host contains an ``AlternatingEnergyGenerator`` module. This module
 alternates between generation (active) and sleep states. It starts in
 the generation state, and while there, it generates the power that is
-specified in its ``powerGeneration`` parameter (now set to 4mW). In the
+specified in its :par:`powerGeneration` parameter (now set to 4mW). In the
 sleep state, it generates no power. It stays in each mode for the
 durations specified in the ``generationInterval`` and ``sleepInterval``
 parameters. These are set to a random value with a mean of 25s for each
@@ -84,7 +84,7 @@ modules to shut down hosts when their energy levels reach 10% of the
 nominal capacity (0.005 Joules), and restart them when their energy
 storage charges to half of their nominal energy capacity, i.e. 0.025
 Joules. These settings can be specified in the energy management
-module's ``nodeShutdownCapacity`` and ``nodeStartCapacity`` parameters.
+module's :par:`nodeShutdownCapacity` and :par:`nodeStartCapacity` parameters.
 
 Radio modes and states
 ~~~~~~~~~~~~~~~~~~~~~~

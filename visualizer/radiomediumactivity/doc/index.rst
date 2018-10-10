@@ -25,21 +25,21 @@ aspects of radio communications. :ned:`MediumVisualizer` has the following
 three main features, and boolean parameters for turning them on/off:
 
 -  **Visualization of propagating signals**: Signals are visualized as
-   animated disks (``displaySignals`` parameter)
+   animated disks (:par:`displaySignals` parameter)
 -  **Indication of signal departures and arrivals**: Icons are placed
    above nodes when a signal is departing from them or arriving at their
    location (``displaySignalDepartures`` and ``displaySignalArrivals``
    parameters)
 -  **Displaying communication and interference ranges**: Ranges are
    displayed as circles around nodes ``displayCommunicationRanges`` and
-   ``displayInterferenceRanges`` parameters)
+   :par:`displayInterferenceRanges` parameters)
 
 The features above will be described in more detail in the following
 sections. The scope of the visualization can be adjusted with parameters
 as well. By default, all packets, interfaces and nodes are considered
 for the visualization. The selection can be narrowed with the
-visualizer's ``packetFilter``, ``packetDataFilter``,
-``interfaceFilter``, and ``nodeFilter`` parameters. Note that one
+visualizer's :par:`packetFilter`, :par:`packetDataFilter`,
+:par:`interfaceFilter`, and :par:`nodeFilter` parameters. Note that one
 :ned:`MediumVisualizer` module can only visualize signals of one radio
 medium module. For visualizing multiple radio medium modules, multiple
 :ned:`MediumVisualizer` modules are required.
@@ -206,8 +206,8 @@ propagation animation speed pertains to the expansion/recession phase,
 when a signal boundary is propagating on the scene. The
 transmission animation speed refers to the presence phase, when no
 signal boundary is visible. If no value is specified for these
-parameters, the ``signalPropagationAnimationTime`` and
-``signalTransmissionAnimationTime`` parameters take effect. These
+parameters, the :par:`signalPropagationAnimationTime` and
+:par:`signalTransmissionAnimationTime` parameters take effect. These
 parameters set a fixed duration for the corresponding phases of the
 transmission animation (this is the default setting, and both parameters
 are 1 second). When the duration is fixed, all transmission animations
@@ -231,7 +231,7 @@ playback speed slider.
 
 By default, the animation switches from the expansion phase to presence
 phase when the propagating signal reaches the node farthest from the
-signal source. The ``signalPropagationAdditionalTime`` parameter can
+signal source. The :par:`signalPropagationAdditionalTime` parameter can
 specify how long to continue the expansion/recession animation after the
 edge of the signal has left the farthest node, to avoid flickering and
 rapid changes in the animation.

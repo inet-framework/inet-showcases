@@ -38,13 +38,13 @@ covered in the `Visualizing Transport Path
 Activity <../transportpathactivity>`__ showcase.
 
 The visualization is turned off by default, it can be turned on by
-setting the ``displayTransportConnections`` parameter of the visualizer
+setting the :par:`displayTransportConnections` parameter of the visualizer
 to ``true``.
 
 It is possible to filter the connections being visualized. By default,
 all connections are included. Filtering by hosts and port numbers can be
-achieved by setting the ``sourcePortFilter``, ``destinationPortFilter``,
-``sourceNodeFilter`` and ``destinationNodeFilter`` parameters.
+achieved by setting the :par:`sourcePortFilter`, :par:`destinationPortFilter`,
+:par:`sourceNodeFilter` and :par:`destinationNodeFilter` parameters.
 
 The icon, colors and other visual properties can be configured by
 setting the visualizer's parameters.
@@ -67,7 +67,7 @@ configured by a :ned:`Ipv4NetworkConfigurator` module. The visualizer
 module is a :ned:`TransportConnectionVisualizer`. The application in
 ``host1`` is configured to open a TCP connection to ``host2``, and send
 data to it. The visualization of transport connections is enabled with
-the visualizer's ``displayTransportConnections`` parameter:
+the visualizer's :par:`displayTransportConnections` parameter:
 
 .. code-block:: none
 
@@ -123,7 +123,7 @@ Endpoints can be matched by color.
    :align: center
 
 To visualize the connections that use port 22 at the server, the
-``destinationPortFilter`` should be set to 22. The network will look
+:par:`destinationPortFilter` should be set to 22. The network will look
 like this:
 
 .. figure:: port22.png
@@ -131,7 +131,7 @@ like this:
    :align: center
 
 Additionally, to visualize port 22 connections at ``host2`` only, the
-``sourceNodeFilter`` parameter should be set to ``host2``. The result
+:par:`sourceNodeFilter` parameter should be set to ``host2``. The result
 looks like this:
 
 .. figure:: port22host2.png

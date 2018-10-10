@@ -121,7 +121,7 @@ attributes such as position, size, minimum and maximum value, and so on.
 Further details:
 
 -  The ``gauge``, ``linearGauge``, and ``thermometer`` figure types have
-   ``minValue``, ``maxValue`` and ``tickSize`` parameters, which can be used to
+   :par:`minValue`, :par:`maxValue` and :par:`tickSize` parameters, which can be used to
    customize the range and the granularity of the figures.
 -  The ``throughputGauge`` figure's ticks are configured to go from 0 to 25 Mbps in
    5 Mbps increments - the maximum theoretical application level

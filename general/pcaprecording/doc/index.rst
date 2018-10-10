@@ -23,7 +23,7 @@ The model
 
 In order to record PCAP traces in a node, a :ned:`PcapRecorder` module
 needs to be included in it. Pcap recorder modules can be easily included
-in hosts and routers by specifying their ``numPcapRecorders`` parameter
+in hosts and routers by specifying their :par:`numPcapRecorders` parameter
 (available in modules that extend :ned:`LinkLayerNodeBase`, such as
 :ned:`StandardHost` and derivatives, and router modules.)
 
@@ -31,13 +31,13 @@ The PCAP recorder module records packets sent to and from modules that
 are in the same host as the PCAP recorder module. By default, it records
 L2 (link layer) frames (frames going in and out of the L2 layer.) It can
 also be set to record L3 frames. It writes traces in a PCAP file, which
-has to be specified by the ``pcapFile`` parameter. This parameter acts
+has to be specified by the :par:`pcapFile` parameter. This parameter acts
 as the main switch for recording, thus specifying this parameter enables
 packet capture. The PCAP recorder writes traces in the original PCAP
 format, not the next generation one (PcapNg.) There can be packets with
 only one link layer header type in the PCAP file (this is a limitation
 of the original PCAP file format.) The PCAP file's link layer header
-type needs to be set with the ``pcapNetwork`` parameter, so PCAP
+type needs to be set with the :par:`pcapNetwork` parameter, so PCAP
 programs interpret the traces correctly. Some widely used type codes are
 the following:
 
@@ -48,13 +48,13 @@ the following:
 The complete list of link layer header type codes can be found
 `here <http://www.tcpdump.org/linktypes.html>`__.
 
-The ``moduleNamePatterns`` parameter specifies which modules' traffic
+The :par:`moduleNamePatterns` parameter specifies which modules' traffic
 should be recorded. It takes a space separated list of module names. For
 selecting a module vector, ``[*]`` can be used. The recorded modules are
 on the same level in the hierarchy as the PCAP recorder module. The
-default value for the ``moduleNamePatterns`` parameter is
+default value for the :par:`moduleNamePatterns` parameter is
 ``wlan[*] eth[*] ppp[*] ext[*]``, so it records the most commonly
-present L2 interfaces. The ``dumpProtocols`` parameter is a filter, and
+present L2 interfaces. The :par:`dumpProtocols` parameter is a filter, and
 selects which protocols to include in the capture. It matches packets
 which are of the specified protocol type at the level of capture, but
 not the protocol type of encapsulated packets. The parameter takes
@@ -66,9 +66,9 @@ By default the PCAP recorder module records L2 frames, but setting the
 ``moduleNamePatterns`` to ``ipv4``, for example, lets one record L3
 frames (note that the parameter's value is lowercase, because it refers
 to the actual ``ipv4`` module in the host, not the module type.) In
-order to record IP frames, the ``pcapNetwork`` parameter also needs to
+order to record IP frames, the :par:`pcapNetwork` parameter also needs to
 be set to the proper link layer header type (101 - raw IP), and the
-``dumpProtocols`` parameter to ``ipv4`` (see the configuration section
+:par:`dumpProtocols` parameter to ``ipv4`` (see the configuration section
 below.)
 
 When a node connects to the network via just one kind of interface,
@@ -76,7 +76,7 @@ specifying the link layer header type is sufficient for capturing a
 proper trace. However, if there are multiple kinds of interfaces the
 node connects with, the set of captured interfaces or physical layer
 protocols should be narrowed to the ones with the link layer header type
-specified by the ``pcapNetwork`` parameter. It is needed because traffic
+specified by the :par:`pcapNetwork` parameter. It is needed because traffic
 for all interfaces are included in the trace by default. Multiple PCAP
 recorder modules need to be included in the network to record packets
 with different link layer headers. One PCAP recorder module should only
@@ -84,8 +84,8 @@ record traces with one link layer header type, because the packets with
 the other header types would not be recognized by PCAP programs.
 
 Additionally, there are two packet filtering parameters. The
-``packetFilter`` parameter can filter for the packet class and its
-properties, most commonly the packet's name. The ``packetDataFilter``
+:par:`packetFilter` parameter can filter for the packet class and its
+properties, most commonly the packet's name. The :par:`packetDataFilter`
 parameter can filter for the packet's contents, i.e. the contained
 chunks. Specifically, it can filter for class names of protocol headers,
 and their fields. The expression given as the parameter's value is
@@ -94,12 +94,12 @@ to the ones that match the expression. The default value of both
 parameters is ``*``, thus no packets are filtered. See the following
 sections for examples.
 
-To summerize: the ``moduleNamePatterns`` parameter specifies which
-modules' outputs should be captured. The ``pcapNetwork`` parameter sets
+To summerize: the :par:`moduleNamePatterns` parameter specifies which
+modules' outputs should be captured. The :par:`pcapNetwork` parameter sets
 the link layer header type according to the captured module outputs, so
 PCAP programs can interpret the PCAP file correctly. The
-``dumpProtocols`` parameter can narrow the set of recorded protocols at
-the level of capture. The ``packetFilter`` and ``packetDataFilter``
+:par:`dumpProtocols` parameter can narrow the set of recorded protocols at
+the level of capture. The :par:`packetFilter` and :par:`packetDataFilter`
 parameters can further narrow the set of captured packets.
 
 The configuration
@@ -166,7 +166,7 @@ headers:
 
 In ``host2``, we'll record only the ARP packets from the 802.11 traffic
 on ``wlan0``. The link layer header type is set to 802.11, and the
-``packetDataFilter`` is set to record only to packets of ``ArpPacket``
+:par:`packetDataFilter` is set to record only to packets of ``ArpPacket``
 class:
 
 .. literalinclude:: ../omnetpp.ini
@@ -174,7 +174,7 @@ class:
    :start-at: host2.numPcapRecorders
    :end-at: packetDataFilter
 
-The ``packetDataFilter`` parameter's value ``*ArpPacket`` matches the
+The :par:`packetDataFilter` parameter's value ``*ArpPacket`` matches the
 ``inet::ArpPacket`` class. There is an ARP request packet open in the
 packet inspector on the following image:
 
@@ -192,7 +192,7 @@ interface. We set the link layer header type to ethernet:
 
 There are two PCAP recorder modules in ``router1``, with one of them
 recording ethernet traffic on ``eth0`` and the other ppp traffic on
-``ppp0``. The ``moduleNamePatters`` parameter needs to be set for both
+``ppp0``. The :par:`moduleNamePatters` parameter needs to be set for both
 PCAP recorder modules, because ``router1`` has two interfaces.
 
 .. literalinclude:: ../omnetpp.ini
@@ -202,7 +202,7 @@ PCAP recorder modules, because ``router1`` has two interfaces.
 
 In ``router2``, we'll record only packets carrying TCP data on the
 ``eth0`` interface. ``router2`` has two interfaces, so the
-``moduleNamePatters`` parameter needs to be set. The link layer header
+:par:`moduleNamePatters` parameter needs to be set. The link layer header
 type is set to ethernet, and the packet data filter is set to match
 packets containing an ``Ipv4Header``, and where the ``totalLengthField``
 field's value is 576 (the size of TCP data packets with IP
@@ -214,7 +214,7 @@ encapsulation):
    :end-at: totalLengthField
 
 In ``ethHost2``, we'll record traffic of the ``ipv4`` module. The
-``dumpProtocols`` parameter's default is
+:par:`dumpProtocols` parameter's default is
 ``ethernetmac ppp ieee80211mac``, so it has to be set to ``ipv4``.
 
 .. literalinclude:: ../omnetpp.ini
@@ -234,7 +234,7 @@ capture file, L2 and L3 modules need to be set to compute CRC and FCS:
 
 Note that these settings are required, otherwise an error is returned.
 
-The ``alwaysFlush`` parameter controls whether to write packets to the
+The :par:`alwaysFlush` parameter controls whether to write packets to the
 pcap file as they are recorded, or after the simulation has concluded.
 It is ``false`` by default, but it's set to ``true`` in all PCAP
 recorders to make sure there are recorded packets even if the simulation
@@ -296,7 +296,7 @@ TCP data packet, in ``ethHost2``, recorded at the IPv4 module (sent from
 
 The following images are the PCAP traces from ``host2`` and ``router2``,
 where the set of recorded packets were narrowed with
-``packetDataFilter``.
+:par:`packetDataFilter`.
 
 The ARP packets from ``host2``:
 

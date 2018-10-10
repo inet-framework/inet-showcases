@@ -29,13 +29,13 @@ packet drop occurs. In the animation, a packet icon gets thrown out from
 the node icon, and fades away.
 
 The visualization of packet drops can be enabled with the visualizer's
-``displayPacketDrops`` parameter. By default, all packet drops at all nodes
-are visualized. This selection can be narrowed with the ``nodeFilter``,
-``interfaceFilter`` and ``packetFilter`` parameters, which match for node, interface and packet names.
-Additionally, the ``packetDataFilter`` parameter can be used to filter for packet data contents,
-and the ``detailsFilter`` parameter to filter for packet drop reason.
+:par:`displayPacketDrops` parameter. By default, all packet drops at all nodes
+are visualized. This selection can be narrowed with the :par:`nodeFilter`,
+:par:`interfaceFilter` and :par:`packetFilter` parameters, which match for node, interface and packet names.
+Additionally, the :par:`packetDataFilter` parameter can be used to filter for packet data contents,
+and the :par:`detailsFilter` parameter to filter for packet drop reason.
 
-The ``packetFormat`` parameter is a format string, and specifies the text displayed with the packet drop animation.
+The :par:`packetFormat` parameter is a format string, and specifies the text displayed with the packet drop animation.
 By default, the dropped packet's name is displayed.
 The format string can contain the following directives:
 
@@ -102,7 +102,7 @@ queue of the switch.
 
 The visualization is activated with the ``displayPacketDrops``
 parameter. The visualizer is configured to display the packet name
-and the drop reason, by setting the ``labelFormat`` parameter.
+and the drop reason, by setting the :par:`labelFormat` parameter.
 Alos, the fade out time is set to three seconds, so that the packet
 drop animation is more visible.
 

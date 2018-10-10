@@ -184,7 +184,7 @@ additional features such as forward error correction, interleaving or
 spreading. We set the bitrate in
 :download:`omnetpp.ini <../omnetpp.ini>` to 19200 bps, to match the
 default for the MAC bitrates (we'll use the default bitrate in the MACs,
-which is 19200 bps for all three MAC types.) The ``preambleDuration`` is
+which is 19200 bps for all three MAC types.) The :par:`preambleDuration` is
 set to be very short for better compatibility with the MACs. We also set
 some other parameters of the radio to arbitrary values:
 
@@ -218,8 +218,8 @@ be routed via the gateway. Here are the application settings in
 The MAC-specific parameters are set in the configurations for the
 individual MACs.
 
-For B-MAC, the wireless interface's ``macType`` parameter is set to
-:ned:`BMac`. Also, the ``slotDuration`` parameter is set to 0.025s (an
+For B-MAC, the wireless interface's :par:`macType` parameter is set to
+:ned:`BMac`. Also, the :par:`slotDuration` parameter is set to 0.025s (an
 arbitrary value.) This parameter is essentially the nodes' sleep
 duration. Here is the configuration in
 :download:`omnetpp.ini <../omnetpp.ini>`:
@@ -229,8 +229,8 @@ duration. Here is the configuration in
    :start-at: Config BMac
    :end-at: slotDuration
 
-For X-MAC, the wireless interface's ``macType`` parameter is set to
-:ned:`XMac`. The MAC's ``slotDuration`` parameter determines the duration
+For X-MAC, the wireless interface's :par:`macType` parameter is set to
+:ned:`XMac`. The MAC's :par:`slotDuration` parameter determines the duration
 of the nodes' sleep periods. It is set to 0.25s for the sensor nodes,
 and 0.1s for the gateway. Nodes transmit preambles for the duration of
 their own sleep periods, unless interrupted by an acknowledgement from
@@ -247,13 +247,13 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>`:
    :start-at: Config XMac
    :end-at: sensor
 
-For LMAC, the wireless interface's ``macType`` parameter is set to
-:ned:`LMac`. The ``numSlots`` parameter is set to 8, as it is sufficient
+For LMAC, the wireless interface's :par:`macType` parameter is set to
+:ned:`LMac`. The :par:`numSlots` parameter is set to 8, as it is sufficient
 (there are only five nodes in the wireless sensor network.) The
-``reservedMobileSlots`` parameter reserves some of the slots for mobile
+:par:`reservedMobileSlots` parameter reserves some of the slots for mobile
 nodes, these slots are not chosen by any of the nodes during network
 setup. The parameter's default value is 2, but it is set to 0. The
-``slotDuration`` parameter's default value is 100ms, but we set it to
+:par:`slotDuration` parameter's default value is 100ms, but we set it to
 50ms to decrease the network setup time. The duration of a timeframe
 will be 400ms (number of slots \* slot duration.) The network is set up
 in the first five frames, i.e. in the first 2 seconds. Here is the
@@ -367,7 +367,7 @@ studies for the individual MACs are detailed in the following sections.
 Optimizing B-MAC
 ~~~~~~~~~~~~~~~~
 
-The goal is to optimize :ned:`BMac`'s ``slotTime`` parameter for the number
+The goal is to optimize :ned:`BMac`'s :par:`slotTime` parameter for the number
 of packets received by the server. The configuration in
 :download:`omnetpp.ini <../omnetpp.ini>` for this is
 ``StatisticBMac``. It contains 1000 runs. Here is the configuration:
@@ -377,9 +377,9 @@ of packets received by the server. The configuration in
    :start-at: StatisticBMac
    :end-at: slotDuration
 
-In the study, ``slotDuration`` will run from 10ms to 1s in 10ms
-increments (the default of ``slotDuration`` is 100ms.) The number of
-packets received by the server for each ``slotDuration`` value is shown
+In the study, :par:`slotDuration` will run from 10ms to 1s in 10ms
+increments (the default of :par:`slotDuration` is 100ms.) The number of
+packets received by the server for each :par:`slotDuration` value is shown
 on the following image (time in seconds):
 
 .. figure:: statisticbmac2.png
@@ -389,12 +389,12 @@ The sensors send 100 packets each during the course of the 100s, thus
 400 packets total. It is apparent from the results that the network
 cannot carry all traffic in this scenario. The results also outline a
 smooth curve. We choose 0.19s as the best performing value for
-``slotDuration``.
+:par:`slotDuration`.
 
 Optimizing X-MAC
 ~~~~~~~~~~~~~~~~
 
-Again, we optimize the ``slotTime`` parameter for the number of packets
+Again, we optimize the :par:`slotTime` parameter for the number of packets
 received by the server. As in the :ned:`XMac` configuration, the
 ``slotTime`` for the gateway will be shorter than for the sensors. The
 configuration in :download:`omnetpp.ini <../omnetpp.ini>` for this is
@@ -405,22 +405,22 @@ configuration in :download:`omnetpp.ini <../omnetpp.ini>` for this is
    :start-at: StatisticXMac
    :end-at: slotDuration
 
-The default of ``slotDuration`` for :ned:`XMac` is 100ms. In the study, the
-gateway's ``slotDuration`` will run from 10ms to 1s in 10ms increments,
-similarly to the parameter study for B-MAC. The ``slotDuration`` for the
+The default of :par:`slotDuration` for :ned:`XMac` is 100ms. In the study, the
+gateway's :par:`slotDuration` will run from 10ms to 1s in 10ms increments,
+similarly to the parameter study for B-MAC. The :par:`slotDuration` for the
 sensors will be 2.5 times that of the gateway (an arbitrary value.) Here
 are the results (time in seconds):
 
 .. figure:: statisticxmac2.png
    :width: 100%
 
-According to this, the optimal value for the gateway's ``slotDuration``
+According to this, the optimal value for the gateway's :par:`slotDuration`
 is 0.14s (0.35s for the sensors), so we choose that.
 
 Optimizing LMAC
 ~~~~~~~~~~~~~~~
 
-We'll optimize the ``slotDuration`` parameter for the number of packets
+We'll optimize the :par:`slotDuration` parameter for the number of packets
 received by the server. The configuration for this study in
 :download:`omnetpp.ini <../omnetpp.ini>` is ``StatisticLMac``. It
 contains 1000 runs. Here is the configuration:
@@ -430,8 +430,8 @@ contains 1000 runs. Here is the configuration:
    :start-at: StatisticLMac
    :end-at: reservedMobileSlots
 
-We set ``reservedMobileSlots`` to 0, and ``numSlots`` to 8. The
-``slotDuration`` parameter will run from 10ms to 1s in 10ms steps. The
+We set :par:`reservedMobileSlots` to 0, and :par:`numSlots` to 8. The
+:par:`slotDuration` parameter will run from 10ms to 1s in 10ms steps. The
 number of received packets are displayed on the following image (time in
 seconds):
 
@@ -440,10 +440,10 @@ seconds):
 
 It is apparent from the results that the network can carry almost all
 the traffic in this scenario (as opposed to the :ned:`XMac` and :ned:`LMac`
-results.) The best performing value for ``slotDuration`` is 50ms. Note
-that the lowest ``slotDuration`` values up until 120ms yield
+results.) The best performing value for :par:`slotDuration` is 50ms. Note
+that the lowest :par:`slotDuration` values up until 120ms yield
 approximatelly the same results (around 400 packets), with the 50ms
-value performing marginally better. Choosing the higher ``slotDuration``
+value performing marginally better. Choosing the higher :par:`slotDuration`
 value would result in about the same performance but lower power
 consumption, but we are optimizing for the number of packets here.
 

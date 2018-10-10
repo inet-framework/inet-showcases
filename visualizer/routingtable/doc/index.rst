@@ -45,9 +45,9 @@ displayed on the arrows in following format: ``destination/mask -> gateway (inte
 The format can be changed by setting the visualizer's ``labelFormat``
 parameter.
 
-Filtering is also possible. The ``nodeFilter`` parameter controls which
+Filtering is also possible. The :par:`nodeFilter` parameter controls which
 nodes' routing tables should be visualized (by default, all nodes), and
-the ``destinationFilter`` parameter selects the set of destination nodes
+the :par:`destinationFilter` parameter selects the set of destination nodes
 to consider (again, by default all nodes.)
 
 The visualizer reacts to changes. For example, when a routing protocol
@@ -69,7 +69,7 @@ automatically. The visualizer module is an :ned:`IntegratedVisualizer`
 which contains all available visualizers as submodules.
 
 The configuration contains one line, which enables the visualization of
-routing tables with the ``displayRoutingTables`` parameter:
+routing tables with the :par:`displayRoutingTables` parameter:
 
 .. code-block:: none
 
@@ -124,8 +124,8 @@ By default, the best matching routing table entries from all routing
 tables towards all destinations are visualized. This can leave the
 network cluttered with arrows. It is possible to narrow the selection of
 visualized routing tables with filter parameters. The goal of this
-section is to demonstrate the use of the ``nodeFilter`` and
-``destinationFilter`` parameters.
+section is to demonstrate the use of the :par:`nodeFilter` and
+:par:`destinationFilter` parameters.
 
 The section contains two example simulations, which use a more complex
 network compared to the simulation in the previous section. The
@@ -144,8 +144,8 @@ Unfiltered routing table visualization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The example simulation can be run by choosing the ``Unfiltered``
-configuration from the ini file. The defaults of the ``nodeFilter`` and
-``destinationFilter`` parameters are ``"*"``, which means the best
+configuration from the ini file. The defaults of the :par:`nodeFilter` and
+:par:`destinationFilter` parameters are ``"*"``, which means the best
 matching routing entries towards all destinations from all routing
 tables are visualized. With the default settings, the network looks like
 the following:
@@ -169,9 +169,9 @@ Filtered routing table visualization
 The example simulation can be run by choosing the ``Filtered``
 configuration from the ini file. This example simulation only visualizes
 the routes going from ``host2`` to ``host3``. First, the
-``destinationFilter`` parameter is set to ``host3``. To narrow down the
+:par:`destinationFilter` parameter is set to ``host3``. To narrow down the
 visualized routes to the ones that lead from ``host2``, the
-``nodeFilter`` parameter is specified as ``"host2 or host3 or router"``.
+:par:`nodeFilter` parameter is specified as ``"host2 or host3 or router"``.
 (One could also write ``"not(host1 or host4)"`` for the same effect.)
 Note that ``router`` needs to be included because the route from
 ``host2`` to ``host3`` leads through it.
@@ -213,7 +213,7 @@ host is capable of reaching the adjacent hosts only, the ping packets
 are relayed to ``destinationHost`` through the chain. As the network
 topology changes because of node mobility, the AODV protocol dynamically
 configures the routing tables. To reduce clutter, we set the
-``destinationFilter`` parameter of the visualizer to
+:par:`destinationFilter` parameter of the visualizer to
 ``"destinationHost"``.
 
 The following animation depicts what happens when the simulation is run.

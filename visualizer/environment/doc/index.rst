@@ -52,7 +52,7 @@ The isometric view
 
 In this example configuration (``IsometricView`` in the ini file), the
 view is set to isometric projection. This is done by setting the
-``viewAngle`` parameter in :ned:`SceneVisualizer`:
+:par:`viewAngle` parameter in :ned:`SceneVisualizer`:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: viewAngle

@@ -50,17 +50,17 @@ and the customized visualization.
    :width: 80%
    :align: center
 
-The ``lineColor`` parameter specifices the color of the arrow, and it
+The :par:`lineColor` parameter specifices the color of the arrow, and it
 accepts English color names (more precisely, SVG color names) and
 HTML-style RGB values. For the :ned:`NetworkRouteVisualizer`,
 :ned:`TransportRouteVisualizer` and :ned:`MobilityVisualizer` modules,
 ``lineColor`` may be set to a list of colors separated by commas, or to
 the ``dark`` and ``light`` keywords which will be interpreted as a list
-of good dark (light) colors. The ``lineStyle`` parameter can be set to
+of good dark (light) colors. The :par:`lineStyle` parameter can be set to
 ``solid``, ``dotted`` or ``dashed``. Line width is controlled by the
-``lineWidth`` parameter. If there are multiple lines between the same
+:par:`lineWidth` parameter. If there are multiple lines between the same
 nodes, the space between the lines can be changed by adjusting the
-``lineShift`` parameter. The space between the end of the arrow and the
+:par:`lineShift` parameter. The space between the end of the arrow and the
 network node can be adjusted by setting the ``lineContactSpacing``
 parameter.
 
@@ -92,18 +92,18 @@ and the customized visualization.
    :align: center
 
 Font family, font size and font style can be set by using the
-``labelFont`` parameter. You can omit any value from the parameter if
+:par:`labelFont` parameter. You can omit any value from the parameter if
 you do not want to change that. For example, you can set ``labelFont``
 to ``"bold"`` so that font family and font size remain unchanged. The
-``labelColor`` parameter can be set to a single color by using a color
+:par:`labelColor` parameter can be set to a single color by using a color
 name or a HTML-style RGB value.
 
 Labels are enabled by default. (Labels can be disabled by setting the
-``displayLabels`` parameter to false.)
+:par:`displayLabels` parameter to false.)
 
 For :ned:`InterfaceTableVisualizer` and :ned:`StatisticVisualizer`, the
-``font`` parameter is used instead of ``labelFont``, and ``textColor``
-is used instead of ``labelColor``.
+:par:`font` parameter is used instead of :par:`labelFont`, and :par:`textColor`
+is used instead of :par:`labelColor`.
 
 Customizing Icons
 -----------------
@@ -133,7 +133,7 @@ and the customized visualization.
    :width: 80%
    :align: center
 
-The ``icon`` parameter specifies the icon to be used. The OMNeT++ image
+The :par:`icon` parameter specifies the icon to be used. The OMNeT++ image
 path is used to find the image, just like with the ``i`` display string
 tag or the ``cIconFigure`` class. In our case, the ``misc/marker2`` name
 resolves to the ``inet/images/misc/marker2.png`` file:
@@ -142,7 +142,7 @@ resolves to the ``inet/images/misc/marker2.png`` file:
    :width: 24
    :align: center
 
-The ``iconColor`` parameter allows you to colorize (tint) the icon. As
+The :par:`iconColor` parameter allows you to colorize (tint) the icon. As
 :ned:`TransportConnectionVisualizer` potentially displays several icons per
 network node, the parameter accepts a (space-separated) list of colors,
 and the module will cycle through them as it assigns colors to icons. It
@@ -150,10 +150,10 @@ also accepts the ``dark`` and ``light`` keywords, which will be
 interpreted as a list of good dark (light) colors.
 
 The :ned:`LinkBreakVisualizer` and :ned:`PacketDropVisualizer` modules have an
-``iconTintColor`` parameter instead of ``iconColor``. However, note,
-that ``iconTintColor`` can be set only to a single color. These
-visualizers also have an ``iconTintAmount`` parameter. By adjusting
-``iconTintAmount``, the colorization amount of the icon can be adjusted
+:par:`iconTintColor` parameter instead of :par:`iconColor`. However, note,
+that :par:`iconTintColor` can be set only to a single color. These
+visualizers also have an :par:`iconTintAmount` parameter. By adjusting
+:par:`iconTintAmount`, the colorization amount of the icon can be adjusted
 between zero and one. If we set the parameter to zero, the icon will not
 be tinted at all. If the parameter is set to one, the icon will be
 tinted fully.
@@ -185,7 +185,7 @@ and the customized visualization.
    :width: 80%
    :align: center
 
-The ``placementHint`` parameter determines where the annotations will be
+The :par:`placementHint` parameter determines where the annotations will be
 placed. The annotations can be placed in eight directions around the
 node: ``topCenter``, ``left``, ``right``, ``bottomCenter``, ``topLeft``,
 ``topRight``, ``bottomLeft``, ``bottomRight``. The ``placementHint``
@@ -197,7 +197,7 @@ eight directions. When ``placementHint`` is set to ``any``, annotations
 will be placed as close as possible to the node.
 
 The order of annotation positioning can be controlled by using the
-``placementPriority`` parameter that takes an integer. Zero is the
+:par:`placementPriority` parameter that takes an integer. Zero is the
 largest priority.
 
 More Information

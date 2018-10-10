@@ -25,11 +25,11 @@ In INET, data link activity can be visualized by including a
 :ned:`IntegratedVisualizer` module is also an option, because it also
 contains a :ned:`DataLinkVisualizer` module. Data link visualization is
 disabled by default, it can be enabled by setting the visualizer's
-``displayLinks`` parameter to true.
+:par:`displayLinks` parameter to true.
 
 :ned:`DataLinkVisualizer` is able to observe packets at *service*, *peer*
 and *protocol* level. The level where packets are observed can be set by
-the ``activityLevel`` parameter.
+the :par:`activityLevel` parameter.
 
 -  At *service* level, those packets are displayed which pass through
    the data link layer (i.e. carry data from/to higher layers).
@@ -49,8 +49,8 @@ visualizer.
 
 By default, all packets, interfaces and nodes are considered for the
 visualization. This selection can be narrowed to certain packets and/or
-nodes with the visualizer's ``packetFilter``, ``interfaceFilter``, and
-``nodeFilter`` parameters.
+nodes with the visualizer's :par:`packetFilter`, :par:`interfaceFilter`, and
+:par:`nodeFilter` parameters.
 
 Enabling Visualization of Data Link Activity
 --------------------------------------------
@@ -88,7 +88,7 @@ OMNeT++ animation for packet transmissions, and has nothing to do with
 ``wiredDestination`` (the red strip disappears), a dark cyan arrow is
 added by :ned:`DataLinkVisualizer` between the two hosts, indicating data
 link activity. The packet's name is also displayed on the arrow. The
-arrow fades out quickly, because the ``fadeOutTime`` parameter of the
+arrow fades out quickly, because the :par:`fadeOutTime` parameter of the
 visualizer is set to a small value.
 
 Visualization in a wireless network is very similar. Our next example is
@@ -138,7 +138,7 @@ For this network, the visualizer's type is :ned:`IntegratedVisualizer`.
 Data link activity visualization is filtered to display only ping
 messages. The other packets, e.g. ARP packets, are not visualized by
 :ned:`DataLinkVisualizer`. We adjust the ``fadeOutMode`` and the
-``fadeOutTime`` parameters so that the activity arrows do not fade out
+:par:`fadeOutTime` parameters so that the activity arrows do not fade out
 completely before the next ping messages are sent.
 
 We use the following configuration for the visualization.
@@ -153,7 +153,7 @@ We use the following configuration for the visualization.
 The following animation shows what happens when we start the simulation.
 You can see that although there is both ARP and ping traffic in the
 network, :ned:`DataLinkVisualizer` only takes the latter into account, due
-to the presence of the ``packetFilter`` parameter.
+to the presence of the :par:`packetFilter` parameter.
 
 .. video:: Filtering_v0613.m4v
    :width: 698
@@ -162,7 +162,7 @@ It also is possible to filter for network nodes. For the following
 example, let's assume we want to display traffic between the hosts
 ``source1`` and ``destination1`` only, along the path ``etherSwitch1``,
 ``etherSwitch4`` and ``etherSwitch2``. To this end, we set the
-visualizer's ``nodeFilter`` parameter by using the following line (note
+visualizer's :par:`nodeFilter` parameter by using the following line (note
 the curly brace syntax used for specifying numeric substrings).
 
 .. code-block:: none
@@ -226,11 +226,11 @@ configured as follows.
    *.visualizer.*.dataLinkVisualizer[2].lineColor = "green"
    *.visualizer.*.dataLinkVisualizer[2].labelColor = "green"
 
-By using the ``numDataLinkVisualizers`` parameter, we set three
+By using the :par:`numDataLinkVisualizers` parameter, we set three
 :ned:`DataLinkVisualizer` modules. In this example, we are interested in
-*video* packets. To highlight them, we use the ``packetFilter``
-parameter. The ``fadeOutMode`` parameter specifies that inactive links
-fade out in animation time. The ``holdAnimationTime`` parameter stops
+*video* packets. To highlight them, we use the :par:`packetFilter`
+parameter. The :par:`fadeOutMode` parameter specifies that inactive links
+fade out in animation time. The :par:`holdAnimationTime` parameter stops
 the animation for a while, delaying the fading of the data link activity
 arrows. The ``activityLevel``, ``lineColor`` and ``labelColor``
 parameters are different at each :ned:`DataLinkVisualizer` to make data

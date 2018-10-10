@@ -50,7 +50,7 @@ there is no need for Monte Carlo.
    - the snir threshold is important because when the transmission's snir is below this value, the reception is not simulated because it is assumed to be incorrect.
    - thus we have to set the snir threshold low enough to get more fine-grained data at low snir levels
 
-We lower the ``snirThreshold`` parameter of the hosts' radios from 4 to
+We lower the :par:`snirThreshold` parameter of the hosts' radios from 4 to
 0 dB. When the transmission's SNIR is below this value, the reception is
 assumed to be incorrect, and the reception is not simulated. Lowering
 the level results in more fine-grained data at low SNIR levels.

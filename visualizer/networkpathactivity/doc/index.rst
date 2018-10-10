@@ -25,7 +25,7 @@ In INET, network path activity can be visualized by including a
 :ned:`IntegratedVisualizer` module is also an option, because it also
 contains a :ned:`NetworkRouteVisualizer` module. Network path activity
 visualization is disabled by default, it can be enabled by setting the
-visualizer's ``displayRoutes`` parameter to true.
+visualizer's :par:`displayRoutes` parameter to true.
 
 :ned:`NetworkRouteVisualizer` currently observes packets that pass through
 the network layer (i.e. carry data from/to higher layers), but not those
@@ -44,8 +44,8 @@ and other graphical properties can be changed with parameters of the
 visualizer.
 
 By default, all packets and nodes are considered for the visualization.
-This selection can be narrowed with the visualizer's ``packetFilter``
-and ``nodeFilter`` parameters.
+This selection can be narrowed with the visualizer's :par:`packetFilter`
+and :par:`nodeFilter` parameters.
 
 Enabling Visualization of Network Path Activity
 -----------------------------------------------
@@ -84,7 +84,7 @@ animation for packet transmissions, and has nothing to do with
 ``destination`` (the red strip disappears), an arrow is added by
 :ned:`NetworkRouteVisualizer` between the two hosts, indicating network
 path activity. The packet's name is also displayed on the arrow. The
-arrow fades out quickly, because the ``fadeOutTime`` parameter of the
+arrow fades out quickly, because the :par:`fadeOutTime` parameter of the
 visualizer is set to a small value.
 
 Note, however, that ARP traffic does not activate the visualization,
@@ -117,7 +117,7 @@ a video to the ``videoClient`` node. The remaining two endpoints
 For this network, the visualizer's type is :ned:`IntegratedVisualizer`.
 Network path visualization is filtered to display only ping traffic. The
 video stream packets are not visualized by network path activity
-visualizer. The ``fadeOutMode`` and ``fadeOutTime`` parameters have been
+visualizer. The :par:`fadeOutMode` and :par:`fadeOutTime` parameters have been
 adjusted so that the network path activity arrow does not fade out
 completely before the next ping packet arrives.
 
@@ -136,7 +136,7 @@ The following video shows what happens when the simulation is run.
 Each arrow has a different color indicating different paths. You can see
 that although there is both video stream and ping traffic in the
 network, :ned:`NetworkRouteVisualizer` displays only the latter, due to the
-presence of the ``packetFilter`` parameter.
+presence of the :par:`packetFilter` parameter.
 
 Visualizing Network Path Activity in a Mobile Ad-Hoc Network
 ------------------------------------------------------------
@@ -228,7 +228,7 @@ topology changes. During the simulation, ``wiredSource`` will be pinging
 ``wiredDestination`` and ``wirelessSource`` will be pinging
 ``wirelessDestination``.
 
-In this showcase, we set the ``packetFilter`` parameter to display only
+In this showcase, we set the :par:`packetFilter` parameter to display only
 ICMP echo traffic. We use the following configuration for the
 visualization.
 
