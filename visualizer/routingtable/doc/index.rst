@@ -62,9 +62,9 @@ Displaying all routing tables
 The following example demonstrates how to enable the visualization of
 routing tables, and how the visualization looks like. The simulation can
 be run by choosing the ``DisplayingAll`` configuration from the ini
-file. The network for the simulation contains two ``StandardHosts``,
+file. The network for the simulation contains two :ned:`StandardHost`'s,
 each connected to a :ned:`Router`. IP addresses are assigned by the
-``IPv4Configurator`` module, which also fills in the routing tables
+:ned:`Ipv4NetworkConfigurator` module, which also fills in the routing tables
 automatically. The visualizer module is an :ned:`IntegratedVisualizer`
 which contains all available visualizers as submodules.
 
@@ -136,8 +136,8 @@ it is filtered. The network looks like the following:
    :width: 80%
    :align: center
 
-It consists of a router connected to a switch. Two ``StandardHosts`` are
-connected to the switch, and two additional ``StandardHosts`` are
+It consists of a router connected to a switch. Two :ned:`StandardHost`'s are
+connected to the switch, and two additional :ned:`StandardHost`'s are
 connected to the router.
 
 Unfiltered routing table visualization
@@ -199,7 +199,7 @@ the routing tables are changed by AODV (Advanced On-Demand Vector
 Routing Protocol). The simulation can be run by choosing the ``Dynamic``
 configuration from the ini file.
 
-The network contains a series of ``AODVRouters``. These are mobile hosts
+The network contains a series of :ned:`AodvRouter`'s. These are mobile hosts
 that have AODV and IP forwarding enabled. Six of the hosts are laid out
 in a chain, and are stationary. Their communication ranges are specified
 so that each host can only reach the adjacent hosts. ``destinationHost``

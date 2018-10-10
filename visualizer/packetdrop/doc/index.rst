@@ -67,7 +67,7 @@ or the module where the packet was dropped:
    There is a list of reasons, identified by a number
 
 The following sections demonstrate some reasons for dropped packets, with example simulations.
-In the simulations, the ``PacketDropVisualizer`` is configured to indicate the packet name and the drop reason.
+In the simulations, the :ned:`PacketDropVisualizer` is configured to indicate the packet name and the drop reason.
 
 Queue overflow
 --------------
@@ -169,7 +169,7 @@ file. The configuration uses the following network:
 .. figure:: maclimitnetwork.png
    :align: center
 
-It contains two ``AdhocHosts``, named ``source`` and ``destination``.
+It contains two :ned:`AdhocHost`'s, named ``source`` and ``destination``.
 The hosts' communication ranges are set up so they are out of range of
 each other. The source host is configured to ping the destination host.
 The reason for packet drops in this case is that the hosts are not in
@@ -198,7 +198,7 @@ The network is the following:
    :width: 60%
    :align: center
 
-It contains two connected ``StandardHosts``. The
+It contains two connected :ned:`StandardHost`'s. The
 :ned:`Ipv4NetworkConfigurator` is instructed not to add any static routes,
 and ``host1`` is configured to ping ``host2``.
 
@@ -222,7 +222,7 @@ hosts:
 .. figure:: unroutablenetwork.png
    :align: center
 
-It contains two ``StandardHosts``, connected with an ethernet cable. The
+It contains two :ned:`StandardHost`'s, connected with an ethernet cable. The
 ethernet cable is configured in the NED file to be disabled.
 Additionally, ``host1`` is configured to ping ``host2``.
 

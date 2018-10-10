@@ -73,7 +73,7 @@ The simulation uses the following network:
    :width: 60%
    :align: center
 
-The network contains two connected ``StandardHosts``. IP addresses are
+The network contains two connected :ned:`StandardHost`'s. IP addresses are
 auto-assigned by an :ned:`Ipv4NetworkConfigurator` module.
 
 We enable visualization by the following configuration line:
@@ -103,7 +103,7 @@ from the ini file. It uses the following network:
    :width: 80%
    :align: center
 
-It contains two ``StandardHosts`` connected to an :ned:`EtherSwitch`. The
+It contains two :ned:`StandardHost`'s connected to an :ned:`EtherSwitch`. The
 switch is connected to a :ned:`Router`, which is connected to an
 :ned:`AccessPoint`. There is a :ned:`WirelessHost` and an :ned:`AdhocHost` near
 the access point. They will obtain their addresses from the router via

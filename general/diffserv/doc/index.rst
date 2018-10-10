@@ -1,5 +1,3 @@
-:orphan:
-
 Differentiated Services
 =======================
 
@@ -147,7 +145,7 @@ the ``omnetpp.ini`` file:
    :end-before: ####
 
 In the ``VoIP_WithPolicingAndQueuing`` configuration, a
-``DiffServQueue`` module is used instead of :ned:`DropTailQueue` in the
+:ned:`DiffservQueue` module is used instead of :ned:`DropTailQueue` in the
 router's PPP interface in order to achieve priority queuing.
 
 .. figure:: DiffServQueue.png

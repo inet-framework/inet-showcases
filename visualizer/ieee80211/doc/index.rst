@@ -74,8 +74,8 @@ The following example simulation demonstrates the visualization when
 multiple networks are present. The simulation can be run by choosing the
 ``MultipleNetworks`` configuration from the ini file.
 
-The network contains two ``AccessPoints`` with different SSIDs, and
-three ``WirelessHosts`` configured to associate with each. We will see
+The network contains two :ned:`AccessPoint`'s with different SSIDs, and
+three :ned:`WirelessHost`'s configured to associate with each. We will see
 the icons being color-coded. When the association processes take place,
 the network will look like the following. Note the different SSIDs
 (``alpha``, ``bravo``) and the colors.
@@ -90,7 +90,7 @@ Visualizing handover
 The following example simulation shows how visualization can help you
 follow handovers in the network. The simulation can be run by choosing
 the ``VisualizingHandover`` configuration from the ini file. The network
-contains two ``AccessPoints`` with different SSIDs, ``alpha`` and
+contains two :ned:`AccessPoint`'s with different SSIDs, ``alpha`` and
 ``bravo``. There is also a :ned:`WirelessHost` which is configured to move
 horizontally back and forth between the two access points. Transmission
 powers are configured so that when a host gets near one access point, it
@@ -111,7 +111,7 @@ Further information
 -------------------
 
 For more information on IEEE 802.11 visualization, see the
-``Ieee80211visualizer`` NED documentation.
+:ned:`Ieee80211Visualizer` NED documentation.
 
 Discussion
 ----------

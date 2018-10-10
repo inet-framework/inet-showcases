@@ -26,7 +26,7 @@ In this model, the actual application-level throughput is measured.
 Configuration
 ~~~~~~~~~~~~~
 
-The network contains two ``WirelessHosts``, at a distance of 1 meter,
+The network contains two :ned:`WirelessHost`'s, at a distance of 1 meter,
 one of them acting as traffic source, the other one as traffic sink. The
 source host sends a UDP stream to the destination host in ad-hoc mode.
 The simulation is run with a small packet size of 100 bytes, and the

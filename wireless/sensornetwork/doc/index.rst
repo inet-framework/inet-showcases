@@ -505,7 +505,7 @@ terms of power consumption.
    mode/state. Note that the energy consumption values are parameters of
    the consumer module, they don't come from the radio.
    :ned:`SensorStateBasedEpEnergyConsumer` is an extension of
-   ``StateBasedEnergyConsumer`` with default consumption values typical for
+   :ned:`StateBasedEnergyConsumer` with default consumption values typical for
    low power wireless sensor nodes. (Note that the consumption values
    should be set to more accurate ones if needed.)
 

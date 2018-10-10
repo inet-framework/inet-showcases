@@ -48,7 +48,7 @@ link activity with its default settings. In this example, we configure a
 simulation for an ad-hoc wireless network. The simulation can be run by
 choosing the ``EnablingVisualization`` configuration from the ini file.
 
-The network contains two ``AdhocHosts``, ``source`` and ``destination``.
+The network contains two :ned:`AdhocHost`'s, ``source`` and ``destination``.
 The ``linkVisualizer's`` type is :ned:`PhysicalLinkVisualizer`. In this
 simulation, ``source`` will be pinging ``destination``.
 

@@ -55,7 +55,7 @@ visualization with its default settings. For the first example, we
 configured a wired network. The simulation can be run by choosing the
 ``EnablingVisualization`` configuration from the ini file.
 
-The network contains two ``StandardHosts``, a ``source`` host and a
+The network contains two :ned:`StandardHost`'s, a ``source`` host and a
 ``destination`` host. In this configuration, the ``source`` host will be
 pinging the ``destination`` host.
 
@@ -108,7 +108,7 @@ We use the following network for this showcase:
 
 The network consists of five ``routers`` (``router0..router4``), four
 ``etherSwitches`` (``etherSwitch0..etherSwitch3``) and eight
-``StandardHosts``. There are two source hosts, ``source1`` and
+:ned:`StandardHost`'s. There are two source hosts, ``source1`` and
 ``source2``, which will be pinging the two destination hosts,
 ``destination1`` and ``destination2``. The ``videoServer`` node streams
 a video to the ``videoClient`` node. The remaining two endpoints

@@ -68,7 +68,7 @@ energy storage capacity of 0.05 Joules. The charge they contain at the
 beginning of the simulation is randomly selected between zero and the
 nominal capacity for each host.
 
-Each host contains an ``AlternatingEnergyGenerator`` module. This module
+Each host contains an :ned:`AlternatingEpEnergyGenerator` module. This module
 alternates between generation (active) and sleep states. It starts in
 the generation state, and while there, it generates the power that is
 specified in its :par:`powerGeneration` parameter (now set to 4mW). In the
@@ -102,7 +102,7 @@ Energy consumption of radios
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Radios in the simulation are configured to contain a
-``StateBasedEnergyConsumer`` module. In this model, energy consumption
+:ned:`StateBasedEpEnergyConsumer` module. In this model, energy consumption
 is based on power consumption values for various radio modes and states,
 and the time the radio spends in these states. For example, radios
 consume a small amount of power when they are idle in receive mode, i.e.

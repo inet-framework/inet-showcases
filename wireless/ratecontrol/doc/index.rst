@@ -61,7 +61,7 @@ INET has different rate control models, such as :ned:`ArfRateControl`,
 The network
 ~~~~~~~~~~~
 
-Two ``StandardHosts`` (``sourceHost`` and ``sinkHost``) are placed on
+Two :ned:`StandardHost`'s (``sourceHost`` and ``sinkHost``) are placed on
 the edge of the scene. During the simulation, they will move along
 the edge of the scene with different speeds, while ``sourceHost``
 will send UDP packets to ``sinkHost``. There is a forest in the middle

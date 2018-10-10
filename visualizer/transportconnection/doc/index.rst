@@ -61,7 +61,7 @@ following network:
    :width: 60%
    :align: center
 
-The network contains two ``StandardHosts`` connected to each other, each
+The network contains two :ned:`StandardHost`'s connected to each other, each
 containing a TCP application. IP addresses and routing tables are
 configured by a :ned:`Ipv4NetworkConfigurator` module. The visualizer
 module is a :ned:`TransportConnectionVisualizer`. The application in
@@ -93,7 +93,7 @@ configuration from the ini file. It uses the following network:
    :width: 60%
    :align: center
 
-There are two ``StandardHosts`` connected to a switch, which is
+There are two :ned:`StandardHost`'s connected to a switch, which is
 connected via a router to the server, another :ned:`StandardHost`. IP
 addresses and routing tables are configured by a
 :ned:`Ipv4NetworkConfigurator` module. The visualizer module is an

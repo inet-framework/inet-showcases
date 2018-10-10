@@ -95,7 +95,7 @@ transport path activity arrow fades out quickly, because the
 :par:`fadeOutTime` parameter of the visualizer is set to a small value.
 
 Our next simulation model is the wireless variant of the above example.
-In this network, we use two ``AdhocHosts``. The traffic and the
+In this network, we use two :ned:`AdhocHost`'s. The traffic and the
 visualization settings are the same as the configuration of the wired
 example. The simulation can be run by choosing the
 ``EnablingPathVisualizationWireless`` configuration from the ini file.
@@ -164,7 +164,7 @@ what happens if :par:`packetFilter` is set.
    :width: 698
 
 You can see that although there are both video stream and
-``UDPBasicAppData`` traffic in the network, ``TransportPathVisualizer``
+``UDPBasicAppData`` traffic in the network, :ned:`TransportRouteVisualizer`
 displays only the latter, due to the presence of the :par:`packetFilter`
 parameter.
 

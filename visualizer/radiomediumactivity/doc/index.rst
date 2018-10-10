@@ -59,7 +59,7 @@ network:
    :width: 100%
 
 The scene size is about 900x600 meters. The network contains two
-``WirelessHosts``. ``host1`` is configured to send UDP packets to
+:ned:`WirelessHost`'s. ``host1`` is configured to send UDP packets to
 ``host2``. Displaying of transmissions and receptions, propagating
 signals, communication and interference ranges are enabled with the
 following visualizer settings:
@@ -245,7 +245,7 @@ The example configuration for this section uses the following network:
    :width: 100%
 
 The scene size is 1000x500 meters. The network contains three
-``AdhocHosts``. The ``source`` is configured to ping the
+:ned:`AdhocHost`'s. The ``source`` is configured to ping the
 ``destination``. The communication ranges are configured so that hosts
 can reach only the adjacent hosts. The center host is configured to
 relay packets between the hosts on the two sides.
@@ -303,7 +303,7 @@ signals looks like. It uses the following network:
    :width: 100%
 
 The scene size is 1000x500 meters. The network contains three
-``AdhocHosts`` laid out in a chain, just like in the previous
+:ned:`AdhocHost`'s laid out in a chain, just like in the previous
 configuration. The hosts on the two sides, ``source1`` and ``source2``,
 are configured to ping the host in the middle, ``destination``. There is
 a wall positioned between the two hosts on the sides. The obstacle loss
