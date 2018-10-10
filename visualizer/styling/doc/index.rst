@@ -14,9 +14,8 @@ are named consistently across all visualizers.
 This showcase consists of four examples which demonstrate how to
 customize lines, arrows, icons, fonts and annotations.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/styling <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/styling>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/styling <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/styling>`__
 
 Customizing Lines and Arrows
 ----------------------------
@@ -43,10 +42,19 @@ following configuration is used for the visualizer:
    *.visualizer.*.dataLinkVisualizer.lineContactSpacing = 15
    *.visualizer.*.dataLinkVisualizer.lineShift = 32
 
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Customizing Lines
+   :end-at: dataLinkVisualizer.lineShift
+   :language: ini
+
 Move the mouse over the image to see the differences between the default
 and the customized visualization.
 
 .. figure:: Line_default_v0727.png
+   :width: 80%
+   :align: center
+
+.. figure:: Line_custom_v0727.png
    :width: 80%
    :align: center
 
@@ -84,10 +92,19 @@ To customize the fonts used in labels, we configure
    *.visualizer.*.dataLinkVisualizer.labelFont = "Courier New, 12px, bold"
    *.visualizer.*.dataLinkVisualizer.labelColor = "red"
 
+.. literalinclude:: ../omnetpp.ini
+   :start-after: # Customizing Fonts
+   :end-at: dataLinkVisualizer.labelColor
+   :language: ini
+
 Move the mouse over the image to see the differences between the default
 and the customized visualization.
 
 .. figure:: Font_default_v0727.png
+   :width: 80%
+   :align: center
+
+.. figure:: Font_custom_v0727.png
    :width: 80%
    :align: center
 
@@ -126,10 +143,19 @@ icons:
    *.visualizer.*.transportConnectionVisualizer.icon = "misc/marker2"
    *.visualizer.*.transportConnectionVisualizer.iconColor = "light"
 
+.. literalinclude:: ../omnetpp.ini
+   :start-after: # Customizing Icons
+   :end-at: transportConnectionVisualizer.iconColor
+   :language: ini
+
 Move the mouse over the image to see the differences between the default
 and the customized visualization.
 
 .. figure:: Icon_default_v0727.png
+   :width: 80%
+   :align: center
+
+.. figure:: Icon_custom_v0727.png
    :width: 80%
    :align: center
 
@@ -178,10 +204,19 @@ We use the following configuration to place the annotation icons.
 
    *.visualizer.*.transportConnectionVisualizer.placementHint = "bottom"
 
+.. literalinclude:: ../omnetpp.ini
+   :start-after: # Placing Annotations
+   :end-at: placementHint
+   :language: ini
+
 Move the mouse over the image to see the differences between the default
 and the customized visualization.
 
 .. figure:: Annotation_default_v0802.png
+   :width: 80%
+   :align: center
+
+.. figure:: Annotation_custom_v0802.png
    :width: 80%
    :align: center
 
