@@ -8,7 +8,7 @@ import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
-network EarthVisualizationExample
+network EarthVisualizationShowcase
 {
     submodules:
         visualizer: IntegratedVisualizer {
@@ -21,7 +21,7 @@ network EarthVisualizationExample
         }
 }
 
-network EarthVisualization2 extends EarthVisualizationExample
+network EarthVisualization2 extends EarthVisualizationShowcase
 {
     submodules:
         physicalEnvironment: PhysicalEnvironment {
@@ -29,7 +29,7 @@ network EarthVisualization2 extends EarthVisualizationExample
         }
 }
 
-network EarthVisualization3 extends EarthVisualizationExample
+network EarthVisualization3 extends EarthVisualizationShowcase
 {
     submodules:
         physicalEnvironment: PhysicalEnvironment {
