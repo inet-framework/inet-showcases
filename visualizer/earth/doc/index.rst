@@ -1,5 +1,3 @@
-:orphan:
-
 Visualizing Terrain and Urban Environment
 =========================================
 
@@ -207,5 +205,5 @@ For further information about the visualizer, refer to the NED documentation of
 Discussion
 ----------
 
-Use `this page <https://github.com/inet-framework/inet-showcases/issues/TODO>`__ in the GitHub issue tracker for commenting on
-this showcase.
+Use `this page <https://github.com/inet-framework/inet-showcases/issues/33>`__
+in the GitHub issue tracker for commenting on this showcase.

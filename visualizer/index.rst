@@ -36,7 +36,7 @@ Infrastructure:
    networknode/doc/index
    environment/doc/index
    mobility/doc/index
-.. earth/doc/index
+   earth/doc/index
 .. osgdemo/doc/index
 
 
