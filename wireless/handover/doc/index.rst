@@ -9,9 +9,8 @@ This example simulation demonstrates handover between two access points
 to show how the handover takes place between the two APs, including
 beacons, active scanning, the authentication and association processes.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/wireless/handover <https://github.com/inet-framework/inet-showcases/tree/master/wireless/handover>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/wireless/handover <https://github.com/inet-framework/inet-showcases/tree/master/wireless/handover>`__
 
 The Model
 ---------
@@ -36,7 +35,7 @@ association is complete, data exchange can begin.
 The example simulation will use the following network:
 
 .. figure:: network2.png
-   :width: 80% 
+   :width: 80%
    :align: center
 
 The network contains two APs placed 400 meters apart, and a wireless
@@ -72,7 +71,7 @@ Requests before it gets a Probe Response. This is shown in the following
 packet log.
 
 .. figure:: scan.png
-   :width: 100% 
+   :width: 100%
 
 When the host gets the Probe Response, it initiates the authentication
 process. After that is completed, it starts the association process. The
@@ -82,11 +81,11 @@ it is associated with the AP. The authentication and association
 processes are shown in the packet log below.
 
 .. figure:: assoc.png
-   :width: 100% 
+   :width: 100%
 
 This animation shows the handover.
 
-.. video:: handover2.mp4 
+.. video:: handover2.mp4
    :width: 560
    :align: center
 
@@ -119,21 +118,16 @@ The host's ``mgmt`` module contains a variable that indicates which
 access point the host is associated to.
 
 .. figure:: assocap2.png
-   :width: 100% 
+   :width: 100%
 
 The ``mgmt`` modules of access points maintain a list of hosts that are
 associated with them.
 
 .. figure:: stalist1.png
-   :width: 100% 
+   :width: 100%
 
 .. figure:: stalist2.png
    :width: 100% 
-
-Further Information
--------------------
-
-More information can be found in the `INET Reference <https://omnetpp.org/doc/inet/api-current/neddoc/index.html>`__.
 
 Discussion
 ----------
