@@ -4,7 +4,6 @@ ERRORS:
 *.visualizer.osgVisualizer.typename = "IntegratedOsgVisualizer" # TODO: remove when enabled by default
 - Transportconnection showcase: A runtime error occurred:
 Tag 'inet::Ipv4InterfaceData' is absent -- in module (inet::visualizer::TransportConnectionCanvasVisualizer) TransportConnectionVisualizationMultipleConnectionsShowcase.visualizer.canvasVisualizer.transportConnectionVisualizer (id=222), at t=0.00006972s, event #232 
-- RadioVisualizer: displayAntennaLobes parameter is unused (cannot turn off antenna lobe visualization)
 - RoutingTableVisualizer: Tag 'inet::Ipv4InterfaceData' is absent -- in module (inet::visualizer::RoutingTableCanvasVisualizer)
 - Earth showcase: 3rd config: the initial viewport is not centered on the nodes
 
@@ -37,6 +36,7 @@ Eventually all sensor nodes get into this state and the number of successfully s
 - Mobility: inet: 29cf0ed (temp: ext interface video streaming, 2018-06-21) showcases: a1c3378 (mobility, 2018-06-21): negative time error
 - Throughput: run 15: handleCommand(): no commands supported -- in module (inet::ieee80211::Ieee80211MgmtAdhoc) Throughput.sourceHost.wlan[0].mgmt (id=24), at t=0.108461533953s, event #8801
 - RateControl:		rate adaptation instead of rate control?
+- DataLinkVisualizer: move activity parameter to DataLinkVisualizer from LinkVisualizerBase ?
 
 IPv4NetworkConfigurator:
 ?- a netmaskRoutes miatt olyan szabály is hozzáadódik a routing táblához, ami hibás. Pont a korrekt szabály felett van, és a csomagok nem találnak oda

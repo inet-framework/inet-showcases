@@ -1,0 +1,14 @@
+Planned Showcases:
+------------------
+
+-Ieee80211 aggregation: a-mdpu and a-msdu
+-Corruption mode: corruption level and its effects on protocols (independent from wifi -> APSK radio)
+-Throughput: add ht/vht mode
+-Ieee80211 block ack
+-Ieee80211 txop
+-Ieee80211 fragmentation
+-Hud (distinct topological and real-time position views)
+-Fingerprints
+-Dimensional analog model
+-Hardware-in-the-loop: real AODV, simulated network
+-Hardware-in-the-loop: simulated AODV, real network
