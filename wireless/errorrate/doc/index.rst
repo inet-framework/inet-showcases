@@ -7,9 +7,8 @@ Goals
 In this showcase we perform a parameter study examining how packet error
 rate changes as a function of distance in a 802.11g wireless network.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/wireless/errorrate <https://github.com/inet-framework/inet-showcases/tree/master/wireless/errorrate>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/wireless/errorrate <https://github.com/inet-framework/inet-showcases/tree/master/wireless/errorrate>`__
 
 The Model
 ---------
@@ -131,11 +130,6 @@ throughput drops, it becomes more viable to change to a slower bitrate
 mode. For example, the rate control algorithm could change to the slower
 bitrate at around the critical point, about where the curves for two
 adjacent bitrate modes intersect.
-
-Further Information
--------------------
-
-More information can be found in the `INET Reference <https://omnetpp.org/doc/inet/api-current/neddoc/index.html>`__.
 
 Discussion
 ----------
