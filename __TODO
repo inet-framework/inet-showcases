@@ -6,6 +6,8 @@ ERRORS:
 Tag 'inet::Ipv4InterfaceData' is absent -- in module (inet::visualizer::TransportConnectionCanvasVisualizer) TransportConnectionVisualizationMultipleConnectionsShowcase.visualizer.canvasVisualizer.transportConnectionVisualizer (id=222), at t=0.00006972s, event #232 
 - RoutingTableVisualizer: Tag 'inet::Ipv4InterfaceData' is absent -- in module (inet::visualizer::RoutingTableCanvasVisualizer)
 - Earth showcase: 3rd config: the initial viewport is not centered on the nodes
+- HiddenNode: crash with all 4 configs (some error in Ieee80211MacProtocolDissector?)
+- Ratecontrol: 2nd config running very slowly when run with the gui in express mode
 
 MISC:
 
