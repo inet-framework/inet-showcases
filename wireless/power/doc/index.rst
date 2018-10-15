@@ -12,9 +12,8 @@ energy consumer in the nodes will thus be the radio; the modeled devices
 will also have energy storage (battery) and energy "generator" (e.g.
 solar cells) units built into them.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/wireless/power <https://github.com/inet-framework/inet-showcases/tree/master/wireless/power>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/wireless/power <https://github.com/inet-framework/inet-showcases/tree/master/wireless/power>`__
 
 The model
 ---------
@@ -206,11 +205,6 @@ needs to zoom in on the graph to see this effect.
 
 .. figure:: ping-ack2.png
    :width: 80%
-
-Further Information
--------------------
-
-More information can be found in the `INET Reference <https://omnetpp.org/doc/inet/api-current/neddoc/index.html>`__.
 
 Discussion
 ----------
