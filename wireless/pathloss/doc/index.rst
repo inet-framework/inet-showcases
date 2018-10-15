@@ -12,9 +12,8 @@ available path loss models and how to use them in simulations.
 The showcase contains an example simulation, which computes received
 power vs. distance using several path loss model types.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/wireless/pathloss <https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/wireless/pathloss <https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss>`__
 
 About path loss models
 ----------------------
@@ -107,16 +106,10 @@ more rapid.
 Here are the keys from the configuration relevant for positioning the
 hosts:
 
-.. code-block:: none
-
-   # mobility settings
-   *.*.mobility.initFromDisplayString = false
-   *.*.mobilityType = "StationaryMobility"
-   *.*.mobility.initialY = 200m
-   *.*.mobility.initialZ = 2m
-
-   *.source.mobility.initialX = 0m
-   *.destination.mobility.initialX = ${distance=0..50 step 0.25, 51..100 step 1, 105..200 step 5, 220..1000 step 20}m
+.. literalinclude:: ../omnetpp.ini
+   :start-at: initFromDisplayString
+   :end-at: destination.mobility.initialX
+   :language: ini
 
 The other variable in the parameter study is the path loss type, which
 takes on the following values: :ned:`FreeSpacePathLoss`,
@@ -128,10 +121,6 @@ record the power of the received transmission, using the
 ``receptionPower`` statistic. The ``receptionPower`` statistic is
 declared in the NED file, and it uses the ``receptionMinSignalPower``
 signal of the radio medium module as input:
-
-
-
-.. <pre class="include" src="PathLossShowcase.ned" from="statistic" until="submodules"></pre>
 
 .. literalinclude:: ../PathLossShowcase.ned
    :language: ned
