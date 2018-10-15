@@ -7,9 +7,8 @@ Goals
 This showcase demonstrates the hidden node problem in 802.11 wireless
 networks, and the RTS/CTS mechanism that addresses it.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/wireless/hiddennode <https://github.com/inet-framework/inet-showcases/tree/master/wireless/hiddennode>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/wireless/hiddennode <https://github.com/inet-framework/inet-showcases/tree/master/wireless/hiddennode>`__
 
 Description of the hidden node problem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,7 +109,7 @@ packet without interference.
 Here is what a collision looks like in the log:
 
 .. figure:: collision.png
-   :width: 60% 
+   :width: 60%
    :align: center
 
 The number of packets received by Host B (RTS/CTS off): **1470**
@@ -128,7 +127,7 @@ The following sequence chart has been recorded from the simulation, and
 depicts an RTS collision.
 
 .. figure:: rtscollision.png
-   :width: 60% 
+   :width: 60%
    :align: center
 
 The following animation shows the RTS/CTS and data frame exchange.
@@ -143,7 +142,7 @@ transmit in order to avoid collisions. It also illustrates that RTS and
 CTS frames are much shorter than data frames.
 
 .. figure:: rts-seq.png
-   :width: 100% 
+   :width: 100%
 
 The number of received packets at Host B (RTS/CTS on): **1971**
 
@@ -163,11 +162,6 @@ approximately the same regardless of the presence of the wall.
 The number of received packets at Host B (wall removed, RTS/CTS off):
 **1966**\  The number of received packets at Host B (wall removed,
 RTS/CTS on): **1987**
-
-Further information
--------------------
-
-More information can be found in the `INET Reference <https://omnetpp.org/doc/inet/api-current/neddoc/index.html>`__.
 
 Discussion
 ----------
