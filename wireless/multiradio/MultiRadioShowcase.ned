@@ -15,38 +15,30 @@ import inet.visualizer.integrated.IntegratedMultiCanvasVisualizer;
 network MultiRadioShowcase
 {
     parameters:
-        @display("bgb=500,300");
+        @display("bgb=657,300");
     submodules:
         visualizer: IntegratedMultiCanvasVisualizer {
             parameters:
-                @display("p=39.644974,101.18344");
+                @display("p=50,50");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
             parameters:
-                @display("p=39.053257,68.63906");
+                @display("p=50,100");
         }
         configurator: Ipv4NetworkConfigurator {
             parameters:
-                @display("p=39.644974,27.218937");
+                @display("p=50,150");
         }
         host1: WirelessHost {
             parameters:
-                @display("p=85,203");
+                @display("p=227,203");
         }
         host2: WirelessHost {
             parameters:
-                @display("p=454,203");
+                @display("p=531,203");
         }
-        accessPoint1: AccessPoint {
+        accessPoint: AccessPoint {
             parameters:
-                @display("p=150,99");
-        }
-        accessPoint2: AccessPoint {
-            parameters:
-                @display("p=354,99");
-        }
-        router: Router {
-            parameters:
-                @display("p=255,168");
+                @display("p=384,100");
         }
 }
