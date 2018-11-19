@@ -51,10 +51,10 @@ The important part of the configuration is shown below:
    :language: ini
 
 The wireless networks advertised by the two interfaces of ``accessPoint``
-are configured to have the names ``AP1`` and ``AP2``, and the second
+are configured to have the names ``wlan2.4`` and ``wlan5``, and the second
 interface is configured to operate on 5 GHz using the :par:`bandName` parameter.
-Of the hosts, ``host1`` is configured to connect to the ``AP1`` network,
-and  ``host2`` to ``AP2``. ``host2``'s wireless interface is also
+Of the hosts, ``host1`` is configured to connect to the ``wlan2.4`` network,
+and  ``host2`` to ``wlan5``. ``host2``'s wireless interface is also
 configured to use the 5 GHz band so that it finds the access point.
 
 The rest of the configuration (omitted) configures traffic
@@ -68,10 +68,12 @@ The following video has been captured from the simulation. Note how
 ``host1`` is pinging ``host2`` through ``accessPoint``. The radio signals are visualized
 as disks, and successful transmissions between nodes' data link layers are visualized by arrows.
 The transmissions for the two different networks (both disks and arrows) are colored
-differently (red for AP1 and blue for AP2.)
+differently (red for wlan2.4 and blue for wlan5.)
 
-.. video:: ping2.mp4
+.. video:: ping3.mp4
    :width: 698
+
+.. run until sendPing, zoom 1.3, no animation speed, playback speed 0.4
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`MultiRadioShowcase.ned <../MultiRadioShowcase.ned>`
 

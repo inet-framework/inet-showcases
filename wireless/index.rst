@@ -26,8 +26,8 @@ IEEE 802.11:
    hiddennode/doc/index
    handover/doc/index
    ratecontrol/doc/index
+   multiradio/doc/index
 .. crosstalk/doc/index
 .. infrastructure/doc/index
-.. multiradio/doc/index
 .. directionalselectivity/doc/index
 
