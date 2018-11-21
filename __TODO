@@ -10,8 +10,6 @@ Tag 'inet::Ipv4InterfaceData' is absent -- in module (inet::visualizer::Transpor
 - Ratecontrol: 2nd config running very slowly when run with the gui in express mode
 - Coexistence: inet: 42dd5dc (updated submodule refs for swarm, 2018-10-24) showcases: 0b13136 (coexistence, 2018-10-29): IndependentPerformance config, run 0:
 vector::reserve while processing statistic signal packetSentToUpper (id=58) with data type inet::Packet, emitted from (inet::physicallayer::FlatRadioBase)CoexistenceShowcase6.wpanHost1.wlan[0].radio -- in module (inet::physicallayer::FlatRadioBase) CoexistenceShowcase6.wpanHost1.wlan[0].radio (id=233), at t=5.20633785078s, event #471274 
-- Fragmentation: inet: 300e689 (RadioVisualizer: typo, 2018-11-16) showcases: 9e18b69 (fragmentation, 2018-11-20): throughput is 10 times as it should be (Default.anf)
-
 
 MISC:
 
