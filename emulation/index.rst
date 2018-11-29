@@ -3,6 +3,13 @@
 INET Emulation Showcases
 ========================
 
+In INET, emulation is used in a broad sense to describe a system which
+is partially implemented in the real world and partially in the simulation.
+Emulation is often used for testing and validating a simulation model with
+its real-world counterparts. It may also be used out of necessity, because
+some part of the system only exists in the real world or as a simulation
+model.
+
 Developing using simulation is often cheaper, more practical and safer
 than directly running experiments in the real world. However, a model
 that succeeds in simulation does not necessarily work when deployed in
