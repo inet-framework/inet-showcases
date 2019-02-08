@@ -27,7 +27,7 @@ network InstrumentShowcase
     @statistic[throughput](source=liveThroughput(client.app[0].packetReceived)/1000000; record=figure; targetFigure=throughputGauge; checkSignals=false);
     @figure[throughputGauge](type=gauge; pos=190,30; size=100,100; minValue=0; maxValue=25; tickSize=5; label="App level throughput [Mbps]");
 
-    @statistic[bitrate1](source=server.wlan[0].mac.dcf.rateControl.datarate/1000000; record=figure; targetFigure=bitrateLinearGauge);
+    @statistic[bitrate1](source=server.wlan[0].mac.dcf.rateControl.datarateChanged/1000000; record=figure; targetFigure=bitrateLinearGauge);
     @figure[bitrateLinearGauge](type=linearGauge; pos=320,65; size=250,30; minValue=0; maxValue=54; tickSize=6; label="WiFi bit rate [Mbps]");
 
     @statistic[progress](source=100 * sum(packetBytes(client.app[0].packetReceived)) / 1048576; record=figure; targetFigure=progressMeter; checkSignals=false);
@@ -45,7 +45,7 @@ network InstrumentShowcase
     @statistic[per2](source=packetErrorRate(client.wlan[0].radio.packetSentToUpper); record=figure; targetFigure=perPlot);
     @figure[perPlot](type=plot; pos=700,20; size=150,60; timeWindow=3; maxValue=1; valueTickSize=1; label="Packet error rate"; numberSizeFactor=1.5);
 
-    @statistic[bitrate2](source=server.wlan[0].mac.dcf.rateControl.datarate/1000000; record=figure; targetFigure=bitratePlot);
+    @statistic[bitrate2](source=server.wlan[0].mac.dcf.rateControl.datarateChanged/1000000; record=figure; targetFigure=bitratePlot);
     @figure[bitratePlot](type=plot; pos=700,140; size=150,60; timeWindow=3; maxValue=55; valueTickSize=54; label="WiFi bit rate [Mbps]"; numberSizeFactor=1.5);
 
     submodules:
