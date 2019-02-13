@@ -22,18 +22,20 @@ import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 
 network Throughput
 {
-    @display("bgb=606,325");
+    @display("bgb=6,4");
+    @statistic[throughput](source=liveThroughput(sourceHost.app[0].packetReceived)/1000000; record=figure; targetFigure=throughputGauge; checkSignals=false);
+    @figure[throughput](type=gauge; pos=1,1; size=100,100; minValue=0; maxValue=25; tickSize=5; label="App level throughput [Mbps]");
     submodules:
         sourceHost: WirelessHost {
-            @display("p=327,160");
+            @display("p=3,2");
         }
         destinationHost: WirelessHost {
-            @display("p=328,160");
+            @display("p=4,2");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=100,100");
+            @display("p=0.64914656,0.43572852");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
-            @display("p=100,200");
+            @display("p=0.64914656,1.10266");
         }
 }
