@@ -14,7 +14,7 @@ that display various gauges and meters.
 This showcase contains a configuration that demonstrates multiple instrument
 figures.
 
-| INET version: ``4.1```
+| INET version: ``4.1``
 | Source files location: `inet/showcases/visualizer/instrumentfigures <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrumentfigures>`__
 
 About Instrument Figures
@@ -68,11 +68,11 @@ instrument figures. It uses the following network:
 .. figure:: network3.png
    :width: 80%
 
-The network contains two :ned:`AdhocHost` nodes, a client and a server. 
+The network contains two :ned:`AdhocHost` nodes, a client and a server.
 (The visualizer is only needed to display the server's communication range.)
 The scenario is that client connects to the server via WiFi, and downloads a 1-megabyte file.
 The client is configured to first move away from the server, eventually
-moving out of its transmission range, then to move back. 
+moving out of its transmission range, then to move back.
 Both hosts are configured to use WiFi adaptive rate control (:ned:`AarfRateControl`),
 so the WiFi transmission bit rate will adapt to the changing channel
 conditions, resulting in a varying application level throughput.
@@ -87,7 +87,7 @@ We would like the following statistics to be displayed using instrument figures:
 -  Wifi bit rate determined by automatic rate control should be displayed by a
    ``linearGauge`` figure and a ``plot`` figure;
 -  Packet error rate at the client, estimated at the physical layer from signal-to-noise
-   ratio, should be displayed by a ``thermometer`` figure and 
+   ratio, should be displayed by a ``thermometer`` figure and
    a ``plot`` figure;
 -  The Wifi MAC channel access contention state of the server should be
    displayed by an ``indexedImage`` figure. IDLE means nothing to send,
@@ -107,15 +107,15 @@ module:
 
 How does that work? Take the first one, ``throughputGauge``, for example.
 Instrument figures visualize statistics derived from OMNeT++ signals,
-emitted by modules in the network. The ``source`` attribute of 
-``@statistic[throughput]`` declares that the ``client.app[0]`` module's 
+emitted by modules in the network. The ``source`` attribute of
+``@statistic[throughput]`` declares that the ``client.app[0]`` module's
 ``packetReceived`` signal should be taken (it emits the packet object),
 and the ``throughput()`` result filter should be applied and divided by
 1000000 to get the throughput in Mbps.
 Further two attributes, ``record`` and ``targetFigure`` specify that the
 resulting values should be sent to the ``throughputGauge`` instrument
 figure. The next, ``@figure[throughputGauge]`` line defines the figure
-in question. It sets the figure type to ``gauge``, and specifies various 
+in question. It sets the figure type to ``gauge``, and specifies various
 attributes such as position, size, minimum and maximum value, and so on.
 
 Further details:
@@ -204,4 +204,3 @@ Discussion
 
 Use `this page <https://github.com/inet-framework/inet-showcases/issues/29>`__ in
 the GitHub issue tracker for commenting on this showcase.
-
