@@ -11,9 +11,8 @@ of two parts. In Part 1, we demonstrate three wireless sensor network
 MAC protocols with three example simulations of a wireless sensor
 network. In Part 2, we compare the three protocols using statistics.
 
-INET version: ``4.0``
-
-Source files location: `inet/showcases/wireless/sensornetwork <https://github.com/inet-framework/inet-showcases/tree/master/wireless/sensornetwork>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/wireless/sensornetwork <https://github.com/inet-framework/inet-showcases/tree/master/wireless/sensornetwork>`__
 
 Part 1: Demonstrating the MAC protocols
 ---------------------------------------
