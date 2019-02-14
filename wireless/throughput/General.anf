@@ -8,9 +8,9 @@
     <datasets name="computed">
       <items xsi:type="scave:Add" filterPattern="analyticalThroughput"/>
       <items xsi:type="scave:Add" filterPattern="bitrate or packetLength"/>
-      <items xsi:type="scave:Add" filterPattern="throughput:mean AND module(*.destinationHost.*) "/>
+      <items xsi:type="scave:Add" filterPattern="module(Throughput.destinationHost.app[0]) AND name(&quot;packetReceived:sum(packetBytes)&quot;)"/>
       <items xsi:type="scave:ComputeScalar" scalarName="analyticalThroughput_mbps" valueExpr="'analyticalThroughput'" moduleExpr="" groupByExpr=""/>
-      <items xsi:type="scave:ComputeScalar" scalarName="throughput_mbps" valueExpr="'throughput:mean'/1000000" moduleExpr="" groupByExpr=""/>
+      <items xsi:type="scave:ComputeScalar" scalarName="throughput_mbps" valueExpr="'packetReceived:sum(packetBytes)'/100*8/1000000" moduleExpr="" groupByExpr=""/>
       <items xsi:type="scave:ScatterChart" name="Analytical vs Simulated" xDataPattern="module(_runattrs_) AND name(bitrate)" averageReplications="false">
         <filters xsi:type="scave:Select" filterPattern="analyticalThroughput_mbps OR throughput_mbps OR bitrate OR packetLength"/>
         <properties name="Graph.Title" value="Analytical vs simulated throughput"/>
@@ -35,6 +35,10 @@
         <isoDataPattern>module(_runattrs_) AND name(packetLength)</isoDataPattern>
         <isoDataPattern>attr:configname(*)</isoDataPattern>
       </items>
+    </datasets>
+    <datasets name="packetReceived:sum(packetBytes) Throughput.destinationHost.app[0]">
+      <items xsi:type="scave:Add" filterPattern="module(Throughput.destinationHost.app[0]) AND name(&quot;packetReceived:sum(packetBytes)&quot;)"/>
+      <items xsi:type="scave:BarChart" name="packetReceived:sum(packetBytes) Throughput.destinationHost.app[0]"/>
     </datasets>
   </datasets>
   <chartSheets>
