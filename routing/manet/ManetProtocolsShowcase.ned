@@ -11,6 +11,10 @@ network ManetprotocolsShowcaseA
 {
     parameters:
         @display("bgb=1500,1000;bgl=2");
+        @statistic[numRcvdPk](source=count(source.app[0].pingRxSeq); record=figure; targetFigure=numRcvdPkCounter; checkSignals=false);
+        @figure[numRcvdPkCounter](type=counter; pos=65,400; label="Received ping replies"; decimalPlaces=4);
+        @statistic[numLost](source=count(source.app[0].numLost); record=figure; targetFigure=numLostPkCounter; checkSignals=false);
+        @figure[numLostPkCounter](type=counter; pos=65,500; label="Pings lost"; decimalPlaces=4);
         @figure[forest](type=image; image="showcases/forest"; pos=0,0; transform=scale(0.7),translate(1100,450));
         @figure[tree1](type=image; image="showcases/tree"; pos=0,0; transform=scale(0.1),translate(1000,350));
         @figure[tree2](type=image; image="showcases/tree"; pos=0,0; transform=scale(0.1),translate(1065,260));
@@ -77,6 +81,11 @@ network ManetprotocolsShowcaseB
 {
     parameters:
         @display("bgb=400,400");
+        @statistic[numRcvdPk](source=count(source.app[0].pingRxSeq); record=figure; targetFigure=numRcvdPkCounter; checkSignals=false);
+        @figure[numRcvdPkCounter](type=counter; transform=scale(0.5); pos=50,300; label="Received ping replies"; decimalPlaces=4);
+        @statistic[numLost](source=count(source.app[0].numLost); record=figure; targetFigure=numLostPkCounter; checkSignals=false);
+        @figure[numLostPkCounter](type=counter; transform=scale(0.5); pos=50,400; label="Pings lost"; decimalPlaces=4);
+        
     submodules:
         source: ManetRouter {
             @display("p=104,335");
