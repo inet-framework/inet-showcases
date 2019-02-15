@@ -26,11 +26,13 @@ Some of the instrument figure types available in INET are the following:
 
 .. figure:: gauge.png
    :align: center
+   :width: 150
 
 - *linearGauge:* A horizontal linear gauge similar to a VU meter.
 
 .. figure:: linear.png
    :align: center
+   :width: 300
 
 - *progressMeter:* A horizontal progress bar.
 
@@ -46,6 +48,7 @@ Some of the instrument figure types available in INET are the following:
 
 .. figure:: thermometer.png
    :align: center
+   :width: 100
 
 - *indexedImage:* A figure that displays one of several images: the first image for the value 0, the second image for the value of 1, and so on.
 
@@ -67,6 +70,7 @@ instrument figures. It uses the following network:
 
 .. figure:: network3.png
    :width: 80%
+   :align: center
 
 The network contains two :ned:`AdhocHost` nodes, a client and a server.
 (The visualizer is only needed to display the server's communication range.)
@@ -165,7 +169,8 @@ Running the Simulation
 This video illustrates what happens when the simulation is run:
 
 .. video:: instruments.mp4
-   :width: 912
+   :width: 100%
+   :align: center
 
 The client starts moving away from the server. At the beginning, the
 server transmits with 54 Mbps bit rate. The transmissions are received
@@ -174,7 +179,7 @@ away, signal to noise ratio drops and packet error rate goes up. As
 packet loss increases, the rate control in the server lowers the bit
 rate, because lower bit rates are more tolerant to noise. When the
 client gets to the edge of the communication range, the bit rate is only
-24 Mbps. When it leaves the communicaton range, successful reception is
+24 Mbps. When it leaves the communication range, successful reception is
 impossible, so the rate quickly reaches its lowest. After the client
 turns around and re-enters communication range, the rate starts to rise,
 eventually reaching 54Mbps again.
