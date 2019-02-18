@@ -18,6 +18,9 @@ import ned.DelayChannel;
 network PacketDropQueueOverflowShowcase
 {
     @display("bgb=720,400");
+    @statistic[numDropped](source=count(etherSwitch.eth[1].queue.dataQueue.packetDropped); record=figure; targetFigure=numDroppedCounter; checkSignals=false);
+    @figure[numDroppedCounter](type=counter; pos=590,25; label="Packets dropped"; decimalPlaces=5);
+    
     submodules:
         source: StandardHost {
             @display("p=80,198");
@@ -51,6 +54,9 @@ network PacketDropQueueOverflowShowcase
 
 network PacketDropArpResolutionFailedShowcase
 {
+    @statistic[numDropped](source=count(source.ipv4.ip.packetDropped); record=figure; targetFigure=numDroppedCounter; checkSignals=false);
+    @figure[numDroppedCounter](type=counter; pos=200,35; label="Packets dropped"; decimalPlaces=5);
+    
     submodules:
         visualizer: IntegratedVisualizer {
             parameters:
@@ -72,6 +78,9 @@ network PacketDropArpResolutionFailedShowcase
 
 network PacketDropMacRetryLimitReachedShowcase
 {
+    @statistic[numDropped](source=count(source.wlan[0].mac.dcf.packetDropped); record=figure; targetFigure=numDroppedCounter; checkSignals=false);
+    @figure[numDroppedCounter](type=counter; pos=200,35; label="Packets dropped"; decimalPlaces=5);
+    
     submodules:
         visualizer: IntegratedVisualizer {
             parameters:
@@ -97,6 +106,9 @@ network PacketDropMacRetryLimitReachedShowcase
 
 network PacketDropInterfaceNotConnectedShowcase
 {
+    @statistic[numDropped](source=count(host1.eth[0].mac.packetDropped); record=figure; targetFigure=numDroppedCounter; checkSignals=false);
+    @figure[numDroppedCounter](type=counter; pos=200,35; label="Packets dropped"; decimalPlaces=5);
+    
     @display("bgb=400,400");
     submodules:
         configurator: Ipv4NetworkConfigurator {
@@ -118,6 +130,9 @@ network PacketDropInterfaceNotConnectedShowcase
 network PacketDropNoRouteToDestinationShowcase
 {
     @display("bgb=400,400");
+    @statistic[numDropped](source=count(host1.ipv4.ip.packetDropped); record=figure; targetFigure=numDroppedCounter; checkSignals=false);
+    @figure[numDroppedCounter](type=counter; pos=200,35; label="Packets dropped"; decimalPlaces=5);
+    
     submodules:
         configurator: Ipv4NetworkConfigurator {
             @display("p=60,40");
