@@ -11,6 +11,8 @@ Tag 'inet::Ipv4InterfaceData' is absent -- in module (inet::visualizer::Transpor
 BUGS:
 
 - Fragmentation showcase: there is a block ack bug (not acking properly, the simulation slows down)
+- Txop showcase: ca8ab95: aggregated frames larger than the maxAMSDUsize are being created
+
 
 MISC:
 
