@@ -13,6 +13,7 @@ General Wireless:
    pathloss/doc/index
    sensornetwork/doc/index
    ieee802154/doc/index
+   directionalantennas/doc/index
 .. levelofdetail/doc/index
 .. scaling/doc/index
 
@@ -29,5 +30,3 @@ IEEE 802.11:
    multiradio/doc/index
 .. crosstalk/doc/index
 .. infrastructure/doc/index
-.. directionalselectivity/doc/index
-
