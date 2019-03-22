@@ -12,9 +12,9 @@ General Wireless:
    power/doc/index
    pathloss/doc/index
    sensornetwork/doc/index
+   ieee802154/doc/index
 .. levelofdetail/doc/index
 .. scaling/doc/index
-.. ieee802154/doc/index
 
 IEEE 802.11:
 
