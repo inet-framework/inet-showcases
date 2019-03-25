@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet/showcases/wireless/coexistence/results/*CoexistencePerformance-*.*"/>
+    <inputs name="/inet/showcases/wireless/coexistence/results/*HostsOnlyPerformance*.*"/>
+    <inputs name="/inet/showcases/wireless/coexistence/results/*ParameterStudy-aUnitBackoffPeriod=*.*"/>
+  </inputs>
+  <datasets>
+    <datasets name="packetReceived:count CoexistenceShowcase.wifiHost2.app[0]">
+      <items xsi:type="scave:Add" filterPattern="module(*.*Host2.app[0]) AND name(packetReceived:count) AND (file(*CoexistencePerformance-#*.sca) OR file(*HostsOnlyPerformance-#*.sca) OR file(*ParameterStudy-aUnitBackoffPeriod=*.sca)) "/>
+      <items xsi:type="scave:BarChart" name="Wifi performance">
+        <filters xsi:type="scave:Select" filterPattern="module(*.wifiHost2.*) AND (file(*CoexistencePerformance-#*.sca) OR file(*WifiHostsOnlyPerformance-#*.sca))"/>
+        <properties name="Graph.Title" value="Wifi performance"/>
+        <properties name="Y.Axis.Title" value="number of received packets"/>
+      </items>
+      <items xsi:type="scave:BarChart" name="Wpan performance">
+        <filters xsi:type="scave:Select" filterPattern="module(*.wpanHost2.*) AND (file(*CoexistencePerformance-#*.sca) OR file(*WpanHostsOnlyPerformance-#*.sca))"/>
+        <properties name="Graph.Title" value="Wpan performance"/>
+        <properties name="Y.Axis.Title" value="number of received packets"/>
+      </items>
+      <items xsi:type="scave:BarChart" name="Wifi performance, updated">
+        <filters xsi:type="scave:Select" filterPattern="module(*.wifiHost2.*) AND (file(*CoexistencePerformance-#*.sca) OR file(*WifiHostsOnlyPerformance-#*.sca) OR file(*ParameterStudy-aUnitBackoffPeriod=60*.sca))"/>
+        <properties name="Graph.Title" value="Wifi performance, updated"/>
+        <properties name="Y.Axis.Title" value="number of received packets"/>
+        <groupByFields>module</groupByFields>
+        <groupByFields>experiment</groupByFields>
+        <groupByFields>measurement</groupByFields>
+        <barFields>name</barFields>
+        <averagedFields>replication</averagedFields>
+        <averagedFields>run</averagedFields>
+      </items>
+      <items xsi:type="scave:BarChart" name="Wpan performance, updated">
+        <filters xsi:type="scave:Select" filterPattern="module(*.wpanHost2.*) AND (file(*CoexistencePerformance-#*.sca) OR file(*WpanHostsOnlyPerformance-#*.sca) OR file(*ParameterStudy-aUnitBackoffPeriod=60-#*.sca))"/>
+        <properties name="Graph.Title" value="Wpan performance, updated"/>
+        <properties name="Y.Axis.Title" value="number of received packets"/>
+        <groupByFields>module</groupByFields>
+        <groupByFields>experiment</groupByFields>
+        <groupByFields>measurement</groupByFields>
+        <barFields>name</barFields>
+        <averagedFields>replication</averagedFields>
+        <averagedFields>run</averagedFields>
+      </items>
+      <items xsi:type="scave:BarChart" name="Parameter study, Wifi performance">
+        <filters xsi:type="scave:Select" filterPattern="module(*.wifiHost2.app[0]) AND name(packetReceived:count) AND file(*ParameterStudy-aUnitBackoffPeriod=*.sca)   "/>
+        <properties name="Graph.Title" value="Parameter study, Wifi performance"/>
+        <properties name="X.Axis.Title" value="aUnitBackoffPeriod [us]"/>
+        <properties name="Y.Axis.Title" value="number of packets received"/>
+      </items>
+      <items xsi:type="scave:BarChart" name="Parameter study, Wpan performance">
+        <filters xsi:type="scave:Select" filterPattern="module(*.wpanHost2.app[0]) AND name(packetReceived:count) AND file(*ParameterStudy-aUnitBackoffPeriod=*.sca)   "/>
+        <properties name="Graph.Title" value="Parameter study, Wpan performance"/>
+        <properties name="X.Axis.Title" value="aUnitBackoffPeriod [us]"/>
+        <properties name="Y.Axis.Title" value="number of received packets"/>
+      </items>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4 //@datasets/@datasets.0/@items.5 //@datasets/@datasets.0/@items.6"/>
+  </chartSheets>
+</scave:Analysis>

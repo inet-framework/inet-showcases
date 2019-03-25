@@ -1,0 +1,321 @@
+[Config Dimensional2]
+network = CoexistenceShowcase
+sim-time-limit = 10s
+#fingerprint = 36ac-e635/tlx
+
+# radio medium settings
+*.radioMedium.analogModel.typename = "DimensionalAnalogModel"
+*.radioMedium.backgroundNoise.typename = "IsotropicDimensionalBackgroundNoise"
+*.radioMedium.backgroundNoise.power = -110dBm
+
+#*.radioMedium.analogModel.attenuateWithCarrierFrequency = false			# is it needed and why
+#**.preambleDuration = 10us													# is it needed and why -> these doesn't seem to change anything
+
+# radio settings
+# 2452MHz/2MHz bw (why 2MHz bw?)(actually, it doesnt matter because they interfere either way
+*.wifiHost*.wlan[*].radio.typename = "Ieee80211DimensionalRadio"
+*.wifiHost*.wlan[*].radio.channelNumber = 8
+
+# default 2450MHz/2.8MHz bw
+*.wpanHost*.wlan[*].typename = "Ieee802154NarrowbandInterface"
+*.wpanHost*.wlan[*].radio.typename = "Ieee802154NarrowbandDimensionalRadio"
+
+# use udp instead of ping
+#*.wpanHost1.numApps = 1
+#*.wpanHost1.app[0].typename = "PingApp"
+#*.wpanHost1.app[*].destAddr = "wpanHost2"
+#*.wpanHost1.app[*].startTime = 0.1s
+#*.wpanHost1.app[*].printPing = true
+
+# wpan hosts app settings
+*.wpanHost1.numApps = 1
+*.wpanHost1.app[0].typename = "UdpBasicApp"
+*.wpanHost1.app[0].destAddresses = "wpanHost2"
+*.wpanHost1.app[0].destPort = 5000
+*.wpanHost1.app[0].messageLength = 88byte
+*.wpanHost1.app[0].packetName = "UDPData-wpan-"
+*.wpanHost1.app[0].startTime = 0.1s
+*.wpanHost1.app[0].sendInterval = 0.1s
+
+*.wpanHost2.numApps = 1
+*.wpanHost2.app[0].typename = "UdpSink"
+*.wpanHost2.app[0].localPort = 5000
+
+# wifi hosts app settings
+*.wifiHost1.numApps = 1
+*.wifiHost1.app[*].typename = "UdpBasicApp"
+*.wifiHost1.app[*].destAddresses = "wifiHost2"
+*.wifiHost1.app[*].destPort = 5000
+*.wifiHost1.app[*].messageLength = 1000byte
+*.wifiHost1.app[*].packetName = "UDPData-wifi"
+*.wifiHost1.app[*].startTime = 0.1s
+*.wifiHost1.app[*].sendInterval = 0.1ms
+
+*.wifiHost2.numApps = 1
+*.wifiHost2.app[*].typename = "UdpSink"
+*.wifiHost2.app[*].localPort = 5000
+
+# visualizer settings
+*.visualizer.physicalLinkVisualizer.displayLinks = true
+*.visualizer.mediumVisualizer.displaySignals = true
+*.visualizer.mediumVisualizer.displayTransmissions = true
+*.visualizer.mediumVisualizer.displayReceptions = true
+*.visualizer.infoVisualizer.modules = "*.wifiHost*.wlan[*].mac.dcf.channelAccess.contention or *.wpanHost*.wlan[*].mac"
+*.visualizer.infoVisualizer.format = "%t"
+*.visualizer.infoVisualizer.placementHint = "topCenter"
+*.visualizer.infoVisualizer.placementPriority = -10
+
+**.displayRoutingTables = false
+**.displayLinks = true
+**.displayPacketDrops = true
+**.packetDropVisualizer.labelFormat = "%t"
+
+# arp type
+*.*Host*.ipv4.arp.typename = "GlobalArp"
+
+[Config Dimensional3]
+extends = Dimensional2
+
+# set comparable backoff periods
+
+*.wpanHost*.wlan[*].mac.aUnitBackoffPeriod = 32us
+
+**.displayRoutingTables = false
+**.displayLinks = true
+**.displayPacketDrops = true
+**.packetDropVisualizer.labelFormat = "%t"
+
+[Config Dimensional4]
+extends = Dimensional3
+
+# set lower ack wait period
+
+*.wpanHost*.wlan[*].mac.macAckWaitDuration = 56us
+
+[Config Dimensional5]
+extends = Dimensional3
+
+# set lower sifs
+
+*.wpanHost*.wlan[*].mac.sifs = 56us
+
+[Config Dimensional6]
+extends = Dimensional5
+
+# reduce rx/tx switching time
+
+#*.wpanHost*.wlan[*].mac.aTurnaroundTime = 0s		# this is unrealistic so dont - set linear backoff method instead
+
+**.backoffMethod = "linear"
+
+[Config DefaultConfigServiceQuality]
+extends = Dimensional2
+sim-time-limit = 5s
+fingerprint = c6d9-42c8/tlx
+
+*.wpanHost1.app[0].sendInterval = 0.1s
+
+[Config TweakedConfigServiceQuality]
+extends = Dimensional6
+sim-time-limit = 5s
+fingerprint = 0be6-e2b7/tlx
+
+*.wpanHost1.app[0].sendInterval = 0.1s
+
+# other things to try:
+# -reduce duty cycle of 802154
+# -set 802154 on wifi guard interval frequency
+# -increase distance
+
+# baseline performance -> something like using separate radio mediums or frequencies 
+# or just running them isolated
+# 
+# all of them on the same frequency -> see how it degrades performance
+#
+# reduce duty cycle -> see how the performance is affected 
+# (improved)(compared to a baseline reduced performance)
+#
+# guard interval frequency -> should be some energy there -> is it so in the sim?
+# irl the bandwidth is trapezoid, in the sim by default its rectangular
+
+[Config ParameterStudy]
+extends = Dimensional2
+sim-time-limit = 2.5s
+repeat = 8
+
+*.wpanHost*.wlan[*].mac.aUnitBackoffPeriod = ${aUnitBackoffPeriod=10..500 step 10}us
+
+**.displayRoutingTables = false
+**.displayLinks = true
+**.displayPacketDrops = true
+**.packetDropVisualizer.labelFormat = "%t"
+
+*.wpanHost*.wlan[*].mac.macAckWaitDuration = 56us
+
+*.wpanHost*.wlan[*].mac.sifs = 56us
+
+*.wpanHost*.wlan[*].mac.aTurnaroundTime = 0s
+
+*.wpanHost1.app[0].sendInterval = 0.1s
+
+# try leaving everything on default, and optimizing for aUnitBackoffPeriod
+
+[Config DefaultOptimization]
+extends = Dimensional2
+
+sim-time-limit = 2.5s
+repeat = 4
+
+*.wpanHost*.wlan[*].mac.aUnitBackoffPeriod = ${aUnitBackoffPeriod=10..500 step 10}us
+
+[Config DefaultNonTweaked]
+extends = Dimensional2
+sim-time-limit = 2.5s
+repeat = 4
+
+*.wpanHost1.app[0].sendInterval = 0.1s
+
+[Config DefaultConfigRepeatedServiceQuality]
+extends = DefaultConfigServiceQuality
+repeat = 4
+
+[Config TweakedConfigRepeatedServiceQuality]
+extends = TweakedConfigServiceQuality
+repeat = 4
+
+[Config SwarmStudy]
+extends = ParameterStudy
+sim-time-limit = 5s
+repeat = 8
+
+[Config Dimensional2_udp]
+network = CoexistenceShowcase
+sim-time-limit = 10s
+fingerprint = bb7e-ad77/tlx b6ed-5f57/tlx
+
+# radio medium settings
+*.radioMedium.analogModel.typename = "DimensionalAnalogModel"
+*.radioMedium.backgroundNoise.typename = "IsotropicDimensionalBackgroundNoise"
+*.radioMedium.backgroundNoise.power = -110dBm
+
+#*.radioMedium.analogModel.attenuateWithCarrierFrequency = false			# is it needed and why
+#**.preambleDuration = 10us													# is it needed and why -> these doesn't seem to change anything
+
+# radio settings
+# 2452MHz/2MHz bw (why 2MHz bw?)(actually, it doesnt matter because they interfere either way
+*.wifiHost*.wlan[*].radio.typename = "Ieee80211DimensionalRadio"
+*.wifiHost*.wlan[*].radio.channelNumber = 8
+
+# default 2450MHz/2.8MHz bw
+*.wpanHost*.wlan[*].typename = "Ieee802154NarrowbandInterface"
+*.wpanHost*.wlan[*].radio.typename = "Ieee802154NarrowbandDimensionalRadio"
+
+# use udp instead of ping
+#*.wpanHost1.numApps = 1
+#*.wpanHost1.app[0].typename = "PingApp"
+#*.wpanHost1.app[*].destAddr = "wpanHost2"
+#*.wpanHost1.app[*].startTime = 0.1s
+#*.wpanHost1.app[*].printPing = true
+
+# wpan hosts app settings
+*.wpanHost1.numApps = 1
+*.wpanHost1.app[0].typename = "UdpBasicApp"
+*.wpanHost1.app[0].destAddresses = "wpanHost2"
+*.wpanHost1.app[0].destPort = 5000
+*.wpanHost1.app[0].messageLength = 88byte
+*.wpanHost1.app[0].packetName = "UDPData-wpan-"
+*.wpanHost1.app[0].startTime = 0.1s
+*.wpanHost1.app[0].sendInterval = 0.1s
+
+*.wpanHost2.numApps = 1
+*.wpanHost2.app[0].typename = "UdpSink"
+*.wpanHost2.app[0].localPort = 5000
+
+# wifi hosts app settings
+*.wifiHost1.numApps = 1
+*.wifiHost1.app[*].typename = "UdpBasicApp"
+*.wifiHost1.app[*].destAddresses = "wifiHost2"
+*.wifiHost1.app[*].destPort = 5000
+*.wifiHost1.app[*].messageLength = 1000byte
+*.wifiHost1.app[*].packetName = "UDPData-wifi"
+*.wifiHost1.app[*].startTime = 0.1s
+*.wifiHost1.app[*].sendInterval = 0.1ms
+
+*.wifiHost2.numApps = 1
+*.wifiHost2.app[*].typename = "UdpSink"
+*.wifiHost2.app[*].localPort = 5000
+
+# visualizer settings
+*.visualizer.physicalLinkVisualizer.displayLinks = true
+*.visualizer.mediumVisualizer.displaySignals = true
+*.visualizer.mediumVisualizer.displayTransmissions = true
+*.visualizer.mediumVisualizer.displayReceptions = true
+*.visualizer.infoVisualizer.modules = "*.wifiHost*.wlan[*].mac.dcf.channelAccess.contention or *.wpanHost*.wlan[*].mac"
+*.visualizer.infoVisualizer.format = "%t"
+*.visualizer.infoVisualizer.placementHint = "topCenter"
+*.visualizer.infoVisualizer.placementPriority = -10
+
+**.displayRoutingTables = false
+**.displayLinks = true
+**.displayPacketDrops = true
+**.packetDropVisualizer.labelFormat = "%t"
+
+**.packetDropVisualizer.fadeOutMode = "animationTime"
+
+# arp type
+*.*Host*.ipv4.arp.typename = "GlobalArp"
+
+[Config ParameterStudy_udp]
+extends = Dimensional2_udp
+sim-time-limit = 2.5s
+repeat = 4
+
+*.wpanHost*.wlan[*].mac.aUnitBackoffPeriod = ${aUnitBackoffPeriod=10..500 step 10}us
+
+**.displayRoutingTables = false
+**.displayLinks = true
+**.displayPacketDrops = true
+**.packetDropVisualizer.labelFormat = "%t"
+
+*.wpanHost*.wlan[*].mac.macAckWaitDuration = 56us
+
+*.wpanHost*.wlan[*].mac.sifs = 56us
+
+#*.wpanHost*.wlan[*].mac.aTurnaroundTime = 0s		# unrealistic
+
+**.backoffMethod = "linear"
+
+#*.wpanHost1.app[0].sendInterval = 0.1s
+
+# try leaving everything on default, and optimizing for aUnitBackoffPeriod
+
+[Config SwarmStudy_udp]
+extends = ParameterStudy_udp
+sim-time-limit = 5s
+repeat = 8
+
+[Config SwarmStudy_udp_dutycycle]
+extends = SwarmStudy_udp
+# reduce duty cycle by half, increase payload/packet size 2x
+
+*.wpanHost1.app[0].messageLength = 176byte
+*.wpanHost1.app[0].sendInterval = 0.2s
+
+*.wpanHost1.wlan[*].mac.mtu = 232Byte
+
+#*.wpanHost1.wlan[*].mac.typename = "Ieee802154Mac"
+
+#*.wpanHost1.wlan[*].mac.useMACAcks = true;
+#*.wpanHost1.wlan[*].mac.rxSetupTime = 0s;
+#*.wpanHost1.wlan[*].mac.mtu = 232byte
+#*.wpanHost1.wlan[*].mac.headerLength = default(72 b);
+#*.wpanHost1.wlan[*].mac.macMaxFrameRetries = default(3);
+#*.wpanHost1.wlan[*].mac.macMaxCSMABackoffs = default(4);
+#*.wpanHost1.wlan[*].mac.macMinBE = default(3);
+#*.wpanHost1.wlan[*].mac.macMaxBE = default(5);
+
+[Config IndependentPerformance]
+extends = Dimensional2
+repeat = 4
+
+*.wifiHost*.wlan[*].radio.channelNumber = 1
