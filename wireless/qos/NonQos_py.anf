@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<analysis version="2">
+    <inputs>
+        <input pattern="/inet/showcases/wireless/qos/results/RealisticBitrateNonQos-*.vec"/>
+        <input pattern="/inet/showcases/wireless/qos/results/RealisticBitrateNonQos-*.sca"/>
+    </inputs>
+    <charts>
+        <chart name="End-to-end delay, realistic bitrate non-qos" script="# IDE version   5.4.1.181107-a953dcfb90&#10;&#10;import results&#10;import chart&#10;&#10;filter_string = &quot;&quot;&quot;((module(*.server.app[0]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*))&#10;  OR (module(*.server.app[1]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*))&#10;  OR (module(*.server.app[2]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*))&#10;  OR (module(*.server.app[3]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*)))&quot;&quot;&quot;&#10;&#10;df = results.getVectors(filter_string)&#10;&#10;df = results.transform_results(df)&#10;&#10;modulenames = list(df.index.get_level_values('module'))&#10;props = chart.getProperties()&#10;&#10;names = [props[&quot;Line.Name/&quot; + i] for i in modulenames]&#10;&#10;# keys = [&quot;Line.Name/&quot; + i for i in modulenames]&#10;# names = [props[k] if k in props else &quot;default&quot; for k in keys]&#10;&#10;&#10;print(names)&#10;df[('attr','title')] = names&#10;chart.plotVectors(df)&#10;&#10;chart.setProperty('X.Axis.Title', 'Time')&#10;chart.setProperty('Graph.Title', chart.getName())&#10;&#10;chart.setProperties(chart.getProperties())&#10;# chart.setProperty('Line.Title/QosThroughput.server.app[3]', 'voice')&#10;print(chart.getProperties())&#10;print(chart.getDefaultProperties())&#10;" type="LineChart">
+            <property name="Graph.Title" value="End-to-end delay, realistic bitrate non-qos"/>
+            <property name="X.Axis.Title" value="Time [s]"/>
+            <property name="Y.Axis.Title" value="End-to-end delay [s]"/>
+            <property name="X.Axis.Min" value="0.5"/>
+            <property name="Line.Name/QosThroughput.server.app[0]" value="background"/>
+            <property name="Line.Name/QosThroughput.server.app[1]" value="best effort"/>
+            <property name="Line.Name/QosThroughput.server.app[2]" value="video"/>
+            <property name="Line.Name/QosThroughput.server.app[3]" value="voice"/>
+            <property name="Line.Name/QosShowcase.server.app[0]" value="background"/>
+            <property name="Line.Name/QosShowcase.server.app[1]" value="best effort"/>
+            <property name="Line.Name/QosShowcase.server.app[2]" value="video"/>
+            <property name="Line.Name/QosShowcase.server.app[3]" value="voice"/>
+        </chart>
+        <chart name="Instantaneous packet delay variation, realistic bitrate non-qos" script="# IDE version   5.4.1.181107-a953dcfb90&#10;&#10;import results&#10;import chart&#10;&#10;filter_string = &quot;&quot;&quot;((module(*.server.app[0]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*))&#10;  OR (module(*.server.app[1]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*))&#10;  OR (module(*.server.app[2]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*))&#10;  OR (module(*.server.app[3]) AND name(endToEndDelay:vector) AND file(*RealisticBitrateNonQos-*)))&quot;&quot;&quot;&#10;&#10;df = results.getVectors(filter_string)&#10;&#10;df = results.transform_results(df)&#10;&#10;modulenames = list(df.index.get_level_values('module'))&#10;props = chart.getProperties()&#10;&#10;names = [props[&quot;Line.Name/&quot; + i] for i in modulenames]&#10;&#10;df[('attr','title')] = names&#10;&#10;for i in range(0,df.result['vecvalue'].shape[0]):&#10;    vals = df.result['vecvalue'][i]&#10;        &#10;    difference = [vals[x] - vals[x-1] for x in range(0,len(vals))]&#10;    difference[0] = vals[0]&#10;    &#10;    df.result['vecvalue'][i] = difference&#10;&#10;chart.plotVectors(df)&#10;&#10;chart.setProperty('X.Axis.Title', 'Time')&#10;chart.setProperty('Graph.Title', chart.getName())&#10;&#10;chart.setProperties(chart.getProperties())&#10;" type="LineChart">
+            <property name="Graph.Title" value="Instantaneous packet delay variation, realistic bitrate non-qos"/>
+            <property name="X.Axis.Title" value="Time [s]"/>
+            <property name="Y.Axis.Title" value="Instantaneous packet delay variation [s]"/>
+            <property name="Y.Axis.Min" value="-0.05"/>
+            <property name="Y.Axis.Max" value="0.05"/>
+            <property name="X.Axis.Min" value="0.5"/>
+            <property name="Line.Name/QosThroughput.server.app[0]" value="background"/>
+            <property name="Line.Name/QosThroughput.server.app[1]" value="best effort"/>
+            <property name="Line.Name/QosThroughput.server.app[2]" value="video"/>
+            <property name="Line.Name/QosThroughput.server.app[3]" value="voice"/>
+            <property name="Line.Name/QosShowcase.server.app[0]" value="background"/>
+            <property name="Line.Name/QosShowcase.server.app[1]" value="best effort"/>
+            <property name="Line.Name/QosShowcase.server.app[2]" value="video"/>
+            <property name="Line.Name/QosShowcase.server.app[3]" value="voice"/>
+        </chart>
+        <chart name="Throughput, realistic bitrate non-qos" script="import results&#10;import chart&#10;&#10;filter_string = &quot;&quot;&quot;((module(*.server.app[0]) AND name(throughput:vector) AND file(*RealisicBitrateNonQos-*))&#10;  OR (module(*.server.app[1]) AND name(throughput:vector) AND file(*RealisicBitrateNonQos-*))&#10;  OR (module(*.server.app[2]) AND name(throughput:vector) AND file(*RealisicBitrateNonQos-*))&#10;  OR (module(*.server.app[3]) AND name(throughput:vector) AND file(*RealisicBitrateNonQos-*)))&quot;&quot;&quot;&#10;&#10;df = results.getVectors(filter_string)&#10;&#10;df = results.transform_results(df)&#10;&#10;# print(df.result['vecvalue'])&#10;&#10;print(df)&#10;&#10;# df[('result','vecvalue')] /= 1000000&#10;&#10;&#10;modulenames = list(df.index.get_level_values('module'))&#10;&#10;props = chart.getProperties()&#10;&#10;# print(&quot;props&quot;)&#10;# print(props)&#10;&#10;names = [props[&quot;Line.Name/&quot; + i] for i in modulenames]&#10;&#10;# print(&quot;names&quot;)&#10;# print(names)&#10;&#10;df[('attr','title')] = names&#10;&#10;chart.plotVectors(df)&#10;&#10;chart.setProperty('X.Axis.Title', 'Time')&#10;chart.setProperty('Graph.Title', chart.getName())&#10;&#10;chart.setProperties(chart.getProperties())&#10;" type="LineChart">
+            <property name="Graph.Title" value="Throughput, realistic bitrate non-qos"/>
+            <property name="X.Axis.Title" value="Time [s]"/>
+            <property name="Y.Axis.Title" value="Throughput [Mbps]"/>
+            <property name="X.Axis.Min" value="0.5"/>
+            <property name="X.Axis.Max" value="8.0"/>
+            <property name="Line.Name/QosThroughput.server.app[0]" value="background"/>
+            <property name="Line.Name/QosThroughput.server.app[1]" value="best effort"/>
+            <property name="Line.Name/QosThroughput.server.app[2]" value="video"/>
+            <property name="Line.Name/QosThroughput.server.app[3]" value="voice"/>
+            <property name="Line.Name/QosShowcase.server.app[0]" value="background"/>
+            <property name="Line.Name/QosShowcase.server.app[1]" value="best effort"/>
+            <property name="Line.Name/QosShowcase.server.app[2]" value="video"/>
+            <property name="Line.Name/QosShowcase.server.app[3]" value="voice"/>
+        </chart>
+    </charts>
+</analysis>
