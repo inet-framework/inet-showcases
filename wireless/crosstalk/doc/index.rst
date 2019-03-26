@@ -88,15 +88,15 @@ transmission are exactly identical. Partially overlapping signals cause
 an error, but completely non-overlapping signals are allowed by the
 scalar model.)
 
-For example, ``Ieee80211ScalarRadioMedium`` and
-``Ieee80211DimensionalRadioMedium`` are radio medium modules which use a
+For example, :ned:`Ieee80211ScalarRadioMedium` and
+:ned:`Ieee80211DimensionalRadioMedium` are radio medium modules which use a
 scalar and a dimensional analog model by default. These two radio medium
-modules are to be used with ``Ieee80211ScalarRadio`` and
-``Ieee80211DimensionalRadio`` in hosts. (Generally, the name hints as to
+modules are to be used with :ned:`Ieee80211ScalarRadio` and
+:ned:`Ieee80211DimensionalRadio` in hosts. (Generally, the name hints as to
 which kind of analog model is used by radio medium and radio modules.)
 
 .. figure:: scalar.png
-   :width: 100% 
+   :width: 100%
 
 In a dimensional representation, the signal can have a power level that
 is not constant in time and frequency. The "shape" of the signal can be
@@ -107,7 +107,7 @@ frequency and bandwidth. However, dimensional analog models require more
 processing power.
 
 .. figure:: dimensional.png
-   :width: 100% 
+   :width: 100%
 
 Example simulations
 ~~~~~~~~~~~~~~~~~~~
@@ -117,11 +117,11 @@ section. All simulations use variations of the same network, which is
 illustrated by the image below:
 
 .. figure:: basenetwork.png
-   :width: 100% 
+   :width: 100%
 
 The networks contains four ``adhocHost``\ s, named ``host1`` to
-``host4``. The networks also contains an ``Ipv4NetworkConfigurator``
-module, an ``IntegratedVisualizer`` module, and radioMedium module(s).
+``host4``. The networks also contains an :ned:`Ipv4NetworkConfigurator`
+module, an :ned:`IntegratedVisualizer` module, and radioMedium module(s).
 The number and type of the radio medium modules varies in the networks
 for the different simulations, either containing one or two. All hosts
 are within communication range of each other. The hosts are arranged in

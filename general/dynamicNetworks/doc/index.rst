@@ -21,7 +21,7 @@ Source files location: `inet/showcases/general/dynamic <https://github.com/inet-
 About Scenario Scripting
 ------------------------
 
-The INET :doc:`User's Guide </users-guide/ch-scenario-scripting>` 
+The INET :doc:`User's Guide </users-guide/ch-scenario-scripting>`
 contains a good overview of Scenario Scripting in INET.
 We recommend that you read
 that first, because here we provide a brief summary only.
@@ -29,7 +29,7 @@ that first, because here we provide a brief summary only.
 Scenario Scripting helps the user to simulate dynamic networks. It allows
 to schedule actions to be carries out at specified simulation times. The
 following built-in actions are supported by INET: creating or deleting modules
-and connections, setting the parameters of modules and channels, 
+and connections, setting the parameters of modules and channels,
 initiating life-cycle operations on a network node or part of it.
 Life-cycle operations include startup, shutdown and crash.
 
@@ -41,9 +41,9 @@ The network
 
 The showcase presents two example simulations:
 
--  Wireless: Simulation of a dynamic ad hoc network. Introduction of the creation and 
+-  Wireless: Simulation of a dynamic ad hoc network. Introduction of the creation and
    destruction of nodes, and of the usage of life-cycle operations.
--  Wired: Simulation of a dynamic wired network. Introduction of parameter setting and 
+-  Wired: Simulation of a dynamic wired network. Introduction of parameter setting and
    of the creation and deletion of connections.
 
 The following image shows the layout of the network for the wireless simulation:
@@ -65,10 +65,10 @@ The layout of the wired simulation looks like the following:
 It contains two ``sourceNode``'s and one ``destinationNode`` connected through two routers and a switch.
 
 Both networks contain a :ned:`ScenarioManager` module, which executes a script specified in XML.
-The XML script describes the actions to be executed during the course of the simulation, 
+The XML script describes the actions to be executed during the course of the simulation,
 i.e. which parameter should be changed and when, what nodes should be created or deleted and when, etc.
 
-In both networks, the ``sourceNode`` modules send ping 
+In both networks, the ``sourceNode`` modules send ping
 request messages to the ``destinationNode`` modules. This way we can
 compare the statistics with the desired actions.
 
@@ -78,9 +78,9 @@ Configuration and Results
 Wireless
 ~~~~~~~~
 
-The :ned:`DynamicHost` type is defined in the NED file, ``DynamicShowcase.ned``. It is basically an :ned:`AdhocHost`, 
-but it is configured to use a per-host :ned:`HostAutoConfigurator` module instead of the global :ned:`IPv4NetworkConfigurator`. 
-The reason for this is that :ned:`Ipv4NetworkConfigurator` doesn’t support IP address assignment 
+The :ned:`DynamicHost` type is defined in the NED file, ``DynamicShowcase.ned``. It is basically an :ned:`AdhocHost`,
+but it is configured to use a per-host :ned:`HostAutoConfigurator` module instead of the global :ned:`IPv4NetworkConfigurator`.
+The reason for this is that :ned:`Ipv4NetworkConfigurator` doesn’t support IP address assignment
 in scenarios, where modules are dynamically created and/or destroyed. Here is the NED definition of :ned:`DynamicHost`:
 
 .. literalinclude:: ../scenMan.ned
@@ -96,7 +96,7 @@ wlan interface.
    :start-at: # dynamic node IP address autoconfigurator
    :end-at: *.*Node*.autoConfigurator.interfaces = "wlan0"
 
-The parameters of the dynamically created modules can be set from the ini file, just as with other modules. 
+The parameters of the dynamically created modules can be set from the ini file, just as with other modules.
 The configuration of the dynamically created modules will take effect when they are spawn.
 The key part of the configuration regarding this showcase is the following:
 
@@ -105,7 +105,7 @@ The key part of the configuration regarding this showcase is the following:
    :start-at: # scenario script to create and destroy nodes dynamically
    :end-at: *.scenarioManager.script = xmldoc("wireless.xml")
 
-The ``scenario.xml`` file contains the script for the wireless simulation. 
+The ``scenario.xml`` file contains the script for the wireless simulation.
 
 Note that is life-cycle modeling is required, the following line must be added to the
 ini file to ensure that nodes have status modules:
@@ -115,7 +115,7 @@ ini file to ensure that nodes have status modules:
    :start-at: # lifecycle
    :end-at: **.hasStatus = true
 
-Two :ned:`DynamicHost`:s, ``sourceNode[0]`` and ``sourceNode[1]`` are created at 
+Two :ned:`DynamicHost`:s, ``sourceNode[0]`` and ``sourceNode[1]`` are created at
 the beginning of the simulation. This is achieved as the following in the XML file:
 
 .. literalinclude:: ../wireless.xml
@@ -124,9 +124,9 @@ the beginning of the simulation. This is achieved as the following in the XML fi
    :end-before: <at t="6.0">
 
 As you can see, the ``<create-module>`` element has four attributes, one for the type,
-one for the submodule name, one for the parent module and one for indicating that it is a vector of modules. 
+one for the submodule name, one for the parent module and one for indicating that it is a vector of modules.
 We create a vector of modules named ``sourceNode`` with the type of the previously mentioned :ned:`DynamicHost`.
-The created modules will have a random position inside the parent module. 
+The created modules will have a random position inside the parent module.
 The parent module in this case is the playground, because the ``parent`` attribute is set to is ``"."``.
 
 The ``destinationNode`` is shut down at ``t=6.0`` and remains so for two seconds. During this, the ping request messages
@@ -182,7 +182,7 @@ Wired
 In this example simulation, there are neither dynamically created nor dynamically destroyed
 modules, therefore the :ned:`Ipv4NetworkConfigurator` can be used.
 
-All of the connections between the nodes (even the later dynamically created ones) 
+All of the connections between the nodes (even the later dynamically created ones)
 is set in the ned file. This needs to be done because the number of gates of a module can not
 be modified after the initialization.
 
