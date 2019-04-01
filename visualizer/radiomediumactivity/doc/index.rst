@@ -12,9 +12,8 @@ various nodes.
 This showcase contains three configurations of increasing complexity,
 each showing different features of the visualization.
 
-INET version: ``4.0``
-
-Source files location: `inet/showcases/visualizer/radiomediumactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/radiomediumactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/radiomediumactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/radiomediumactivity>`__
 
 About the visualizer
 --------------------
@@ -217,14 +216,14 @@ given with the following example (assumes a wifi network with typical
 node distances):
 
 -  Setting the propagation animation speed to 300/c, where c is the
-   speed of light, results in the animation speed value of 10-6, and the
+   speed of light, results in the animation speed value of 10^6, and the
    animation of the propagating signal traveling 300 meters on the
    scene in one second (when the playback speed is set to 1.)
 -  The transmission animation speed should be about two magnitudes
    larger, as the time it takes for the propagating signal to reach the
    node farthest from the transmitter is two magnitudes smaller than the
    time it takes to transmit the signal. Thus in this example, it should
-   be about 10-4.
+   be about 10^4.
 
 The speed of the signal animation can be adjusted at runtime with the
 playback speed slider.
