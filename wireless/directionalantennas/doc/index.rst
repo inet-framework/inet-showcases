@@ -10,9 +10,9 @@ kinds of wireless scenarios where antenna characteristics are important.
 
 This showcase aims to highlight the antenna models available in INET.
 The showcase contains an example
-simulation which demonstrates the directionality of five antenna models.
-Four of these represent well known antenna models, while the last one
-is a universal antenna which can model any rotationally symmetrical antenna pattern.
+simulation that demonstrates the directionality of five antenna models.
+Four of these represent well-known antenna models, while the last one
+is a universal antenna that can model any rotationally symmetrical antenna pattern.
 
 | INET version: ``4.1``
 | Source files location: `inet/showcases/wireless/directionalantennas <https://github.com/inet-framework/inet-showcases/tree/master/general/directionalantennas>`__
@@ -79,7 +79,7 @@ By default, the cross-section plane is perpendicular to the current
 viewing angle (however, one can specify other
 planes in the antenna's local coordinate system).
 
-For a more in-dept overview of antenna lobe visualization, read the :ref:`corresponding section <ug:sec:visualization:radio-state>`
+For a more in-depth overview of antenna lobe visualization, read the :ref:`corresponding section <ug:sec:visualization:radio-state>`
 in the INET User's Guide.
 For the description of all parameters of the visualizer, check the NED documentation
 of :ned:`RadioVisualizerBase`.
@@ -113,7 +113,7 @@ five antenna types in ``source``: :ned:`IsotropicAntenna`,
 :ned:`IsotropicAntenna` in all simulations.
 
 The configurations for the five simulations differ in the antenna
-settings only, all other settings are in the ``General`` configuration
+settings only; all other settings are in the ``General`` configuration
 section:
 
 .. literalinclude:: ../omnetpp.ini
@@ -239,7 +239,7 @@ It looks like this when the simulation is run:
 
 .. <!--internal video recording, animation speed 1, playback speed 21.88, normal run, crop 25 25 150 750-->
 
-The visualization shows the cross section of the donut shape of the dipole antenna's
+The visualization shows the cross-section of the donut shape of the dipole antenna's
 radiation pattern. As can be seen from the animation, there is no successful communication
 when the destination node is near the antenna's axis due to low antenna gain in that direction.
 Here is the reception power vs. direction plot:
@@ -250,7 +250,7 @@ Here is the reception power vs. direction plot:
 Cosine Antenna
 ~~~~~~~~~~~~~~
 
-The :ned:`CosineAntenna` module models a hypotetical antenna with a cosine-based
+The :ned:`CosineAntenna` module models a hypotethical antenna with a cosine-based
 radiation pattern. This antenna model is commonly used in the real world to approximate
 various directional antennas. The module has two parameters, :par:`maxGain`
 and :par:`beamWidth`. The configuration in :download:`omnetpp.ini <../omnetpp.ini>` is the

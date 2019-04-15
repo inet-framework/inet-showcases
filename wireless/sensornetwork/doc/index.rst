@@ -31,29 +31,29 @@ how the MAC manages when certain nodes can communicate on the channel:
 
 -  ``Time-division multiple access (TDMA) based``: These protocols
    assign different time slots to nodes. Nodes can send messages only in
-   their time slot, thus eliminating contention. Examples of these kind
+   their time slot, thus eliminating contention. Examples of this kind
    of MAC protocols include LMAC, TRAMA, etc.
 -  ``Carrier-sense multiple access (CSMA) based``: These protocols use
    carrier sensing and backoffs to avoid collisions, similarly to IEEE
    802.11. Examples include B-MAC, SMAC, TMAC, X-MAC.
 
 This showcase demonstrates the WSN MAC protocols available in INET:
-B-MAC, LMAC and X-MAC. The following sections detail these protocols
+B-MAC, LMAC, and X-MAC. The following sections detail these protocols
 briefly.
 
 B-MAC
 ~~~~~
 
-B-MAC (short for Berkeley MAC) is a widely used WSN MAC protocol, it is
+B-MAC (short for Berkeley MAC) is a widely used WSN MAC protocol; it is
 part of TinyOS. It employs low-power listening (LPL) to minimize power
 consumption due to idle listening. Nodes have a sleep period, after
 which they wake up and sense the medium for preambles (clear channel
 assessment - CCA.) If none is detected, the nodes go back to sleep. If
-there is a preamle, the nodes stay awake and receive the data packet
-after the preamle. If a node wants to send a message, it first sends a
-preamle for at least the sleep period in order for all nodes to detect
-it. After the preable, it sends the data packet. There are optional
-acknowledgements as well. After the data packet (or data packet + ACK)
+there is a preamble, the nodes stay awake and receive the data packet
+after the preamble. If a node wants to send a message, it first sends a
+preamble for at least the sleep period in order for all nodes to detect
+it. After the preamble, it sends the data packet. There are optional
+acknowledgments as well. After the data packet (or data packet + ACK)
 exchange, the nodes go back to sleep. Note that the preamble doesn't
 contain addressing information. Since the recipient's address is
 contained in the data packet, all nodes receive the preamble and the
@@ -64,16 +64,16 @@ X-MAC
 ~~~~~
 
 X-MAC is a development on B-MAC and aims to improve on some of B-MAC's
-shortcomings. In B-MAC, the entire preamle is transmitted, regardless of
-whether the destination node awoke at the beginning of the preamle or at
+shortcomings. In B-MAC, the entire preamble is transmitted, regardless of
+whether the destination node awoke at the beginning of the preamble or
 the end. Furthermore, with B-MAC, all nodes receive both the preamble
 and the data packet. X-MAC employs a strobed preamble, i.e. sending the
-same lenght preamle as B-MAC, but as shorter bursts, with pauses in
+same length preamble as B-MAC, but as shorter bursts, with pauses in
 between. The pauses are long enough that the destination node can send
-an acknowledgement if it is already awake. When the sender receives the
-acknowledgement, it stops sending preambles and sends the data packet.
-This can save time because potentially, the sender doesn't have to send
-the whole length preamble. Also, the preamle contains the address of the
+an acknowledgment if it is already awake. When the sender receives the
+acknowledgment, it stops sending preambles and sends the data packet.
+This mechanism can save time because potentially, the sender doesn't have to send
+the whole length preamble. Also, the preamble contains the address of the
 destination node. Nodes can wake up, receive the preamble, and go back
 to sleep if the packet is not addressed to them. These features improve
 B-MAC's power efficiency by decreasing nodes' time spent in idle
@@ -86,8 +86,8 @@ LMAC (short for lightweight MAC) is a TDMA-based MAC protocol. There are
 data transfer timeframes, which are divided into time slots. The number
 of time slots in a timeframe is configurable according to the number of
 nodes in the network. Each node has its own time slot, in which only
-that particular node can transmit. This saves power, as there are no
-collisions or retransmissions. A transmission consist of a control
+that particular node can transmit. This feature saves power, as there are no
+collisions or retransmissions. A transmission consists of a control
 message and a data unit. The control message contains the destination of
 the data, the length of the data unit, and information about which time
 slots are occupied. All nodes wake up at the beginning of each time
@@ -118,7 +118,7 @@ parameters. Check the NED files of the MAC modules (``BMac.ned``,
 The MACs don't have corresponding physical layer models. They can be
 used with existing generic radio models in INET, such as
 :ned:`UnitDiskRadio` or :ned:`ApskRadio`. We're using :ned:`ApskRadio` in this
-showcase, because it is more realistic than :ned:`UnitDiskRadio`.
+showcase because it is more realistic than :ned:`UnitDiskRadio`.
 
 INET doesn't have WSN routing protocol models (such as Collection Tree
 Protocol), so we're using Ipv4 and static routing.
@@ -137,14 +137,14 @@ Note that in WSN terminology, the gateway would be called sink. Ideally,
 there should be a specific application in the gateway node called
 ``sink``, which would receive the data from the WSN, and send it to the
 server over IP. Thus the node would act as a gateway between the WSN and
-the outside IP network. In the example simulations, the gateway just
+the external IP network. In the example simulations, the gateway just
 forwards the data packets over IP.
 
 To run the example simulations, choose the :ned:`BMac`, :ned:`LMac` and
 :ned:`XMac` configurations from :download:`omnetpp.ini <../omnetpp.ini>`.
 Most of the configuration keys in the ini file are shared between the
 three simulations (they are defined in the ``General`` configuration),
-except for the MAC protocol specific settings. All three simulations
+except for the MAC protocol-specific settings. All three simulations
 will use the same network, :ned:`SensorNetworkShowcaseA`, defined in
 :download:`SensorNetworkShowcase.ned <../SensorNetworkShowcase.ned>`:
 
@@ -158,7 +158,7 @@ contains an :ned:`Ipv4NetworkConfigurator`, an :ned:`IntegratedVisualizer`,
 and an :ned:`ApskScalarRadioMedium` module. The nodes are placed against
 the backdrop of a warehouse floorplan. The scene size is 60x30
 meters. The warehouse is just a background image providing context.
-Obstacle loss is not modelled, so the background image doesn't affect
+Obstacle loss is not modeled, so the background image doesn't affect
 the simulation in any way.
 
 The wireless interface in the sensor nodes and the gateway is specified
@@ -174,9 +174,9 @@ in :ned:`SensorNode`). The radio type is set to :ned:`ApskScalarRadio`:
 
 Note that the wireless interface module's name is ``wlan`` in all host
 types that have a wireless interface. The term doesn't imply that it's
-Wifi, but stands for wireless LAN.
+Wifi but stands for wireless LAN.
 
-We are using :ned:`ApskScalarRadio` here, because it is a relatively
+We are using :ned:`ApskScalarRadio` here because it is a relatively
 simple, generic radio. It uses amplitude and phase-shift keying
 modulations (e.g. BPSK, QAM-16 or QAM-64, BPSK by default), without
 additional features such as forward error correction, interleaving or
@@ -230,13 +230,13 @@ duration. Here is the configuration in
 
 For X-MAC, the wireless interface's :par:`macType` parameter is set to
 :ned:`XMac`. The MAC's :par:`slotDuration` parameter determines the duration
-of the nodes' sleep periods. It is set to 0.25s for the sensor nodes,
+of the nodes' sleep periods. It is set to 0.25s for the sensor nodes
 and 0.1s for the gateway. Nodes transmit preambles for the duration of
-their own sleep periods, unless interrupted by an acknowledgement from
-the destination node. The design of X-MAC allows to set different sleep
+their own sleep periods unless interrupted by an acknowledgment from
+the destination node. The design of X-MAC allows setting different sleep
 intervals for different nodes, as long as the sender node's sleep
 interval is greater than the receiver's. (?). We set the slot duration
-of the gateway to a shorter value, because it has to receive and relay
+of the gateway to a shorter value because it has to receive and relay
 data from all sensors, thus it has more traffic. Here is the
 configuration in :download:`omnetpp.ini <../omnetpp.ini>`:
 
@@ -250,7 +250,7 @@ For LMAC, the wireless interface's :par:`macType` parameter is set to
 :ned:`LMac`. The :par:`numSlots` parameter is set to 8, as it is sufficient
 (there are only five nodes in the wireless sensor network.) The
 :par:`reservedMobileSlots` parameter reserves some of the slots for mobile
-nodes, these slots are not chosen by any of the nodes during network
+nodes; these slots are not chosen by any of the nodes during network
 setup. The parameter's default value is 2, but it is set to 0. The
 :par:`slotDuration` parameter's default value is 100ms, but we set it to
 50ms to decrease the network setup time. The duration of a timeframe
@@ -280,9 +280,9 @@ one, so that waking nodes can receive the one that starts after they
 woke up. ``sensor3`` starts sending preambles, while the other nodes are
 asleep. All of them wake up before the end of the preamble transmission.
 When the nodes are awake, they receive the preamble, and receive the
-data packet as well at the physical layer (the mac discards it if it is
+data packet as well, at the physical layer (the mac discards it if it is
 not for them.) Then the gateway sends it to the server. Note that all
-nodes receive the preables and the data packet as well.
+nodes receive the preambles and the data packet as well.
 
 X-MAC
 ~~~~~
@@ -294,25 +294,25 @@ In the following video, the sensors send data to the server:
 
    <!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
 
-``sensor3`` start sending preambles. ``sensor4`` wakes up and receives
+``sensor3`` starts sending preambles. ``sensor4`` wakes up and receives
 one of the preambles (hence the dotted arrow representing a successful
 physical layer transmission), and goes back to sleep, as the
-transmission is addressed to the gateway. Then the gateway wakes up, and
-sends an acknowledgement after receiving one of the preambles.
+transmission is addressed to the gateway. Then the gateway wakes up and
+sends an acknowledgment after receiving one of the preambles.
 ``sensor3`` sends the data packet, and the gateway forwards it to the
 server.
 
 LMAC
 ~~~~
 
-In following video, sensor nodes send data to the server:
+In the following video, sensor nodes send data to the server:
 
 .. video:: LMac5.mp4
    :width: 698
 
    <!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
 
-Each node transmits in its own time slot, there are no collisions. Note
+Each node transmits in its own time slot; there are no collisions. Note
 that all nodes receive the control message (indicated by the physical
 link visualizer arrows), but only the destination node receives the data
 unit.
@@ -339,7 +339,7 @@ instead of the warehouse network:
 
 We'll run three parameter studies, one for each MAC protocol. We want to
 optimize just one parameter of each MAC, the slot duration. Ideally, one
-would want to optimize multiple parameters in order to find a more
+would want to optimize multiple parameters to find a more
 optimal set of parameter values, but it is out of scope for this
 showcase. The choices for the values of the other parameters are
 arbitrary. The simulations will be run for 100s, and each iteration will
@@ -384,7 +384,7 @@ on the following image (time in seconds):
 .. figure:: statisticbmac2.png
    :width: 100%
 
-The sensors send 100 packets each during the course of the 100s, thus
+The sensors send 100 packets each during the 100s, thus
 400 packets total. It is apparent from the results that the network
 cannot carry all traffic in this scenario. The results also outline a
 smooth curve. We choose 0.19s as the best performing value for
@@ -441,7 +441,7 @@ It is apparent from the results that the network can carry almost all
 the traffic in this scenario (as opposed to the :ned:`XMac` and :ned:`LMac`
 results.) The best performing value for :par:`slotDuration` is 50ms. Note
 that the lowest :par:`slotDuration` values up until 120ms yield
-approximatelly the same results (around 400 packets), with the 50ms
+approximately the same results (around 400 packets), with the 50ms
 value performing marginally better. Choosing the higher :par:`slotDuration`
 value would result in about the same performance but lower power
 consumption, but we are optimizing for the number of packets here.
@@ -532,8 +532,8 @@ nodes. The :ned:`SensorNode` host type has an energy consumer submodule in
 its radio by default, :ned:`SensorStateBasedEpEnergyConsumer`. This module
 assigns a constant power consumption value to each radio mode and
 transmitter/receiver state. Note that the values for each state are
-parameters of the energy consumer module, and don't come from other
-modules (such as the radio), so they need to be set correctly in order
+parameters of the energy consumer module and don't come from other
+modules (such as the radio), so they need to be set correctly
 to obtain accurate power consumption results.
 :ned:`SensorStateBasedEpEnergyConsumer` has default power consumption
 values typical for wireless sensor nodes, thus we leave module's
@@ -569,7 +569,7 @@ statistics:
 
 -  ``Total number of packets received``: All the packets received by the
    server. The UDP applications in the sensors each send 100 packets
-   during the course of the 100s simulations, for a total of 400
+   during the 100s simulations, for a total of 400
    packets.
 -  ``Network total power consumption``: The sum of the power consumption
    of the four sensors and the gateway (values in Joules.)

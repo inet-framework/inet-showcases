@@ -20,7 +20,7 @@ The model
 
 In this showcase, we will simulate a dual-band wireless router. Our dual-band
 wireless router will have two 802.11 interfaces, one operating on the 2.4 GHz
-band, and the other on 5 GHz. Both interfaces operate in infrastructure mode,
+band, and the other on 5 GHz. Both interfaces operate in infrastructure mode
 and implement two different wireless LANs. The router will provide L2
 connectivity (bridging) between the two LANs.
 
@@ -53,12 +53,12 @@ The important part of the configuration is shown below:
 The wireless networks advertised by the two interfaces of ``accessPoint``
 are configured to have the names ``wlan2.4`` and ``wlan5``, and the second
 interface is configured to operate on 5 GHz using the :par:`bandName` parameter.
-Of the hosts, ``host1`` is configured to connect to the ``wlan2.4`` network,
+Of the hosts, ``host1`` is configured to connect to the ``wlan2.4`` network
 and  ``host2`` to ``wlan5``. ``host2``'s wireless interface is also
 configured to use the 5 GHz band so that it finds the access point.
 
 The rest of the configuration (omitted) configures traffic
-(``host1`` pings ``host2``), and configures visualization.
+(``host1`` pings ``host2``) and configures visualization.
 
 
 Results

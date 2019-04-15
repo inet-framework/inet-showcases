@@ -5,8 +5,8 @@ Goals
 -----
 
 Several network problems manifest themselves as excessive packet drops,
-for example poor connectivity, congestion, or misconfiguration.
-Visualizing packet drops helps identifying such problems in simulations,
+for example, poor connectivity, congestion, or misconfiguration.
+Visualizing packet drops helps to identify such problems in simulations,
 thereby reducing time spent on debugging and analysis. Poor connectivity
 in a wireless network can cause senders to drop unacknowledged packets
 after the retry limit is exceeded. Congestion can cause queues to
@@ -15,9 +15,8 @@ overflow in a bottleneck router, again resulting in packet drops.
 This showcase contains several simulation models demonstrating typical
 causes of packet drops.
 
-INET version: ``4.0``
-
-Source files location: `inet/showcases/visualizer/packetdrop <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/packetdrop>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/packetdrop <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/packetdrop>`__
 
 About the visualizer
 --------------------
@@ -26,7 +25,7 @@ Packet drops can be visualized by including a :ned:`PacketDropVisualizer`
 module in the simulation. The :ned:`PacketDropVisualizer` module indicates
 packet drops by displaying an animation effect at the node where the
 packet drop occurs. In the animation, a packet icon gets thrown out from
-the node icon, and fades away.
+the node icon and fades away.
 
 The visualization of packet drops can be enabled with the visualizer's
 :par:`displayPacketDrops` parameter. By default, all packet drops at all nodes
@@ -35,7 +34,7 @@ are visualized. This selection can be narrowed with the :par:`nodeFilter`,
 Additionally, the :par:`packetDataFilter` parameter can be used to filter for packet data contents,
 and the :par:`detailsFilter` parameter to filter for packet drop reason.
 
-The :par:`packetFormat` parameter is a format string, and specifies the text displayed with the packet drop animation.
+The :par:`packetFormat` parameter is a format string and specifies the text displayed with the packet drop animation.
 By default, the dropped packet's name is displayed.
 The format string can contain the following directives:
 
@@ -72,7 +71,7 @@ In the simulations, the :ned:`PacketDropVisualizer` is configured to indicate th
 Queue overflow
 --------------
 
-In this section we present an example for demonstrating packet drops due
+In this section, we present an example for demonstrating packet drops due
 to queue overflow. This simulation can be run by choosing the
 ``QueueFull`` configuration from the ini file. The network contains a
 bottleneck link where packets will be dropped due to an overflowing
@@ -85,17 +84,17 @@ queue:
 It contains a :ned:`StandardHost` named ``source``, an :ned:`EtherSwitch`, a
 :ned:`Router`, an :ned:`AccessPoint`, and a :ned:`WirelessHost` named
 ``destination``. The ``source`` is configured to send a stream of UDP
-packets to ``destination``. The packet stream starts at two seconds,
+packets to ``destination``. The packet stream starts at two seconds
 after ``destination`` got associated with the access point. The
 ``source`` is connected to the ``etherSwitch`` via a high speed, 100
-Gbit/s ethernet cable, while the ``etherSwitch`` and the ``router`` is
-connected with a low speed, 10 MBit/s cable. This creates a bottleneck
+Gbit/s ethernet cable, while the ``etherSwitch`` and the ``router`` are
+connected with a low speed, 10 MBit/s cable. This low speed cable creates a bottleneck
 in the network, between the switch and the router. The source host is
 configured to generate more UDP traffic than the 10Mbit/s channel can
-carry. The cause of packet drops in this case is that the queue in
+carry. The cause of packet drops, in this case, is that the queue in
 ``etherSwitch`` fills up.
 
-The queue types in the switch's ethernet interfaces are set to
+The queue types in the switch's Ethernet interfaces are set to
 :ned:`DropTailQueue`, with a default length of 100 packets (by default, the
 queues have infinite lengths). The packets are dropped at the ethernet
 queue of the switch.
@@ -103,7 +102,7 @@ queue of the switch.
 The visualization is activated with the ``displayPacketDrops``
 parameter. The visualizer is configured to display the packet name
 and the drop reason, by setting the :par:`labelFormat` parameter.
-Alos, the fade out time is set to three seconds, so that the packet
+Also, the fade-out time is set to three seconds, so that the packet
 drop animation is more visible.
 
 .. literalinclude:: ../omnetpp.ini
@@ -113,7 +112,7 @@ drop animation is more visible.
 
 When the simulation is run, the UDP stream starts at around two seconds,
 and packets start accumulating in the queue of the switch. When the
-queue fills up, the switch starts dropping packets. This is illustrated
+queue fills up, the switch starts dropping packets. This scenario is illustrated
 in this animation:
 
 .. video:: queueoverflow1.mp4
@@ -172,17 +171,16 @@ file. The configuration uses the following network:
 It contains two :ned:`AdhocHost`'s, named ``source`` and ``destination``.
 The hosts' communication ranges are set up so they are out of range of
 each other. The source host is configured to ping the destination host.
-The reason for packet drops in this case is that the hosts are not in
+The reason for packet drops, in this case, is that the hosts are not in
 range, thus they can't reach each other. The ``source`` transmits the
 ping packets, but it doesn't receive any ACK in reply. The ``source's``
 MAC module drops the packets after the retry limit has been reached.
-
-This is illustrated in the following animation:
+This scenario is illustrated in the following animation:
 
 .. video:: retry.mp4
    :width: 512
 
-This looks like the following in the logs:
+These events looks like the following in the logs:
 
 .. figure:: log_macretrylimit_2.png
    :width: 100%
@@ -202,8 +200,8 @@ It contains two connected :ned:`StandardHost`'s. The
 :ned:`Ipv4NetworkConfigurator` is instructed not to add any static routes,
 and ``host1`` is configured to ping ``host2``.
 
-The ping packets can't be routed, thus the IP module drops them. This is
-illustrated on the following video:
+The ping packets can't be routed, thus the IP module drops them. This scenario is
+illustrated in the following video:
 
 .. video:: noroute.mp4
    :width: 416
@@ -227,8 +225,8 @@ ethernet cable is configured in the NED file to be disabled.
 Additionally, ``host1`` is configured to ping ``host2``.
 
 Since the cable between the hosts is configured to be disabled, the MAC
-module is unable to send the packets, and drops them. This is
-illustrated on the following animation:
+module is unable to send the packets and drops them. This is
+illustrated in the following animation:
 
 .. video:: notconnected.mp4
    :width: 414

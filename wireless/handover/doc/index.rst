@@ -30,7 +30,7 @@ frame exchange with the AP. Following successful authentication, the
 host starts the association frame exchange. During the association
 process, they agree on the encryption type and other 802.11 capabilities
 to use, and the AP grants the host access to the network. When
-association is complete, data exchange can begin.
+the association is complete, data exchange can begin.
 
 The example simulation will use the following network:
 
@@ -40,7 +40,7 @@ The example simulation will use the following network:
 
 The network contains two APs placed 400 meters apart, and a wireless
 host. The two access points are set to use channels 2 and 3. The host is
-configured to actively scan channels 0 through 4. During simulation, the
+configured to actively scan channels 0 through 4. During the simulation, the
 host will move out of range of one access point and into the range of
 the other. In this model, when scanning for APs, the host will always
 choose the one with the strongest signal. In this simulation, there are
@@ -62,12 +62,12 @@ channels, looking for an access point to associate with. This process is
 started by the host's agent module, as it is set to active scanning. (In
 INET, an 802.11 interface consists of a MAC module, a management module
 that deals with management frames, and an agent module that initiates
-scanning, association, and other high level actions.)
+scanning, association, and other high-level actions.)
 
 During the scanning process, the host sends a Probe Request frame in
 each channel starting from channel 0, until it receives a Probe
 Response. As AP1 is on channel 2, the host sends out three Probe
-Requests before it gets a Probe Response. This is shown in the following
+Requests before it gets a Probe Response. This frame exchange is shown in the following
 packet log.
 
 .. figure:: scan.png
@@ -93,12 +93,12 @@ The dotted arrows indicate recent successful physical layer
 transmissions. In this example, they will be used to visualize that the
 host is associated with an AP. The APs send out beacon frames
 periodically, which is now configured to be 100 ms. These frames are
-received by the host, which constantly reinforce the physical link
+received by the host, which constantly reinforces the physical link
 visualizer arrows. When the host is in range of AP1, the only
-communication is the host receiving AP1's beacon frames. This is
+communication is the host receiving AP1's beacon frames. This reception is
 indicated by the dotted arrow, which only goes from the AP to the host.
 
-The host remains associated to AP1 as long as it is within communication
+The host remains associated with AP1 as long as it is within communication
 range, even though it gets into the communication range of AP2 after a
 while (when it enters the area where the two APs' communication range
 circles overlap.) As it leaves AP1's range, the host detects that it no
@@ -107,15 +107,15 @@ indicating that it has lost the beacon. The scanning process is
 restarted by the host's agent module. This is triggered when several
 consecutive beacon frames are not received.
 
-This time it takes four Probe Request frames to get a response, because
+This time it takes four Probe Request frames to get a response because
 AP2 is on channel 3.
 
 The host is handed over to AP2 using the authentication and association
-process discussed earlier. It will remain associated to AP2 until it
+process discussed earlier. It will remain associated with AP2 until it
 leaves AP2's communication range.
 
 The host's ``mgmt`` module contains a variable that indicates which
-access point the host is associated to.
+access point the host is associated with.
 
 .. figure:: assocap2.png
    :width: 100%
@@ -127,7 +127,7 @@ associated with them.
    :width: 100%
 
 .. figure:: stalist2.png
-   :width: 100% 
+   :width: 100%
 
 Discussion
 ----------

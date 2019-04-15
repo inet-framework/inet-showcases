@@ -4,8 +4,8 @@ Packet Loss vs. Distance Using Various WiFi Bitrates
 Goals
 -----
 
-In this showcase we perform a parameter study examining how packet error
-rate changes as a function of distance in a 802.11g wireless network.
+In this showcase, we perform a parameter study examining how packet error
+rate changes as a function of distance in an 802.11g wireless network.
 
 | INET version: ``4.0``
 | Source files location: `inet/showcases/wireless/errorrate <https://github.com/inet-framework/inet-showcases/tree/master/wireless/errorrate>`__
@@ -17,18 +17,18 @@ The network contains two hosts operating in 802.11g ad-hoc mode at 10 mW
 transmission power. One of the hosts acts as traffic source, the other
 as traffic sink. We will perform a parameter study with the distance and
 the bitrate as parameters. The distance will run between 10 and 550
-meters, in 2 meter steps. The bitrate will take the ERP modes in
+meters, in 2-meter steps. The bitrate will take the ERP modes in
 802.11g: 6, 9, 12, 18, 24, 36, 48 and 54 Mbps. This results in about
 2100 simulation runs.
 
 To make the model more realistic, we will simulate multipath propagation
 using the :ned:`TwoRayGroundReflection` path loss model. (There are various
 path loss models in INET, including :ned:`FreeSpacePathLoss`,
-:ned:`RayleighFading`, :ned:`RicianFading`, :ned:`LogNormalShadowing` and
-:ned:`NakagamiFading`). The two ray ground reflection path loss model
+:ned:`RayleighFading`, :ned:`RicianFading`, :ned:`LogNormalShadowing`, and
+:ned:`NakagamiFading`). The two-ray ground reflection path loss model
 requires a ground model, which is configured in the
 ``physicalEnvironment`` module to be :ned:`FlatGround`. The heights of the
-hosts above the ground is set to 1.5 meters. We assume isotropic
+hosts above the ground are set to 1.5 meters. We assume isotropic
 background noise of -86 dBm (:ned:`IsotropicScalarBackgroundNoise`.)
 
 We will use :ned:`Ieee80211NistErrorModel` to compute bit errors. The
@@ -57,8 +57,8 @@ the level results in more fine-grained data at low SNIR levels.
 Results
 -------
 
-SNIR, BER and PER are recorded from the simulation runs. SNIR is
-measured at the receiver, and depends on the power of the noise and the
+SNIR, BER, and PER are recorded from the simulation runs. SNIR is
+measured at the receiver and depends on the power of the noise and the
 power of the signal. The signal power decreases with distance, so SNIR
 does as well. SNIR is independent of modulations and coding schemes, so
 it is the same for all bitrates. This can be seen on the following plot,
@@ -89,7 +89,7 @@ receiver.
    :width: 100%
 
 The following plot shows the packet error rate vs distance. Again,
-slower bitrates show less packet errors as the distance increases
+slower bitrates show fewer packet errors as the distance increases
 because of the simpler modulation.
 
 .. figure:: PER_distance_v3.png
@@ -114,14 +114,14 @@ farther for slower bitrates, and the decrease is not as rapid.
 802.11 ranges depend on many variables, e.g. transmission power,
 receiver sensitivity, antenna gains and directionality, and background
 noise levels. The above ranges correspond to arbitrary values for the
-variables. In reality ranges can vary significantly.
+variables. In reality, ranges can vary significantly.
 
 Conclusion
 ----------
 
 Packet error rate increases quickly as the distance approaches the
 critical point. Slower bitrates are less sensitive to increasing
-distance, because they use simpler modulation. Faster bitrate modes are
+distance because they use simpler modulation. Faster bitrate modes are
 advantageous in short distances because of the increased throughput, but
 slower modes work better at longer distances. Furthermore, using rate
 adaptation, a host can use fast modes for short distances and slower

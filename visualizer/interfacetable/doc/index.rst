@@ -11,10 +11,10 @@ a hierarchical network (e.g. using :ned:`Ipv4NetworkConfigurator`), visual
 inspection can help to verify that the result matches the expectations.
 While it is true that addresses and other interface data can also be
 accessed in the GUI by diving into the interface tables of each node,
-that is tedious, and unsuitable for getting an overview.
+that is tedious and unsuitable for getting an overview.
 
 This showcase contains two example simulations. The first one demonstrates the
-visualization with the visualizer's default settings, the second one is
+visualization with the visualizer's default settings; the second one is
 about the advanced features.
 
 INET version: ``4.0``
@@ -29,7 +29,7 @@ of :ned:`IntegratedVisualizer`) displays data about network nodes'
 interfaces. (Interfaces are contained in interface tables, hence the
 name.) By default, the visualization is turned off. When it is enabled
 using the :par:`displayInterfaceTables` parameter, the default is that
-interface names, IP addresses and netmask length are displayed, above
+interface names, IP addresses, and netmask length are displayed, above
 the nodes (for wireless interfaces) and on the links (for wired
 interfaces). By clicking on an interface label, details are displayed in
 the inspector panel.
@@ -49,7 +49,7 @@ takes a format string, which can contain the following directives:
 -  ``%s``: the ``str()`` functions for the interface entry class
 
 The default format string is ``"%N %\\%n/%l"``, i.e. interface name, IP
-address and netmask length.
+address, and netmask length.
 
 The set of visualized interfaces can be selected with the configurator's
 :par:`nodeFilter` and :par:`interfaceFilter` parameters. By default, all
@@ -57,7 +57,7 @@ interfaces of all nodes are visualized, except for loopback addresses
 (the default for the :par:`interfaceFilter` parameter is ``"not lo\*"``.)
 
 It is possible to display the labels for wired interfaces above the node
-icons, instead of on the links. This can be done by setting the
+icons, instead of on the links. This selection can be done by setting the
 :par:`displayWiredInterfacesAtConnections` parameter to ``false``.
 
 There are also several parameters for styling, such as color and font
@@ -110,7 +110,7 @@ the access point. They will obtain their addresses from the router via
 DHCP. We would like to see IP addresses appear above the hosts when they
 get their addresses.
 
-We would like to hide the display of loopback addresses and of the
+We would like to hide the display of loopback addresses and the
 unspecified address, so we set the following filter for the visualizer:
 
 .. literalinclude:: ../omnetpp.ini
@@ -118,7 +118,7 @@ unspecified address, so we set the following filter for the visualizer:
    :end-at: unspec
    :language: ini
 
-Initially, the addresses of the wired interfaces of ``host1``, ``host2``
+Initially, the addresses of the wired interfaces of ``host1``, ``host2``,
 and the router are visualized. The wireless hosts have unspecified
 addresses, thus no interface indicator is displayed. The network looks
 like this:

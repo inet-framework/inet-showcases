@@ -10,14 +10,13 @@ In INET, mobility is added to nodes in the form of modules that represent
 mobility models, such as linear motion or random waypoint. A large number of
 mobility models have been provided with INET, and they can also be combined.
 
-This showcase focuses on the latter, and demonstrates how elementary mobility
+This showcase focuses on the latter and demonstrates how elementary mobility
 models (those that describe motion, position and orientation on their own)
 can be combined to create more complex motion patterns. (Elementary mobility
 models themselves are demonstrated in  :doc:`../../basic/doc/index`.)
 
-INET version: ``4.0``
-
-Source files location: `inet/showcases/mobility/combining <https://github.com/inet-framework/inet-showcases/tree/master/mobility/combining>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/mobility/combining <https://github.com/inet-framework/inet-showcases/tree/master/mobility/combining>`__
 
 Overview
 --------
@@ -25,7 +24,7 @@ Overview
 INET has two special mobility models that do not define motion on their own,
 but rather, they allow combining existing mobility models. These modules are
 :ned:`AttachedMobility` and :ned:`SuperpositioningMobility`. We'll show
-examples simulations for both.
+example simulations for both.
 
 The model
 ---------
@@ -44,13 +43,13 @@ AttachedMobility
 ----------------
 
 :ned:`AttachedMobility`, as its name shows, can "attach" itself to another mobility module,
-with a certain offset. This "other" mobility module may be part of the same node,
+with a certain offset. This "other" mobility module may be part of the same node
 or may be in another node. The latter allows for implementing simple group mobility
 where member nodes move in a formation.
 
 This offset is interpreted in the other mobility module's own coordinate system.
 I.e. the :ned:`AttachedMobility` module takes the
-mobility state of the mobility module it is attached to, and applies an
+mobility state of the mobility module it is attached to and applies an
 optional offset to the position and orientation. It keeps its mobility
 state up-to-date. Position and orientation, and their derivatives are
 all affected by the mobility where the :ned:`AttachedMobility` is used.
@@ -123,14 +122,14 @@ move circularly as the coordinate system of ``host[0]`` moves and rotates:
 
 The relative positions of the hosts are constant. For example, it appears as if
 ``host[4]`` was using  a :ned:`CircleMobility` similar to ``host[0]``,
-while actually its position in ``host[0]``'s coordinate system stays constant.
+while actually, its position in ``host[0]``'s coordinate system stays constant.
 
 SuperpositioningMobility
 ------------------------
 
 :ned:`SuperpositioningMobility` is a compound module that can contain several
 other mobility modules as submodules, and combines their effects.
-The mobility state (position, orientation and their derivatives) exposed by
+The mobility state (position, orientation, and their derivatives) exposed by
 :ned:`SuperpositioningMobility` is the sum of the states of these contained submodules.
 
 The use of :ned:`SuperpositioningMobility` is that it allows one to create complex motion
@@ -237,11 +236,11 @@ reception. In network nodes (more specifically, in those that extend
 :ned:`LinkLayerNodeBase`), the antenna module uses the containing network
 node's mobility submodule to describe the antenna's position and
 orientation. Thus, by default, the position and orientation of the
-antenna (where the signal reception and transmission takes place) is the
+antenna (where the signal reception and transmission take place) are the
 same as the position and orientation of the containing network node.
 However, antenna modules have optional mobility submodules. The
 antenna's mobility submodule allows the network node to have antennas
-whose position and orientation is different from those of the network
+whose position and orientation are different from those of the network
 node.
 
 Such antennas can be oriented independently of the network node's
@@ -253,12 +252,12 @@ with some offset. This allows for creating nodes that are extended objects
 
 Note that antenna orientation is only relevant with directional
 antennas. This example uses isotropic antennas (and there is no
-communication), because the goal is to just demonstrate how antennas can
+communication) because the goal is to just demonstrate how antennas can
 be oriented arbitrarily.
 
 The scenario for the example simulation is the following: a Mars rover
 prototype is being tested in the desert. The rover moves in a straight
-line, and has two antennas. It uses them to communicate with a base, and
+line and has two antennas. It uses them to communicate with a base and
 a nearby circling drone. Each antenna is oriented independently. One of
 the antennas tracks the drone, the other one is directed at the base.
 

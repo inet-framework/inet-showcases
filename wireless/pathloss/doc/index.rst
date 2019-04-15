@@ -32,17 +32,17 @@ there are several more path loss models available in INET, suitable for
 various other scenarios. Here is a list of the path loss module types
 featured in this showcase example:
 
--  :ned:`FreeSpacePathLoss` computes loss of signal power in a single
+-  :ned:`FreeSpacePathLoss` computes the loss of signal power in a single
    line-of-sight propagation path, without any reflections or shadowing.
--  :ned:`TwoRayGroundReflection` computes loss of signal power by assuming
+-  :ned:`TwoRayGroundReflection` computes the loss of signal power by assuming
    a line-of-sight wave interfering with another wave reflected from the
    ground between the transmitter and the receiver. This model computes
-   interference in the far-field only, and is the same as free space
+   interference in the far-field only and is the same as free space
    path loss up until a certain crossover distance.
 -  :ned:`TwoRayInterference` is the same as the two-ray ground
    reflection model in the far-field, but it models the interference of
    the two waves in the near-field as well.
--  :ned:`RicianFading` is a stochastic path loss model which assumes a
+-  :ned:`RicianFading` is a stochastic path loss model that assumes a
    dominant line-of-sight signal and multiple reflected signals between
    the transmitter and the receiver. It is useful for modeling radio
    propagation in an urban environment.
@@ -55,7 +55,7 @@ Other path loss modules in INET include :ned:`RayleighFading`,
 and :ned:`SuiPathLoss`.
 
 The various path loss modules each have sets of parameters to fine-tune
-their behavior. In this showcase we leave the parameters at their
+their behavior. In this showcase, we leave the parameters at their
 defaults.
 
 The model
@@ -66,7 +66,7 @@ distance. For each distance and path loss model, a probe packet will be
 sent from one host to the other, and the signal's received power will be
 recorded.
 
-In addition to the two hosts named named ``source`` and ``destination``,
+In addition to the two hosts named ``source`` and ``destination``,
 the network also contains a :ned:`PhysicalEnvironment` module, an
 :ned:`Ipv4NetworkConfigurator`, and a :ned:`Ieee80211ScalarRadioMedium`:
 
@@ -79,7 +79,7 @@ the network also contains a :ned:`PhysicalEnvironment` module, an
    rewrite when the two-ray interference model is modified to use the ground model if there is one
 
 The antenna height of the transmitter and the receiver is an important
-part of the two-ray ground reflection and two-ray interference models,
+part of the two-ray ground reflection and two-ray interference models
 because the antenna heights affect path loss. The two-ray interference
 model calculates antenna heights from the z co-ordinates of the two
 nodes by assuming the z co-ordinate of the ground to be 0. The two-ray
@@ -131,7 +131,7 @@ Results
 -------
 
 The power of the received signal vs. distance, using
-:ned:`FreeSpacePathLoss`, :ned:`TwoRayGroundReflection` and
+:ned:`FreeSpacePathLoss`, :ned:`TwoRayGroundReflection`, and
 :ned:`TwoRayInterference` path loss module types, is displayed on the
 following plot:
 
@@ -146,7 +146,7 @@ Here is the same plot zoomed in:
 It is apparent that the two-ray ground reflection model yields the same
 values as the free space path loss model, up until the cross-over
 distance. After that point, the two curves diverge. The power of the
-two-ray interference model fluctuates in the near-field, and converges
+two-ray interference model fluctuates in the near-field and converges
 to the two-ray ground reflection model in the far- field. Thus the
 two-ray interference model can be used for more realistic two-ray
 propagation simulations.

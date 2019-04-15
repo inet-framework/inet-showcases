@@ -12,12 +12,11 @@ mobility models have been provided with INET, and they can also be combined
 to achieve more complex motion.
 
 This showcase demonstrates some of the available elementary mobility models.
-Combining mobility models is covered in another showcase,
+The topic of combining mobility models is covered in another showcase,
 :doc:`../../combining/doc/index`.
 
-INET version: ``4.0``
-
-Source files location: `inet/showcases/mobility/basic <https://github.com/inet-framework/inet-showcases/tree/master/mobility/basic>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/mobility/basic <https://github.com/inet-framework/inet-showcases/tree/master/mobility/basic>`__
 
 Overview
 --------
@@ -29,7 +28,7 @@ of packet reception. Because of this, position is always relevant,
 even if the simulation is run without a GUI.
 
 In INET, mobility is added to nodes in the form of modules that represent
-mobility models. Mobility module types implement the :ned:`IMobility` module interface,
+mobility models. Mobility module types implement the :ned:`IMobility` module interface
 and are in the `inet.mobility <https://github.com/inet-framework/inet/tree/master/src/inet/mobility>`__
 package. This showcase presents an example for most of the frequently used mobility models.
 
@@ -75,7 +74,7 @@ the hosts to the empty string.
 Motion
 ------
 
-This section covers mobility models that define motion. Such models in INET include:
+This section covers mobility models that define motion. Such models in INET include
 :ned:`AnsimMobility`,
 :ned:`BonnMotionMobility`,
 :ned:`ChiangMobility`,
@@ -97,7 +96,7 @@ LinearMobility
 ~~~~~~~~~~~~~~
 
 The :ned:`LinearMobility` module describes linear motion with a constant speed or
-constant acceleration. As such, it has parameters for speed, acceleration and starting angle.
+constant acceleration. As such, it has parameters for speed, acceleration, and starting angle.
 The model also has parameters for initial positioning (:par:`initialX`,
 :par:`initialY`, :par:`initialZ`), which, by default, are random
 values inside the constraint area.
@@ -163,7 +162,7 @@ can see the XML script for ``host[0]``:
 
 The flexibility of :ned:`TurtleMobility` allows the implementation of
 the functionality of some of the other mobility models.
-As such, ``host[1]``'s XML script describes an other mobility model, :ned:`MassMobility`.
+As such, ``host[1]``'s XML script describes another mobility model, :ned:`MassMobility`.
 This is a mobility model describing a random motion. The node is assumed to have a mass, and so it
 can not turn abruptly. This kind of motion is achieved by allowing only
 small time intervals for forward motion, and small turning angles:
@@ -223,7 +222,7 @@ the orientation of ``host3`` points in the direction of the
    :width: 50%
    :align: center
 
-Note that this screenshot is not from the example simulation, it is just for illustration.
+Note that this screenshot is not from the example simulation; it is just for illustration.
 
 The example simulation contains seven hosts.
 ``host[0]`` is configured to move around using :ned:`LinearMobility`, while the rest of the nodes
@@ -287,7 +286,7 @@ The example simulation is run with seven hosts.
 :ned:`StaticGridMobility` positions all nodes in a rectangular grid. It has
 parameters for setting the properties of the grid, such as a margin, the
 number of row and columns, and the separation between rows and columns.
-By default grid has the same aspect ratio as the available space
+By default, the grid has the same aspect ratio as the available space
 (constraint area by default). The :par:`numHosts` parameter must be set in
 all mobility modules of the group.
 
@@ -298,7 +297,7 @@ The configuration in omnetpp.ini is the following:
    :start-at: *.*host[*].mobility.typename = "StaticGridMobility"
    :end-at: mobility.numHosts
 
-We specify only the :par:`numHosts` parameter, the other parameters of the
+We specify only the :par:`numHosts` parameter; the other parameters of the
 mobility are left on their defaults. Thus the layout conforms to the
 available space:
 
@@ -334,4 +333,3 @@ Discussion
 
 Use `this page <https://github.com/inet-framework/inet-showcases/issues/26>`__ in
 the GitHub issue tracker for commenting on this showcase.
-

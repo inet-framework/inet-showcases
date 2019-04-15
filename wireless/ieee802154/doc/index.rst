@@ -7,7 +7,7 @@ Goals
 IEEE 802.15.4 is a widely used standard for wireless sensor networks.
 INET has support for simulating various IEEE 802.15.4 physical and MAC
 layers. This showcase demonstrates the narrowband IEEE 802.15.4 model
-available in INET. It contains an example simulation which features a
+available in INET. It contains an example simulation that features a
 wireless sensor network.
 
 | INET version: ``4.0``
@@ -37,17 +37,17 @@ model:
 
 This showcase demonstrates the narrowband model,
 :ned:`Ieee802154NarrowbandScalarRadio`. It simulates a PHY that uses
-DSSS-OQPSK modulation, and operates at 2.45 GHz. By default, signals
+DSSS-OQPSK modulation and operates at 2.45 GHz. By default, signals
 are transmitted with a bandwidth of 2.8 MHz using 2.24 mW transmission
 power. The model uses the scalar analog model.
 
 The :ned:`Ieee802154NarrowbandInterface` module contains a
-:ned:`Ieee802154NarrowbandScalarRadio` and the corresponsing
+:ned:`Ieee802154NarrowbandScalarRadio` and the corresponding
 :ned:`Ieee802154NarrowbandMac`. The radio medium module required by
 the radio is :ned:`Ieee802154NarrowbandScalarRadioMedium`. As per the name, the
 radio uses the scalar analog model for signal representation. The radio
 has default values for its parameters, based on the 802.15.4 standard.
-For example, by default it uses the carrier frequency of 2450 MHz, 2.8
+For example, by default, it uses the carrier frequency of 2450 MHz, 2.8
 MHz bandwidth, 250 kbps bitrate, and 2.24 mW transmission power. As
 such, it works "out-of-the-box", without setting any of its parameters.
 The radio medium uses :ned:`BreakpointPathLoss` by default as its path loss
@@ -82,7 +82,7 @@ an :ned:`Ipv4NetworkConfigurator`, an :ned:`Ieee802154NarrowbandScalarRadioMediu
 and an :ned:`IntegratedVisualizer` module.
 
 Routes are set up according to a star topology, with the controller at
-the center. This is achieved with the following configuration of
+the center. This setup is achieved with the following configuration of
 :ned:`Ipv4NetworkConfigurator` defined in the ``startopology.xml`` file:
 
 .. literalinclude:: ../startopology.xml
@@ -118,7 +118,7 @@ second, with randomized start times. The controller will send one
 :ned:`UdpBasicApp`, and all lamp nodes are specified in its ``destination``
 parameter (a random destination is chosen for each packet.)
 
-The radio's parameters are not set, the default values will be used. We
+The radio's parameters are not set; the default values will be used. We
 arbitrarily set the background noise power to -110 dBm.
 
 Results
@@ -143,9 +143,9 @@ contains a :ned:`SensorStateBasedEpEnergyConsumer`. The
 ``residualEnergyCapacity`` statistic is available.
 
 We want to measure the energy consumption of the different nodes in the
-network. For this, we use the ``Ieee802154Power`` configuration in .
-This just extends the ``Ieee802154`` configuration with a simulation
-time limit of 100s:
+network. For this, we use the ``Ieee802154Power`` configuration in
+:download:`omnetpp.ini <../omnetpp.ini>`. This configuration just extends the
+``Ieee802154`` configuration with a simulation time limit of 100s:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: Ieee802154Power
@@ -162,7 +162,7 @@ The sensors consumed a bit more power than the lamps, and the controller
 consumed the most energy. Nodes in the same role (i.e. lamps, sensors)
 consumed roughly the same amount of energy. Although the controller
 transmitted eight times as much as the sensors, it consumed just about
-25% more energy. This is because energy consumption was dominated by
+25% more energy. This is because energy consumption was dominated by the
 idle radio state. The controller transmitted in about 8% of the time,
 the sensors about 1%. Also, all transmissions were received by all nodes
 in the network at the PHY level, thus they shared the energy consumption

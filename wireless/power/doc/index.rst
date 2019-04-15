@@ -26,7 +26,7 @@ nodes of the type :ned:`AdhocHost`. The hosts are placed on the scene
 randomly at the start of the simulation. The radios are configured so
 that hosts can reach each other in one hop, so no routing is needed.
 We'll use the ping application in each host to generate network traffic.
-During simulation, radios will draw power from the nodes' energy storage
+During the simulation, radios will draw power from the nodes' energy storage
 units, while power generators will charge them. After the simulation has
 finished, we will analyze the recorded energy storage statistics.
 
@@ -43,12 +43,12 @@ Configuration and behavior
 All hosts are configured ping ``host[0]`` every second. ``host[0]``
 doesn't send ping requests, just replies to the requests that it
 receives. To reduce the probability of collisions, the ping
-application's start time is choosen randomly for each hosts as a value
+application's start time is chosen randomly for each host as a value
 between 0 and 1 seconds. Since ping requests have a short duration and
 hosts transmit infrequently, it is assumed that the probability of
 collisions will be very low.
 
-Energy Storage, Generation and Management
+Energy Storage, Generation, and Management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hosts are configured to contain a :ned:`SimpleEpEnergyStorage` module.
@@ -58,7 +58,7 @@ power, denoting how the module represents energy storage and power
 input/output. There are other energy storage models in INET that,
 similarly to real batteries, use charge and current (denoted by ``Cc``),
 such as :ned:`SimpleCcBattery`. :ned:`SimpleEpEnergyStorage` models energy
-storage by integrating the difference of absorbed and provided power
+storage by integrating the difference between absorbed and provided power
 over time. It does not simulate other effects of real batteries, such as
 temperature dependency and hysteresis. It is used in this model because
 the emphasis is on the energy that transmissions use, not how the
@@ -80,7 +80,7 @@ Energy storage and generator modules are controlled by energy management
 modules. In this showcase, hosts are configured to contain a
 :ned:`SimpleEpEnergyManagement` module. We configure energy management
 modules to shut down hosts when their energy levels reach 10% of the
-nominal capacity (0.005 Joules), and restart them when their energy
+nominal capacity (0.005 Joules) and restart them when their energy
 storage charges to half of their nominal energy capacity, i.e. 0.025
 Joules. These settings can be specified in the energy management
 module's :par:`nodeShutdownCapacity` and :par:`nodeStartCapacity` parameters.
@@ -90,10 +90,10 @@ Radio modes and states
 
 In the :ned:`Ieee80211ScalarRadio` model used in this simulation (and in
 other radio models), there are different modes in which radios operate,
-such as off, sleep, receiver, transmitter. The mode is set by the model,
+such as off, sleep, receiver, transmitter. The mode is set by the model
 and does not depend on external effects. In addition to mode, radios
 have states, which depend on what they are doing in the given mode --
-i.e. listening, receiving a transmission, or transmitting. This depends
+i.e. listening, receiving a transmission, or transmitting. The state depends
 on external factors, such as if there are transmissions going on in the
 medium.
 
@@ -143,7 +143,7 @@ happens, the host shuts down. Then it starts to charge, and when the
 charge level reaches the 0.025J threshold, the host turns back on.
 
 The generator generates more power than hosts consume when they are
-idle, but not when they are receiving or transmitting. This appears on
+idle, but not when they are receiving or transmitting. This difference appears on
 the graph as increasing curves when the generator is charging, with tiny
 zigzags associated with receptions and transmissions. When hosts get
 fully charged, they maintain the maximum charge level while the
@@ -158,7 +158,7 @@ generator is charging the energy storage can be discerned on the energy
 storage graph as increasing slopes. When the host is transmitting and
 the generator is charging, the energy levels don't increase as fast. The
 generator generates 4mW of power, and radios consume 2mW when they are
-idle in receiver mode. Radios are in idle state most of the time, thus
+idle in receiver mode. Radios are in the idle state most of the time, thus
 their power consumption is roughly 2mW. When the host is up and being
 charged, the net charge is 2mW (4mW provided by the generator and 2mW
 consumed by the radio). When the host is down and being charged, the net

@@ -8,9 +8,8 @@ Simulating scenarios that involve aircraft, drones, etc. require modeling
 of movement in three dimensions. In this showcase, we show how such spatial
 movement can be produced and visualized with INET.
 
-INET version: ``4.1``
-
-Source files location: `inet/showcases/mobility/spatial <https://github.com/inet-framework/inet-showcases/tree/master/mobility/spatial>`__
+| INET version: ``4.1``
+| Source files location: `inet/showcases/mobility/spatial <https://github.com/inet-framework/inet-showcases/tree/master/mobility/spatial>`__
 
 Overview
 --------
@@ -21,7 +20,7 @@ INET, and they can also be combined. This showcase demonstrates producing
 movement in three dimensions.
 
 One way to generate spatial movement is to use mobility models
-that support it out of the box, for example :ned:`LinearMobility`,
+that support it out of the box, for example, :ned:`LinearMobility`,
 :ned:`RandomWaypointMobility`, :ned:`MassMobility`, :ned:`TurtleMobility`
 or :ned:`BonnMotionMobility`. Spatial movement can also be produced using
 superposition of several mobility models (where at least one of them
@@ -30,7 +29,7 @@ must support movement in the Z axis). We show an example for both approaches.
 In these example simulations, we'll make use of 3D visualization based on
 OpenSceneGraph (OSG). To try these examples yourself, make sure that your
 OMNeT++ installation has been compiled with OSG support. If it is not,
-you won't be able to switch to 3D view using globe icon on the Qtenv toolbar.
+you won't be able to switch to 3D view using the globe icon on the Qtenv toolbar.
 
 .. figure:: QtenvToolbar.png
    :scale: 100%
@@ -62,7 +61,7 @@ The coordinate axes can be displayed by setting the :par:`axisLength` parameter.
 Additional settings (not shown above) stretch the rendered scene a little larger
 than the constraint area of the mobility models to enhance visual appearance.
 
-Further settings enable various effects in the mobility visualization. Note however, that
+Further settings enable various effects in the mobility visualization. Note, however, that
 at the time of writing, not all features are implemented in :ned:`MobilityOsgVisualizer`
 (practically, only trail visualization is).
 
@@ -80,7 +79,7 @@ Spiral
 ~~~~~~
 
 The first example simulation is run using only one host. The 3D model of the host
-can be set with the :par:`osgModel` parameter. In this example we use ``glider.osgb``.
+can be set with the :par:`osgModel` parameter. In this example, we use ``glider.osgb``.
 For better visibility, the glider is scaled up to 100 times of its original size. It
 is also rotated by 180 degrees so that it faces forward as it moves.
 

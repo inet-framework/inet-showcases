@@ -35,7 +35,7 @@ three main features, and boolean parameters for turning them on/off:
 
 The features above will be described in more detail in the following
 sections. The scope of the visualization can be adjusted with parameters
-as well. By default, all packets, interfaces and nodes are considered
+as well. By default, all packets, interfaces, and nodes are considered
 for the visualization. The selection can be narrowed with the
 visualizer's :par:`packetFilter`, :par:`packetDataFilter`,
 :par:`interfaceFilter`, and :par:`nodeFilter` parameters. Note that one
@@ -88,14 +88,14 @@ from the node's maximum transmitter power and the lowest receiver
 sensitivity setting in the network. The communication range represents
 the "best case" for signal reception (i.e. the range in which a signal
 would be correctly receivable by the most sensitive receiver in the
-network, if the given node transmitted with its maximum transmitter
+network if the given node transmitted with its maximum transmitter
 power.) Transmissions are not correctly receivable beyond the
 communication range, but this does not imply that they are always
 correctly receivable in range. The interference range is similarly
 calculated from the maximum transmission power of the node, but it takes
 the minimum interference sensitivity level of all receivers in the
 network into account. As the communication range, the interference range
-is an estimation, and means that signals beyond the interference range
+is an estimation and means that signals beyond the interference range
 don't cause reception errors due to interference (note that this is an
 optimization.)
 
@@ -105,10 +105,10 @@ signals:
 .. video:: propagation9.mp4
    :width: 698
 
-The ``host1`` sends an ARP request packet to ``host2``, which sends an
-ARP reply. The ``host1`` ACKs it, then sends the first UDP packet. This
+``host1`` sends an ARP request packet to ``host2``, which sends an
+ARP reply. ``host1`` ACKs it, then sends the first UDP packet. This transmission
 is followed by ``host2's`` ACK. The transmissions are visualized with
-animated disks. The disk have an opacity gradient, which correlates with
+animated disks. The disk has an opacity gradient, which correlates with
 the decrease in signal power as the distance from the transmitter
 increases. The opacity indicates how strong the signal is compared to
 the maximum power near the transmitter (but not compared to other
@@ -121,7 +121,7 @@ indicator icon is displayed even when the receiving node cannot receive
 the transmission correctly. (The signal arrival icons are placed above
 nodes when there is a signal present at the location of the node. It
 does not imply that the signal is receivable or that the node attempts
-reception. Basically the icon is displayed above all nodes that use the
+reception. Basically, the icon is displayed above all nodes that use the
 same radio medium module.)
 
 (The :ned:`RadioVisualizer` module can be used for displaying radio states,
@@ -142,37 +142,37 @@ speed, so that events that happen quickly don't appear to be so fast as
 not to be observable (e.g. a signal's edge propagating from a node), and
 other events that take longer on the timescale don't appear to be slow
 and boring (e.g. the duration of a radio frame.) When there is a signal
-boundary (either at the beginning or at the end of a transmission)
-travelling on the scene, the simulation is slowed down, and the
+boundary (either at the beginning or the end of a transmission)
+traveling on the scene, the simulation is slowed down, and the
 rippling wave pattern is visible as the signal is propagating. When the
 signal is "everywhere" on the scene, i.e. its "first bit" has
-travelled past the farthest node, but its last bit has not been
+traveled past the farthest node, but its last bit has not been
 transmitted yet, the simulation is faster (the ripples are no longer
 visible, because of the increased simulation speed.)
 
 The following three images illustrate that generally there are three
 different phases of signal propagation animation. The first is
 "expansion"; it starts when the signal's "first bit" begins propagating
-from the transmitter node, and lasts until the "first bit" has travelled
+from the transmitter node, and lasts until the "first bit" has traveled
 past the node farthest from the transmitter. In this phase, the
 simulation slows down. The second one is "presence"; it's when the
 signal is "present" on the entire scene, at all nodes, and the
 simulation speeds up. The third one is "recession"; it starts when the
 signal's "last bit" begins receding from the transmitter node, and lasts
-until the "last bit" has travelled past the farthest node. In this
+until the "last bit" has traveled past the farthest node. In this
 phase, the simulation slows down again. The transition between the two
 simulation speeds is smooth.
 
 .. figure:: phases.png
    :width: 100%
 
-Also, it can happen that the simulation doesn't slow down, because the
+Also, it can happen that the simulation doesn't slow down because the
 signal's "last bit" gets transmitted before its "first bit" leaves the
 farthest node (basically, the signal looks like a thin ring.) Such a
 situation can happen if the transmission is very short, or if there are
 large distances between nodes, e.g. a few kilometers.
 
-By default, the animation of all three phases have a duration of 1
+By default, the animation of all three phases has a duration of 1
 second, wall clock time. Thus, as per the default settings, all signal
 propagation animations have a duration of 3 seconds, regardless of their
 actual simulated duration. To make the visualization more realistic, the
@@ -201,9 +201,9 @@ The simulation speed during signal propagation animation is determined
 by the visualizer's animation speed parameters. The two parameters are
 ``signalPropagationAnimationSpeed`` and
 ``signalTransmissionAnimationSpeed`` (not specified by default). The
-propagation animation speed pertains to the expansion/recession phase,
+propagation animation speed pertains to the expansion/recession phase, i.e.
 when a signal boundary is propagating on the scene. The
-transmission animation speed refers to the presence phase, when no
+transmission animation speed refers to the presence phase, i.e. when no
 signal boundary is visible. If no value is specified for these
 parameters, the :par:`signalPropagationAnimationTime` and
 :par:`signalTransmissionAnimationTime` parameters take effect. These
@@ -288,8 +288,8 @@ parameters, the transmission travels 500 meters per second on the
 scene. The animation durations of the transmissions are different
 for certain packets. The UDP packet transmission from ``relay`` takes
 more time than the one from ``source`` because of the different bitrate.
-Transmission of the ACKs are the shortest, because they are smaller
-packets. (Even though though they are transmitted with the slower
+The transmission of the ACKs is the shortest because they are smaller than data
+packets. (Even though they are transmitted with the slower
 control bitrate, instead of data bitrate.)
 
 Interfering signals
@@ -317,13 +317,13 @@ Here is what happens when the simulation is run:
 .. video:: interference.mp4
    :width: 698
 
-The two sources can't detect each other's transmission, but they receive
-the ACKs and ping replies of the destination. This helps with collision
-avoidance, but they often transmit simulataneously. When they do, both
-signals are present at the destination concurrently, visualized by the
-transmission disks overlapping. Since both sources are in communication
-range with the destination, the simulatenous transmissions result in
-collisions.
+The two sources can't detect each other's transmissions, but they receive
+the ACKs and ping replies of the destination. Receiving these transmissions
+helps with collision avoidance, but the two sources often transmit simultaneously.
+When they do, both signals are present at the destination concurrently,
+visualized by the transmission disks overlapping. Since both sources are
+in communication range with the destination, the simultaneous transmissions
+result in collisions.
 
 The simulation slows down whenever there is a signal boundary
 propagating on the scene, even when there is also a signal with no
@@ -331,11 +331,11 @@ boundary present. Such is the case in the above video. ``source1``
 starts transmitting, and the signal edge is propagating. When it reaches
 the farthest node, ``source2``, the signal is present on the entire
 scene, and the simulation speeds up. When ``source2`` starts
-transmitting, the simulation slows down again, despite that
+transmitting, the simulation slows down again, although
 ``source1``'s signal is still present on the entire scene.
 
 Generally, several signals being present at a receiving node doesn't
-necessarily cause collision. One of the signals might not be strong
+necessarily cause a collision. One of the signals might not be strong
 enough to garble the other transmission.
 
 More information

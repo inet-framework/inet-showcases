@@ -31,7 +31,7 @@ interference from other stations by using the RTS/CTS mechanism. Using
 RTS/CTS, the node wishing to transmit first sends an RTS (Request To
 Send) frame to the target node. The target node, if the channel is
 clear, responds with a CTS (Clear To Send) frame that not only informs
-the originator that it may transmit, but also tells other stations to
+the originator that it may transmit but also tells other stations to
 refrain from using the channel for the specified amount of time. RTS/CTS
 obviously adds some overhead to the transmission process, so it is
 normally used to protect longer frames which are more expensive to
@@ -53,7 +53,7 @@ The model
 ---------
 
 The network for all simulations contains three hosts, arranged in a
-triangle. Host A and C are separated by a wall which completely blocks
+triangle. Host A and C are separated by a wall that completely blocks
 transmissions, thus the nodes cannot transmit to each other, and cannot
 sense when the other is transmitting. The wall is enabled or disabled in
 the various simulations. Hosts A and C both send UDP packets to Host B,
@@ -92,7 +92,7 @@ Both Host A and C frequently transmit simultaneously, thus the number of
 collisions at Host B is high.
 
 The animation below depicts such a collision. Host C starts
-transmitting, and Host A starts transmitting as well, before Host C's
+transmitting, and Host A starts transmitting as well before Host C's
 transmission is over. As neither packet can be received correctly by
 Host B (and thus they are not ACKed), Hosts A and C retry transmitting
 the same packet multiple times after the backoff period. The
@@ -123,7 +123,7 @@ vs 1.45ms), thus the probability of RTS frames colliding is less than
 for data frames. The result is that a low number of RTS frames collide,
 and since they are short, the collisions don't take up much time.
 
-The following sequence chart has been recorded from the simulation, and
+The following sequence chart has been recorded from the simulation and
 depicts an RTS collision.
 
 .. figure:: rtscollision.png
@@ -138,7 +138,7 @@ The following animation shows the RTS/CTS and data frame exchange.
 
 The following sequence chart illustrates that the RTS/CTS mechanism
 makes the communication more coordinated, as the nodes know when to
-transmit in order to avoid collisions. It also illustrates that RTS and
+transmit to avoid collisions. It also illustrates that RTS and
 CTS frames are much shorter than data frames.
 
 .. figure:: rts-seq.png
@@ -153,7 +153,7 @@ With the wall removed, hidden nodes are no longer a problem. When the
 RTS/CTS mechanism is not used, collision avoidance mechanisms can work,
 and the number of collisions is low. The RTS/CTS mechanism stops data
 frame collisions, so only the RTS and CTS frames can collide. The RTS
-and CTS frames are much shorter than data frames, thus retrasmitting
+and CTS frames are much shorter than data frames, thus retransmitting
 them takes less time. Even though the RTS/CTS frames contribute some
 overhead, more packets are received correctly at Host B. When RTS/CTS is
 used, the number of packets received correctly at Host B is

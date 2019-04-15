@@ -21,9 +21,9 @@ About the Visualizer
 
 In INET, network path activity can be visualized by including a
 :ned:`NetworkRouteVisualizer` module in the simulation. Adding an
-:ned:`IntegratedVisualizer` module is also an option, because it also
+:ned:`IntegratedVisualizer` module is also an option because it also
 contains a :ned:`NetworkRouteVisualizer` module. Network path activity
-visualization is disabled by default, it can be enabled by setting the
+visualization is disabled by default; it can be enabled by setting the
 visualizer's :par:`displayRoutes` parameter to true.
 
 :ned:`NetworkRouteVisualizer` currently observes packets that pass through
@@ -35,7 +35,7 @@ INET revisions.
 
 The activity between two nodes is represented visually by a polyline
 arrow which points from the source node to the destination node.
-:ned:`NetworkRouteVisualizer` follows packet throughout its path so the
+:ned:`NetworkRouteVisualizer` follows packet throughout its path, so the
 polyline goes through all nodes that are part of the packet's path. The
 arrow appears after the first packet has been received, then gradually
 fades out unless it is reinforced by further packets. Color, fading time
@@ -79,15 +79,15 @@ The following video shows what happens when we start the simulation.
 
 At the beginning of the video, a red strip appears and moves from
 ``source`` to ``destination``. This strip is the standard OMNeT++
-animation for packet transmissions, and has nothing to do with
+animation for packet transmissions and has nothing to do with
 :ned:`NetworkRouteVisualizer`. When the packet is received in whole by
 ``destination`` (the red strip disappears), an arrow is added by
 :ned:`NetworkRouteVisualizer` between the two hosts, indicating network
 path activity. The packet's name is also displayed on the arrow. The
-arrow fades out quickly, because the :par:`fadeOutTime` parameter of the
+arrow fades out quickly because the :par:`fadeOutTime` parameter of the
 visualizer is set to a small value.
 
-Note, however, that ARP traffic does not activate the visualization,
+Note, however, that ARP traffic does not activate the visualization
 because ARP packets do not pass through the network layer.
 
 Filtering Network Path Activity
@@ -132,7 +132,7 @@ The following video shows what happens when the simulation is run.
    :width: 698
 
 Each arrow has a different color indicating different paths. You can see
-that although there is both video stream and ping traffic in the
+that although there are both video stream and ping traffic in the
 network, :ned:`NetworkRouteVisualizer` displays only the latter, due to the
 presence of the :par:`packetFilter` parameter.
 
@@ -147,7 +147,7 @@ the ini file.
 Nodes are of the type :ned:`AodvRouter`, and are placed randomly on the
 scene. One of the nodes is the ``source`` node which will be
 pinging the ``destination`` node. The communication ranges of the nodes
-have been chosen so that the network is connected but nodes can
+have been chosen so that the network is connected, but nodes can
 typically only communicate by using multi-hop paths. The nodes will also
 randomly roam within predefined borders.
 
@@ -177,15 +177,15 @@ The following video shows what happens when the simulation is run.
 Blue circles are displays the communication range of ``source`` and
 ``destination``.
 
-The video shows the network path ping packets are taking between
+The video shows the network path taken by ping packets between
 ``source`` and ``destination``. Ping packets are forwarded to the next
 hop until they reach ``destination``. The network path activity is
-visualized after the ping packet has arrived to ``destination`` so we
-get information about the path changes immediately.
+visualized after the ping packet has arrived to ``destination``, so we
+get information about path changes immediately.
 
 When the existing route breaks due to two nodes drifting away (going out
-of the communication range of each other), this manifests as link-level
-failure. This condition is detected by AODV and it starts searching for
+of the communication range of each other), this manifests as a link-level
+failure. This condition is detected by AODV, and it starts searching for
 a new route. When the new route is found, the ping traffic resumes.
 
 You can observe in the video that the route the ping packets take is not
@@ -203,8 +203,8 @@ The simulation can be run by choosing the ``ChangingPaths``
 configuration from the ini file.
 
 The network contains four routers (``router0..router3``) which are
-connected so as to create redundant network paths. The network also
-contains six hosts. There are a wired and a wireless source-destination
+connected to create redundant network paths. The network also
+contains six hosts. There is a wired and a wireless source-destination
 pair. The remaining two hosts are inactive in this simulation. The wired
 hosts are connected to the routers via switches (``etherSwitch0`` and
 ``etherSwitch1``), the wireless hosts are connected to the routers via
@@ -221,7 +221,7 @@ has also been created for this configuration to turn the routers off and
 on at certain times. The network uses the RIP routing protocol to ensure
 that routing tables will be dynamically updated as a reaction to network
 topology changes. During the simulation, ``wiredSource`` will be pinging
-``wiredDestination`` and ``wirelessSource`` will be pinging
+``wiredDestination``, and ``wirelessSource`` will be pinging
 ``wirelessDestination``.
 
 In this showcase, we set the :par:`packetFilter` parameter to display only

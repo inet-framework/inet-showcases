@@ -7,7 +7,7 @@ Goals
 With INET simulations, it is often useful to be able to visualize
 network traffic. For this task, there are several visualizers in INET,
 operating at various levels of the network stack. In this showcase, we
-demonstrate working of :ned:`PhysicalLinkVisualizer` that can provide
+demonstrate the operation of :ned:`PhysicalLinkVisualizer`, which can provide
 graphical feedback about physical layer traffic.
 
 The showcase consists of three simulation models, each demonstrating
@@ -21,9 +21,9 @@ About the Visualizer
 
 In INET, physical link activity can be visualized by including a
 :ned:`PhysicalLinkVisualizer` module in the simulation. Adding an
-:ned:`IntegratedVisualizer` module is also an option, because it also
+:ned:`IntegratedVisualizer` module is also an option because it also
 contains a :ned:`PhysicalLinkVisualizer` module. Physical link activity
-visualization is disabled by default, it can be enabled by setting the
+visualization is disabled by default; it can be enabled by setting the
 visualizer's :par:`displayLinks` parameter to true.
 
 :ned:`PhysicalLinkVisualizer` observes frames that pass through the
@@ -36,7 +36,7 @@ out unless it is refreshed by further frames. Color, fading time and
 other graphical properties can be changed with parameters of the
 visualizer.
 
-By default, all packets, interfaces and nodes are considered for the
+By default, all packets, interfaces, and nodes are considered for the
 visualization. This selection can be narrowed with the visualizer's
 :par:`packetFilter`, :par:`interfaceFilter`, and :par:`nodeFilter` parameters.
 
@@ -70,7 +70,7 @@ The following animation shows what happens when we start the simulation.
 
 At the beginning of the animation, a red strip appears and moves from
 ``source`` to ``destination``. This strip is the standard OMNeT++
-animation for packet transmissions, and has nothing to do with
+animation for packet transmissions and has nothing to do with
 :ned:`PhysicalLinkVisualizer`. A blue dotted line also appears at the same
 time. It can be ignored, as it is also part of the standard OMNeT++
 animation for packet transmission. When the frame is received in whole
@@ -84,7 +84,7 @@ Filtering Physical Link Activity
 --------------------------------
 
 In complex networks with many nodes and several protocols in use, it is
-often useful to be able to filter network traffic, and visualize only
+often useful to be able to filter network traffic and visualize only
 the part of the traffic we are interested in.
 
 The following example shows how to set packet filtering. The simulation
@@ -92,11 +92,10 @@ can be run by choosing the ``Filtering`` configuration from the ini
 file.
 
 We have configured a wifi infrastructure mode network for this showcase.
-The network consists of one ``accessPoint`` and three wireless hosts,
-``source``, ``destination`` and ``host1``. In this configuration, the
-``source`` host will be pinging the ``destination`` host. The ``host1``
-node does not generate any traffic except for connecting to
-``accessPoint``.
+The network consists of one ``accessPoint``, and three wireless hosts,
+``source``, ``destination``, and ``host1``. In this configuration, the
+``source`` host will be pinging the ``destination`` host. ``host1`` does
+not generate any traffic except for connecting to ``accessPoint``.
 
 The communication ranges of the nodes (blue circles in the picture) have
 been reduced so that ``source`` and ``destination`` cannot receive
@@ -126,7 +125,7 @@ with ``accessPoint``.
 
 You can see that although there are also ACK frames, Beacon frames and
 ping traffic in the network, :ned:`PhysicalLinkVisualizer` displays only
-ping, due to the presence of :par:`packetFilter`. The ping frames travel
+ping traffic, due to the presence of :par:`packetFilter`. The ping frames travel
 between ``source`` and ``destination`` through ``accessPoint``, but
 ``host1`` also receives ping frames from ``accessPoint`` and ``source``.
 That is because ``host1`` is within the communication range of
@@ -139,7 +138,7 @@ The goal of this simulation is to visualize dynamically changing
 physical link activity in a mobile wireless environment. This simulation
 can be run by choosing the ``Mobile`` configuration from the ini file.
 
-The network consists of seven nodes (``host1..host7``) are type of
+The network consists of seven nodes (``host1..host7``) of the type
 :ned:`AdhocHost`. The nodes are placed randomly on the scene and will
 also randomly roam within predefined borders. The communication range of
 nodes is reduced so that nodes can typically communicate only with some

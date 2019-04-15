@@ -77,7 +77,7 @@ The network contains two :ned:`AdhocHost` nodes, a client and a server.
 The scenario is that client connects to the server via WiFi, and downloads a 1-megabyte file.
 The client is configured to first move away from the server, eventually
 moving out of its transmission range, then to move back.
-Both hosts are configured to use WiFi adaptive rate control (:ned:`AarfRateControl`),
+Both hosts are configured to use WiFi adaptive rate control (:ned:`AarfRateControl`)
 so the WiFi transmission bit rate will adapt to the changing channel
 conditions, resulting in a varying application level throughput.
 
@@ -95,7 +95,7 @@ We would like the following statistics to be displayed using instrument figures:
    a ``plot`` figure;
 -  The Wifi MAC channel access contention state of the server should be
    displayed by an ``indexedImage`` figure. IDLE means nothing to send,
-   DEFER means the channel is in use, IFS\_AND\_BACKOFF means channel is
+   DEFER means the channel is in use, IFS\_AND\_BACKOFF means the channel is
    free and contending to acquire channel;
 -  Download progress should be displayed by a ``progessMeter`` figure;
 -  The number of socket data transfers to the client application should be
@@ -130,7 +130,7 @@ Further details:
 -  The ``throughputGauge`` figure's ticks are configured to go from 0 to 25 Mbps in
    5 Mbps increments - the maximum theoretical application level
    throughput of WiFi "g" mode is about 25 Mbps. The application level
-   throughput is computed from the the received packets at the client,
+   throughput is computed from the received packets at the client,
    using the ``throughput`` result filter.
 -  The ``bitrateLinearGauge`` figure's ticks are configured to go from 0 to 54
    Mbps in increments of 6, thus all modes in 802.11g align with ticks,
@@ -144,7 +144,7 @@ Further details:
 -  There are two ``plot`` figures in the network. The ``perPlot`` figure
    displays the packet error rate in the client's radio over time. The
    time window is set to three seconds, so data from the entire
-   simulation fits in the graph. The ``bitratePlot`` figure displays the
+   simulation fit in the graph. The ``bitratePlot`` figure displays the
    WiFi bit rate over time. Its value goes from 0 to 54, and the time
    window is 3 seconds.
 -  The ``numRcvdPkCounter`` figure displays the number of data transfers received
@@ -153,7 +153,7 @@ Further details:
    default 3. It is driven by the ``rcvdPk`` signal of the client's TCP
    app, using the ``count`` result filter to count the packets.
 -  The ``progressMeter`` figure is used to display the progress of the file
-   transfer. The bytes received by the client's TCP app are summed, and
+   transfer. The bytes received by the client's TCP app are summed and
    divided by the total size of the file. The result is multiplied by
    100 to get the value of progress in percent.
 -  An ``indexedImage`` figure is used to display the contention state
@@ -172,10 +172,10 @@ This video illustrates what happens when the simulation is run:
    :width: 100%
    :align: center
 
-The client starts moving away from the server. At the beginning, the
-server transmits with 54 Mbps bit rate. The transmissions are received
-correctly, because the two nodes are close. As the client moves further
-away, signal to noise ratio drops and packet error rate goes up. As
+The client starts moving away from the server. In the beginning, the
+server transmits with a 54 Mbps bit rate. The transmissions are received
+correctly because the two nodes are close. As the client moves further
+away, the signal to noise ratio drops and packet error rate goes up. As
 packet loss increases, the rate control in the server lowers the bit
 rate, because lower bit rates are more tolerant to noise. When the
 client gets to the edge of the communication range, the bit rate is only
@@ -184,7 +184,7 @@ impossible, so the rate quickly reaches its lowest. After the client
 turns around and re-enters communication range, the rate starts to rise,
 eventually reaching 54Mbps again.
 
-The download progress stops when the client is out of range, since it is
+The download progress stops when the client is out of range since it is
 driven by correctly received packets at the application. Due to the
 reliable delivery service of TCP, lost packets are automatically
 retransmitted by the server. Thus the progress meter figure measures

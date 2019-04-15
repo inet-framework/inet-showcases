@@ -32,31 +32,31 @@ at several different rates. The different rates can use different
 channel access methods, like orthogonal frequency division multiplexing
 (OFDM) or directs sequence spread spectrum (DSSS), and different
 modulation schemes like binary phase shift keying (BPSK) or types of
-quadrature amplitude modulation (QAM). Each of these have different
-tolerances of effects like fading, attenuation and interference from
+quadrature amplitude modulation (QAM). Each of these has different
+tolerances of effects like fading, attenuation, and interference from
 other radio sources. In varying channel conditions, using the fastest
 rate might not be optimal for performance. Rate control algorithms adapt
 the transmission rate dynamically to the changing channel conditions, so
 the performance of the radio link can be maximized.
 
-For example, in certain channel conditions if hosts transmitted with 54
+For example, in certain channel conditions, if hosts transmitted with 54
 Mbps, the transmissions would not be received correctly, and the
 throughput would drop to zero. However, transmissions with 6 Mbps would
 be correctly receivable due to the simpler modulation (BPSK instead of
 64QAM). It is not obvious which rate works the best with what channel
 conditions. The goal of rate control algorithms is to find the best
-rate, and maximize throughput.
+rate and maximize throughput.
 
 Rate control algorithms
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Some rate control algorithms change the transmission rate according to
 packet loss. When too many packets are lost (ie. the ACK for them
-doesn't arrive) the transmission rate is lowered. When a number of
+doesn't arrive), the transmission rate is lowered. When a number of
 packets are sent without loss, the rate is increased.
 
 INET has different rate control models, such as :ned:`ArfRateControl`,
-:ned:`AarfRateControl` and :ned:`OnoeRateControl`.
+:ned:`AarfRateControl`, and :ned:`OnoeRateControl`.
 
 The network
 ~~~~~~~~~~~
@@ -77,11 +77,11 @@ Configuration
 
 Hosts are configured to operate in ad-hoc mode. ``sourceHost`` is
 configured to saturate the channel with UDP traffic when using the
-fastest mode, 54 Mbps. This way the maximum application level throughput
+fastest mode, 54 Mbps. This way, the maximum application level throughput
 can be measured at every bit rate.
 
 There are two configurations. In one of them, hosts use no rate control
-mechanism, and in the other they use ``Adaptive Auto Rate Fallback``
+mechanism, and in the other, they use ``Adaptive Auto Rate Fallback``
 (AARF). Results for the two simulation runs can be compared to show how
 the use of rate control affects application level throughput.
 
@@ -89,12 +89,12 @@ Results
 -------
 
 Below are two animations showing the hosts going around the obstacle. In
-the first video, the hosts don't use rate control, and always transmit
+the first video, the hosts don't use rate control and always transmit
 with 54 Mbps. In the second video, hosts use :ned:`AarfRateControl`. The
 transmissions intersect the obstacle during the simulation. The path the
 transmission takes through the obstacle varies in length as the hosts
 are moving. When using rate control, ``sinkHost`` manages to receive
-more transmission succcessfully when transmissions go through the
+more transmission successfully when transmissions go through the
 forest.
 
 .. video:: noratecontrol3.mp4
@@ -117,11 +117,11 @@ bps).
 In the configuration where there is no rate control, the nominal bitrate
 is constantly 54 Mbps. The throughput is around 24 Mbps when the
 transmissions are not obstructed by the forest. It decreases to zero
-when the forest gets between the hosts. In the other configuraton in
+when the forest gets between the hosts. In the other configuration in
 which the hosts use rate control, the rate control algorithm changes the
 rate when transmissions go through the obstacle. The rate changes
 rapidly, which looks like if there were multiple levels on the graph.
-Some transmissions can still be received correctly even though they go
+Some transmissions can still be received correctly, even though they go
 through the forest. The throughput decreases at first, but it's not
 zero. There are intervals where it decreases to zero, even though the
 rate is set to the lowest level (6 Mbps). Throughput and nominal data
@@ -139,10 +139,10 @@ control', and 35966 for 'AarfRateControl'.
 Conclusion
 ~~~~~~~~~~
 
-This shows that rate control is effective in increasing the performance
+These results shows that rate control is effective in increasing the performance
 of the wireless network, as it increases throughput during varying
 channel conditions. Also, throughput is not zero in situations when it
-would be, if rate control wasn't used.
+would be if rate control weren't used.
 
 More information can be found in the `INET
 Reference <https://omnetpp.org/doc/inet/api-current/neddoc/index.html>`__.
@@ -152,4 +152,3 @@ Discussion
 
 Use `this page <https://github.com/inet-framework/inet-showcases/issues/9>`__ in
 the GitHub issue tracker for commenting on this showcase.
-

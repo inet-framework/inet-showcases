@@ -6,18 +6,18 @@ Goals
 
 In INET, network nodes are typically compound modules that are several levels deep.
 Their submodules (apps, protocols, protocol parts, etc.) often contain information
-that are helpful for understanding model behavior, but are difficult to
+that is helpful for understanding model behavior but is difficult to
 access in the graphical runtime environment. (To see them, one needs to drill down
 in the graphical inspector or the object inspector to access them.)
 
-To help the user, INET contains support for displaying information produced by 
-a submodule (or selected submodules) on the toplevel canvas, above (or near) the 
-corresponding network node icons. This makes such information conveniently
+To help the user, INET contains support for displaying information produced by
+a submodule (or selected submodules) on the top-level canvas, above (or near) the
+corresponding network node icons. This feature makes such information conveniently
 available at a glance.
 
-This showcase contains the model of a simple WiFi network, and 
-shows how (1) the number of packets sent/received by an application, and 
-(2) IEEE 802.11 MAC state information can be displayed on network level.
+This showcase contains the model of a simple WiFi network and
+shows how (1) the number of packets sent/received by an application, and
+(2) IEEE 802.11 MAC state information can be displayed on the network level.
 
 | INET version: ``4.1``
 | Source files location: `inet/showcases/visualizer/submoduleinfo <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/submoduleinfo>`__
@@ -28,7 +28,7 @@ About the visualizer
 The :ned:`InfoVisualizer` module (included in the network as part of
 :ned:`IntegratedVisualizer`) can visualize information provided by
 submodules one or more levels down in the module hierarchy. This information is
-visualized at the submodule of the contaning network node, typically at
+visualized at the submodule of the containing network node, typically at
 the top level canvas. The following image illustrates this with the
 example of an application that communicates over UDP:
 
@@ -53,7 +53,7 @@ information displayed.) Also, the visualization can be turned on and off
 with the :par:`displayInfos` parameter, which is ``true`` by default.
 
 The visualizer can display module information in various ways, selected
-with the :par:`format` parameter. This takes a format string, which can
+with the :par:`format` parameter. This model takes a format string, which can
 contain the following directives:
 
 -  ``%n``: module full name
@@ -70,13 +70,13 @@ Example Simulations
 -------------------
 
 In the example simulation, three wireless nodes will communicate via
-wifi. The network contains three :ned:`AdhocHost`'s arranged in a chain. 
-The communication ranges of hosts is determined by their radio
+wifi. The network contains three :ned:`AdhocHost`'s arranged in a chain.
+The communication ranges of hosts are determined by their radio
 transmitter power, which is configured so that hosts can only reach
 adjacent hosts in the chain. Hosts' routing tables are set up
 accordingly, thus packets going between ``source`` and ``destination``
-are routed via ``relay``. 
-The network also contains an :ned:`Ipv4NetworkConfigurator`, an 
+are routed via ``relay``.
+The network also contains an :ned:`Ipv4NetworkConfigurator`, an
 :ned:`Ieee80211ScalarRadioMedium`, and an :ned:`IntegratedVisualizer` module.
 
 .. figure:: infonetwork.png
@@ -87,7 +87,7 @@ The network also contains an :ned:`Ipv4NetworkConfigurator`, an
 Displaying Packet Counts
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this example, we use the visualizer to display the number of packets sent and 
+In this example, we use the visualizer to display the number of packets sent and
 received by the UDP application. Thus, for the :par:`modules` parameter,
 we specify the ``app[0]`` submodules of the hosts. The :par:`format` parameter
 is set to display the submodule's display string text.
@@ -110,33 +110,33 @@ Displaying MAC State
 ~~~~~~~~~~~~~~~~~~~~
 
 In this example, we'll visualize the state of the wifi MAC modules:
-reception state, transmission state, and contention state. 
+reception state, transmission state, and contention state.
 
-The IEEE 802.11 MAC is the ``wlan[0].mac`` submodule inside each host. 
+The IEEE 802.11 MAC is the ``wlan[0].mac`` submodule inside each host.
 It is a compound module itself. The transmission process is in its
 ``tx`` submodule, reception is in its ``rx`` submodule, and
 the submodule responsible for contention in DCF mode is the
 ``dcf.channelAccess.contention`` submodule. All three submodules
-display their internal states via display string ``t`` tags,
+display their internal states via display string ``t`` tags
 so we can use the :ned:`InfoVisualizer` to display them over
 the host icons.
 
 The visualizer allows specifying multiple submodules in the  :par:`modules`
-parameter, so we can list all of *tx*, *rx* and *contention*:
+parameter so that we can list all of *tx*, *rx*, and *contention*:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: modules = "*.*.wlan[0].mac.tx
    :end-before: placementHint
    :language: ini
 
-The simulation can be run by choosing the ``MACStates`` configuration 
+The simulation can be run by choosing the ``MACStates`` configuration
 from the ini file. The following captured video shows the result:
 
 .. video:: macstates.mp4
    :width: 718
    :height: 480
 
-In the video you can follow how the MAC states of nodes change as frames are
+In the video, you can follow how the MAC states of nodes change as frames are
 transmitted and received. For example, when ``source`` starts transmitting
 a data frame, its *tx* state switches to ``TRANSMIT``, and when the beginning
 of the frame reaches ``relay``, ``relay``'s *rx* state changes to ``BUSY``.

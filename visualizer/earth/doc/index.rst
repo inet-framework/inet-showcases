@@ -4,7 +4,7 @@ Visualizing Terrain and Urban Environment
 Goals
 -----
 
-It is often desirable for simulations to have a real world context. One
+It is often desirable for simulations to have a real-world context. One
 way to achieve this is to place network nodes on a real world map. The
 map doesn't have any effect on the simulation, it only alters the
 visuals of the network. However, objects can be added to represent
@@ -39,7 +39,7 @@ following network:
    :width: 20%
    :align: center
 
-The network contains an :ned:`IntegratedVisualizer` module, and an
+The network contains an :ned:`IntegratedVisualizer` and an
 :ned:`OsgGeographicCoordinateSystem` module. The configuration from
 :download:`omnetpp.ini <../omnetpp.ini>` is the following:
 
@@ -70,7 +70,7 @@ represented internally by Cartesian coordinates relative
 to the simulation scene's origin, and the
 :ned:`OsgGeographicCoordinateSystem` module is responsible for
 converting between geographical and Cartesian coordinates.
-In order to define the mapping between the two, the geographical
+To define the mapping between the two, the geographical
 coordinates of the simulation scene's origin must be specified in
 the coordinate system module's :par:`sceneLongitude` and :par:`sceneLatitude`
 parameters. In our configuration, the scene's origin is set to somewhere
@@ -80,7 +80,7 @@ the latitude and longitude is sufficient for the map visualization to work.
 The scene's orientation can also be specified in the coordinate system module's
 parameters using Euler angles (:par:`sceneHeading`,
 :par:`sceneElevation`, :par:`sceneBank`). In the default setting,
-the X axis points East, the Y axis points North, and the Z axis
+the X-axis points East, the Y-axis points North, and the Z-axis
 points up.
 
 The size of the simulation scene is determined automatically, taking into
@@ -89,7 +89,7 @@ constraints of network nodes. Thus, everything in the simulation should
 happen within the boundaries of the simulation scene.
 The scene floor is visualized on the map using a
 semi-transparent rectangle overlay. (Displaying the scene floor
-is optional, but turned on by default.) When the
+is optional but turned on by default.) When the
 simulation starts, the view will be centered on the Cartesian
 coordinate system's origin if there are no nodes in the network. If
 there are nodes, the initial viewpoint will be set so that all nodes
@@ -107,13 +107,13 @@ floor is not visible.
 Adding Physical Objects
 -----------------------
 
-The map doesn't affect simulations in any way, just gives a real world
+The map doesn't affect simulations in any way, it just gives a real-world
 context to them. For network nodes to interact with their environment,
 physical objects have to be added. The example configuration for this
 section can be run by selecting the ``PhysicalObjects`` configuration
 from the ini file. It extends the previous configuration by adding
 physical objects, meant to represent blocks of buildings, to the simulation.
-The objects could affect radio transmissions if an obstacle loss model was set.
+The objects could affect radio transmissions if an obstacle loss model were set.
 
 The network for this configuration extends the network from the previous
 section with a :ned:`PhysicalEnvironment` module:
@@ -133,7 +133,7 @@ configuration with the following:
 The :ned:`PhysicalEnvironment` module is responsible for placing the
 physical objects on the scene. The physical environment module
 doesn't use a coordinate system module by default, but it is configured to use
-the one present in the network. This makes it possible to define the
+the one present in the network. This module makes it possible to define the
 objects using geographical coordinates. The objects are defined in the
 ``obstacle.xml`` config file.
 
@@ -167,10 +167,10 @@ The configuration extends the previous configuration with the following:
    :language: ini
 
 The first block of lines configures the scene to be semi-transparent
-black, so that the underlying map is visible. The next block sets the
+black so that the underlying map is visible. The next block sets the
 altitude of the scene. By default, the altitude is zero; we set it
-to one meter, so that the nodes are not on the level of the ground.
-The heading is also specified, so that the edges of the scene roughly
+to one meter so that the nodes are not on the level of the ground.
+The heading is also specified so that the edges of the scene roughly
 align with the streets on the map.
 
 The rest of the configuration deals with placing the network nodes
