@@ -19,7 +19,6 @@
 
 package inet.showcases.general.diffserv;
 
-import inet.common.queue.Delayer;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth10M;
 import inet.node.ethernet.EtherSwitch;
