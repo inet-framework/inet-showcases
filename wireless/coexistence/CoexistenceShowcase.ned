@@ -17,34 +17,37 @@ package inet.showcases.wireless.coexistence;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
+import inet.node.wireless.Probe;
 import inet.physicallayer.common.packetlevel.RadioMedium;
-import inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium;
-import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
-import inet.physicallayer.ieee802154.bitlevel.Ieee802154UwbIrRadioMedium;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 
 network CoexistenceShowcase
 {
+    @statistic[bitErrorRate](title="Bit error rate"; source=bitErrorRate(packetSentToUpper); record=vector);
+    @statistic[packetErrorRate](title="Packet error rate"; source=packetErrorRate(packetSentToUpper); record=vector);
     submodules:
         visualizer: IntegratedCanvasVisualizer {
-            @display("p=50,50");
+            @display("p=5,5");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=50,100");
+            @display("p=5,10");
         }
         radioMedium: RadioMedium {
-            @display("p=50,150");
+            @display("p=5,15");
         }
+//        probe: Probe {
+//            @display("p=45,15");
+//        }
         wifiHost1: AdhocHost {
-            @display("p=407.91748,119.189995;i=device/laptop");
+            @display("p=40.791748,11.9189995;i=device/laptop");
         }
         wifiHost2: AdhocHost {
-            @display("p=407.91748,314.415;i=device/laptop");
+            @display("p=40.791748,31.4415;i=device/laptop");
         }
         wpanHost1: AdhocHost {
-            @display("p=234.26999,215.775;i=misc/sensor2");
+            @display("p=23.426999,21.5775;i=misc/sensor2");
         }
         wpanHost2: AdhocHost {
-            @display("p=511.695,215.775;i=misc/sensor2");
+            @display("p=51.1695,21.5775;i=misc/sensor2");
         }
 }
