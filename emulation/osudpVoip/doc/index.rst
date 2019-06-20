@@ -48,7 +48,7 @@ The network
 ~~~~~~~~~~~
 
 Usually a network in a simulation contains some nodes and connections in
-between. In this case it is different. Only a simulated sender
+between. In this case, it is different. Only a simulated sender
 application and a simulated receiver application are needed in order to
 send the packets into the real network on one side and receive them on
 the other side.
@@ -67,7 +67,7 @@ layout of the two applications can be seen in the following image:
 |   :align: center                             |  |   :align: center                            |
 +----------------------------------------------+--+---------------------------------------------+
 
-These two simulations work completely separated form each other, meaning
+These two simulations work completely separated from each other, meaning
 that they could also be run on different devices. However, for the sake
 of simplicity, during this showcase both are run on the same computer.
 As the names of the applications indicate, the
@@ -89,7 +89,7 @@ of the modules above them.
 
 **VoipStreamSender:**
 
-As stated above, in this showcase both simulations are run on the same
+As stated above, in this showcase, both simulations are run on the same
 computer. That is why the ``destAddress`` parameter is set to
 ``27.0.0.1`` address, called the loopback address, referring to *this
 computer*.
@@ -202,7 +202,7 @@ The following link provides more information about VoIP in general:
 The network traffic was observed using
 `bmon <https://github.com/tgraf/bmon>`__, which is a monitoring and
 debugging tool to capture networking related statistics and prepare them
-visually in a human friendly way.
+visually in a human-friendly way.
 
 More information can be found in the `INET
 Reference <https://omnetpp.org/doc/inet/api-current/neddoc/index.html>`__.
