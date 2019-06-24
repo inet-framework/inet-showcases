@@ -489,6 +489,10 @@ the averaging of the repetitions.
    .. figure:: seqchart.png
       :width: 100%
 
+.. figure:: spectrum.png
+   :width: 100%
+   :align: center
+
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`CoexistenceShowcase.ned <../CoexistenceShowcase.ned>`
 
 Discussion
