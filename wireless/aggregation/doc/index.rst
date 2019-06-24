@@ -264,11 +264,21 @@ Note that the voice priority aggregate frames are
 spaced closer to each other horizontally than the best effort ones, because multiple aggregate
 frames are sent during a TXOP, and there is no contention between them. The vertical spacing of the data points in aggregate frames corresponds to the send interval of the UDP app.
 
-When aggregation is used, another column of aggregate frame data points could fit on the chart below the existing aggregate frame data points. This is because the MAC actually assembles an additional aggregate frame before sending the current one, thus increasing delay by the duration of an aggregate frame. **TODO: illustrate with queues**
+When aggregation is used, another column of aggregate frame data points could fit on the chart below the existing aggregate frame data points. This is because the MAC actually assembles an additional aggregate frame before sending the current one, thus increasing delay by the duration of an aggregate frame. The following video illustrates this mechanism:
+
+.. **TODO: illustrate with queues**
+
+.. video:: queue.mp4
+   :width: 100%
+   :align: center
+
+Note that the ``inProgressFrames`` queue contains two frames while transmitting one of them.
+
+**TODO is this needed?**
 
 **TODO this is an implementation detail, and not part of the standard. actually, it might be important to mention it ?**
 
-Thus, aggregation actually increases delay while increasing throughput.
+Thus, aggregation actually increases delay while increasing throughput. **?**
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`AggregationShowcase.ned <../AggregationShowcase.ned>`
 

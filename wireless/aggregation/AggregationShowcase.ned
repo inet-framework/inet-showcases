@@ -16,6 +16,9 @@ network AggregationShowcase
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=50,100");
         }
+        visualizer: IntegratedVisualizer {
+            @display("p=50,150");
+        }
         host1: AdhocHost {
             @display("p=288,110;i=misc/smartphone");
         }
