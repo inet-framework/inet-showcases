@@ -78,9 +78,9 @@ A TXOP is a limited time period, during which a station can send multiple packet
 
 More precisely, all access categories have their own rules for channel access, such as different values for AIFS, contention window size, and TXOP limit. By default, these values are set so that higher priority packets are favored (the MAC waits less before sending them, the contention window is smaller, and they can utilize TXOP). By default, the TXOP limit for the video category is 3 ms, for the voice category 1.5 ms. The background and best effort categories have a TXOP limit of 0, meaning they can send just one MSDU before having to contend for channel access again.
 
-When a station has a high priority packet to send, and it gains channel access, the station can keep transmitting packets without backoff periods until the end of the TXOP. The recipients can ACK the packets. **...during the txop**
+When a station has a high priority packet to send, and it gains channel access, the station can keep transmitting packets without backoff periods until the end of the TXOP. The recipients can ACK the packets during the TXOP.
 
-In INET, the TXOP is automatically used with high priority packets when using HCF (``qosStation = true`` in the MAC). The TXOP limit can be set by the :par:`txopLimit` parameter in :ned:`TxopProcedure`. It is located at ``hcf.edca.edcaf[*].txopProcedure`` in the module hierarchy; there are four ``edcaf`` modules for the four access categories:
+In INET, the TXOP is automatically used with high priority packets when using HCF (``qosStation = true`` in the MAC). The TXOP limit can be set by the :par:`txopLimit` parameter in the :ned:`TxopProcedure` module. The module is located at ``hcf.edca.edcaf[*].txopProcedure`` in the module hierarchy; there are four ``edcaf`` modules for the four access categories:
 
 .. figure:: edca.png
    :width: 80%
@@ -101,7 +101,7 @@ It contains two :ned:`AdhocHost` modules, an :ned:`Ipv4NetworkConfigurator`,
 an :ned:`Ieee80211ScalarRadioMedium` and an :ned:`IntegratedVisualizer` module.
 
 There is just one configuration in omnetpp.ini, the ``General`` config.
-One of the hosts, ``host1``, sends UDP packets to ``host2``. There are two UDP apps in ``host1``, sending small (1200B) and large (alternating 3400B and 3500B) packets:
+One of the hosts, ``host1``, sends UDP packets to ``host2``. There are two UDP apps in ``host1``, sending small (1200B) and large (alternating between 3400B and 3500B) packets:
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: host1.numApps
