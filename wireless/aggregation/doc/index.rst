@@ -272,7 +272,7 @@ When aggregation is used, another column of aggregate frame data points could fi
    :width: 100%
    :align: center
 
-Note that the ``inProgressFrames`` queue contains two frames while transmitting one of them.
+Note that the ``inProgressFrames`` queue contains two packets while transmitting one of them.
 
 **TODO is this needed?**
 
