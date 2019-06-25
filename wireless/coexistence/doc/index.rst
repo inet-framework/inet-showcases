@@ -194,7 +194,14 @@ with a power of -110 dBm. Here is the radio medium configuration in :download:`o
 .. **TODO: wifi channel number offset**
 
 The Wifi hosts are configured to have :ned:`Ieee80211DimensionalRadio`. The default signal shape
-is not changed in the transmitter, so the radio uses a flat signal in time and frequency.
+in time is not changed in the transmitter, so the radio uses a flat signal in time.
+In frequency, instead of the default flat signal, we configure a more realistic shape.
+
+**TODO**
+
+- about how to specify the psu
+- what shapes we're using
+
 The Wifi channel is set to Channel 9 (center frequency of 2452MHz) to ensure that the Wifi transmissions overlap with the 802.15.4 transmissions in frequency. Here is the configuration for the Wifi host radios in
 :download:`omnetpp.ini <../omnetpp.ini>`:
 
